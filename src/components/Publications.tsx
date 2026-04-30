@@ -1,62 +1,98 @@
+import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import drBookSon from "../assets/dr-book-son.webp"
+import drBookDaughter from "../assets/dr-book-daughter.webp"
+
+const books = [
+  {
+    title: "Not Just A Daughter",
+    desc: "A reflection on parenting and understanding the modern daughter.",
+    coverBg: "bg-[#0A4B38]",
+    spine: "bg-[#063322]",
+    accentColor: "#C4973A",
+    link: "https://amzn.in/d/4xOaL5B",
+    image: drBookDaughter
+  },
+  {
+    title: "Not Just A Son",
+    desc: "Empathy, discipline, and awareness in raising the next generation.",
+    coverBg: "bg-[#1A2E28]",
+    spine: "bg-[#0D1F1B]",
+    accentColor: "#A8C5BB",
+    link: "https://amzn.in/d/bZR0MMH",
+    image: drBookSon
+  },
+];
 
 export default function Publications() {
-  const books = [
-    {
-      title: "Not Just A Daughter",
-      desc: "A reflection on parenting and understanding the modern daughter.",
-      color: "bg-gradient-to-br from-blue-700 to-blue-900",
-      link: "https://amzn.in/d/4xOaL5B"
-    },
-    {
-      title: "Not Just A Son",
-      desc: "Empathy, discipline, and awareness in raising the next generation.",
-      color: "bg-gradient-to-br from-slate-800 to-black",
-      link: "https://amzn.in/d/bZR0MMH"
-    }
-  ];
-
   return (
-    <section id="publication" className="py-16 md:py-24 px-4 md:px-6 bg-slate-900 rounded-[2.5rem] md:rounded-[5rem] mx-2 md:mx-4 shadow-2xl overflow-hidden">
+    <section id="publication" className="py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6]">
       <div className="max-w-[1400px] mx-auto">
-        
-        {/* Header Scaling */}
-        <div className="mb-12 md:mb-20 text-center">
-          <span className="text-blue-400 font-black uppercase tracking-[0.4em] text-[8px] md:text-[10px]">Author & Speaker</span>
-          <h2 className="text-4xl md:text-6xl font-[900] text-white tracking-tighter uppercase mt-4 italic">
-            The <span className="text-blue-500">Archive</span>
-          </h2>
-        </div>
 
-        {/* Grid: 1 column on mobile, 2 columns on desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
+        >
+          <div>
+            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+              Author & Speaker
+            </span>
+            <h2 className="font-display font-bold text-[#063322] tracking-tight"
+              style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
+              The <span className="italic">Archive</span>
+            </h2>
+          </div>
+          <p className="text-[#4A5E54] text-sm max-w-[220px] leading-relaxed font-light">
+            Titles on parenting, empathy, and raising the next generation.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {books.map((book, i) => (
-            <div 
-              key={i} 
-              className="bg-white/5 border border-white/10 rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 lg:p-20 flex flex-col md:flex-row items-center gap-8 md:gap-12 group hover:bg-white/[0.08] transition-all"
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: i * 0.15 }}
+              className="bg-white rounded-2xl p-8 md:p-10 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col sm:flex-row items-center gap-8"
             >
-              {/* Responsive Book Cover */}
-              <div className={`${book.color} w-32 h-44 md:w-40 md:h-56 rounded-xl md:rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] shrink-0 flex items-center justify-center p-4 md:p-6 text-center text-white font-[900] text-xs md:text-sm italic group-hover:scale-105 transition-transform duration-500 border border-white/10`}>
-                {book.title}
+              {/* Book cover */}
+              <div className="shrink-0 relative">
+                {/* Shadow depth */}
+                <div>
+                  <img
+                    src={book.image}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    alt="Medical Professional"
+                  />
+                </div>
               </div>
 
-              <div className="flex flex-col justify-center text-center md:text-left">
-                <h4 className="text-2xl md:text-3xl font-[900] text-white uppercase tracking-tighter mb-3 md:mb-4 leading-none">
+              {/* Content */}
+              <div className="flex flex-col justify-center text-center sm:text-left">
+                <h4 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-3 leading-tight">
                   {book.title}
                 </h4>
-                <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-6 md:mb-8 max-w-xs mx-auto md:mx-0">
+                <p className="text-[#4A5E54] text-sm leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0 font-light">
                   {book.desc}
                 </p>
-                <a 
-                  href={book.link} 
-                  target="_blank" 
+                <a
+                  href={book.link}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center md:justify-start gap-3 text-blue-400 font-black uppercase tracking-widest text-[9px] md:text-[10px] hover:text-white transition-colors"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] hover:opacity-70 transition-opacity group/link"
+                  style={{ color: book.accentColor === "#C4973A" ? "#0A4B38" : "#0A4B38" }}
                 >
-                  Buy on Amazon <ExternalLink size={14} />
+                  <span className="border-b border-current pb-px">Buy on Amazon</span>
+                  <ExternalLink size={12} />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

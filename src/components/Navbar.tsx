@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Activity, Menu, X } from "lucide-react";
+import { Plus, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,79 +16,83 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav 
-        initial={{ y: -50, opacity: 0 }} 
+      <motion.nav
+        initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="fixed top-4 md:top-8 left-0 right-0 z-[100] flex justify-center px-4 md:px-6"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="fixed top-0 left-0 right-0 z-[100] bg-[#FAF9F6]/92 backdrop-blur-xl border-b border-[#E0E8E2]"
       >
-        <div className="bg-white/80 backdrop-blur-2xl border border-white/20 px-5 md:px-10 py-3 md:py-4 rounded-full flex items-center justify-between w-full max-w-[1400px] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
-          
-          {/* --- LOGO SECTION --- */}
-          <HashLink smooth to="/#hero" className="flex items-center gap-2 md:gap-3 group">
-            <div className="bg-blue-600 p-2 md:p-2.5 rounded-xl text-white shadow-lg shadow-blue-100 group-hover:scale-110 transition-transform">
-              <Activity size={18} strokeWidth={3} className="md:w-5 md:h-5" />
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
+
+          <HashLink smooth to="/#hero" className="flex items-center gap-3 group">
+            <div className="w-9 h-9 bg-[#0A4B38] rounded-lg flex items-center justify-center group-hover:bg-[#063322] transition-colors duration-300">
+              <Plus size={18} strokeWidth={2.5} className="text-[#C4973A]" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm md:text-lg font-[900] tracking-tighter text-slate-900 uppercase leading-none italic">
-                Dr. Prashant <span className="text-blue-600">Kariya</span>
-              </span>
-              <span className="text-[6px] md:text-[7px] font-black uppercase tracking-[0.2em] text-slate-400 leading-none mt-1">
+            <div>
+              <p className="font-display text-[17px] font-semibold text-[#063322] leading-none">
+                Dr. Prashant <span className="italic">Kariya</span>
+              </p>
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-[#6B7B6A] mt-0.5">
                 Pediatric Excellence
-              </span>
+              </p>
             </div>
           </HashLink>
 
-          {/* --- DESKTOP LINKS --- */}
-          <div className="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-widest text-slate-400">
+          <div className="hidden lg:flex items-center gap-9">
             {navLinks.map((link) => (
-              <HashLink key={link.name} smooth to={link.to} className="hover:text-blue-600 transition-colors">
+              <HashLink
+                key={link.name}
+                smooth
+                to={link.to}
+                className="text-[13px] font-medium text-[#4A5E54] hover:text-[#0A4B38] transition-colors duration-200 tracking-wide"
+              >
                 {link.name}
               </HashLink>
             ))}
           </div>
 
-          {/* --- RIGHT ACTIONS --- */}
-          <div className="flex items-center gap-2">
-            <Link to="/contact" className="hidden sm:block bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all">
-              Book Now
-            </Link>
-            
-            {/* Mobile Toggle */}
-            <button 
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-slate-900 hover:bg-slate-50 rounded-full transition-colors"
+          <div className="flex items-center gap-3">
+            <Link
+              to="/contact"
+              className="hidden sm:block bg-[#0A4B38] text-[#F5E6C8] px-5 py-2.5 rounded-lg text-[13px] font-semibold hover:bg-[#063322] hover:shadow-lg hover:shadow-[#063322]/20 hover:-translate-y-px transition-all duration-200"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              Book Appointment
+            </Link>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 text-[#4A5E54] hover:bg-[#E8F4EE] rounded-lg transition-colors"
+            >
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </motion.nav>
 
-      {/* --- MOBILE OVERLAY MENU --- */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[90] bg-white pt-32 px-8 lg:hidden"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[90] bg-[#FAF9F6] pt-20 px-6 lg:hidden"
           >
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-1 pt-4">
               {navLinks.map((link) => (
-                <HashLink 
-                  key={link.name} 
-                  smooth 
-                  to={link.to} 
+                <HashLink
+                  key={link.name}
+                  smooth
+                  to={link.to}
                   onClick={() => setIsOpen(false)}
-                  className="text-4xl font-[900] text-slate-900 uppercase tracking-tighter italic border-b border-slate-100 pb-4"
+                  className="font-display text-4xl font-semibold italic text-[#063322] py-4 border-b border-[#E0E8E2] hover:text-[#0A4B38] transition-colors"
                 >
                   {link.name}
                 </HashLink>
               ))}
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="bg-blue-600 text-white p-6 rounded-3xl text-center font-black uppercase tracking-widest text-sm shadow-xl shadow-blue-100"
+                className="mt-5 bg-[#0A4B38] text-[#F5E6C8] p-4 rounded-xl text-center font-semibold text-base hover:bg-[#063322] transition-colors"
               >
                 Book Appointment
               </Link>

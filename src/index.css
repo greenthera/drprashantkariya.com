@@ -1,42 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Jost", sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
-  /* Adjust this value based on your navbar height */
-  scroll-padding-top: 100px; 
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
 }
 
 body {
-  @apply bg-[#050810] text-white;
+  background-color: #FAF9F6;
+  color: #1A1A1A;
 }
 
-/* Glass UI */
-.glass {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.1);
+.scrollbar-hide {
+  scrollbar-width: none;
 }
-
-/* Glow */
-.glow {
-  box-shadow: 0 0 60px rgba(59,130,246,0.3);
-}
-
-/* index.css */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
-    /* Prevent horizontal overflow on mobile */
-    overflow-x: hidden;
-  }
-
-  /* Responsive Typography Scale */
-  h1 { @apply text-5xl md:text-7xl lg:text-[7rem]; }
-  h2 { @apply text-4xl md:text-5xl lg:text-6xl; }
-  
-  /* Smooth transitions for responsive layout shifts */
-  .bento-card {
-    @apply transition-all duration-500 ease-in-out;
-  }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

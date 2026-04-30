@@ -1,54 +1,53 @@
 export default function Footer() {
   return (
-    <footer className="py-12 md:py-24 px-4 md:px-6 bg-white border-t border-slate-100">
+    <footer className="bg-[#063322] px-6 md:px-10 pt-16 md:pt-24 pb-10">
       <div className="max-w-[1400px] mx-auto">
-        {/* Main Section: Stacks on mobile, side-by-side on desktop */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 md:gap-20 border-b border-slate-100 pb-12 md:pb-20 mb-10">
-          
-          {/* Logo/Name Area */}
-          <div className="w-full lg:w-auto">
-            {/* Fluid Typography: 15vw on mobile, 8xl on desktop */}
-            <h2 className="text-[15vw] lg:text-8xl font-[900] text-slate-900 leading-[0.8] md:leading-[0.7] tracking-tighter uppercase mb-6 md:mb-8 italic">
-              P. Kariya<span className="text-blue-600">.</span>
+
+        {/* Top: name + links */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 border-b border-white/10 pb-12 md:pb-16 mb-10">
+
+          <div>
+            <h2
+              className="font-display font-bold italic text-[#F5E6C8] leading-none tracking-tight mb-4"
+              style={{ fontSize: "clamp(3.5rem, 10vw, 7rem)" }}
+            >
+              P. Kariya<span className="text-[#C4973A]">.</span>
             </h2>
-            <p className="text-slate-400 font-black uppercase tracking-[0.3em] text-[8px] md:text-[10px]">
+            <p className="text-[#6B9A84] font-medium uppercase tracking-[0.3em] text-[9px]">
               Surat • Gujarat • India
             </p>
           </div>
 
-          {/* Links and Contact Area */}
-          <div className="grid grid-cols-2 gap-10 md:gap-24 w-full lg:w-auto">
-            {/* Sitemap */}
-            <div className="space-y-4 md:space-y-6">
-              <p className="text-blue-600 font-black uppercase tracking-widest text-[9px] md:text-[10px]">
+          <div className="grid grid-cols-2 gap-12 md:gap-20 w-full lg:w-auto">
+            <div className="space-y-4">
+              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">
                 Practice
               </p>
-              <nav className="flex flex-col gap-3 md:gap-4 text-slate-900 font-[900] uppercase text-[10px] md:text-xs tracking-tighter">
-                <a href="#expertise" className="hover:text-blue-600 transition-colors">Expertise</a>
-                <a href="#clinics" className="hover:text-blue-600 transition-colors">Clinics</a>
-                <a href="#books" className="hover:text-blue-600 transition-colors">Books</a>
+              <nav className="flex flex-col gap-3">
+                <a href="#expertise" className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
+                <a href="#clinics"   className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
+                <a href="#publication" className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</a>
               </nav>
             </div>
 
-            {/* Emergency Info: Aligned right on mobile, left on desktop */}
-            <div className="space-y-4 md:space-y-6 text-right lg:text-left">
-              <p className="text-blue-600 font-black uppercase tracking-widest text-[9px] md:text-[10px]">
+            <div className="space-y-4">
+              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">
                 Emergency
               </p>
-              <p className="text-lg md:text-2xl font-[900] text-slate-900 tracking-tighter uppercase leading-none">
-                (0261) <br className="sm:hidden" /> 2492411
+              <p className="font-display text-xl md:text-2xl font-bold italic text-[#F5E6C8] leading-none">
+                (0261)<br className="sm:hidden" /> 2492411
               </p>
-              <p className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-widest">
+              <p className="text-[10px] font-medium text-[#6B9A84] uppercase tracking-[0.22em]">
                 Param Hospital
               </p>
             </div>
           </div>
         </div>
 
-        {/* Legal/Bottom Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[8px] md:text-[10px] font-black text-slate-300 uppercase tracking-[0.3em] md:tracking-[0.4em] text-center sm:text-left">
-           <p>© 2026 DR. PRASHANT KARIYA</p>
-           <p className="hidden sm:block">MEDICAL EXCELLENCE</p>
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium text-[#4A6E5A] uppercase tracking-[0.25em] text-center sm:text-left">
+          <p>© 2026 Dr. Prashant Kariya</p>
+          <p className="hidden sm:block">Medical Excellence</p>
         </div>
       </div>
     </footer>

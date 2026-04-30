@@ -8,12 +8,12 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#050810] selection:bg-blue-500 selection:text-white">
+    <main className="bg-[#FAF9F6] selection:bg-[#0A4B38] selection:text-[#F5E6C8]">
       <Hero />
       <About />
       <Expertise />
-      <Publications />
       <Clinics />
+      <Publications />
       <Instagram />
       <Footer />
     </main>

@@ -1,89 +1,163 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Baby, Activity, Heart, Shield } from "lucide-react";
 
-const services = [
-  { id: 1, title: "NICU", icon: <Baby />, desc: "Level III Newborn Intensive Care for premature and high-risk infants.", details: "Advanced ventilation, total parenteral nutrition, and 24/7 monitoring." },
-  { id: 2, title: "Pediatrics", icon: <Heart />, desc: "Complete child development, growth, and general wellness tracking.", details: "Routine checkups, nutritional guidance, and physical assessments." },
-  { id: 3, title: "Critical Care", icon: <Activity />, desc: "Emergency pediatric response and complex medical management.", details: "High-dependency care units and acute illness intervention." },
-  { id: 4, title: "Vaccination", icon: <Shield />, desc: "Safe immunization following global painless protocol standards.", details: "International vaccine tracking and safe injection practices." },
-];
-
 export default function Expertise() {
-  const [active, setActive] = useState(services[0]);
-
   return (
-    <section id="expertise" className="py-16 md:py-24 px-4 md:px-6 bg-white">
+    <section id="expertise" className="py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6]">
       <div className="max-w-[1400px] mx-auto">
-        
-        {/* Responsive Heading */}
-        <h2 className="text-4xl md:text-5xl font-[900] mb-10 md:mb-16 text-slate-900 tracking-tighter uppercase text-center italic">
-          Specialized <span className="text-blue-600">Services</span>
-        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
-          
-          {/* --- TAB NAVIGATION --- */}
-          {/* Mobile: Horizontal scroll | Desktop: Vertical column */}
-          <div className="lg:col-span-4 flex lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide snap-x">
-            {services.map((s) => (
-              <button 
-                key={s.id} 
-                onClick={() => setActive(s)}
-                className={`p-5 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] text-left transition-all flex items-center gap-4 shrink-0 lg:shrink snap-center group ${
-                  active.id === s.id 
-                    ? 'bg-blue-600 text-white shadow-xl shadow-blue-100' 
-                    : 'bg-slate-50 text-slate-400 hover:bg-slate-100'
-                }`}
-              >
-                <div className={`w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                  active.id === s.id ? 'bg-white/20' : 'bg-white shadow-sm'
-                }`}>
-                  {/* Scaling icon for mobile */}
-                  {cloneElement(s.icon, { size: 18, className: "md:w-5 md:h-5" })}
-                </div>
-                <span className="font-[900] uppercase tracking-tighter text-sm md:text-lg whitespace-nowrap">
-                  {s.title}
-                </span>
-              </button>
-            ))}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
+        >
+          <div>
+            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+              Our Specializations
+            </span>
+            <h2 className="font-display font-bold text-[#063322] tracking-tight"
+              style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
+              Specialized <span className="italic">Services</span>
+            </h2>
           </div>
+          <p className="text-[#4A5E54] text-sm max-w-[240px] leading-relaxed font-light">
+            Advanced care across four critical medical disciplines.
+          </p>
+        </motion.div>
 
-          {/* --- CONTENT DISPLAY --- */}
-          <div className="lg:col-span-8 bg-slate-50 rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-16 lg:p-24 relative overflow-hidden min-h-[350px] md:min-h-[500px] flex items-center">
-             <AnimatePresence mode="wait">
-                <motion.div
-                  key={active.id}
-                  initial={{ opacity: 0, x: 20 }} 
-                  animate={{ opacity: 1, x: 0 }} 
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4, ease: "circOut" }}
-                  className="w-full"
-                >
-                  <h3 className="text-4xl md:text-6xl font-[900] text-slate-900 mb-6 md:mb-8 uppercase tracking-tighter leading-[0.9]">
-                    {active.title}
-                  </h3>
-                  <p className="text-slate-500 text-lg md:text-2xl mb-6 md:mb-8 font-medium leading-relaxed max-w-2xl">
-                    {active.desc}
+        {/* Asymmetric bento — NICU featured large, 3 smaller cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          {/* NICU — dark emerald feature card, spans 2 rows on lg */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65 }}
+            className="lg:row-span-2 bg-[#0A4B38] text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[380px] lg:min-h-0 relative overflow-hidden group cursor-default"
+          >
+            {/* Watermark number */}
+            <div className="absolute top-0 right-0 font-display text-[11rem] leading-none font-bold text-white/4 select-none pointer-events-none translate-x-4 -translate-y-4">
+              01
+            </div>
+
+            <div className="relative z-10">
+              <div className="w-12 h-12 bg-[#C4973A]/15 rounded-xl flex items-center justify-center mb-7 group-hover:bg-[#C4973A]/25 transition-colors duration-300">
+                <Baby size={22} className="text-[#C4973A]" />
+              </div>
+              <h3 className="font-display text-4xl md:text-5xl font-bold italic text-white mb-4">
+                NICU
+              </h3>
+              <p className="text-white/75 text-base leading-relaxed mb-5 font-light">
+                Level III Newborn Intensive Care for premature and high-risk
+                infants.
+              </p>
+              <div className="border-l-2 border-[#C4973A]/35 pl-4">
+                <p className="text-white/50 text-sm italic leading-relaxed font-light">
+                  Advanced ventilation, total parenteral nutrition, and 24/7
+                  monitoring.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-8 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C4973A]" />
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C4973A]">
+                Primary Expertise
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Pediatrics */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.1 }}
+            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group cursor-default relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-2 font-display text-[8rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none">
+              02
+            </div>
+            <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <Heart size={20} className="text-[#0A4B38]" />
+            </div>
+            <h3 className="font-display text-2xl font-bold italic text-[#063322] mb-2">
+              Pediatrics
+            </h3>
+            <p className="text-[#4A5E54] text-sm leading-relaxed mb-4 font-light">
+              Complete child development, growth, and general wellness tracking.
+            </p>
+            <div className="border-l-2 border-[#C5DDD3] pl-3">
+              <p className="text-xs text-[#6B7B6A] italic leading-relaxed">
+                Routine checkups, nutritional guidance, and physical
+                assessments.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Critical Care */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.2 }}
+            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group cursor-default relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-2 font-display text-[8rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none">
+              03
+            </div>
+            <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <Activity size={20} className="text-[#0A4B38]" />
+            </div>
+            <h3 className="font-display text-2xl font-bold italic text-[#063322] mb-2">
+              Critical Care
+            </h3>
+            <p className="text-[#4A5E54] text-sm leading-relaxed mb-4 font-light">
+              Emergency pediatric response and complex medical management.
+            </p>
+            <div className="border-l-2 border-[#C5DDD3] pl-3">
+              <p className="text-xs text-[#6B7B6A] italic leading-relaxed">
+                High-dependency care units and acute illness intervention.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Vaccination — spans 2 cols on lg to fill the row */}
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.3 }}
+            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group cursor-default relative overflow-hidden lg:col-span-2"
+          >
+            <div className="absolute top-0 right-4 font-display text-[8rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none">
+              04
+            </div>
+            <div className="flex flex-col md:flex-row md:items-start gap-6 relative z-10">
+              <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <Shield size={20} className="text-[#0A4B38]" />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl font-bold italic text-[#063322] mb-2">
+                  Vaccination
+                </h3>
+                <p className="text-[#4A5E54] text-sm leading-relaxed mb-3 font-light max-w-lg">
+                  Safe immunization following global painless protocol
+                  standards.
+                </p>
+                <div className="border-l-2 border-[#C5DDD3] pl-3">
+                  <p className="text-xs text-[#6B7B6A] italic leading-relaxed">
+                    International vaccine tracking and safe injection practices.
                   </p>
-                  <div className="border-l-4 border-blue-600 pl-4 md:pl-6">
-                    <p className="text-slate-400 text-sm md:text-lg italic font-medium uppercase tracking-tight">
-                      {active.details}
-                    </p>
-                  </div>
-                </motion.div>
-             </AnimatePresence>
-
-             {/* Background Decoration for Premium Look */}
-             <div className="absolute bottom-[-10%] right-[-5%] text-slate-100 font-black text-[15rem] select-none pointer-events-none uppercase tracking-tighter opacity-50 hidden md:block">
-               {active.title.charAt(0)}
-             </div>
-          </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
-
-// Helper to handle icon sizing inside the map
-import { cloneElement } from "react";

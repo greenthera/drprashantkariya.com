@@ -1,78 +1,110 @@
-import { MapPin, Phone, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { MapPin, Phone } from "lucide-react";
 
 export default function Clinics() {
-  const locations = [
-    {
-      name: "Param NICU & Children Hospital",
-      tag: "Level III NICU Specialist",
-      address: "801-803, Param Doctor House, Lal Darwaja, Surat",
-      phone: "(0261) 2492411",
-      bg: "bg-blue-50"
-    },
-    {
-      name: "Param Children Hospital",
-      tag: "General Pediatrics",
-      address: "305-306, Seven Square, Majura Gate, Surat",
-      phone: "+91 97270 08881",
-      bg: "bg-slate-50"
-    }
-  ];
-
   return (
-    <section id="clinics" className="py-16 md:py-24 px-4 md:px-6 bg-white">
+    <section id="clinics" className="py-20 md:py-24 px-6 md:px-10 bg-white">
       <div className="max-w-[1400px] mx-auto">
-        
-        {/* Header: Stacks on mobile, side-by-side on desktop */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-[900] tracking-tighter uppercase italic text-slate-900 leading-none">
-            Our <span className="text-blue-600">Centers.</span>
-          </h2>
-          <p className="text-slate-400 font-black uppercase text-[8px] md:text-[10px] tracking-[0.3em] max-w-[200px]">
+
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+              Find Us
+            </span>
+            <h2 className="font-display font-bold text-[#063322] tracking-tight"
+              style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
+              Our <span className="italic">Centers.</span>
+            </h2>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-[#4A5E54] text-sm max-w-[210px] leading-relaxed font-light"
+          >
             Providing critical care across two prime locations in Surat.
-          </p>
+          </motion.p>
         </div>
 
-        {/* Grid: 1 column on mobile/tablet, 2 columns on desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-          {locations.map((loc, i) => (
-            <div 
-              key={i} 
-              className={`${loc.bg} rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] md:min-h-[450px] border border-transparent hover:border-blue-200 transition-all group`}
-            >
-              <div>
-                <span className="bg-white px-4 md:px-5 py-2 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-blue-600 shadow-sm inline-block">
-                  {loc.tag}
-                </span>
-                
-                <h3 className="text-3xl md:text-4xl font-[900] text-slate-900 mt-8 md:mt-10 mb-4 md:mb-6 uppercase tracking-tighter leading-tight">
-                  {loc.name}
-                </h3>
-                
-                <div className="flex items-start gap-3 text-slate-500 max-w-sm mb-8">
-                  <MapPin size={18} className="text-blue-600 shrink-0 mt-1 md:w-5 md:h-5" />
-                  <p className="font-bold text-base md:text-lg leading-relaxed uppercase tracking-tighter">
-                    {loc.address}
-                  </p>
-                </div>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
-              {/* Bottom Row: Stacks phone and button on very small screens */}
-              <div className="flex flex-row justify-between items-center gap-4 pt-8 md:pt-10 border-t border-black/5">
-                <div className="flex items-center gap-3 md:gap-4">
-                  <div className="hidden sm:flex w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl md:rounded-2xl items-center justify-center shadow-sm">
-                    <Phone size={18} className="text-blue-600 md:w-5 md:h-5" />
-                  </div>
-                  <p className="text-xl md:text-2xl font-[900] text-slate-900 tracking-tighter">
-                    {loc.phone}
-                  </p>
-                </div>
-                
-                <button className="bg-slate-900 text-white p-4 md:p-5 rounded-xl md:rounded-2xl group-hover:bg-blue-600 transition-colors shrink-0">
-                  <ArrowRight size={20} className="md:w-6 md:h-6" />
-                </button>
+          {/* Card 1 — dark emerald */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65 }}
+            className="bg-[#0A4B38] text-white rounded-2xl p-8 md:p-12 flex flex-col justify-between min-h-[380px] relative overflow-hidden group"
+          >
+            <div className="absolute -top-10 -right-10 w-44 h-44 bg-[#C4973A]/8 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/4 rounded-full pointer-events-none" />
+
+            <div className="relative z-10">
+              <span className="inline-block bg-[#C4973A]/15 text-[#C4973A] border border-[#C4973A]/25 px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-7">
+                Level III NICU Specialist
+              </span>
+              <h3 className="font-display text-2xl md:text-3xl font-bold italic text-white mb-6 leading-tight">
+                Param NICU & Children Hospital
+              </h3>
+              <div className="flex items-start gap-3 mb-4">
+                <MapPin size={15} className="text-[#C4973A] shrink-0 mt-0.5" />
+                <p className="text-white/65 text-sm leading-relaxed font-light">
+                  801-803, Param Doctor House, Lal Darwaja, Surat
+                </p>
               </div>
             </div>
-          ))}
+
+            <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-white/10">
+              <div className="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center">
+                <Phone size={15} className="text-[#C4973A]" />
+              </div>
+              <p className="font-display text-xl font-semibold text-white">
+                (0261) 2492411
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Card 2 — warm cream */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="bg-[#FAF9F6] rounded-2xl p-8 md:p-12 flex flex-col justify-between min-h-[380px] border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+          >
+            <div className="absolute -top-10 -right-10 w-44 h-44 bg-[#0A4B38]/4 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
+
+            <div className="relative z-10">
+              <span className="inline-block bg-[#E8F4EE] text-[#0A4B38] border border-[#C5DDD3] px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-7">
+                General Pediatrics
+              </span>
+              <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-6 leading-tight">
+                Param Children Hospital
+              </h3>
+              <div className="flex items-start gap-3 mb-4">
+                <MapPin size={15} className="text-[#0A4B38] shrink-0 mt-0.5" />
+                <p className="text-[#4A5E54] text-sm leading-relaxed font-light">
+                  305-306, Seven Square, Majura Gate, Surat
+                </p>
+              </div>
+            </div>
+
+            <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-[#E0E8E2]">
+              <div className="w-9 h-9 bg-[#E8F4EE] rounded-lg flex items-center justify-center">
+                <Phone size={15} className="text-[#0A4B38]" />
+              </div>
+              <p className="font-display text-xl font-semibold text-[#063322]">
+                +91 97270 08881
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
