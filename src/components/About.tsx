@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import drImageAbout from "../assets/dr-image.jpeg"
-import drImageAboutOne from "../assets/dr-image-1.jpeg"
+import drImageAbout from "../assets/dr-image.jpg"
+import drImageAboutOne from "../assets/dr-image-1.jpg"
 
 const credentials = [
   "MBBS – B.J. Medical",
