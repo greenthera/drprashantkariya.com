@@ -24,7 +24,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
 
-          <HashLink smooth to="/#hero" className="flex items-center gap-3 group">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group">
             <div className="w-9 h-9 bg-[#0A4B38] rounded-lg flex items-center justify-center group-hover:bg-[#063322] transition-colors duration-300">
               <Plus size={18} strokeWidth={2.5} className="text-[#C4973A]" />
             </div>
@@ -36,7 +36,7 @@ export default function Navbar() {
                 Pediatric Excellence
               </p>
             </div>
-          </HashLink>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-9">
             {navLinks.map((link) => (

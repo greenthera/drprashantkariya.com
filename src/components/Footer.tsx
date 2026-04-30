@@ -1,4 +1,7 @@
+import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-[#063322] px-6 md:px-10 pt-16 md:pt-24 pb-10">
       <div className="max-w-[1400px] mx-auto">
@@ -16,6 +19,20 @@ export default function Footer() {
             <p className="text-[#6B9A84] font-medium uppercase tracking-[0.3em] text-[9px]">
               Surat • Gujarat • India
             </p>
+            <div className="flex gap-2.5 mt-5">
+
+              <a href="https://x.com/drprashantkariy" target="_blank" rel="noreferrer">
+                <FaTwitter color="#F5E6C8" size={20} />
+              </a>
+
+              <a href="https://instagram.com/parentingtips_drprashantkariya" target="_blank" rel="noreferrer">
+                <FaInstagram color="#F5E6C8" size={20} />
+              </a>
+
+              <a href="https://in.linkedin.com/in/prashant-kariya-908a2b56" target="_blank" rel="noreferrer">
+                <FaLinkedin color="#F5E6C8" size={20} />
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-12 md:gap-20 w-full lg:w-auto">
@@ -25,7 +42,7 @@ export default function Footer() {
               </p>
               <nav className="flex flex-col gap-3">
                 <a href="#expertise" className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
-                <a href="#clinics"   className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
+                <a href="#clinics" className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
                 <a href="#publication" className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</a>
               </nav>
             </div>
@@ -46,8 +63,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium text-[#4A6E5A] uppercase tracking-[0.25em] text-center sm:text-left">
-          <p>© 2026 Dr. Prashant Kariya</p>
-          <p className="hidden sm:block">Medical Excellence</p>
+          <p>&copy; {currentYear} Dr. Prashant Kariya. All rights reserved.</p> 
+          <p className="hidden sm:block">Developed and Designed by <a href="https://shivantra.com/" target="_blank">Shivantra</a>.</p>
         </div>
       </div>
     </footer>

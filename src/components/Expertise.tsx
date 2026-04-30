@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Baby, Activity, Heart, Shield } from "lucide-react";
+import { Scissors, Activity, Droplet, Microscope, Shield, Heart } from "lucide-react";
 
 export default function Expertise() {
   return (
@@ -22,47 +22,47 @@ export default function Expertise() {
               Specialized <span className="italic">Services</span>
             </h2>
           </div>
-          <p className="text-[#4A5E54] text-sm max-w-[240px] leading-relaxed font-light">
-            Advanced care across four critical medical disciplines.
+          <p className="text-[#4A5E54] text-sm max-w-60 leading-relaxed font-light">
+            Advanced care across six critical paediatric disciplines.
           </p>
         </motion.div>
 
-        {/* Asymmetric bento — NICU featured large, 3 smaller cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/*
+          Bento grid (lg):
+          [Surgery tall]  [PICU wide............]
+          [Surgery tall]  [Haematology] [Endocrin]
+          [Well Baby wide............] [PhysTherapy]
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3 gap-5">
 
-          {/* NICU — dark emerald feature card, spans 2 rows on lg */}
+          {/* 1. Paediatric & Neonatal Surgery — tall dark featured */}
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            className="lg:row-span-2 bg-[#0A4B38] text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[380px] lg:min-h-0 relative overflow-hidden group cursor-default"
+            className="lg:row-span-2 bg-[#0A4B38] text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-72 relative overflow-hidden group"
           >
-            {/* Watermark number */}
-            <div className="absolute top-0 right-0 font-display text-[11rem] leading-none font-bold text-white/4 select-none pointer-events-none translate-x-4 -translate-y-4">
+            <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#C4973A]/10 pointer-events-none" />
+            <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#C4973A]/8 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 font-display text-[9rem] leading-none font-bold text-white/4 select-none pointer-events-none translate-x-2 translate-y-4">
               01
             </div>
 
             <div className="relative z-10">
               <div className="w-12 h-12 bg-[#C4973A]/15 rounded-xl flex items-center justify-center mb-7 group-hover:bg-[#C4973A]/25 transition-colors duration-300">
-                <Baby size={22} className="text-[#C4973A]" />
+                <Scissors size={22} className="text-[#C4973A]" />
               </div>
-              <h3 className="font-display text-4xl md:text-5xl font-bold italic text-white mb-4">
-                NICU
+              <h3 className="font-display font-bold italic text-white leading-tight mb-4"
+                style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
+                Paediatric &amp; Neonatal Surgery
               </h3>
-              <p className="text-white/75 text-base leading-relaxed mb-5 font-light">
-                Level III Newborn Intensive Care for premature and high-risk
-                infants.
+              <p className="text-white/65 text-sm leading-relaxed font-light">
+                Surgical care for newborns and children, covering congenital and acquired conditions with precision.
               </p>
-              <div className="border-l-2 border-[#C4973A]/35 pl-4">
-                <p className="text-white/50 text-sm italic leading-relaxed font-light">
-                  Advanced ventilation, total parenteral nutrition, and 24/7
-                  monitoring.
-                </p>
-              </div>
             </div>
 
-            <div className="relative z-10 mt-8 flex items-center gap-2">
+            <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C4973A]" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C4973A]">
                 Primary Expertise
@@ -70,92 +70,120 @@ export default function Expertise() {
             </div>
           </motion.div>
 
-          {/* Pediatrics */}
+          {/* 2. PICU — wide horizontal card */}
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group cursor-default relative overflow-hidden"
+            className="md:col-span-1 lg:col-span-2 bg-white rounded-2xl p-7 md:p-8 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden flex flex-col sm:flex-row items-start gap-6"
           >
-            <div className="absolute top-0 right-2 font-display text-[8rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none">
+            <div className="absolute bottom-0 right-4 font-display text-[7rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none translate-y-2">
               02
+            </div>
+            <div className="w-12 h-12 bg-[#E8F4EE] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1">
+              <Activity size={22} className="text-[#0A4B38]" />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-2 leading-tight">
+                Paediatric Intensive Care Unit
+              </h3>
+              <p className="text-[#4A5E54] text-sm leading-relaxed font-light max-w-md">
+                Round-the-clock critical monitoring and life-support intervention for acutely ill children requiring complex medical management.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* 3. Haematology & Oncology */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-2 font-display text-[7rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none -translate-y-2">
+              03
+            </div>
+            <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <Droplet size={20} className="text-[#0A4B38]" />
+            </div>
+            <h3 className="font-display text-xl md:text-2xl font-bold italic text-[#063322] mb-2 leading-tight">
+              Haematology &amp; Oncology
+            </h3>
+            <p className="text-[#4A5E54] text-sm leading-relaxed font-light">
+              Diagnosis and treatment of blood disorders and childhood cancers.
+            </p>
+          </motion.div>
+
+          {/* 4. Paediatric Endocrinology */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.2 }}
+            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-2 font-display text-[7rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none -translate-y-2">
+              04
+            </div>
+            <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <Microscope size={20} className="text-[#0A4B38]" />
+            </div>
+            <h3 className="font-display text-xl md:text-2xl font-bold italic text-[#063322] mb-2 leading-tight">
+              Paediatric Endocrinology
+            </h3>
+            <p className="text-[#4A5E54] text-sm leading-relaxed font-light">
+              Management of hormonal and metabolic conditions including diabetes and thyroid disorders.
+            </p>
+          </motion.div>
+
+          {/* 5. Well Baby Clinic — wide with emerald tint */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.25 }}
+            className="md:col-span-2 lg:col-span-2 bg-[#E8F4EE] rounded-2xl p-7 md:p-8 border border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden flex flex-col sm:flex-row items-start gap-6"
+          >
+            <div className="absolute bottom-0 right-4 font-display text-[7rem] leading-none font-bold text-[#0A4B38]/8 select-none pointer-events-none translate-y-2">
+              05
+            </div>
+            <div className="w-12 h-12 bg-[#0A4B38] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1 shadow-md shadow-[#063322]/15">
+              <Shield size={22} className="text-[#C4973A]" />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-2 leading-tight">
+                Well Baby Clinic &amp; Immunization
+              </h3>
+              <p className="text-[#4A5E54] text-sm leading-relaxed font-light max-w-md">
+                Preventive care, growth monitoring, and painless vaccination programmes following international immunization standards.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* 6. Paediatric Physical Therapy */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.3 }}
+            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-2 font-display text-[7rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none -translate-y-2">
+              06
             </div>
             <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
               <Heart size={20} className="text-[#0A4B38]" />
             </div>
-            <h3 className="font-display text-2xl font-bold italic text-[#063322] mb-2">
-              Pediatrics
+            <h3 className="font-display text-xl md:text-2xl font-bold italic text-[#063322] mb-2 leading-tight">
+              Paediatric Physical Therapy
             </h3>
-            <p className="text-[#4A5E54] text-sm leading-relaxed mb-4 font-light">
-              Complete child development, growth, and general wellness tracking.
+            <p className="text-[#4A5E54] text-sm leading-relaxed font-light">
+              Rehabilitation and developmental support for children with physical challenges.
             </p>
-            <div className="border-l-2 border-[#C5DDD3] pl-3">
-              <p className="text-xs text-[#6B7B6A] italic leading-relaxed">
-                Routine checkups, nutritional guidance, and physical
-                assessments.
-              </p>
-            </div>
           </motion.div>
 
-          {/* Critical Care */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, delay: 0.2 }}
-            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group cursor-default relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-2 font-display text-[8rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none">
-              03
-            </div>
-            <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <Activity size={20} className="text-[#0A4B38]" />
-            </div>
-            <h3 className="font-display text-2xl font-bold italic text-[#063322] mb-2">
-              Critical Care
-            </h3>
-            <p className="text-[#4A5E54] text-sm leading-relaxed mb-4 font-light">
-              Emergency pediatric response and complex medical management.
-            </p>
-            <div className="border-l-2 border-[#C5DDD3] pl-3">
-              <p className="text-xs text-[#6B7B6A] italic leading-relaxed">
-                High-dependency care units and acute illness intervention.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Vaccination — spans 2 cols on lg to fill the row */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, delay: 0.3 }}
-            className="bg-white rounded-2xl p-7 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 group cursor-default relative overflow-hidden lg:col-span-2"
-          >
-            <div className="absolute top-0 right-4 font-display text-[8rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none">
-              04
-            </div>
-            <div className="flex flex-col md:flex-row md:items-start gap-6 relative z-10">
-              <div className="w-11 h-11 bg-[#E8F4EE] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                <Shield size={20} className="text-[#0A4B38]" />
-              </div>
-              <div>
-                <h3 className="font-display text-2xl font-bold italic text-[#063322] mb-2">
-                  Vaccination
-                </h3>
-                <p className="text-[#4A5E54] text-sm leading-relaxed mb-3 font-light max-w-lg">
-                  Safe immunization following global painless protocol
-                  standards.
-                </p>
-                <div className="border-l-2 border-[#C5DDD3] pl-3">
-                  <p className="text-xs text-[#6B7B6A] italic leading-relaxed">
-                    International vaccine tracking and safe injection practices.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

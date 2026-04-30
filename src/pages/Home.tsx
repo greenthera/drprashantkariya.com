@@ -1,8 +1,9 @@
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Expertise from "../components/Expertise";
-import Publications from "../components/Publications";
 import Clinics from "../components/Clinics";
+import Testimonial from "../components/Testimonial";
+import Publications from "../components/Publications";
 import Instagram from "../components/Instagram";
 import Footer from "../components/Footer";
 
@@ -13,6 +14,7 @@ export default function Home() {
       <About />
       <Expertise />
       <Clinics />
+      <Testimonial />
       <Publications />
       <Instagram />
       <Footer />

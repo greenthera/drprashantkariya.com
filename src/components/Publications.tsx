@@ -85,11 +85,9 @@ export default function Publications() {
                   href={book.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] hover:opacity-70 transition-opacity group/link"
-                  style={{ color: book.accentColor === "#C4973A" ? "#0A4B38" : "#0A4B38" }}
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 bg-[#0A4B38] text-[#F5E6C8] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#063322] hover:shadow-lg hover:shadow-[#063322]/20 hover:-translate-y-px transition-all duration-250"
                 >
-                  <span className="border-b border-current pb-px">Buy on Amazon</span>
-                  <ExternalLink size={12} />
+                  Buy on Amazon <ExternalLink size={12} />
                 </a>
               </div>
             </motion.div>

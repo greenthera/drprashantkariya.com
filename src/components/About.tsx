@@ -70,14 +70,14 @@ export default function About() {
 
           <h2 className="font-display font-bold text-[#063322] tracking-tight leading-[0.88] mb-6"
             style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}>
-            Pediatric & Neonatal <br />
-            <span className="italic">Specialist.</span>
+            Pediatrician &amp; <br />
+            <span className="italic">Adolescent Health Expert.</span>
           </h2>
 
           <p className="text-[#4A5E54] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
-            Dr. Prashant Kariya is a highly experienced pediatrician and
-            neonatologist, specializing in high-risk newborn intensive care and
-            holistic child development.
+            Dr. Prashant Kariya is a pediatrician and adolescent health expert
+            with 15+ years of experience in child development, neonatal
+            intensive care, and teenage health and wellness.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
