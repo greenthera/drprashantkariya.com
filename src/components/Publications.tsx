@@ -6,19 +6,13 @@ import drBookDaughter from "../assets/dr-book-daughter.webp"
 const books = [
   {
     title: "Not Just A Daughter",
-    desc: "A reflection on parenting and understanding the modern daughter.",
-    coverBg: "bg-[#0A4B38]",
-    spine: "bg-[#063322]",
-    accentColor: "#C4973A",
+    desc: "A thoughtful guide for parents navigating the journey of raising a daughter in today's world. Dr. Kariya draws on decades of clinical experience and real patient stories to illuminate the emotional, physical, and social milestones that define a girl's growth — from early childhood through adolescence. With warmth and scientific grounding, this book empowers parents to listen more deeply, respond more wisely, and build bonds that last a lifetime.",
     link: "https://amzn.in/d/4xOaL5B",
     image: drBookDaughter
   },
   {
     title: "Not Just A Son",
-    desc: "Empathy, discipline, and awareness in raising the next generation.",
-    coverBg: "bg-[#1A2E28]",
-    spine: "bg-[#0D1F1B]",
-    accentColor: "#A8C5BB",
+    desc: "Raising a son is far more than teaching strength — it's about shaping empathy, resilience, and character. In this compelling read, Dr. Kariya explores the unique challenges boys face growing up, from identity and peer pressure to emotional expression and health. Backed by medical insight and a father's perspective, this book offers practical wisdom to help parents guide their sons with both discipline and deep understanding.",
     link: "https://amzn.in/d/bZR0MMH",
     image: drBookSon
   },
@@ -59,36 +53,35 @@ export default function Publications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: i * 0.15 }}
-              className="bg-white rounded-2xl p-8 md:p-10 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col sm:flex-row items-center gap-8"
+              className="bg-white rounded-2xl p-7 md:p-9 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col sm:flex-row items-start gap-7 md:gap-10"
             >
               {/* Book cover */}
-              <div className="shrink-0 relative">
-                {/* Shadow depth */}
-                <div>
-                  <img
-                    src={book.image}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    alt="Medical Professional"
-                  />
-                </div>
+              <div className="shrink-0 w-36 md:w-44 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(6,51,34,0.15)] self-center sm:self-start">
+                <img
+                  src={book.image}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  alt={book.title}
+                />
               </div>
 
               {/* Content */}
-              <div className="flex flex-col justify-center text-center sm:text-left">
+              <div className="flex flex-col flex-1 text-center sm:text-left min-h-0">
                 <h4 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-3 leading-tight">
                   {book.title}
                 </h4>
-                <p className="text-[#4A5E54] text-sm leading-relaxed mb-6 max-w-xs mx-auto sm:mx-0 font-light">
+                <p className="text-[#4A5E54] text-sm leading-relaxed font-light flex-1">
                   {book.desc}
                 </p>
-                <a
-                  href={book.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center sm:justify-start gap-2 bg-[#0A4B38] text-[#F5E6C8] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#063322] hover:shadow-lg hover:shadow-[#063322]/20 hover:-translate-y-px transition-all duration-250"
-                >
-                  Buy on Amazon <ExternalLink size={12} />
-                </a>
+                <div className="mt-6">
+                  <a
+                    href={book.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center sm:justify-start gap-2 bg-[#0A4B38] text-[#F5E6C8] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#063322] hover:shadow-lg hover:shadow-[#063322]/20 hover:-translate-y-px transition-all duration-250"
+                  >
+                    Buy on Amazon <ExternalLink size={12} />
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}

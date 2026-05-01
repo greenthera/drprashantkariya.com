@@ -1,7 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import drImage from "../assets/dr-image.png";
+import DoctorAnimation from "./DoctorAnimation";
+import review1 from "../assets/review-1.png";
+import review2 from "../assets/review-2.png";
+import review3 from "../assets/review-3.png";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -32,7 +35,7 @@ export default function Hero() {
       </div>
 
       {/* Main grid */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-28 pb-16 md:pt-30 md:pb-20 lg:pt-30 lg:pb-24">
 
         {/* ── LEFT ── */}
         <motion.div
@@ -96,8 +99,13 @@ export default function Hero() {
             </Link>
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2.5">
-                {["bg-[#C5DDD3]", "bg-[#D4E8E0]", "bg-[#C8DCCA]"].map((c, i) => (
-                  <div key={i} className={`w-8 h-8 rounded-full border-2 border-[#FAF9F6] ${c}`} />
+                {[review1, review2, review3].map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt=""
+                    className="w-12 h-12 rounded-full border-2 border-[#FAF9F6] object-cover"
+                  />
                 ))}
               </div>
               <p className="text-[12px] font-medium text-[#4A5E54] leading-tight">
@@ -133,37 +141,9 @@ export default function Hero() {
           transition={{ duration: 0.95, delay: 0.1, ease: "easeOut" }}
           className="order-1 lg:order-2 relative"
         >
-          {/* Decorative frames */}
-          <div className="absolute inset-6 bg-[#C4973A]/8 rounded-3xl rotate-2 scale-[1.02]" />
-          <div className="absolute inset-6 bg-[#E8F4EE] rounded-3xl -rotate-1 scale-[1.01]" />
-
-          {/* Image container */}
-          <div className="relative rounded-3xl overflow-hidden shadow-[0_32px_80px_rgba(6,51,34,0.16)] h-80 sm:h-96 md:h-125 lg:h-150">
-            <img
-              src={drImage}
-              className="w-full h-full object-cover object-top hover:scale-[1.03] transition-transform duration-700"
-              alt="Dr. Prashant Kariya"
-            />
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-linear-to-t from-[#063322]/30 via-transparent to-transparent" />
-
-            {/* Bottom stat bar */}
-            <div className="absolute bottom-5 left-5 right-5 bg-white/92 backdrop-blur-sm rounded-2xl px-5 py-4 flex items-center justify-between shadow-md border border-white/50">
-              <div className="text-center">
-                <p className="font-display text-xl font-bold italic text-[#0A4B38] leading-none">15+</p>
-                <p className="text-[9px] font-medium uppercase tracking-widest text-[#6B7B6A] mt-0.5">Years</p>
-              </div>
-              <div className="w-px h-7 bg-[#E0E8E2]" />
-              <div className="text-center">
-                <p className="font-display text-xl font-bold italic text-[#0A4B38] leading-none">5K+</p>
-                <p className="text-[9px] font-medium uppercase tracking-widest text-[#6B7B6A] mt-0.5">Families</p>
-              </div>
-              <div className="w-px h-7 bg-[#E0E8E2]" />
-              <div className="text-center">
-                <p className="font-display text-xl font-bold italic text-[#0A4B38] leading-none">4.8★</p>
-                <p className="text-[9px] font-medium uppercase tracking-widest text-[#6B7B6A] mt-0.5">Rating</p>
-              </div>
-            </div>
+          {/* Animation */}
+          <div className="h-80 sm:h-96 md:h-125 lg:h-140">
+            <DoctorAnimation />
           </div>
         </motion.div>
 

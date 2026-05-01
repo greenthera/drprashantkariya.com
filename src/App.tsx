@@ -4,17 +4,21 @@ import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
 import Contact from "./components/ContactForm";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
+    <>
+      <Router>
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
+      <BackToTop />
+    </>
   );
 }
 

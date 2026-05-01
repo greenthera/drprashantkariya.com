@@ -1,4 +1,7 @@
 import { ExternalLink } from "lucide-react";
+import post1 from "../assets/post-1.png";
+import post2 from "../assets/post-2.png";
+import post3 from "../assets/post-3.png";
 
 const WIDGET_ID = import.meta.env.VITE_LIGHTWIDGET_ID as string | undefined;
 const IG_URL = "https://www.instagram.com/parentingtips_drprashantkariya/";
@@ -58,13 +61,13 @@ export default function Instagram() {
           /* Fallback until widget ID is set */
           <div className="bg-[#FAF9F6] rounded-2xl p-3 md:p-4 min-h-[500px] lg:h-[580px] grid grid-cols-2 md:grid-cols-4 lg:grid-rows-2 gap-3 md:gap-4 border border-[#E0E8E2]">
             <div className="col-span-2 row-span-1 lg:row-span-2 rounded-xl overflow-hidden h-72 md:h-96 lg:h-auto group">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Pediatric Care" />
+              <img src={post2} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Instagram post" />
             </div>
             <div className="hidden sm:block rounded-xl overflow-hidden bg-[#E8F4EE] group">
-              <img src="https://images.unsplash.com/photo-1551076805-e1869033e561" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="NICU Setup" />
+              <img src={post1} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Instagram post" />
             </div>
             <div className="hidden sm:block rounded-xl overflow-hidden bg-[#E8F4EE] group">
-              <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Medical Equipment" />
+              <img src={post3} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Instagram post" />
             </div>
             <div className="col-span-2 bg-[#063322] rounded-xl p-7 md:p-10 flex flex-col justify-between relative overflow-hidden min-h-[200px] lg:min-h-0">
               <div className="absolute -top-8 -right-8 w-36 h-36 rounded-full border border-[#C4973A]/15 pointer-events-none" />

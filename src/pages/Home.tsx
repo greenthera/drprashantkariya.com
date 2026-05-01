@@ -3,6 +3,7 @@ import About from "../components/About";
 import Expertise from "../components/Expertise";
 import Clinics from "../components/Clinics";
 import Testimonial from "../components/Testimonial";
+import BookAppointment from "../components/BookAppointment";
 import Publications from "../components/Publications";
 import Instagram from "../components/Instagram";
 import Footer from "../components/Footer";
@@ -15,6 +16,7 @@ export default function Home() {
       <Expertise />
       <Clinics />
       <Testimonial />
+      <BookAppointment />
       <Publications />
       <Instagram />
       <Footer />
