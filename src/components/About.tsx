@@ -75,7 +75,7 @@ export default function About() {
           </h2>
 
           <p className="text-[#4A5E54] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
-            Dr. Prashant Kariya is a pediatrician and adolescent health expert
+            <b className="font-semibold text-[#063322]">Dr. Prashant Kariya</b> is a pediatrician and adolescent health expert
             with 15+ years of experience in child development, neonatal
             intensive care, and teenage health and wellness.
           </p>

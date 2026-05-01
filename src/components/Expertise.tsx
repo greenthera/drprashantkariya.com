@@ -144,13 +144,13 @@ export default function Expertise() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.25 }}
-            className="md:col-span-2 lg:col-span-2 bg-[#E8F4EE] rounded-2xl p-7 md:p-8 border border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden flex flex-col sm:flex-row items-start gap-6"
+            className="md:col-span-2 lg:col-span-2 bg-white lg:bg-[#E8F4EE] rounded-2xl p-7 md:p-8 border border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden flex flex-col sm:flex-row items-start gap-6"
           >
             <div className="absolute bottom-0 right-4 font-display text-[7rem] leading-none font-bold text-[#0A4B38]/8 select-none pointer-events-none translate-y-2">
               05
             </div>
-            <div className="w-12 h-12 bg-[#0A4B38] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1 shadow-md shadow-[#063322]/15">
-              <Shield size={22} className="text-[#C4973A]" />
+            <div className="w-12 h-12 bg-[#E8F4EE] lg:bg-[#0A4B38] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1 shadow-md shadow-[#063322]/15">
+              <Shield size={22} className="text-[#0A4B38] lg:text-[#C4973A]" />
             </div>
             <div className="relative z-10">
               <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-2 leading-tight">

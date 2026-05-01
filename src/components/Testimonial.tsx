@@ -1,8 +1,12 @@
-import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { useRef } from "react";
+import { motion, useMotionValue, useAnimationFrame, animate } from "framer-motion";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonialData } from "../data/testimonials";
 
 const reviews = testimonialData.filter(t => t.rating_context === "Positive");
+
+const CARD_W = 340; // w-80 (320) + gap-5 (20)
+const SPEED  = 0.038; // px per ms ≈ ~38px/s
 
 function toTitleCase(name: string) {
   return name.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ");
@@ -38,7 +42,55 @@ function Card({ review }: { review: typeof reviews[0] }) {
 }
 
 export default function Testimonial() {
-  const doubled = [...reviews, ...reviews];
+  const TOTAL = reviews.length * CARD_W;
+  const items = [...reviews, ...reviews];
+
+  const x          = useMotionValue(0);
+  const dragging   = useRef(false);
+  const ptrStartX  = useRef(0);
+  const xAtDragStart = useRef(0);
+
+  /* ── Auto-scroll ── */
+  useAnimationFrame((_, delta) => {
+    if (dragging.current) return;
+    let next = x.get() - delta * SPEED;
+    if (next < -TOTAL) next += TOTAL;
+    x.set(next);
+  });
+
+  /* ── Pointer drag (works on mouse + touch) ── */
+  function onPointerDown(e: React.PointerEvent<HTMLDivElement>) {
+    dragging.current = true;
+    ptrStartX.current    = e.clientX;
+    xAtDragStart.current = x.get();
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+  }
+
+  function onPointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    if (!dragging.current) return;
+    let next = xAtDragStart.current + (e.clientX - ptrStartX.current);
+    // clamp so user can't pull too far in either direction
+    next = Math.max(-TOTAL * 1.2, Math.min(TOTAL * 0.2, next));
+    x.set(next);
+  }
+
+  function onPointerUp() {
+    if (!dragging.current) return;
+    dragging.current = false;
+    // Normalise back into the looping range
+    let cur = x.get();
+    if (cur < -TOTAL) cur += TOTAL;
+    if (cur > 0)      cur -= TOTAL;
+    x.set(cur);
+  }
+
+  /* ── Arrow buttons ── */
+  function step(dir: 1 | -1) {
+    let next = x.get() - dir * CARD_W;
+    if (next < -TOTAL) next += TOTAL;
+    if (next > 0)      next -= TOTAL;
+    animate(x, next, { type: "spring", stiffness: 380, damping: 38 });
+  }
 
   return (
     <section className="py-20 md:py-24 bg-[#063322] overflow-hidden">
@@ -65,30 +117,54 @@ export default function Testimonial() {
               className="font-display font-bold text-[#F5E6C8] tracking-tight leading-none"
               style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}
             >
-              What Client <span className="italic text-[#C4973A]">Say.</span>
+              What Clients <span className="italic text-[#C4973A]">Say.</span>
             </h2>
           </div>
-          <p className="text-[#6B9A84] text-sm max-w-52 leading-relaxed font-light">
-            Real experiences from families who trusted us with their children's care.
-          </p>
+
+          {/* Arrow buttons — shown on all devices */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => step(-1)}
+              aria-label="Previous"
+              className="w-11 h-11 rounded-full border border-white/20 bg-white/8 flex items-center justify-center text-white hover:bg-white/18 active:scale-95 transition-all duration-200"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => step(1)}
+              aria-label="Next"
+              className="w-11 h-11 rounded-full border border-white/20 bg-white/8 flex items-center justify-center text-white hover:bg-white/18 active:scale-95 transition-all duration-200"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </motion.div>
       </div>
 
       {/* Marquee */}
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-linear-to-r from-[#063322] to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-linear-to-l from-[#063322] to-transparent pointer-events-none" />
+      <div className="relative select-none overflow-hidden">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-linear-to-r from-[#063322] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-linear-to-l from-[#063322] to-transparent pointer-events-none" />
 
         <motion.div
-          className="flex gap-5 w-max px-5"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex gap-5 w-max px-5 cursor-grab active:cursor-grabbing touch-pan-y"
+          style={{ x }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
         >
-          {doubled.map((review, i) => (
+          {items.map((review, i) => (
             <Card key={i} review={review} />
           ))}
         </motion.div>
       </div>
+
+      {/* Swipe hint — shows only on touch devices */}
+      <p className="text-center text-white/25 text-[10px] font-medium uppercase tracking-[0.25em] mt-5 md:hidden">
+        Swipe to browse
+      </p>
 
       {/* Stat bar */}
       <motion.div

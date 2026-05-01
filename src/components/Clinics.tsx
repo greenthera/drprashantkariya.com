@@ -65,9 +65,9 @@ export default function Clinics() {
               <div className="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center">
                 <Phone size={15} className="text-[#C4973A]" />
               </div>
-              <p className="font-display text-xl font-semibold text-white">
+              <a href="tel:02612492411" className="font-display text-xl font-semibold text-white">
                 (0261) 2492411
-              </p>
+              </a>
             </div>
           </motion.div>
 
@@ -100,9 +100,9 @@ export default function Clinics() {
               <div className="w-9 h-9 bg-[#E8F4EE] rounded-lg flex items-center justify-center">
                 <Phone size={15} className="text-[#0A4B38]" />
               </div>
-              <p className="font-display text-xl font-semibold text-[#063322]">
+              <a href="tel:+919727008881" className="font-display text-xl font-semibold text-[#063322]">
                 +91 97270 08881
-              </p>
+              </a>
             </div>
           </motion.div>
         </div>

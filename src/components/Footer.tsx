@@ -49,30 +49,30 @@ export default function Footer() {
 
             {/* Clinic 1 */}
             <div className="space-y-4">
-              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">NICU Hospital</p>
+              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Param NICU & Children Hospital</p>
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="text-[#C4973A] shrink-0 mt-0.5" />
                 <p className="text-[#A8C5BB] text-sm leading-relaxed font-light">
                   801-803, Param Doctor House,<br />Lal Darwaja,<br />Surat – 395003
                 </p>
               </div>
-              <p className="font-display text-lg font-bold italic text-[#F5E6C8] leading-none">
+              <a href="tel:02612492411" className="font-display text-lg font-bold italic text-[#F5E6C8] leading-none">
                 (0261) 2492411
-              </p>
+              </a>
             </div>
 
             {/* Clinic 2 */}
             <div className="space-y-4 col-span-2 md:col-span-1">
-              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Children Hospital</p>
+              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Param Children Hospital</p>
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="text-[#C4973A] shrink-0 mt-0.5" />
                 <p className="text-[#A8C5BB] text-sm leading-relaxed font-light">
                   305-306, Seven Square,<br />Majura Gate,<br />Surat – 395002
                 </p>
               </div>
-              <p className="font-display text-lg font-bold italic text-[#F5E6C8] leading-none">
+              <a href="tel:+919727008881" className="font-display text-lg font-bold italic text-[#F5E6C8] leading-none">
                 +91 97270 08881
-              </p>
+              </a>
             </div>
 
           </div>
