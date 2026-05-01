@@ -1,4 +1,4 @@
-export default function UltimatePremiumMedicalBaby() {
+export default function DoctorAnimation() {
   return (
     <svg viewBox="0 0 500 540" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
