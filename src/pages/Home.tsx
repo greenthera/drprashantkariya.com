@@ -6,7 +6,6 @@ import Testimonial from "../components/Testimonial";
 import BookAppointment from "../components/BookAppointment";
 import Publications from "../components/Publications";
 import Instagram from "../components/Instagram";
-import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
       <BookAppointment />
       <Publications />
       <Instagram />
-      <Footer />
     </main>
   );
 }

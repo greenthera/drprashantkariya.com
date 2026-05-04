@@ -4,11 +4,11 @@ import { MapPin } from "lucide-react";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-[#063322] px-6 md:px-10 pt-16 md:pt-24 pb-10">
+    <footer className="bg-[#063322] px-6 md:px-10 pt-16 md:pt-24 pb-6">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Top */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 border-b border-white/10 pb-12 md:pb-16 mb-10">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 border-b border-white/10 pb-12 md:pb-16 mb-6">
 
           {/* Brand */}
           <div className="shrink-0">
@@ -79,7 +79,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-medium text-[#4A6E5A] uppercase tracking-[0.25em] text-center sm:text-left">
+        <div className="flex flex-col items-center gap-2 text-[10px] font-medium text-[#4A6E5A] uppercase tracking-[0.25em] text-center sm:text-left">
           <p>&copy; {currentYear} Dr. Prashant Kariya. All rights reserved.</p>
           <p>
             Designed & Developed by{" "}
