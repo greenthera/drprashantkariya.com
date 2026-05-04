@@ -1,23 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Navbar from "./components/Navbar";
-
 import Home from "./pages/Home";
 import Contact from "./components/ContactForm";
-import BackToTop from "./components/BackToTop";
-import Footer from "./components/Footer";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <>
       <Router>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
         </Routes>
-        <BackToTop />
-        <Footer />
       </Router>
     </>
   );
