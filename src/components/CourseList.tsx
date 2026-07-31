@@ -18,8 +18,8 @@ function FeaturedCard({ course }: { course: Course }) {
       transition={{ duration: 0.65 }}
       className="bg-[#4353CF] text-white rounded-2xl p-8 md:p-10 relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8 md:gap-10"
     >
-      <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#C4973A]/10 pointer-events-none" />
-      <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#C4973A]/8 pointer-events-none" />
+      <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#F2B33D]/10 pointer-events-none" />
+      <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#F2B33D]/8 pointer-events-none" />
       <div className="absolute bottom-0 right-0 font-display text-[9rem] leading-none font-bold text-white/4 select-none pointer-events-none translate-x-2 translate-y-4">
         {ordinal(0)}
       </div>
@@ -33,7 +33,7 @@ function FeaturedCard({ course }: { course: Course }) {
       </div>
 
       <div className="relative z-10 text-center sm:text-left">
-        <span className="text-[#C4973A] font-semibold uppercase tracking-[0.2em] text-[10px] block mb-3">
+        <span className="text-[#F2B33D] font-semibold uppercase tracking-[0.2em] text-[10px] block mb-3">
           Latest Course
         </span>
         <h3 className="font-display font-bold italic text-white leading-tight mb-4"
@@ -47,7 +47,7 @@ function FeaturedCard({ course }: { course: Course }) {
           href={course.courseUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 bg-[#C4973A] text-[#2E3A9E] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#DDB35C] hover:-translate-y-px transition-all duration-250"
+          className="inline-flex items-center justify-center gap-2 bg-[#F2B33D] text-[#2E3A9E] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#F5C264] hover:-translate-y-px transition-all duration-250"
         >
           Start Course <ExternalLink size={12} />
         </a>
@@ -124,7 +124,7 @@ export default function CourseList() {
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
         >
           <div>
-            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+            <span className="text-[#F2B33D] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
               Learn With Us
             </span>
             <h1

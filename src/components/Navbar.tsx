@@ -31,7 +31,7 @@ export default function Navbar() {
 
           <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group">
             <div className="w-9 h-9 bg-[#4353CF] rounded-lg flex items-center justify-center group-hover:bg-[#2E3A9E] transition-colors duration-300">
-              <Plus size={18} strokeWidth={2.5} className="text-[#C4973A]" />
+              <Plus size={18} strokeWidth={2.5} className="text-[#F2B33D]" />
             </div>
             <div>
               <p className="font-display text-[17px] font-semibold text-[#2E3A9E] leading-none">

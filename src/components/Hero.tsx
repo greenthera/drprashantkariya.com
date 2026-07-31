@@ -50,7 +50,7 @@ export default function Hero() {
             transition={{ delay: 0.15, duration: 0.6 }}
             className="flex items-center gap-2.5 mb-6 bg-[#EAEDFB] border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C4973A] shrink-0 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D] shrink-0 animate-pulse" />
             <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
               Pediatrician & Adolescent Health Expert
             </span>
@@ -61,7 +61,7 @@ export default function Hero() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.22, duration: 0.5, ease: "easeOut" }}
-            className="origin-left w-14 h-px bg-[#C4973A]/60 mb-6"
+            className="origin-left w-14 h-px bg-[#F2B33D]/60 mb-6"
           />
 
           <motion.h1

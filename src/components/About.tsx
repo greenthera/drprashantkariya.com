@@ -40,10 +40,10 @@ export default function About() {
 
           {/* Emerald stat card */}
           <div className="col-span-2 bg-[#4353CF] text-white p-8 md:p-10 rounded-2xl relative overflow-hidden group">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#C4973A]/10 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#F2B33D]/10 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
             <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-white/4 rounded-full pointer-events-none" />
             <div className="relative z-10">
-              <p className="font-display text-6xl md:text-7xl font-bold italic text-[#C4973A] leading-none">
+              <p className="font-display text-6xl md:text-7xl font-bold italic text-[#F2B33D] leading-none">
                 15+
               </p>
               <p className="uppercase text-[10px] md:text-[11px] tracking-[0.3em] font-medium text-white/60 mt-3">
@@ -62,7 +62,7 @@ export default function About() {
           className="order-1 lg:order-2"
         >
           <div className="inline-flex items-center gap-2 bg-[#EAEDFB] border border-[#D6DBF5] px-4 py-2.5 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C4973A]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D]" />
             <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
               Excellence in Care
             </span>

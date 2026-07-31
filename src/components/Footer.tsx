@@ -21,7 +21,7 @@ export default function Footer() {
             href="https://drprashantkariya.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 bg-[#C4973A] text-[#2E3A9E] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#DDB35C] hover:-translate-y-px transition-all duration-250"
+            className="shrink-0 bg-[#F2B33D] text-[#2E3A9E] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#F5C264] hover:-translate-y-px transition-all duration-250"
           >
             Subscribe
           </a>
@@ -36,7 +36,7 @@ export default function Footer() {
               className="font-display font-bold italic text-[#F5E6C8] leading-none tracking-tight mb-4"
               style={{ fontSize: "clamp(3.5rem, 10vw, 7rem)" }}
             >
-              P. Kariya<span className="text-[#C4973A]">.</span>
+              P. Kariya<span className="text-[#F2B33D]">.</span>
             </h2>
             <p className="text-[#8993CC] font-medium uppercase tracking-[0.3em] text-[9px]">
               Surat • Gujarat • India
@@ -62,7 +62,7 @@ export default function Footer() {
 
             {/* Practice */}
             <div className="space-y-4">
-              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Practice</p>
+              <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Practice</p>
               <nav className="flex flex-col gap-3">
                 <a href="#expertise"   className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
                 <a href="#clinics"     className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
@@ -72,9 +72,9 @@ export default function Footer() {
 
             {/* Clinic 1 */}
             <div className="space-y-4">
-              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Param NICU & Children Hospital</p>
+              <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Param NICU & Children Hospital</p>
               <div className="flex items-start gap-2">
-                <MapPin size={13} className="text-[#C4973A] shrink-0 mt-0.5" />
+                <MapPin size={13} className="text-[#F2B33D] shrink-0 mt-0.5" />
                 <p className="text-[#ABB3E0] text-sm leading-relaxed font-light">
                   801-803, Param Doctor House,<br />Lal Darwaja,<br />Surat – 395003
                 </p>
@@ -86,9 +86,9 @@ export default function Footer() {
 
             {/* Clinic 2 */}
             <div className="space-y-4 col-span-2 md:col-span-1">
-              <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Param Children Hospital</p>
+              <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Param Children Hospital</p>
               <div className="flex items-start gap-2">
-                <MapPin size={13} className="text-[#C4973A] shrink-0 mt-0.5" />
+                <MapPin size={13} className="text-[#F2B33D] shrink-0 mt-0.5" />
                 <p className="text-[#ABB3E0] text-sm leading-relaxed font-light">
                   305-306, Seven Square,<br />Majura Gate,<br />Surat – 395002
                 </p>
@@ -110,7 +110,7 @@ export default function Footer() {
               href="https://shivantra.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#C4973A] hover:text-[#F5E6C8] transition-colors font-semibold"
+              className="text-[#F2B33D] hover:text-[#F5E6C8] transition-colors font-semibold"
             >
               Shivantra
             </a>

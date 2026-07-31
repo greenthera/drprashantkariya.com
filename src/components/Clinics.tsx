@@ -20,7 +20,7 @@ export default function Clinics() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+            <span className="text-[#F2B33D] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
               Find Us
             </span>
             <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight"
@@ -50,7 +50,7 @@ export default function Clinics() {
             transition={{ duration: 0.65 }}
             className="bg-[#4353CF] text-white rounded-2xl p-8 md:p-12 flex flex-col justify-between min-h-[380px] relative overflow-hidden group"
           >
-            <div className="absolute -top-10 -right-10 w-44 h-44 bg-[#C4973A]/8 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-44 h-44 bg-[#F2B33D]/8 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
             <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/4 rounded-full pointer-events-none" />
 
             <a
@@ -62,14 +62,14 @@ export default function Clinics() {
             />
 
             <div className="relative z-10 pointer-events-none">
-              <span className="inline-block bg-[#C4973A]/15 text-[#C4973A] border border-[#C4973A]/25 px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-7">
+              <span className="inline-block bg-[#F2B33D]/15 text-[#F2B33D] border border-[#F2B33D]/25 px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-7">
                 Level III NICU Specialist
               </span>
               <h3 className="font-display text-2xl md:text-3xl font-bold italic text-white mb-6 leading-tight">
                 Param NICU & Children Hospital
               </h3>
               <div className="flex items-start gap-3 mb-4">
-                <MapPin size={15} className="text-[#C4973A] shrink-0 mt-0.5" />
+                <MapPin size={15} className="text-[#F2B33D] shrink-0 mt-0.5" />
                 <p className="text-white/65 text-sm leading-relaxed font-light">
                   801-803, Param Doctor House, Lal Darwaja, Surat
                 </p>
@@ -78,7 +78,7 @@ export default function Clinics() {
 
             <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-white/10 pointer-events-none">
               <div className="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center">
-                <Phone size={15} className="text-[#C4973A]" />
+                <Phone size={15} className="text-[#F2B33D]" />
               </div>
               <a href="tel:02612492411" className="font-display text-xl font-semibold text-white pointer-events-auto">
                 (0261) 2492411

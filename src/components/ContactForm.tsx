@@ -65,7 +65,7 @@ export default function ContactForm() {
               rel="noopener noreferrer"
               className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 md:p-6 bg-[#4353CF] rounded-xl hover:bg-[#2E3A9E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-250 group"
             >
-              <div className="w-12 h-12 bg-[#C4973A]/20 rounded-xl flex items-center justify-center text-[#C4973A] shrink-0 group-hover:scale-110 transition-transform duration-250">
+              <div className="w-12 h-12 bg-[#F2B33D]/20 rounded-xl flex items-center justify-center text-[#F2B33D] shrink-0 group-hover:scale-110 transition-transform duration-250">
                 <CalendarCheck size={19} />
               </div>
               <div>

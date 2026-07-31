@@ -21,15 +21,15 @@ function Card({ review }: { review: typeof reviews[0] }) {
     <div className="w-80 shrink-0 bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/12 transition-colors duration-300">
       <div className="flex gap-0.5">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} size={13} className="text-[#C4973A] fill-[#C4973A]" />
+          <Star key={i} size={13} className="text-[#F2B33D] fill-[#F2B33D]" />
         ))}
       </div>
       <p className="font-display italic text-white/85 text-base leading-relaxed flex-1">
         "{review.feedback}"
       </p>
       <div className="flex items-center gap-3 pt-2 border-t border-white/10">
-        <div className="w-9 h-9 rounded-full bg-[#C4973A]/20 border border-[#C4973A]/30 flex items-center justify-center shrink-0">
-          <span className="text-[#C4973A] text-[11px] font-bold tracking-wide">
+        <div className="w-9 h-9 rounded-full bg-[#F2B33D]/20 border border-[#F2B33D]/30 flex items-center justify-center shrink-0">
+          <span className="text-[#F2B33D] text-[11px] font-bold tracking-wide">
             {initials(review.name)}
           </span>
         </div>
@@ -106,10 +106,10 @@ export default function Testimonial() {
         >
           <div>
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 bg-[#C4973A]/15 border border-[#C4973A]/25 rounded-lg flex items-center justify-center">
-                <Quote size={14} className="text-[#C4973A]" />
+              <div className="w-8 h-8 bg-[#F2B33D]/15 border border-[#F2B33D]/25 rounded-lg flex items-center justify-center">
+                <Quote size={14} className="text-[#F2B33D]" />
               </div>
-              <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px]">
+              <span className="text-[#F2B33D] font-medium uppercase tracking-[0.25em] text-[10px]">
                 Patient Stories
               </span>
             </div>
@@ -117,7 +117,7 @@ export default function Testimonial() {
               className="font-display font-bold text-[#F5E6C8] tracking-tight leading-none"
               style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}
             >
-              What Clients <span className="italic text-[#C4973A]">Say.</span>
+              What Clients <span className="italic text-[#F2B33D]">Say.</span>
             </h2>
           </div>
 
@@ -177,7 +177,7 @@ export default function Testimonial() {
         <div className="flex items-center gap-3">
           <div className="flex gap-0.5">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} size={16} className="text-[#C4973A] fill-[#C4973A]" />
+              <Star key={i} size={16} className="text-[#F2B33D] fill-[#F2B33D]" />
             ))}
           </div>
           <span className="font-display text-2xl font-bold italic text-[#F5E6C8]">4.8</span>
@@ -185,12 +185,12 @@ export default function Testimonial() {
         </div>
         <div className="flex items-center gap-8">
           <div className="text-center">
-            <p className="font-display text-3xl font-bold italic text-[#C4973A]">500+</p>
+            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">500+</p>
             <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Happy Families</p>
           </div>
           <div className="w-px h-10 bg-white/10" />
           <div className="text-center">
-            <p className="font-display text-3xl font-bold italic text-[#C4973A]">15+</p>
+            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">15+</p>
             <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Years Trusted</p>
           </div>
         </div>

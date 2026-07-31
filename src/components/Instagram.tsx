@@ -26,7 +26,7 @@ export default function Instagram() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-10">
           <div className="flex items-center gap-3.5">
             <div className="w-11 h-11 bg-[#4353CF] rounded-xl flex items-center justify-center shadow-md shadow-[#2E3A9E]/15 shrink-0">
-              <IGIcon size={18} className="text-[#C4973A]" />
+              <IGIcon size={18} className="text-[#F2B33D]" />
             </div>
             <div>
               <p className="font-display font-semibold italic text-[#2E3A9E] text-lg leading-tight">
@@ -70,16 +70,16 @@ export default function Instagram() {
               <img src={post3} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Instagram post" />
             </div>
             <div className="col-span-2 bg-[#2E3A9E] rounded-xl p-7 md:p-10 flex flex-col justify-between relative overflow-hidden min-h-[200px] lg:min-h-0">
-              <div className="absolute -top-8 -right-8 w-36 h-36 rounded-full border border-[#C4973A]/15 pointer-events-none" />
+              <div className="absolute -top-8 -right-8 w-36 h-36 rounded-full border border-[#F2B33D]/15 pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#4353CF]/60 rounded-full pointer-events-none" />
-              <div className="font-display text-6xl text-[#C4973A]/30 leading-none mb-2 relative z-10 select-none">"</div>
+              <div className="font-display text-6xl text-[#F2B33D]/30 leading-none mb-2 relative z-10 select-none">"</div>
               <p className="font-display text-lg md:text-xl font-semibold italic text-white leading-snug relative z-10 max-w-xs -mt-4">
                 Children don't need perfect parents. They need present ones.
               </p>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 relative z-10 pt-5 border-t border-white/8 mt-4">
                 <span className="text-[#ABB3E0] text-[11px] font-medium tracking-wide">@{IG_HANDLE}</span>
                 <a href={IG_URL} target="_blank" rel="noopener noreferrer"
-                  className="bg-[#C4973A] text-white px-5 py-2 rounded-lg text-[11px] font-semibold hover:bg-[#B8893A] transition-colors w-full sm:w-auto text-center tracking-wide">
+                  className="bg-[#F2B33D] text-white px-5 py-2 rounded-lg text-[11px] font-semibold hover:bg-[#C28F31] transition-colors w-full sm:w-auto text-center tracking-wide">
                   Follow
                 </a>
               </div>

@@ -14,7 +14,7 @@ export default function Expertise() {
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
         >
           <div>
-            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+            <span className="text-[#F2B33D] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
               Our Specializations
             </span>
             <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight"
@@ -43,15 +43,15 @@ export default function Expertise() {
             transition={{ duration: 0.65 }}
             className="lg:row-span-2 bg-[#4353CF] text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-72 relative overflow-hidden group"
           >
-            <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#C4973A]/10 pointer-events-none" />
-            <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#C4973A]/8 pointer-events-none" />
+            <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#F2B33D]/10 pointer-events-none" />
+            <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#F2B33D]/8 pointer-events-none" />
             <div className="absolute bottom-0 right-0 font-display text-[9rem] leading-none font-bold text-white/4 select-none pointer-events-none translate-x-2 translate-y-4">
               01
             </div>
 
             <div className="relative z-10">
-              <div className="w-12 h-12 bg-[#C4973A]/15 rounded-xl flex items-center justify-center mb-7 group-hover:bg-[#C4973A]/25 transition-colors duration-300">
-                <Scissors size={22} className="text-[#C4973A]" />
+              <div className="w-12 h-12 bg-[#F2B33D]/15 rounded-xl flex items-center justify-center mb-7 group-hover:bg-[#F2B33D]/25 transition-colors duration-300">
+                <Scissors size={22} className="text-[#F2B33D]" />
               </div>
               <h3 className="font-display font-bold italic text-white leading-tight mb-4"
                 style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
@@ -63,8 +63,8 @@ export default function Expertise() {
             </div>
 
             <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C4973A]" />
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C4973A]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D]" />
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F2B33D]">
                 Primary Expertise
               </span>
             </div>
@@ -150,7 +150,7 @@ export default function Expertise() {
               05
             </div>
             <div className="w-12 h-12 bg-[#EAEDFB] lg:bg-[#4353CF] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 mt-1 shadow-md shadow-[#2E3A9E]/15">
-              <Shield size={22} className="text-[#4353CF] lg:text-[#C4973A]" />
+              <Shield size={22} className="text-[#4353CF] lg:text-[#F2B33D]" />
             </div>
             <div className="relative z-10">
               <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">

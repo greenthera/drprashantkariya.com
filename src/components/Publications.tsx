@@ -32,7 +32,7 @@ export default function Publications() {
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
         >
           <div>
-            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+            <span className="text-[#F2B33D] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
               Author & Speaker
             </span>
             <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight"
