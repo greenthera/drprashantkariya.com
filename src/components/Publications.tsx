@@ -35,12 +35,12 @@ export default function Publications() {
             <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
               Author & Speaker
             </span>
-            <h2 className="font-display font-bold text-[#063322] tracking-tight"
+            <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight"
               style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
               The <span className="italic">Archive</span>
             </h2>
           </div>
-          <p className="text-[#4A5E54] text-sm max-w-[220px] leading-relaxed font-light">
+          <p className="text-[#4F5A8A] text-sm max-w-[220px] leading-relaxed font-light">
             Titles on parenting, empathy, and raising the next generation.
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ export default function Publications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: i * 0.15 }}
-              className="bg-white rounded-2xl p-7 md:p-9 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col sm:flex-row items-start gap-7 md:gap-10"
+              className="bg-white rounded-2xl p-7 md:p-9 border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col sm:flex-row items-start gap-7 md:gap-10"
             >
               {/* Book cover */}
               <div className="shrink-0 w-36 md:w-44 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(6,51,34,0.15)] self-center sm:self-start">
@@ -66,10 +66,10 @@ export default function Publications() {
 
               {/* Content */}
               <div className="flex flex-col flex-1 text-center sm:text-left min-h-0">
-                <h4 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-3 leading-tight">
+                <h4 className="font-display text-2xl md:text-3xl font-bold italic text-[#2E3A9E] mb-3 leading-tight">
                   {book.title}
                 </h4>
-                <p className="text-[#4A5E54] text-sm leading-relaxed font-light flex-1">
+                <p className="text-[#4F5A8A] text-sm leading-relaxed font-light flex-1">
                   {book.desc}
                 </p>
                 <div className="mt-6">
@@ -77,7 +77,7 @@ export default function Publications() {
                     href={book.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center sm:justify-start gap-2 bg-[#0A4B38] text-[#F5E6C8] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#063322] hover:shadow-lg hover:shadow-[#063322]/20 hover:-translate-y-px transition-all duration-250"
+                    className="inline-flex items-center justify-center sm:justify-start gap-2 bg-[#4353CF] text-[#F5E6C8] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#2E3A9E] hover:shadow-lg hover:shadow-[#2E3A9E]/20 hover:-translate-y-px transition-all duration-250"
                   >
                     Buy on Amazon <ExternalLink size={12} />
                   </a>

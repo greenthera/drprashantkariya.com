@@ -32,9 +32,9 @@ export default function BackToTop() {
         w-12 h-12
         flex items-center justify-center
         rounded-full
-        bg-[#063322] text-white
+        bg-[#2E3A9E] text-white
         shadow-lg
-        hover:bg-[#0a4a32]
+        hover:bg-[#4353CF]
         transition-all duration-300
         z-[9999]
       "

@@ -9,7 +9,7 @@ import Instagram from "../components/Instagram";
 
 export default function Home() {
   return (
-    <main className="bg-[#FAF9F6] selection:bg-[#0A4B38] selection:text-[#F5E6C8]">
+    <main className="bg-[#FAF9F6] selection:bg-[#4353CF] selection:text-[#F5E6C8]">
       <Hero />
       <About />
       <Expertise />

@@ -39,7 +39,7 @@ export default function About() {
           </div>
 
           {/* Emerald stat card */}
-          <div className="col-span-2 bg-[#0A4B38] text-white p-8 md:p-10 rounded-2xl relative overflow-hidden group">
+          <div className="col-span-2 bg-[#4353CF] text-white p-8 md:p-10 rounded-2xl relative overflow-hidden group">
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#C4973A]/10 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
             <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-white/4 rounded-full pointer-events-none" />
             <div className="relative z-10">
@@ -61,21 +61,21 @@ export default function About() {
           transition={{ duration: 0.75 }}
           className="order-1 lg:order-2"
         >
-          <div className="inline-flex items-center gap-2 bg-[#E8F4EE] border border-[#C5DDD3] px-4 py-2.5 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-[#EAEDFB] border border-[#D6DBF5] px-4 py-2.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C4973A]" />
-            <span className="text-[#0A4B38] font-medium uppercase tracking-[0.22em] text-[10px]">
+            <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
               Excellence in Care
             </span>
           </div>
 
-          <h2 className="font-display font-bold text-[#063322] tracking-tight leading-[0.88] mb-6"
+          <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight leading-[0.88] mb-6"
             style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}>
             Pediatrician &amp; <br />
             <span className="italic">Adolescent Health Expert.</span>
           </h2>
 
-          <p className="text-[#4A5E54] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
-            <b className="font-semibold text-[#063322]">Dr. Prashant Kariya</b> is a pediatrician and adolescent health expert
+          <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
+            <b className="font-semibold text-[#2E3A9E]">Dr. Prashant Kariya</b> is a pediatrician and adolescent health expert
             with 15+ years of experience in child development, neonatal
             intensive care, and teenage health and wellness.
           </p>
@@ -88,10 +88,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.09, duration: 0.5 }}
-                className="flex items-center gap-3 p-4 bg-[#FAF9F6] rounded-xl border border-[#E0E8E2] hover:border-[#C5DDD3] hover:bg-[#E8F4EE]/40 hover:-translate-y-0.5 transition-all duration-200 group"
+                className="flex items-center gap-3 p-4 bg-[#FAF9F6] rounded-xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:bg-[#EAEDFB]/40 hover:-translate-y-0.5 transition-all duration-200 group"
               >
-                <CheckCircle2 size={17} className="text-[#0A4B38] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="text-[12px] font-semibold text-[#063322] uppercase tracking-tight">
+                <CheckCircle2 size={17} className="text-[#4353CF] shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="text-[12px] font-semibold text-[#2E3A9E] uppercase tracking-tight">
                   {item}
                 </span>
               </motion.div>

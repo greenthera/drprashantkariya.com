@@ -16,7 +16,7 @@ function FeaturedCard({ course }: { course: Course }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.65 }}
-      className="bg-[#0A4B38] text-white rounded-2xl p-8 md:p-10 relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8 md:gap-10"
+      className="bg-[#4353CF] text-white rounded-2xl p-8 md:p-10 relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8 md:gap-10"
     >
       <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#C4973A]/10 pointer-events-none" />
       <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#C4973A]/8 pointer-events-none" />
@@ -47,7 +47,7 @@ function FeaturedCard({ course }: { course: Course }) {
           href={course.courseUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 bg-[#C4973A] text-[#063322] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#DDB35C] hover:-translate-y-px transition-all duration-250"
+          className="inline-flex items-center justify-center gap-2 bg-[#C4973A] text-[#2E3A9E] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#DDB35C] hover:-translate-y-px transition-all duration-250"
         >
           Start Course <ExternalLink size={12} />
         </a>
@@ -63,9 +63,9 @@ function SupportingCard({ course, index }: { course: Course; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.65, delay: index * 0.08 }}
-      className="flex-1 min-w-[260px] bg-white rounded-2xl p-6 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+      className="flex-1 min-w-[260px] bg-white rounded-2xl p-6 border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
     >
-      <div className="absolute top-0 right-2 font-display text-[6rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none -translate-y-2">
+      <div className="absolute top-0 right-2 font-display text-[6rem] leading-none font-bold text-[#2E3A9E]/4 select-none pointer-events-none -translate-y-2">
         {ordinal(index + 1)}
       </div>
 
@@ -78,17 +78,17 @@ function SupportingCard({ course, index }: { course: Course; index: number }) {
       </div>
 
       <div className="relative z-10">
-        <h3 className="font-display text-xl font-bold italic text-[#063322] mb-2 leading-tight">
+        <h3 className="font-display text-xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
           {course.title}
         </h3>
-        <p className="text-[#4A5E54] text-sm leading-relaxed font-light mb-5">
+        <p className="text-[#4F5A8A] text-sm leading-relaxed font-light mb-5">
           {course.description}
         </p>
         <a
           href={course.courseUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 bg-[#0A4B38] text-[#F5E6C8] px-4 py-2 rounded-lg text-[10px] font-semibold uppercase tracking-[0.15em] hover:bg-[#063322] transition-all duration-250"
+          className="inline-flex items-center justify-center gap-2 bg-[#4353CF] text-[#F5E6C8] px-4 py-2 rounded-lg text-[10px] font-semibold uppercase tracking-[0.15em] hover:bg-[#2E3A9E] transition-all duration-250"
         >
           Start Course <ExternalLink size={11} />
         </a>
@@ -128,13 +128,13 @@ export default function CourseList() {
               Learn With Us
             </span>
             <h1
-              className="font-display font-bold text-[#063322] tracking-tight"
+              className="font-display font-bold text-[#2E3A9E] tracking-tight"
               style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}
             >
               Our <span className="italic">Courses</span>
             </h1>
           </div>
-          <p className="text-[#4A5E54] text-sm max-w-60 leading-relaxed font-light">
+          <p className="text-[#4F5A8A] text-sm max-w-60 leading-relaxed font-light">
             Practical courses on parenting, safety, and clinical skill-building.
           </p>
         </motion.div>
@@ -143,13 +143,13 @@ export default function CourseList() {
           {state.status === "loading" && <BentoSkeleton />}
 
           {state.status === "error" && (
-            <p className="text-center text-[#4A5E54] text-sm font-light mb-16">
+            <p className="text-center text-[#4F5A8A] text-sm font-light mb-16">
               Unable to load courses right now. Please check back shortly.
             </p>
           )}
 
           {state.status === "success" && state.courses.length === 0 && (
-            <p className="text-center text-[#4A5E54] text-sm font-light mb-16">
+            <p className="text-center text-[#4F5A8A] text-sm font-light mb-16">
               No courses are available right now. Please check back shortly.
             </p>
           )}
@@ -173,7 +173,7 @@ export default function CourseList() {
             href={GRAPHY_COURSES_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 border border-[#0A4B38] text-[#0A4B38] px-6 py-3 rounded-xl text-[12px] font-semibold uppercase tracking-[0.2em] hover:bg-[#0A4B38] hover:text-[#F5E6C8] transition-all duration-250"
+            className="inline-flex items-center justify-center gap-2 border border-[#4353CF] text-[#4353CF] px-6 py-3 rounded-xl text-[12px] font-semibold uppercase tracking-[0.2em] hover:bg-[#4353CF] hover:text-[#F5E6C8] transition-all duration-250"
           >
             View All Courses <ExternalLink size={13} />
           </a>

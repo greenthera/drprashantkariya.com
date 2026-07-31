@@ -36,19 +36,19 @@ export default function ContactForm() {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="order-2 lg:order-1"
         >
-          <div className="flex items-center gap-2.5 mb-6 bg-[#E8F4EE] border border-[#C5DDD3] w-fit px-4 py-2.5 rounded-full">
-            <MessageCircle size={13} className="text-[#0A4B38]" />
-            <span className="text-[#0A4B38] font-medium uppercase tracking-[0.22em] text-[10px]">
+          <div className="flex items-center gap-2.5 mb-6 bg-[#EAEDFB] border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full">
+            <MessageCircle size={13} className="text-[#4353CF]" />
+            <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
               Get in Touch
             </span>
           </div>
 
           <h1
-            className="font-display font-bold italic text-[#063322] leading-[0.88] tracking-tight mb-10"
+            className="font-display font-bold italic text-[#2E3A9E] leading-[0.88] tracking-tight mb-10"
             style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)" }}
           >
             Let's <br />
-            <span className="not-italic text-[#0A4B38]">Connect.</span>
+            <span className="not-italic text-[#4353CF]">Connect.</span>
           </h1>
 
           <div className="space-y-4">
@@ -57,7 +57,7 @@ export default function ContactForm() {
               href={DOCON_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 md:p-6 bg-[#0A4B38] rounded-xl hover:bg-[#063322] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-250 group"
+              className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 md:p-6 bg-[#4353CF] rounded-xl hover:bg-[#2E3A9E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-250 group"
             >
               <div className="w-12 h-12 bg-[#C4973A]/20 rounded-xl flex items-center justify-center text-[#C4973A] shrink-0 group-hover:scale-110 transition-transform duration-250">
                 <CalendarCheck size={19} />
@@ -71,12 +71,12 @@ export default function ContactForm() {
 
             {/* Address 1 */}
             <div className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 md:p-6 bg-white rounded-xl border border-[#E0E8E2] group">
-              <div className="w-12 h-12 bg-[#E8F4EE] rounded-xl flex items-center justify-center text-[#0A4B38] shrink-0">
+              <div className="w-12 h-12 bg-[#EAEDFB] rounded-xl flex items-center justify-center text-[#4353CF] shrink-0">
                 <MapPin size={19} />
               </div>
               <div>
-                <p className="text-[#6B7B6A] font-medium uppercase text-[10px] tracking-[0.2em] mb-1">Param NICU & Children Hospital</p>
-                <p className="font-display text-base font-semibold text-[#063322] leading-snug">
+                <p className="text-[#6670A0] font-medium uppercase text-[10px] tracking-[0.2em] mb-1">Param NICU & Children Hospital</p>
+                <p className="font-display text-base font-semibold text-[#2E3A9E] leading-snug">
                   801-803, Param Doctor House,<br />Lal Darwaja, Surat – 395003
                 </p>
               </div>
@@ -84,12 +84,12 @@ export default function ContactForm() {
 
             {/* Address 2 */}
             <div className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 md:p-6 bg-white rounded-xl border border-[#E0E8E2] group">
-              <div className="w-12 h-12 bg-[#E8F4EE] rounded-xl flex items-center justify-center text-[#0A4B38] shrink-0">
+              <div className="w-12 h-12 bg-[#EAEDFB] rounded-xl flex items-center justify-center text-[#4353CF] shrink-0">
                 <MapPin size={19} />
               </div>
               <div>
-                <p className="text-[#6B7B6A] font-medium uppercase text-[10px] tracking-[0.2em] mb-1">Param Children Hospital</p>
-                <p className="font-display text-base font-semibold text-[#063322] leading-snug">
+                <p className="text-[#6670A0] font-medium uppercase text-[10px] tracking-[0.2em] mb-1">Param Children Hospital</p>
+                <p className="font-display text-base font-semibold text-[#2E3A9E] leading-snug">
                   305-306, Seven Square,<br />Majura Gate, Surat – 395002
                 </p>
               </div>
@@ -107,43 +107,43 @@ export default function ContactForm() {
           className="order-1 lg:order-2 bg-white p-8 md:p-10 rounded-2xl border border-[#E0E8E2] shadow-[0_8px_50px_rgba(6,51,34,0.07)] space-y-5"
         >
           <div>
-            <h2 className="font-display text-2xl font-bold italic text-[#063322] mb-1">Send a Message</h2>
-            <p className="text-[#6B7B6A] text-sm font-light">Fill the form and we'll chat on WhatsApp.</p>
+            <h2 className="font-display text-2xl font-bold italic text-[#2E3A9E] mb-1">Send a Message</h2>
+            <p className="text-[#6670A0] text-sm font-light">Fill the form and we'll chat on WhatsApp.</p>
           </div>
 
           <div>
-            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7B6A] ml-1 mb-2 block">Full Name</label>
+            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Full Name</label>
             <input
               type="text"
               required
               placeholder="John Doe"
               value={name}
               onChange={e => setName(e.target.value)}
-              className="w-full bg-[#FAF9F6] border border-[#E0E8E2] p-4 rounded-xl text-[#063322] outline-none focus:border-[#0A4B38] focus:bg-white transition-all font-medium text-sm placeholder:text-[#B0BDB8]"
+              className="w-full bg-[#FAF9F6] border border-[#E0E8E2] p-4 rounded-xl text-[#2E3A9E] outline-none focus:border-[#4353CF] focus:bg-white transition-all font-medium text-sm placeholder:text-[#B0BDB8]"
             />
           </div>
 
           <div>
-            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7B6A] ml-1 mb-2 block">Phone Number</label>
+            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Phone Number</label>
             <input
               type="tel"
               required
               placeholder="+91 00000 00000"
               value={phone}
               onChange={e => setPhone(e.target.value)}
-              className="w-full bg-[#FAF9F6] border border-[#E0E8E2] p-4 rounded-xl text-[#063322] outline-none focus:border-[#0A4B38] focus:bg-white transition-all font-medium text-sm placeholder:text-[#B0BDB8]"
+              className="w-full bg-[#FAF9F6] border border-[#E0E8E2] p-4 rounded-xl text-[#2E3A9E] outline-none focus:border-[#4353CF] focus:bg-white transition-all font-medium text-sm placeholder:text-[#B0BDB8]"
             />
           </div>
 
           <div>
-            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B7B6A] ml-1 mb-2 block">Message</label>
+            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Message</label>
             <textarea
               rows={4}
               required
               placeholder="How can we help?"
               value={message}
               onChange={e => setMessage(e.target.value)}
-              className="w-full bg-[#FAF9F6] border border-[#E0E8E2] p-4 rounded-xl text-[#063322] outline-none focus:border-[#0A4B38] focus:bg-white transition-all font-medium text-sm placeholder:text-[#B0BDB8]"
+              className="w-full bg-[#FAF9F6] border border-[#E0E8E2] p-4 rounded-xl text-[#2E3A9E] outline-none focus:border-[#4353CF] focus:bg-white transition-all font-medium text-sm placeholder:text-[#B0BDB8]"
             />
           </div>
 
@@ -156,9 +156,9 @@ export default function ContactForm() {
           </button>
 
           <div className="pt-2 border-t border-[#E0E8E2] text-center">
-            <p className="text-[11px] text-[#6B7B6A] font-light">
+            <p className="text-[11px] text-[#6670A0] font-light">
               Prefer online booking?{" "}
-              <a href={DOCON_URL} target="_blank" rel="noopener noreferrer" className="text-[#0A4B38] font-semibold hover:underline">
+              <a href={DOCON_URL} target="_blank" rel="noopener noreferrer" className="text-[#4353CF] font-semibold hover:underline">
                 Book via Docon →
               </a>
             </p>

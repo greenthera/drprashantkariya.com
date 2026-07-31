@@ -27,7 +27,7 @@ export default function DoctorAnimation() {
         {/* Gradients & Filters */}
         <radialGradient id="da-bg" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#C2E0D2" />
-          <stop offset="100%" stopColor="#E8F4EE" />
+          <stop offset="100%" stopColor="#EAEDFB" />
         </radialGradient>
         
         {/* Advanced Skin: Three-stop radial for subsurface scattering look */}
@@ -38,7 +38,7 @@ export default function DoctorAnimation() {
         </radialGradient>
 
         <filter id="da-shadow">
-          <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#063322" floodOpacity="0.1" />
+          <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#2E3A9E" floodOpacity="0.1" />
         </filter>
 
         {/* Inner high-gloss polish */}
@@ -52,8 +52,8 @@ export default function DoctorAnimation() {
 
       {/* ── BACKGROUND ── */}
       <circle cx="250" cy="278" r="205" fill="url(#da-bg)" opacity=".7" />
-      <circle cx="250" cy="278" r="205" fill="none" stroke="#0A4B38" strokeWidth="1.5" strokeDasharray="5 10" opacity=".12" className="da-ring1" />
-      <circle cx="250" cy="278" r="205" fill="none" stroke="#0A4B38" strokeWidth="1.5" strokeDasharray="5 10" opacity=".12" className="da-ring2" />
+      <circle cx="250" cy="278" r="205" fill="none" stroke="#4353CF" strokeWidth="1.5" strokeDasharray="5 10" opacity=".12" className="da-ring1" />
+      <circle cx="250" cy="278" r="205" fill="none" stroke="#4353CF" strokeWidth="1.5" strokeDasharray="5 10" opacity=".12" className="da-ring2" />
 
       {/* ── MAIN BABY ASSET (Floats) ── */}
       <g className="da-float" filter="url(#da-shadow)">
@@ -67,7 +67,7 @@ export default function DoctorAnimation() {
           C 185,245 315,245 315,285 
           C 335,315 355,340 355,385 
           C 355,430 320,440 250,440 Z" 
-          fill="#0A4B38" filter="url(#baby-polish)"
+          fill="#4353CF" filter="url(#baby-polish)"
         />
         
         {/* Organic Thigh Folds */}
@@ -129,29 +129,29 @@ export default function DoctorAnimation() {
       {/* ── FLOATING BADGES ── */}
       <g className="da-float-b1" filter="url(#da-shadow)">
         <rect x="362" y="140" width="108" height="54" rx="14" fill="white" />
-        <text x="380" y="164" fontFamily="Georgia,serif" fontSize="11" fontWeight="700" fill="#063322">4.9 ★★★★★</text>
-        <text x="380" y="181" fontFamily="Arial,sans-serif" fontSize="9" fill="#6B7B6A">Trusted Care</text>
+        <text x="380" y="164" fontFamily="Georgia,serif" fontSize="11" fontWeight="700" fill="#2E3A9E">4.9 ★★★★★</text>
+        <text x="380" y="181" fontFamily="Arial,sans-serif" fontSize="9" fill="#6670A0">Trusted Care</text>
       </g>
 
       <g className="da-float-b2" filter="url(#da-shadow)">
-        <rect x="30" y="160" width="100" height="54" rx="14" fill="#0A4B38" />
+        <rect x="30" y="160" width="100" height="54" rx="14" fill="#4353CF" />
         <text x="50" y="184" fontFamily="Georgia,serif" fontSize="16" fontWeight="700" fill="#E2E8F0">100%</text>
-        <text x="50" y="200" fontFamily="Arial,sans-serif" fontSize="8.5" fill="#A8C5BB">Safe & Secure</text>
+        <text x="50" y="200" fontFamily="Arial,sans-serif" fontSize="8.5" fill="#ABB3E0">Safe & Secure</text>
       </g>
 
       {/* ── SPARKLES ── */}
-      <g className="da-spark1"><path d="M 96 120 L 99 113 L 102 120 L 109 123 L 102 126 L 99 133 L 96 126 L 89 123 Z" fill="#0A4B38" opacity=".6" /></g>
-      <g className="da-spark2"><path d="M 392 264 L 394.5 258.5 L 397 264 L 402.5 266.5 L 397 269 L 394.5 274.5 L 392 269 L 386.5 266.5 Z" fill="#0A4B38" opacity=".4" /></g>
+      <g className="da-spark1"><path d="M 96 120 L 99 113 L 102 120 L 109 123 L 102 126 L 99 133 L 96 126 L 89 123 Z" fill="#4353CF" opacity=".6" /></g>
+      <g className="da-spark2"><path d="M 392 264 L 394.5 258.5 L 397 264 L 402.5 266.5 L 397 269 L 394.5 274.5 L 392 269 L 386.5 266.5 Z" fill="#4353CF" opacity=".4" /></g>
 
       {/* ── ECG ANIMATION CARD ── */}
       <g className="da-float-b3">
         <rect x="130" y="440" width="240" height="50" rx="14" fill="white" filter="url(#da-shadow)" />
         <polyline
           points="145,465 170,465 183,448 191,482 200,465 215,465 221,453 227,477 233,465 310,465"
-          stroke="#0A4B38" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"
+          stroke="#4353CF" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"
           className="da-ecg"
         />
-        <circle cx="310" cy="465" r="4" fill="#0A4B38" opacity="0.5" />
+        <circle cx="310" cy="465" r="4" fill="#4353CF" opacity="0.5" />
       </g>
     </svg>
   );

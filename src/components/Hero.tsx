@@ -17,18 +17,18 @@ export default function Hero() {
       <div
         className="absolute inset-0 pointer-events-none opacity-35"
         style={{
-          backgroundImage: "radial-gradient(circle, #B5CEC6 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, #C7CCEE 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
 
       {/* Blobs */}
-      <motion.div style={{ y: blobY }} className="absolute -top-40 -left-40 w-120 h-120 rounded-full bg-[#E8F4EE] pointer-events-none" />
-      <motion.div style={{ y: useTransform(scrollY, [0, 800], [0, 50]) }} className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#E8F4EE]/50 pointer-events-none" />
+      <motion.div style={{ y: blobY }} className="absolute -top-40 -left-40 w-120 h-120 rounded-full bg-[#EAEDFB] pointer-events-none" />
+      <motion.div style={{ y: useTransform(scrollY, [0, 800], [0, 50]) }} className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#EAEDFB]/50 pointer-events-none" />
 
       {/* PK monogram */}
       <div
-        className="absolute bottom-10 left-6 font-display font-bold italic text-[#063322]/4 select-none pointer-events-none leading-none hidden lg:block"
+        className="absolute bottom-10 left-6 font-display font-bold italic text-[#2E3A9E]/4 select-none pointer-events-none leading-none hidden lg:block"
         style={{ fontSize: "14rem" }}
       >
         PK
@@ -48,10 +48,10 @@ export default function Hero() {
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.15, duration: 0.6 }}
-            className="flex items-center gap-2.5 mb-6 bg-[#E8F4EE] border border-[#C5DDD3] w-fit px-4 py-2.5 rounded-full"
+            className="flex items-center gap-2.5 mb-6 bg-[#EAEDFB] border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#C4973A] shrink-0 animate-pulse" />
-            <span className="text-[#0A4B38] font-medium uppercase tracking-[0.22em] text-[10px]">
+            <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
               Pediatrician & Adolescent Health Expert
             </span>
           </motion.div>
@@ -68,18 +68,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.9, ease: "easeOut" }}
-            className="font-display font-bold text-[#063322] leading-[0.82] tracking-tight mb-7"
+            className="font-display font-bold text-[#2E3A9E] leading-[0.82] tracking-tight mb-7"
             style={{ fontSize: "clamp(3.6rem, 6vw, 6.5rem)" }}
           >
             Nurturing <br />
-            <span className="italic text-[#0A4B38]">Futures.</span>
+            <span className="italic text-[#4353CF]">Futures.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.38, duration: 0.7 }}
-            className="text-[#4A5E54] text-base md:text-[17px] mb-10 leading-relaxed max-w-sm font-light"
+            className="text-[#4F5A8A] text-base md:text-[17px] mb-10 leading-relaxed max-w-sm font-light"
           >
             Advanced Level III NICU precision meets the warmth of a doctor who
             treats every child like their own.
@@ -93,7 +93,7 @@ export default function Hero() {
           >
             <Link
               to="/contact"
-              className="w-full sm:w-auto bg-[#0A4B38] text-[#F5E6C8] px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#063322] hover:shadow-xl hover:shadow-[#063322]/25 hover:-translate-y-0.5 transition-all duration-250 flex items-center justify-center gap-2.5 tracking-wide"
+              className="w-full sm:w-auto bg-[#4353CF] text-[#F5E6C8] px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#2E3A9E] hover:shadow-xl hover:shadow-[#2E3A9E]/25 hover:-translate-y-0.5 transition-all duration-250 flex items-center justify-center gap-2.5 tracking-wide"
             >
               Book Appointment <ArrowRight size={15} />
             </Link>
@@ -108,8 +108,8 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <p className="text-[12px] font-medium text-[#4A5E54] leading-tight">
-                Trusted by <span className="font-semibold text-[#063322]">5,000+</span> parents
+              <p className="text-[12px] font-medium text-[#4F5A8A] leading-tight">
+                Trusted by <span className="font-semibold text-[#2E3A9E]">5,000+</span> parents
               </p>
             </div>
           </motion.div>
@@ -127,8 +127,8 @@ export default function Hero() {
               { val: "4.8★", label: "Rating" },
             ].map((s, i) => (
               <div key={i}>
-                <p className="font-display text-2xl font-bold italic text-[#0A4B38] leading-none">{s.val}</p>
-                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#6B7B6A] mt-1">{s.label}</p>
+                <p className="font-display text-2xl font-bold italic text-[#4353CF] leading-none">{s.val}</p>
+                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#6670A0] mt-1">{s.label}</p>
               </div>
             ))}
           </motion.div>

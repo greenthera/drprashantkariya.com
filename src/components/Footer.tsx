@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-[#063322] px-6 md:px-10 pt-16 md:pt-24 pb-6">
+    <footer className="bg-[#2E3A9E] px-6 md:px-10 pt-16 md:pt-24 pb-6">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Top */}
@@ -18,7 +18,7 @@ export default function Footer() {
             >
               P. Kariya<span className="text-[#C4973A]">.</span>
             </h2>
-            <p className="text-[#6B9A84] font-medium uppercase tracking-[0.3em] text-[9px]">
+            <p className="text-[#8993CC] font-medium uppercase tracking-[0.3em] text-[9px]">
               Surat • Gujarat • India
             </p>
             <div className="flex gap-3 mt-5">
@@ -41,9 +41,9 @@ export default function Footer() {
             <div className="space-y-4">
               <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Practice</p>
               <nav className="flex flex-col gap-3">
-                <a href="#expertise"   className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
-                <a href="#clinics"     className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
-                <a href="#publication" className="text-[#A8C5BB] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</a>
+                <a href="#expertise"   className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
+                <a href="#clinics"     className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
+                <a href="#publication" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</a>
               </nav>
             </div>
 
@@ -52,7 +52,7 @@ export default function Footer() {
               <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Param NICU & Children Hospital</p>
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="text-[#C4973A] shrink-0 mt-0.5" />
-                <p className="text-[#A8C5BB] text-sm leading-relaxed font-light">
+                <p className="text-[#ABB3E0] text-sm leading-relaxed font-light">
                   801-803, Param Doctor House,<br />Lal Darwaja,<br />Surat – 395003
                 </p>
               </div>
@@ -66,7 +66,7 @@ export default function Footer() {
               <p className="text-[#C4973A] font-semibold uppercase tracking-[0.22em] text-[10px]">Param Children Hospital</p>
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="text-[#C4973A] shrink-0 mt-0.5" />
-                <p className="text-[#A8C5BB] text-sm leading-relaxed font-light">
+                <p className="text-[#ABB3E0] text-sm leading-relaxed font-light">
                   305-306, Seven Square,<br />Majura Gate,<br />Surat – 395002
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center gap-2 text-[10px] font-medium text-[#4A6E5A] uppercase tracking-[0.25em] text-center sm:text-left">
+        <div className="flex flex-col items-center gap-2 text-[10px] font-medium text-[#4A5590] uppercase tracking-[0.25em] text-center sm:text-left">
           <p>&copy; {currentYear} Dr. Prashant Kariya. All rights reserved.</p>
           <p>
             Designed & Developed by{" "}

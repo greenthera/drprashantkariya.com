@@ -93,7 +93,7 @@ export default function Testimonial() {
   }
 
   return (
-    <section className="py-20 md:py-24 bg-[#063322] overflow-hidden">
+    <section className="py-20 md:py-24 bg-[#2E3A9E] overflow-hidden">
 
       {/* Header */}
       <div className="px-6 md:px-10 max-w-[1400px] mx-auto mb-14">
@@ -144,8 +144,8 @@ export default function Testimonial() {
       {/* Marquee */}
       <div className="relative select-none overflow-hidden">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-linear-to-r from-[#063322] to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-linear-to-l from-[#063322] to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-linear-to-r from-[#2E3A9E] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-linear-to-l from-[#2E3A9E] to-transparent pointer-events-none" />
 
         <motion.div
           className="flex gap-5 w-max px-5 cursor-grab active:cursor-grabbing touch-pan-y"
@@ -181,17 +181,17 @@ export default function Testimonial() {
             ))}
           </div>
           <span className="font-display text-2xl font-bold italic text-[#F5E6C8]">4.8</span>
-          <span className="text-[#6B9A84] text-xs font-medium uppercase tracking-[0.2em]">Average Rating</span>
+          <span className="text-[#8993CC] text-xs font-medium uppercase tracking-[0.2em]">Average Rating</span>
         </div>
         <div className="flex items-center gap-8">
           <div className="text-center">
             <p className="font-display text-3xl font-bold italic text-[#C4973A]">500+</p>
-            <p className="text-[#6B9A84] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Happy Families</p>
+            <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Happy Families</p>
           </div>
           <div className="w-px h-10 bg-white/10" />
           <div className="text-center">
             <p className="font-display text-3xl font-bold italic text-[#C4973A]">15+</p>
-            <p className="text-[#6B9A84] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Years Trusted</p>
+            <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Years Trusted</p>
           </div>
         </div>
       </motion.div>
