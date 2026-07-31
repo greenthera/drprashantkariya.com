@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import { motion, useMotionValue, useAnimationFrame, animate } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useMotionValue, useAnimationFrame, animate } from "framer-motion";
+import { Star, Quote, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { testimonialData } from "../data/testimonials";
 import { getYearsOfPractice } from "../lib/practice";
 
@@ -17,7 +17,11 @@ function initials(name: string) {
   return name.split(" ").slice(0, 2).map(w => w[0]).join("").toUpperCase();
 }
 
-function Card({ review }: { review: typeof reviews[0] }) {
+const READ_MORE_THRESHOLD = 180;
+
+function Card({ review, onOpen }: { review: typeof reviews[0]; onOpen: (review: typeof reviews[0]) => void }) {
+  const isLong = review.feedback.length > READ_MORE_THRESHOLD;
+
   return (
     <div className="w-80 shrink-0 bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/12 transition-colors duration-300">
       <div className="flex gap-0.5">
@@ -25,9 +29,23 @@ function Card({ review }: { review: typeof reviews[0] }) {
           <Star key={i} size={13} className="text-[#F2B33D] fill-[#F2B33D]" />
         ))}
       </div>
-      <p className="font-display italic text-white/85 text-base leading-relaxed flex-1">
-        "{review.feedback}"
-      </p>
+      <div className="flex-1">
+        <p className="font-display italic text-white/85 text-base leading-relaxed line-clamp-5">
+          "{review.feedback}"
+        </p>
+        {isLong && (
+          <button
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpen(review);
+            }}
+            className="text-[#F2B33D] text-xs font-semibold uppercase tracking-wide mt-2 hover:text-[#F5C264] transition-colors"
+          >
+            Read more
+          </button>
+        )}
+      </div>
       <div className="flex items-center gap-3 pt-2 border-t border-white/10">
         <div className="w-9 h-9 rounded-full bg-[#F2B33D]/20 border border-[#F2B33D]/30 flex items-center justify-center shrink-0">
           <span className="text-[#F2B33D] text-[11px] font-bold tracking-wide">
@@ -45,6 +63,8 @@ function Card({ review }: { review: typeof reviews[0] }) {
 export default function Testimonial() {
   const TOTAL = reviews.length * CARD_W;
   const items = [...reviews, ...reviews];
+
+  const [activeReview, setActiveReview] = useState<typeof reviews[0] | null>(null);
 
   const x          = useMotionValue(0);
   const dragging   = useRef(false);
@@ -157,7 +177,7 @@ export default function Testimonial() {
           onPointerCancel={onPointerUp}
         >
           {items.map((review, i) => (
-            <Card key={i} review={review} />
+            <Card key={i} review={review} onOpen={setActiveReview} />
           ))}
         </motion.div>
       </div>
@@ -196,6 +216,58 @@ export default function Testimonial() {
           </div>
         </div>
       </motion.div>
+
+      {/* Full review modal */}
+      <AnimatePresence>
+        {activeReview && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-center justify-center p-6"
+            onClick={() => setActiveReview(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 16, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative bg-[#2E3A9E] border border-white/10 rounded-2xl p-8 md:p-10 max-w-lg w-full max-h-[80vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveReview(null)}
+                aria-label="Close"
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/8 flex items-center justify-center text-white hover:bg-white/18 transition-colors"
+              >
+                <X size={18} />
+              </button>
+
+              <div className="flex gap-0.5 mb-5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={15} className="text-[#F2B33D] fill-[#F2B33D]" />
+                ))}
+              </div>
+
+              <p className="font-display italic text-white/90 text-lg leading-relaxed mb-6 pr-6">
+                "{activeReview.feedback}"
+              </p>
+
+              <div className="flex items-center gap-3 pt-5 border-t border-white/10">
+                <div className="w-10 h-10 rounded-full bg-[#F2B33D]/20 border border-[#F2B33D]/30 flex items-center justify-center shrink-0">
+                  <span className="text-[#F2B33D] text-xs font-bold tracking-wide">
+                    {initials(activeReview.name)}
+                  </span>
+                </div>
+                <p className="text-white/70 text-sm font-medium tracking-wide">
+                  {toTitleCase(activeReview.name)}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
