@@ -11,6 +11,10 @@ const credentials = [
 ];
 
 export default function About() {
+  const startYear = 2011;
+  const currentYear = new Date().getFullYear();
+  const diffYears = currentYear - startYear;
+  
   return (
     <section id="about" className="py-20 md:py-24 px-6 md:px-10 bg-white">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -44,7 +48,7 @@ export default function About() {
             <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-white/4 rounded-full pointer-events-none" />
             <div className="relative z-10">
               <p className="font-display text-6xl md:text-7xl font-bold italic text-[#F2B33D] leading-none">
-                15+
+                {diffYears}
               </p>
               <p className="uppercase text-[10px] md:text-[11px] tracking-[0.3em] font-medium text-white/60 mt-3">
                 Years of Clinical Mastery
