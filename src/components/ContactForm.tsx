@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MapPin, MessageCircle, CalendarCheck } from "lucide-react";
+import { MapPin, MessageCircle } from "lucide-react";
+import doconIcon from "../assets/docon-icon.png";
 
 const WHATSAPP_NUMBER = "919727008881";
 const DOCON_URL = "https://docon.co.in/webapp/info-card/prashantkariya?isWebView=false&isIOS=false";
@@ -65,9 +66,11 @@ export default function ContactForm() {
               rel="noopener noreferrer"
               className="flex flex-col sm:flex-row sm:items-center gap-4 p-5 md:p-6 bg-[#4353CF] rounded-xl hover:bg-[#2E3A9E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-250 group"
             >
-              <div className="w-12 h-12 bg-[#F2B33D]/20 rounded-xl flex items-center justify-center text-[#F2B33D] shrink-0 group-hover:scale-110 transition-transform duration-250">
-                <CalendarCheck size={19} />
-              </div>
+              <img
+                src={doconIcon}
+                alt="Docon"
+                className="w-12 h-12 rounded-xl shrink-0 object-cover group-hover:scale-110 transition-transform duration-250"
+              />
               <div>
                 <p className="text-white/50 font-medium uppercase text-[10px] tracking-[0.2em] mb-1">Online Booking</p>
                 <p className="font-display text-xl font-semibold text-[#F5E6C8]">Book via Docon</p>
