@@ -1,7 +1,7 @@
 const CDN_URL = "https://d502jbuhuh9wk.cloudfront.net/";
-const GRAPHY_BASE_URL = "https://drprashantkariya.graphy.com";
+export const GRAPHY_BASE_URL = "https://drprashantkariya.graphy.com";
 const FALLBACK_COVER_URL = `${CDN_URL}resources/images/cc2.jpg`;
-const MAX_COURSES = 4;
+export const MAX_COURSES = 4;
 
 export type Course = {
   id: string;

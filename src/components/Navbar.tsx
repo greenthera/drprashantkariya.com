@@ -7,6 +7,10 @@ import { HashLink } from "react-router-hash-link";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // All entries render via HashLink below, including "Courses": with no "#"
+  // in its `to`, HashLink's scroll-to-hash behavior never engages and it
+  // navigates like a plain Link, so one shared array/renderer covers both
+  // same-page anchors and full route links.
   const navLinks = [
     { name: "About", to: "/#about" },
     { name: "Expertise", to: "/#expertise" },

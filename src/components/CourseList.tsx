@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useCourses } from "../hooks/useCourses";
+import { GRAPHY_BASE_URL, MAX_COURSES } from "../lib/courses";
 
-const GRAPHY_COURSES_URL = "https://drprashantkariya.graphy.com/courses";
-const SKELETON_ROWS = [0, 1, 2, 3];
+const GRAPHY_COURSES_URL = `${GRAPHY_BASE_URL}/courses`;
+const SKELETON_ROWS = Array.from({ length: MAX_COURSES }, (_, i) => i);
 
 export default function CourseList() {
   const state = useCourses();
