@@ -3,6 +3,13 @@ export const GRAPHY_BASE_URL = "https://drprashantkariya.graphy.com";
 const FALLBACK_COVER_URL = `${CDN_URL}resources/images/cc2.jpg`;
 export const MAX_COURSES = 4;
 
+// Fixed absolute URL to the live Vercel deployment's /api/courses proxy
+// (see vercel.json), which forwards to Graphy and sends permissive CORS
+// headers. Using an absolute URL (rather than a same-origin relative path)
+// means this works regardless of where the frontend itself is hosted
+// (Vercel, GitHub Pages, Netlify, localhost, ...).
+const COURSES_API_URL = "https://dr-prashant-kariya.vercel.app/api/courses";
+
 export type Course = {
   id: string;
   title: string;
@@ -48,7 +55,7 @@ function toCourse(raw: RawCourse): Course {
 }
 
 export async function fetchCourses(): Promise<Course[]> {
-  const res = await fetch("/api/courses");
+  const res = await fetch(COURSES_API_URL);
   if (!res.ok) {
     throw new Error(`Failed to fetch courses: ${res.status}`);
   }
