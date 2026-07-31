@@ -4,6 +4,12 @@ import { MapPin, MessageCircle, CalendarCheck } from "lucide-react";
 
 const WHATSAPP_NUMBER = "919727008881";
 const DOCON_URL = "https://docon.co.in/webapp/info-card/prashantkariya?isWebView=false&isIOS=false";
+const MAPS_URL_NICU =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("Param NICU & Children Hospital, 801-803, Param Doctor House, Lal Darwaja, Surat - 395003");
+const MAPS_URL_CHILDREN =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("Param Children Hospital, 305-306, Seven Square, Majura Gate, Surat - 395002");
 
 function WhatsAppIcon({ size = 18 }: { size?: number }) {
   return (
@@ -70,8 +76,13 @@ export default function ContactForm() {
             </a>
 
             {/* Address 1 */}
-            <div className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 md:p-6 bg-white rounded-xl border border-[#E0E8E2] group">
-              <div className="w-12 h-12 bg-[#EAEDFB] rounded-xl flex items-center justify-center text-[#4353CF] shrink-0">
+            <a
+              href={MAPS_URL_NICU}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 md:p-6 bg-white rounded-xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-250 group"
+            >
+              <div className="w-12 h-12 bg-[#EAEDFB] rounded-xl flex items-center justify-center text-[#4353CF] shrink-0 group-hover:scale-110 transition-transform duration-250">
                 <MapPin size={19} />
               </div>
               <div>
@@ -80,11 +91,16 @@ export default function ContactForm() {
                   801-803, Param Doctor House,<br />Lal Darwaja, Surat – 395003
                 </p>
               </div>
-            </div>
+            </a>
 
             {/* Address 2 */}
-            <div className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 md:p-6 bg-white rounded-xl border border-[#E0E8E2] group">
-              <div className="w-12 h-12 bg-[#EAEDFB] rounded-xl flex items-center justify-center text-[#4353CF] shrink-0">
+            <a
+              href={MAPS_URL_CHILDREN}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 md:p-6 bg-white rounded-xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-250 group"
+            >
+              <div className="w-12 h-12 bg-[#EAEDFB] rounded-xl flex items-center justify-center text-[#4353CF] shrink-0 group-hover:scale-110 transition-transform duration-250">
                 <MapPin size={19} />
               </div>
               <div>
@@ -93,7 +109,7 @@ export default function ContactForm() {
                   305-306, Seven Square,<br />Majura Gate, Surat – 395002
                 </p>
               </div>
-            </div>
+            </a>
 
           </div>
         </motion.div>

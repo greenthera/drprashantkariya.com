@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone } from "lucide-react";
 
+const MAPS_URL_NICU =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("Param NICU & Children Hospital, 801-803, Param Doctor House, Lal Darwaja, Surat - 395003");
+const MAPS_URL_CHILDREN =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("Param Children Hospital, 305-306, Seven Square, Majura Gate, Surat - 395002");
+
 export default function Clinics() {
   return (
     <section id="clinics" className="py-20 md:py-24 px-6 md:px-10 bg-white">
@@ -46,7 +53,15 @@ export default function Clinics() {
             <div className="absolute -top-10 -right-10 w-44 h-44 bg-[#C4973A]/8 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
             <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/4 rounded-full pointer-events-none" />
 
-            <div className="relative z-10">
+            <a
+              href={MAPS_URL_NICU}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Param NICU & Children Hospital in Google Maps"
+              className="absolute inset-0"
+            />
+
+            <div className="relative z-10 pointer-events-none">
               <span className="inline-block bg-[#C4973A]/15 text-[#C4973A] border border-[#C4973A]/25 px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-7">
                 Level III NICU Specialist
               </span>
@@ -61,11 +76,11 @@ export default function Clinics() {
               </div>
             </div>
 
-            <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-white/10">
+            <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-white/10 pointer-events-none">
               <div className="w-9 h-9 bg-white/8 rounded-lg flex items-center justify-center">
                 <Phone size={15} className="text-[#C4973A]" />
               </div>
-              <a href="tel:02612492411" className="font-display text-xl font-semibold text-white">
+              <a href="tel:02612492411" className="font-display text-xl font-semibold text-white pointer-events-auto">
                 (0261) 2492411
               </a>
             </div>
@@ -81,7 +96,15 @@ export default function Clinics() {
           >
             <div className="absolute -top-10 -right-10 w-44 h-44 bg-[#4353CF]/4 rounded-full group-hover:scale-125 transition-transform duration-600 pointer-events-none" />
 
-            <div className="relative z-10">
+            <a
+              href={MAPS_URL_CHILDREN}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Param Children Hospital in Google Maps"
+              className="absolute inset-0"
+            />
+
+            <div className="relative z-10 pointer-events-none">
               <span className="inline-block bg-[#EAEDFB] text-[#4353CF] border border-[#D6DBF5] px-3.5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-wider mb-7">
                 General Pediatrics
               </span>
@@ -96,11 +119,11 @@ export default function Clinics() {
               </div>
             </div>
 
-            <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-[#E0E8E2]">
+            <div className="relative z-10 flex items-center gap-3 pt-6 border-t border-[#E0E8E2] pointer-events-none">
               <div className="w-9 h-9 bg-[#EAEDFB] rounded-lg flex items-center justify-center">
                 <Phone size={15} className="text-[#4353CF]" />
               </div>
-              <a href="tel:+919727008881" className="font-display text-xl font-semibold text-[#2E3A9E]">
+              <a href="tel:+919727008881" className="font-display text-xl font-semibold text-[#2E3A9E] pointer-events-auto">
                 +91 97270 08881
               </a>
             </div>
