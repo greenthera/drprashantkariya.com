@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/courses",
-      "destination": "https://drprashantkariya.graphy.com/s/store/subfilters/courses?page=0&limit=20&sortBy=relevance&domainName=drprashantkariya.graphy.com"
+      "destination": "https://drprashantkariya.graphy.com/s/store/subfilters/courses?page=0&limit=4&sortBy=relevance&domainName=drprashantkariya.graphy.com"
     },
     {
       "source": "/(.*)",

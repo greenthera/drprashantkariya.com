@@ -58,8 +58,9 @@ export async function fetchCourses(): Promise<Course[]> {
 
   // MongoDB ObjectIds embed a creation timestamp in their first bytes, so
   // descending string comparison approximates "most recently added first".
+  // The proxy already requests only MAX_COURSES from Graphy, so no slice
+  // is needed here.
   return items
     .map(toCourse)
-    .sort((a, b) => (a.id > b.id ? -1 : a.id < b.id ? 1 : 0))
-    .slice(0, MAX_COURSES);
+    .sort((a, b) => (a.id > b.id ? -1 : a.id < b.id ? 1 : 0));
 }

@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 // CORS headers, so it's proxied same-origin under /api/courses instead of
 // being fetched directly from the browser.
 const GRAPHY_COURSES_PATH =
-  '/s/store/subfilters/courses?page=0&limit=20&sortBy=relevance&domainName=drprashantkariya.graphy.com'
+  '/s/store/subfilters/courses?page=0&limit=4&sortBy=relevance&domainName=drprashantkariya.graphy.com'
 
 const coursesProxy = {
   '/api/courses': {

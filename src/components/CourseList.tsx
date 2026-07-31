@@ -1,10 +1,115 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useCourses } from "../hooks/useCourses";
-import { GRAPHY_BASE_URL, MAX_COURSES } from "../lib/courses";
+import { GRAPHY_BASE_URL, MAX_COURSES, type Course } from "../lib/courses";
 
 const GRAPHY_COURSES_URL = `${GRAPHY_BASE_URL}/courses`;
-const SKELETON_ROWS = Array.from({ length: MAX_COURSES }, (_, i) => i);
+
+function ordinal(i: number): string {
+  return String(i + 1).padStart(2, "0");
+}
+
+function FeaturedCard({ course }: { course: Course }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.65 }}
+      className="bg-[#0A4B38] text-white rounded-2xl p-8 md:p-10 relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8 md:gap-10"
+    >
+      <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#C4973A]/10 pointer-events-none" />
+      <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#C4973A]/8 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 font-display text-[9rem] leading-none font-bold text-white/4 select-none pointer-events-none translate-x-2 translate-y-4">
+        {ordinal(0)}
+      </div>
+
+      <div className="w-full sm:w-2/5 shrink-0 relative z-10 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+        <img
+          src={course.coverUrl}
+          alt={course.title}
+          className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+      </div>
+
+      <div className="relative z-10 text-center sm:text-left">
+        <span className="text-[#C4973A] font-semibold uppercase tracking-[0.2em] text-[10px] block mb-3">
+          Latest Course
+        </span>
+        <h3 className="font-display font-bold italic text-white leading-tight mb-4"
+          style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
+          {course.title}
+        </h3>
+        <p className="text-white/65 text-sm leading-relaxed font-light mb-7 max-w-md">
+          {course.description}
+        </p>
+        <a
+          href={course.courseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-[#C4973A] text-[#063322] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#DDB35C] hover:-translate-y-px transition-all duration-250"
+        >
+          Start Course <ExternalLink size={12} />
+        </a>
+      </div>
+    </motion.div>
+  );
+}
+
+function SupportingCard({ course, index }: { course: Course; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.65, delay: index * 0.08 }}
+      className="flex-1 min-w-[260px] bg-white rounded-2xl p-6 border border-[#E0E8E2] hover:border-[#C5DDD3] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+    >
+      <div className="absolute top-0 right-2 font-display text-[6rem] leading-none font-bold text-[#063322]/4 select-none pointer-events-none -translate-y-2">
+        {ordinal(index + 1)}
+      </div>
+
+      <div className="relative z-10 rounded-xl overflow-hidden mb-5">
+        <img
+          src={course.coverUrl}
+          alt={course.title}
+          className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+
+      <div className="relative z-10">
+        <h3 className="font-display text-xl font-bold italic text-[#063322] mb-2 leading-tight">
+          {course.title}
+        </h3>
+        <p className="text-[#4A5E54] text-sm leading-relaxed font-light mb-5">
+          {course.description}
+        </p>
+        <a
+          href={course.courseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-[#0A4B38] text-[#F5E6C8] px-4 py-2 rounded-lg text-[10px] font-semibold uppercase tracking-[0.15em] hover:bg-[#063322] transition-all duration-250"
+        >
+          Start Course <ExternalLink size={11} />
+        </a>
+      </div>
+    </motion.div>
+  );
+}
+
+function BentoSkeleton() {
+  return (
+    <div className="space-y-5 animate-pulse" aria-busy="true">
+      <span className="sr-only">Loading courses…</span>
+      <div className="rounded-2xl bg-[#E0E8E2] h-64 md:h-72" />
+      <div className="flex flex-col md:flex-row gap-5">
+        {Array.from({ length: MAX_COURSES - 1 }, (_, i) => i).map((i) => (
+          <div key={i} className="flex-1 min-w-[260px] rounded-2xl bg-[#E0E8E2] h-72" />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function CourseList() {
   const state = useCourses();
@@ -16,39 +121,26 @@ export default function CourseList() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16 text-center"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
         >
-          <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
-            Learn With Us
-          </span>
-          <h1
-            className="font-display font-bold text-[#063322] tracking-tight"
-            style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}
-          >
-            Our <span className="italic">Courses</span>
-          </h1>
+          <div>
+            <span className="text-[#C4973A] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
+              Learn With Us
+            </span>
+            <h1
+              className="font-display font-bold text-[#063322] tracking-tight"
+              style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}
+            >
+              Our <span className="italic">Courses</span>
+            </h1>
+          </div>
+          <p className="text-[#4A5E54] text-sm max-w-60 leading-relaxed font-light">
+            Practical courses on parenting, safety, and clinical skill-building.
+          </p>
         </motion.div>
 
         <div aria-live="polite">
-          {state.status === "loading" && (
-            <div className="space-y-14 md:space-y-20 mb-16" aria-busy="true">
-              <span className="sr-only">Loading courses…</span>
-              {SKELETON_ROWS.map((i) => (
-                <div
-                  key={i}
-                  className="flex flex-col md:flex-row items-center gap-8 md:gap-12 animate-pulse"
-                >
-                  <div className="w-full md:w-1/2 aspect-video rounded-2xl bg-[#E0E8E2]" />
-                  <div className="w-full md:w-1/2 space-y-4">
-                    <div className="h-6 w-2/3 rounded bg-[#E0E8E2] mx-auto md:mx-0" />
-                    <div className="h-4 w-full rounded bg-[#E0E8E2]" />
-                    <div className="h-4 w-5/6 rounded bg-[#E0E8E2] mx-auto md:mx-0" />
-                    <div className="h-10 w-40 rounded-xl bg-[#E0E8E2] mx-auto md:mx-0" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          {state.status === "loading" && <BentoSkeleton />}
 
           {state.status === "error" && (
             <p className="text-center text-[#4A5E54] text-sm font-light mb-16">
@@ -63,48 +155,20 @@ export default function CourseList() {
           )}
 
           {state.status === "success" && state.courses.length > 0 && (
-            <div className="flex flex-col gap-16 md:gap-20 mb-16">
-              {state.courses.map((course, i) => (
-                <motion.div
-                  key={course.id}
-                  initial={{ opacity: 0, y: 32 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.65 }}
-                  className={`flex flex-col items-center gap-8 md:gap-12 ${
-                    i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-                  }`}
-                >
-                  <div className="w-full md:w-1/2 rounded-2xl overflow-hidden border border-[#E0E8E2] shadow-[0_8px_30px_rgba(6,51,34,0.1)]">
-                    <img
-                      src={course.coverUrl}
-                      alt={course.title}
-                      className="w-full aspect-video object-cover"
-                    />
-                  </div>
-                  <div className="w-full md:w-1/2 text-center md:text-left">
-                    <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#063322] mb-3 leading-tight">
-                      {course.title}
-                    </h3>
-                    <p className="text-[#4A5E54] text-sm leading-relaxed font-light mb-6">
-                      {course.description}
-                    </p>
-                    <a
-                      href={course.courseUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#0A4B38] text-[#F5E6C8] px-5 py-2.5 rounded-xl text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#063322] hover:shadow-lg hover:shadow-[#063322]/20 hover:-translate-y-px transition-all duration-250"
-                    >
-                      Start Course <ExternalLink size={12} />
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="flex flex-col gap-5">
+              <FeaturedCard course={state.courses[0]} />
+              {state.courses.length > 1 && (
+                <div className="flex flex-col md:flex-row gap-5">
+                  {state.courses.slice(1).map((course, i) => (
+                    <SupportingCard key={course.id} course={course} index={i} />
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-16">
           <a
             href={GRAPHY_COURSES_URL}
             target="_blank"
