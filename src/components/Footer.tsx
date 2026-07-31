@@ -8,12 +8,12 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto">
 
         {/* Newsletter */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-10 md:pb-12 mb-12 md:mb-16 border-b border-white/10 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-5 mb-12 md:mb-16 max-w-2xl mx-auto text-center sm:text-left">
           <div>
-            <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#F5E6C8] mb-2">
+            <h3 className="font-display text-xl font-bold italic text-[#F5E6C8] mb-1">
               Join Our Newsletter
             </h3>
-            <p className="text-[#ABB3E0] text-sm font-light">
+            <p className="text-[#ABB3E0] text-xs font-light">
               Parenting tips and pediatric health updates, straight to your inbox.
             </p>
           </div>
@@ -21,7 +21,7 @@ export default function Footer() {
             href="https://drprashantkariya.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 bg-[#C4973A] text-[#2E3A9E] px-7 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#DDB35C] hover:-translate-y-px transition-all duration-250"
+            className="shrink-0 bg-[#C4973A] text-[#2E3A9E] px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#DDB35C] hover:-translate-y-px transition-all duration-250"
           >
             Subscribe
           </a>
