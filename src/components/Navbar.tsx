@@ -12,6 +12,7 @@ export default function Navbar() {
     { name: "Expertise", to: "/#expertise" },
     { name: "Clinics", to: "/#clinics" },
     { name: "Books", to: "/#publication" },
+    { name: "Courses", to: "/courses" },
   ];
 
   return (
