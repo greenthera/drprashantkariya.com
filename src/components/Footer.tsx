@@ -1,6 +1,13 @@
 import { FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { MapPin } from "lucide-react";
 
+const MAPS_URL_NICU =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("Param NICU & Children Hospital, 801-803, Param Doctor House, Lal Darwaja, Surat - 395003");
+const MAPS_URL_CHILDREN =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("Param Children Hospital, 305-306, Seven Square, Majura Gate, Surat - 395002");
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
@@ -64,8 +71,8 @@ export default function Footer() {
             <div className="space-y-4">
               <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Practice</p>
               <nav className="flex flex-col gap-3">
-                <a href="#expertise"   className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
-                <a href="#clinics"     className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
+                <a href="#expertise" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
+                <a href="#clinics" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
                 <a href="#publication" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</a>
               </nav>
             </div>
@@ -75,9 +82,13 @@ export default function Footer() {
               <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Param NICU & Children Hospital</p>
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="text-[#F2B33D] shrink-0 mt-0.5" />
-                <p className="text-[#ABB3E0] text-sm leading-relaxed font-light">
+                <a href={MAPS_URL_NICU}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Param NICU & Children Hospital in Google Maps"
+                  className="text-[#ABB3E0] text-sm leading-relaxed font-light">
                   801-803, Param Doctor House,<br />Lal Darwaja,<br />Surat – 395003
-                </p>
+                </a>
               </div>
               <a href="tel:02612492411" className="font-display text-lg font-bold italic text-[#F5E6C8] leading-none">
                 (0261) 2492411
@@ -89,9 +100,13 @@ export default function Footer() {
               <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Param Children Hospital</p>
               <div className="flex items-start gap-2">
                 <MapPin size={13} className="text-[#F2B33D] shrink-0 mt-0.5" />
-                <p className="text-[#ABB3E0] text-sm leading-relaxed font-light">
+                <a href={MAPS_URL_CHILDREN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Param Children Hospital in Google Maps"
+                  className="text-[#ABB3E0] text-sm leading-relaxed font-light">
                   305-306, Seven Square,<br />Majura Gate,<br />Surat – 395002
-                </p>
+                </a>
               </div>
               <a href="tel:+919727008881" className="font-display text-lg font-bold italic text-[#F5E6C8] leading-none">
                 +91 97270 08881
