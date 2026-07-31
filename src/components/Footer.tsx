@@ -4,11 +4,11 @@ import { MapPin } from "lucide-react";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-[#2E3A9E] px-6 md:px-10 pt-16 md:pt-24 pb-6">
+    <footer className="bg-[#2E3A9E] px-6 md:px-10 pt-20 pb-6">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Newsletter */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-5 mb-12 md:mb-16 max-w-2xl mx-auto text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-5 mb-20 max-w-2xl mx-auto text-center sm:text-left">
           <div>
             <h3 className="font-display text-xl font-bold italic text-[#F5E6C8] mb-1">
               Join Our Newsletter
