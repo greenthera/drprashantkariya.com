@@ -56,6 +56,8 @@ export async function fetchCourses(): Promise<Course[]> {
   const json: RawCoursesResponse = await res.json();
   const items = json["sub-home"]?.data ?? [];
 
+  // MongoDB ObjectIds embed a creation timestamp in their first bytes, so
+  // descending string comparison approximates "most recently added first".
   return items
     .map(toCourse)
     .sort((a, b) => (a.id > b.id ? -1 : a.id < b.id ? 1 : 0))
