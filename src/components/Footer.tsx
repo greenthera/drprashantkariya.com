@@ -1,4 +1,4 @@
-import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { MapPin } from "lucide-react";
 
 export default function Footer() {
@@ -50,6 +50,9 @@ export default function Footer() {
               </a>
               <a href="https://in.linkedin.com/in/prashant-kariya-908a2b56" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
                 <FaLinkedin color="#F5E6C8" size={20} />
+              </a>
+              <a href="https://www.youtube.com/@PrashantKariya" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
+                <FaYoutube color="#F5E6C8" size={20} />
               </a>
             </div>
           </div>
