@@ -2,21 +2,16 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import SectionLink from "./SectionLink";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // All entries render via HashLink below, including "Courses": with no "#"
-  // in its `to`, HashLink's scroll-to-hash behavior never engages and it
-  // navigates like a plain Link, so one shared array/renderer covers both
-  // same-page anchors and full route links.
-  const navLinks = [
-    { name: "About", to: "/#about" },
-    { name: "Expertise", to: "/#expertise" },
-    { name: "Clinics", to: "/#clinics" },
-    { name: "Books", to: "/#publication" },
-    { name: "Courses", to: "/courses" },
+  const sectionLinks = [
+    { name: "About", id: "about" },
+    { name: "Expertise", id: "expertise" },
+    { name: "Clinics", id: "clinics" },
+    { name: "Books", id: "publication" },
   ];
 
   return (
@@ -44,16 +39,21 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-9">
-            {navLinks.map((link) => (
-              <HashLink
+            {sectionLinks.map((link) => (
+              <SectionLink
                 key={link.name}
-                smooth
-                to={link.to}
+                id={link.id}
                 className="text-[13px] font-medium text-[#4F5A8A] hover:text-[#4353CF] transition-colors duration-200 tracking-wide"
               >
                 {link.name}
-              </HashLink>
+              </SectionLink>
             ))}
+            <Link
+              to="/courses"
+              className="text-[13px] font-medium text-[#4F5A8A] hover:text-[#4353CF] transition-colors duration-200 tracking-wide"
+            >
+              Courses
+            </Link>
           </div>
 
           <div className="flex items-center gap-3">
@@ -83,17 +83,23 @@ export default function Navbar() {
             className="fixed inset-0 z-[90] bg-[#FAF9F6] pt-20 px-6 lg:hidden"
           >
             <div className="flex flex-col gap-1 pt-4">
-              {navLinks.map((link) => (
-                <HashLink
+              {sectionLinks.map((link) => (
+                <SectionLink
                   key={link.name}
-                  smooth
-                  to={link.to}
-                  onClick={() => setIsOpen(false)}
+                  id={link.id}
+                  onNavigate={() => setIsOpen(false)}
                   className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
                 >
                   {link.name}
-                </HashLink>
+                </SectionLink>
               ))}
+              <Link
+                to="/courses"
+                onClick={() => setIsOpen(false)}
+                className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+              >
+                Courses
+              </Link>
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}

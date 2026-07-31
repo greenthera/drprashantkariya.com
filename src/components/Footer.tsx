@@ -1,5 +1,6 @@
 import { FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { MapPin } from "lucide-react";
+import SectionLink from "./SectionLink";
 
 const MAPS_URL_NICU =
   "https://www.google.com/maps/search/?api=1&query=" +
@@ -71,9 +72,9 @@ export default function Footer() {
             <div className="space-y-4">
               <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Practice</p>
               <nav className="flex flex-col gap-3">
-                <a href="#expertise" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</a>
-                <a href="#clinics" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</a>
-                <a href="#publication" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</a>
+                <SectionLink id="expertise" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</SectionLink>
+                <SectionLink id="clinics" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</SectionLink>
+                <SectionLink id="publication" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</SectionLink>
               </nav>
             </div>
 
