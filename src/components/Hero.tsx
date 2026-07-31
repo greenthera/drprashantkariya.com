@@ -5,6 +5,7 @@ import DoctorAnimation from "./DoctorAnimation";
 import review1 from "../assets/review-1.png";
 import review2 from "../assets/review-2.png";
 import review3 from "../assets/review-3.png";
+import { getYearsOfPractice } from "../lib/practice";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -122,7 +123,7 @@ export default function Hero() {
             className="flex items-center gap-8 pt-8 border-t border-[#E0E8E2]"
           >
             {[
-              { val: "15+", label: "Years" },
+              { val: `${getYearsOfPractice()}`, label: "Years" },
               { val: "5K+", label: "Families" },
               { val: "4.8★", label: "Rating" },
             ].map((s, i) => (

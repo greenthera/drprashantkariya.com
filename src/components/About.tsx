@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import drImageAbout from "../assets/dr-image.jpg"
 import drImageAboutOne from "../assets/dr-image-1.jpg"
-
-const credentials = [
-  "MBBS – B.J. Medical",
-  "MD Pediatrics",
-  "Param NICU Founder",
-  "15+ Years Exp",
-];
+import { getYearsOfPractice } from "../lib/practice";
 
 export default function About() {
-  const startYear = 2011;
-  const currentYear = new Date().getFullYear();
-  const diffYears = currentYear - startYear;
-  
+  const yearsOfPractice = getYearsOfPractice();
+
+  const credentials = [
+    "MBBS – B.J. Medical",
+    "MD Pediatrics",
+    "Param NICU Founder",
+    `${yearsOfPractice} Years Exp`,
+  ];
+
+
   return (
     <section id="about" className="py-20 md:py-24 px-6 md:px-10 bg-white">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -48,7 +48,7 @@ export default function About() {
             <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-white/4 rounded-full pointer-events-none" />
             <div className="relative z-10">
               <p className="font-display text-6xl md:text-7xl font-bold italic text-[#F2B33D] leading-none">
-                {diffYears}
+                {yearsOfPractice}
               </p>
               <p className="uppercase text-[10px] md:text-[11px] tracking-[0.3em] font-medium text-white/60 mt-3">
                 Years of Clinical Mastery
@@ -80,7 +80,7 @@ export default function About() {
 
           <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
             <b className="font-semibold text-[#2E3A9E]">Dr. Prashant Kariya</b> is a pediatrician and adolescent health expert
-            with 15+ years of experience in child development, neonatal
+            with {yearsOfPractice} years of experience in child development, neonatal
             intensive care, and teenage health and wellness.
           </p>
 
