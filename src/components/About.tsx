@@ -100,14 +100,13 @@ export default function About() {
           <div className="inline-flex items-center gap-2 bg-[#EAEDFB] border border-[#D6DBF5] px-4 py-2.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D]" />
             <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
-              Excellence in Care
+              Pediatrician & Adolescent Health Expert
             </span>
           </div>
 
           <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight leading-[0.88] mb-6"
             style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}>
-            Pediatrician &amp; <br />
-            <span className="italic">Adolescent Health Expert.</span>
+            Dr. Prashant Kariya
           </h2>
 
           <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
