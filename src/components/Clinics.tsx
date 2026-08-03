@@ -34,7 +34,7 @@ export default function Clinics() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[#4F5A8A] text-sm max-w-[210px] leading-relaxed font-light"
+            className="text-[#4F5A8A] text-sm md:max-w-52.5 leading-relaxed font-light"
           >
             Providing critical care across two prime locations in Surat.
           </motion.p>

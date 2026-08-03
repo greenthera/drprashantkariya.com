@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import doctorImage from "../assets/doctorImage.png"
 import { getYearsOfPractice } from "../lib/practice";
+import DoctorAnimation from "./DoctorAnimation";
 
 export default function About() {
   const yearsOfPractice = getYearsOfPractice();
@@ -73,19 +73,16 @@ export default function About() {
     <section id="about" className="py-20 md:py-24 px-6 md:px-10 bg-white">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-        {/* LEFT: Images */}
+        {/* ── RIGHT: Image ── */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.75 }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.95, delay: 0.1, ease: "easeOut" }}
+          className="order-1 lg:order-2 relative"
         >
-          <div className="rounded-2xl overflow-hidden group shadow-sm">
-            <img
-              src={doctorImage}
-              className="w-full h-full max-h-180 object-top object-cover group-hover:scale-105 transition-transform duration-700"
-              alt="Medical Professional"
-            />
+          {/* Animation */}
+          <div className="h-80 sm:h-96 md:h-125 lg:h-140">
+            <DoctorAnimation />
           </div>
         </motion.div>
 
@@ -109,7 +106,7 @@ export default function About() {
             Dr. Prashant Kariya
           </h2>
 
-          <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
+          <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-8 lg:max-w-xl font-light">
             <b className="font-semibold text-[#2E3A9E]">Dr. Prashant Kariya</b> is a pediatrician, neonatologist, educator, author, and public health advocate
             dedicated to improving the health and well-being of children. With over two decades of clinical,
             academic, and community experience, he combines evidence-based medicine with compassionate care.
@@ -153,7 +150,7 @@ export default function About() {
             Qualifications
           </h2>
 
-          <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-light">
+          <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-8 lg:max-w-xl font-light">
             Academic training and certifications spanning pediatric medicine, healthcare management, and global public health.
           </p>
 
@@ -170,11 +167,11 @@ export default function About() {
                 <CheckCircle2 size={17} className="text-[#4353CF] shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
                   <p className="text-[12px] font-semibold text-[#2E3A9E] uppercase tracking-tight">
-                  {item.name}
-                </p>
-                <p className="text-[12px] text-[#2E3A9E] uppercase tracking-tight">
-                  {item.title}
-                </p>
+                    {item.name}
+                  </p>
+                  <p className="text-[12px] text-[#2E3A9E] uppercase tracking-tight">
+                    {item.title}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -202,7 +199,7 @@ export default function About() {
             Professional Journey
           </h2>
 
-          <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-14 max-w-3xl font-light">
+          <p className="text-[#4F5A8A] text-base md:text-[17px] leading-relaxed mb-14 lg:max-w-3xl font-light">
             Dr. Prashant Kariya has devoted his career to advancing pediatric and newborn healthcare
             through clinical excellence, medical education, and community service. His passion for
             education, innovation, and public health continues to shape better outcomes for children

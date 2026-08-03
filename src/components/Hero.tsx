@@ -1,15 +1,26 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import DoctorAnimation from "./DoctorAnimation";
-import review1 from "../assets/review-1.png";
-import review2 from "../assets/review-2.png";
-import review3 from "../assets/review-3.png";
+import { motion } from "framer-motion";
+import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap } from "lucide-react";
+import SectionLink from "./SectionLink";
+import doctorImage from "../assets/doctorImage.png";
 import { getYearsOfPractice } from "../lib/practice";
 
+const STATS = [
+  { icon: Diamond, color: "#F2B33D", value: "4.9", label: "Google Rating" },
+  { icon: Users, color: "#4353CF", value: "20,000+", label: "Families Served" },
+  { icon: TrendingUp, color: "#2F9E6E", value: `${getYearsOfPractice()}+`, label: "Years Experience" },
+  { icon: CircleDot, color: "#F0784A", value: "Trusted", label: "by Thousands of Parents" },
+];
+
+const BADGES = [
+  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "-top-3 -left-4 sm:-left-8" },
+  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "-top-2 -right-3 sm:-right-8" },
+  { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[32%] -left-6 sm:-left-14" },
+  { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-6 sm:-right-14" },
+  { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6" },
+];
+
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const blobY = useTransform(scrollY, [0, 800], [0, -80]);
+  const years = getYearsOfPractice();
 
   return (
     <section id="hero" className="relative bg-[#FAF9F6] overflow-hidden">
@@ -23,20 +34,12 @@ export default function Hero() {
         }}
       />
 
-      {/* Blobs */}
-      <motion.div style={{ y: blobY }} className="absolute -top-40 -left-40 w-120 h-120 rounded-full bg-[#EAEDFB] pointer-events-none" />
-      <motion.div style={{ y: useTransform(scrollY, [0, 800], [0, 50]) }} className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#EAEDFB]/50 pointer-events-none" />
-
-      {/* PK monogram */}
-      <div
-        className="absolute bottom-10 left-6 font-display font-bold italic text-[#2E3A9E]/4 select-none pointer-events-none leading-none hidden lg:block"
-        style={{ fontSize: "14rem" }}
-      >
-        PK
-      </div>
+      {/* Decorative circles */}
+      <div className="absolute -top-40 -left-40 w-120 h-120 rounded-full bg-[#EAEDFB] pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#EAEDFB]/60 pointer-events-none" />
 
       {/* Main grid */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-28 pb-16 md:pt-30 md:pb-20 lg:pt-30 lg:pb-24">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center pt-28 pb-10 md:pt-30 md:pb-12 lg:pt-30 lg:pb-14">
 
         {/* ── LEFT ── */}
         <motion.div
@@ -49,70 +52,75 @@ export default function Hero() {
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.15, duration: 0.6 }}
-            className="flex items-center gap-2.5 mb-6 bg-[#EAEDFB] border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full"
+            className="flex items-center gap-2.5 mb-6 bg-white border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full shadow-sm"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D] shrink-0 animate-pulse" />
-            <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
-              Pediatrician & Adolescent Health Expert
+            <span className="relative w-4 h-4 shrink-0">
+              <span className="absolute left-0 top-0.5 w-2.5 h-2.5 rounded-full bg-[#4353CF]" />
+              <span className="absolute left-1.5 top-0.5 w-2.5 h-2.5 rounded-full bg-[#F2B33D]" />
+            </span>
+            <span className="text-[#2E3A9E] font-medium text-[13px]">
+              Pediatrician · Neonatologist · Medical Educator
             </span>
           </motion.div>
-
-          {/* Gold rule */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.22, duration: 0.5, ease: "easeOut" }}
-            className="origin-left w-14 h-px bg-[#F2B33D]/60 mb-6"
-          />
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.9, ease: "easeOut" }}
-            className="font-display font-bold text-[#2E3A9E] leading-[0.82] tracking-tight mb-7"
-            style={{ fontSize: "clamp(3.6rem, 6vw, 6.5rem)" }}
+            className="font-display font-bold text-[#232323] leading-[1.08] tracking-tight mb-6"
+            style={{ fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}
           >
-            Nurturing <br />
-            <span className="italic text-[#4353CF]">Futures.</span>
+            Nurturing <span className="italic text-[#4353CF]">Children.</span><br />
+            Empowering <span className="italic text-[#4353CF]">Parents.</span><br />
+            Transforming <span className="italic text-[#4353CF]">Pediatric Care.</span>
           </motion.h1>
+
+          {/* Gold rule */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.36, duration: 0.5, ease: "easeOut" }}
+            className="origin-left w-14 h-px bg-[#F2B33D] mb-6"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
+            className="mb-6"
+          >
+            <h2 className="font-display font-bold text-[#232323] text-2xl mb-1">Dr. Prashant Kariya</h2>
+            <p className="text-[#6670A0] text-sm mb-2">MD Pediatrics | FIAP | PGDHHM</p>
+            <p className="text-[#4353CF] font-medium text-sm leading-relaxed">
+              Pediatrician · Neonatologist · Medical Educator · Author
+            </p>
+            <p className="text-[#4353CF] font-medium text-sm">AI in Healthcare Enthusiast</p>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.38, duration: 0.7 }}
-            className="text-[#4F5A8A] text-base md:text-[17px] mb-10 leading-relaxed max-w-sm font-light"
+            transition={{ delay: 0.48, duration: 0.7 }}
+            className="text-[#4F5A8A] text-base md:text-[17px] mb-8 leading-relaxed lg:max-w-lg font-light"
           >
-            Advanced Level III NICU precision meets the warmth of a doctor who
-            treats every child like their own.
+            Compassionate pediatric care backed by over{" "}
+            <span className="font-semibold text-[#2E3A9E]">{years} years</span> of experience, trusted by
+            more than <span className="font-semibold text-[#2E3A9E]">20,000 families</span>. Combining
+            clinical excellence, education, and innovation to help every child thrive.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.48, duration: 0.6 }}
-            className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10"
+            transition={{ delay: 0.56, duration: 0.6 }}
+            className="mb-10"
           >
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto bg-[#4353CF] text-[#F5E6C8] px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#2E3A9E] hover:shadow-xl hover:shadow-[#2E3A9E]/25 hover:-translate-y-0.5 transition-all duration-250 flex items-center justify-center gap-2.5 tracking-wide"
+            <SectionLink
+              id="about"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#4353CF] text-[#F5E6C8] px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#2E3A9E] hover:shadow-xl hover:shadow-[#2E3A9E]/25 hover:-translate-y-0.5 transition-all duration-250 tracking-wide"
             >
-              Book Appointment <ArrowRight size={15} />
-            </Link>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2.5">
-                {[review1, review2, review3].map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt=""
-                    className="w-12 h-12 rounded-full border-2 border-[#FAF9F6] object-cover"
-                  />
-                ))}
-              </div>
-              <p className="text-[12px] font-medium text-[#4F5A8A] leading-tight">
-                Trusted by <span className="font-semibold text-[#2E3A9E]">5,000+</span> parents
-              </p>
-            </div>
+              Meet Dr. Prashant Kariya <ArrowRight size={15} />
+            </SectionLink>
           </motion.div>
 
           {/* Stats */}
@@ -120,19 +128,29 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.65, duration: 0.6 }}
-            className="flex items-center gap-8 pt-8 border-t border-[#E0E8E2]"
+            className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-[#E0E8E2]"
           >
-            {[
-              { val: `${getYearsOfPractice()}+`, label: "Years" },
-              { val: "5K+", label: "Families" },
-              { val: "4.8★", label: "Rating" },
-            ].map((s, i) => (
-              <div key={i}>
-                <p className="font-display text-2xl font-bold italic text-[#4353CF] leading-none">{s.val}</p>
-                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#6670A0] mt-1">{s.label}</p>
-              </div>
+            {STATS.map((s, i) => (
+              <motion.div
+                key={i}
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3.5 + i * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
+                className="flex items-center gap-2.5"
+              >
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: `${s.color}1A` }}
+                >
+                  <s.icon size={15} style={{ color: s.color }} />
+                </span>
+                <div>
+                  <p className="font-display text-sm font-bold text-[#232323] leading-tight">{s.value}</p>
+                  <p className="text-[10px] font-medium text-[#6670A0] leading-tight">{s.label}</p>
+                </div>
+              </motion.div>
             ))}
           </motion.div>
+
         </motion.div>
 
         {/* ── RIGHT: Image ── */}
@@ -140,15 +158,67 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.95, delay: 0.1, ease: "easeOut" }}
-          className="order-1 lg:order-2 relative"
+          className="order-1 lg:order-2 relative flex justify-center"
         >
-          {/* Animation */}
-          <div className="h-80 sm:h-96 md:h-125 lg:h-140">
-            <DoctorAnimation />
+          <div className="relative w-full max-w-90 sm:max-w-100 lg:max-w-110 aspect-square my-8 sm:my-12">
+            {/* Dashed ring */}
+            <div className="absolute -inset-4 sm:-inset-6 rounded-full border-2 border-dashed border-[#C7CCEE] pointer-events-none" />
+
+            {/* Photo */}
+            <div className="absolute inset-0 rounded-full overflow-hidden shadow-md">
+              <img
+                src={doctorImage}
+                className="w-full h-full object-top object-cover"
+                alt="Dr. Prashant Kariya"
+              />
+            </div>
+
+            {/* Floating badges */}
+            {BADGES.map((b, i) => (
+              <motion.div
+                key={i}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+                className={`hidden md:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap`}
+              >
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: `${b.color}1A` }}
+                >
+                  <b.icon size={15} style={{ color: b.color }} />
+                </span>
+                <div>
+                  <p className="text-[12.5px] font-bold text-[#232323] leading-tight">{b.title}</p>
+                  <p className="text-[10.5px] text-[#6670A0] leading-tight">{b.subtitle}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
       </div>
+
+      {/* Mission card — full width */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-20 lg:pb-24"
+      >
+        <div className="bg-[#EDEBFB] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-start gap-4 md:gap-5">
+          <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 text-[#4353CF]">
+            <Target size={18} />
+          </span>
+          <div>
+            <h3 className="font-display font-bold text-[#232323] text-base md:text-lg mb-1.5">Our Mission</h3>
+            <p className="text-[#4F5A8A] text-sm md:text-[15px] leading-relaxed font-light">
+              To nurture healthier children, empower parents with trusted knowledge, and advance
+              pediatric care through compassion, education, innovation, and community service.
+            </p>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

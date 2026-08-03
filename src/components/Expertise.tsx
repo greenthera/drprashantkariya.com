@@ -31,7 +31,7 @@ export default function Expertise() {
               Specialized <span className="italic">Services</span>
             </h2>
           </div>
-          <p className="text-[#4F5A8A] text-sm max-w-xs leading-relaxed font-light">
+          <p className="text-[#4F5A8A] text-sm md:max-w-xs leading-relaxed font-light">
             Advanced care across seven critical paediatric disciplines.
           </p>
         </motion.div>

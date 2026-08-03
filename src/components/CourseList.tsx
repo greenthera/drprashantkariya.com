@@ -134,7 +134,7 @@ export default function CourseList() {
               Our <span className="italic">Courses</span>
             </h1>
           </div>
-          <p className="text-[#4F5A8A] text-sm max-w-60 leading-relaxed font-light">
+          <p className="text-[#4F5A8A] text-sm md:max-w-60 leading-relaxed font-light">
             Practical courses on parenting, safety, and clinical skill-building.
           </p>
         </motion.div>

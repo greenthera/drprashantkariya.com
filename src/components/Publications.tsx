@@ -40,7 +40,7 @@ export default function Publications() {
               The <span className="italic">Archive</span>
             </h2>
           </div>
-          <p className="text-[#4F5A8A] text-sm max-w-[220px] leading-relaxed font-light">
+          <p className="text-[#4F5A8A] text-sm md:max-w-55 leading-relaxed font-light">
             Titles on parenting, empathy, and raising the next generation.
           </p>
         </motion.div>

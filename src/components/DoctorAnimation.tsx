@@ -8,6 +8,7 @@ export default function DoctorAnimation() {
           .da-float-b1 { animation: da-float 5s ease-in-out infinite; animation-delay: 0.7s; transform-box: fill-box; transform-origin: center; }
           .da-float-b2 { animation: da-float 5.5s ease-in-out infinite; animation-delay: 1.4s; transform-box: fill-box; transform-origin: center; }
           .da-float-b3 { animation: da-float 6s ease-in-out infinite; animation-delay: 2.1s; transform-box: fill-box; transform-origin: center; }
+          .da-float-b4 { animation: da-float 6.5s ease-in-out infinite; animation-delay: 2.8s; transform-box: fill-box; transform-origin: center; }
           .da-ring1    { animation: da-ring 3s ease-out infinite; transform-box: fill-box; transform-origin: center; }
           .da-ring2    { animation: da-ring 3s ease-out infinite; animation-delay: 1.5s; transform-box: fill-box; transform-origin: center; }
           .da-spark1   { animation: da-spark 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
@@ -129,14 +130,20 @@ export default function DoctorAnimation() {
       {/* ── FLOATING BADGES ── */}
       <g className="da-float-b1" filter="url(#da-shadow)">
         <rect x="362" y="140" width="108" height="54" rx="14" fill="white" />
-        <text x="380" y="164" fontFamily="Georgia,serif" fontSize="11" fontWeight="700" fill="#2E3A9E">4.9 ★★★★★</text>
-        <text x="380" y="181" fontFamily="Arial,sans-serif" fontSize="9" fill="#6670A0">Trusted Care</text>
+        <text x="380" y="160" fontFamily="Georgia,serif" fontSize="11" fontWeight="700" fill="#2E3A9E">Vaccination</text>
+        <text x="380" y="176" fontFamily="Georgia,serif" fontSize="9" fill="#6670A0">IAP Schedule</text>
       </g>
 
       <g className="da-float-b2" filter="url(#da-shadow)">
-        <rect x="30" y="160" width="100" height="54" rx="14" fill="#4353CF" />
-        <text x="50" y="184" fontFamily="Georgia,serif" fontSize="16" fontWeight="700" fill="#E2E8F0">100%</text>
-        <text x="50" y="200" fontFamily="Arial,sans-serif" fontSize="8.5" fill="#ABB3E0">Safe & Secure</text>
+        <rect x="22" y="160" width="120" height="54" rx="14" fill="#4353CF" />
+        <text x="42" y="180" fontFamily="Georgia,serif" fontSize="11" fontWeight="700" fill="#E2E8F0">Newborn Care</text>
+        <text x="42" y="196" fontFamily="Georgia,serif" fontSize="9" fill="#C7CCEE">0–28 Days</text>
+      </g>
+
+      <g className="da-float-b4" filter="url(#da-shadow)">
+        <rect x="16" y="380" width="104" height="54" rx="14" fill="#F2B33D" />
+        <text x="36" y="400" fontFamily="Georgia,serif" fontSize="11" fontWeight="700" fill="#2E3A9E">NICU Care</text>
+        <text x="36" y="416" fontFamily="Georgia,serif" fontSize="9" fill="#2E3A9E" opacity="0.65">Level III</text>
       </g>
 
       {/* ── SPARKLES ── */}
