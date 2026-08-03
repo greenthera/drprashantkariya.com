@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import Contact from "./pages/Contact";
 import Courses from "./pages/Courses";
+import Publications from "./pages/Publications";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="contact" element={<Contact />} />
             <Route path="courses" element={<Courses />} />
+            <Route path="publications" element={<Publications />} />
           </Route>
         </Routes>
       </Router>

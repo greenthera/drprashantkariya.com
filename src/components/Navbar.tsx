@@ -54,6 +54,12 @@ export default function Navbar() {
             >
               Courses
             </Link>
+            <Link
+              to="/publications"
+              className="text-[13px] font-medium text-[#4F5A8A] hover:text-[#4353CF] transition-colors duration-200 tracking-wide"
+            >
+              Publications
+            </Link>
           </div>
 
           <div className="flex items-center gap-3">
@@ -99,6 +105,13 @@ export default function Navbar() {
                 className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
               >
                 Courses
+              </Link>
+              <Link
+                to="/publications"
+                onClick={() => setIsOpen(false)}
+                className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+              >
+                Publications
               </Link>
               <Link
                 to="/contact"
