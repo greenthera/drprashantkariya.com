@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
-import { ExternalLink, FileText, BookOpen, Newspaper, Microscope, GraduationCap } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { PublicationsData } from "../data/publications";
-
-const ICONS = [FileText, BookOpen, Newspaper, Microscope, GraduationCap];
-
-function ordinal(i: number): string {
-  return String(i + 1).padStart(2, "0");
-}
 
 export default function PublicationsGrid() {
   return (
@@ -37,7 +31,6 @@ export default function PublicationsGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PublicationsData.map((pub, i) => {
-            const Icon = ICONS[i % ICONS.length];
             return (
               <motion.div
                 key={i}
@@ -48,13 +41,9 @@ export default function PublicationsGrid() {
                 className="bg-white rounded-2xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col overflow-hidden"
               >
                 {/* "Image" — icon panel */}
-                <div className="relative h-36 bg-linear-to-br from-[#4353CF] to-[#2E3A9E] flex items-center justify-center overflow-hidden shrink-0">
-                  <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full border border-[#F2B33D]/15 pointer-events-none" />
-                  <div className="absolute bottom-0 right-2 font-display text-6xl leading-none font-bold text-white/8 select-none pointer-events-none">
-                    {ordinal(i)}
-                  </div>
-                  <div className="relative z-10 w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-[#F2B33D]/20 group-hover:scale-105 transition-all duration-300">
-                    <Icon size={24} className="text-[#F2B33D]" />
+                <div className="relative bg-linear-to-br from-[#4353CF] to-[#2E3A9E] flex items-center justify-center overflow-hidden shrink-0">
+                  <div className="relative z-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-[#F2B33D]/20 group-hover:scale-105 transition-all duration-300">
+                    <img className=" aspect-video" src={pub.image} />
                   </div>
                 </div>
 
