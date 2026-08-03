@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Expertise from "../components/Expertise";
+import CoursesCTA from "../components/CoursesCTA";
 import Clinics from "../components/Clinics";
 import Testimonial from "../components/Testimonial";
 import BookAppointment from "../components/BookAppointment";
@@ -32,6 +33,7 @@ export default function Home() {
       <Hero />
       <About />
       <Expertise />
+      <CoursesCTA />
       <Clinics />
       <Testimonial />
       <BookAppointment />
