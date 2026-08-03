@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap, X } from "lucide-react";
-import SectionLink from "./SectionLink";
 import doctorImage from "../assets/doctorImage.png";
 import { getYearsOfPractice } from "../lib/practice";
+import { Link } from "react-router-dom";
 
 const STATS = [
   { icon: Diamond, color: "#F2B33D", value: "4.9", label: "Google Rating" },
@@ -120,12 +120,12 @@ export default function Hero() {
             transition={{ delay: 0.56, duration: 0.6 }}
             className="mb-10"
           >
-            <SectionLink
-              id="about"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#4353CF] text-[#F5E6C8] px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#2E3A9E] hover:shadow-xl hover:shadow-[#2E3A9E]/25 hover:-translate-y-0.5 transition-all duration-250 tracking-wide"
+            <Link
+              to="/contact"
+              className="flex items-center gap-1.5 w-fit bg-[#4353CF] text-[#F5E6C8] px-5 py-2.5 rounded-lg text-[13px] font-semibold hover:bg-[#2E3A9E] hover:shadow-lg hover:shadow-[#2E3A9E]/20 hover:-translate-y-px transition-all duration-200"
             >
               Meet Dr. Prashant Kariya <ArrowRight size={15} />
-            </SectionLink>
+            </Link>
           </motion.div>
 
           {/* Stats */}
