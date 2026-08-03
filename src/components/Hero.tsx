@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap, X } from "lucide-react";
 import SectionLink from "./SectionLink";
 import doctorImage from "../assets/doctorImage.png";
 import { getYearsOfPractice } from "../lib/practice";
@@ -11,16 +12,20 @@ const STATS = [
   { icon: CircleDot, color: "#F0784A", value: "Trusted", label: "by Thousands of Parents" },
 ];
 
+// Duration/delay pairs mirror DoctorAnimation.tsx's da-float-b1..b4 CSS
+// keyframes (5s/0.7s, 5.5s/1.4s, 6s/2.1s, 6.5s/2.8s) so both floating
+// animations read as the same motion language across sections.
 const BADGES = [
-  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "-top-3 -left-4 sm:-left-8" },
-  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "-top-2 -right-3 sm:-right-8" },
-  { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[32%] -left-6 sm:-left-14" },
-  { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-6 sm:-right-14" },
-  { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6" },
+  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "-top-3 -left-4 sm:-left-8", duration: 5, delay: 0.7 },
+  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "-top-2 -right-3 sm:-right-8", duration: 5.5, delay: 1.4 },
+  { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[32%] -left-6 sm:-left-14", duration: 6, delay: 2.1 },
+  { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-6 sm:-right-14", duration: 6.5, delay: 2.8 },
+  { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6", duration: 7, delay: 3.5 },
 ];
 
 export default function Hero() {
   const years = getYearsOfPractice();
+  const [photoOpen, setPhotoOpen] = useState(false);
 
   return (
     <section id="hero" className="relative bg-[#FAF9F6] overflow-hidden">
@@ -165,20 +170,25 @@ export default function Hero() {
             <div className="absolute -inset-4 sm:-inset-6 rounded-full border-2 border-dashed border-[#C7CCEE] pointer-events-none" />
 
             {/* Photo */}
-            <div className="absolute inset-0 rounded-full overflow-hidden shadow-md">
+            <button
+              type="button"
+              onClick={() => setPhotoOpen(true)}
+              aria-label="View full photo of Dr. Prashant Kariya"
+              className="absolute inset-0 rounded-full overflow-hidden shadow-md cursor-pointer"
+            >
               <img
                 src={doctorImage}
                 className="w-full h-full object-top object-cover"
                 alt="Dr. Prashant Kariya"
               />
-            </div>
+            </button>
 
             {/* Floating badges */}
             {BADGES.map((b, i) => (
               <motion.div
                 key={i}
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+                animate={{ y: [0, -14, 0] }}
+                transition={{ duration: b.duration, repeat: Infinity, ease: "easeInOut", delay: b.delay }}
                 className={`hidden md:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap`}
               >
                 <span
@@ -219,6 +229,42 @@ export default function Hero() {
           </div>
         </div>
       </motion.div>
+
+      {/* Full photo lightbox */}
+      <AnimatePresence>
+        {photoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-8 sm:p-6"
+            onClick={() => setPhotoOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 16, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative inline-block max-w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setPhotoOpen(false)}
+                aria-label="Close"
+                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#2E3A9E] shadow-lg hover:bg-[#EAEDFB] transition-colors"
+              >
+                <X size={18} />
+              </button>
+              <img
+                src={doctorImage}
+                alt="Dr. Prashant Kariya"
+                className="block max-w-full max-h-[60vh] sm:max-h-[85vh] md:max-h-[92vh] object-contain rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
