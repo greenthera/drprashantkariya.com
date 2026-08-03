@@ -63,7 +63,7 @@ function SupportingCard({ course, index }: { course: Course; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.65, delay: index * 0.08 }}
-      className="flex-1 min-w-[260px] bg-white rounded-2xl p-6 border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+      className="bg-white rounded-2xl p-6 border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
     >
       <div className="absolute top-0 right-2 font-display text-[6rem] leading-none font-bold text-[#2E3A9E]/4 select-none pointer-events-none -translate-y-2">
         {ordinal(index + 1)}
@@ -102,9 +102,9 @@ function BentoSkeleton() {
     <div className="space-y-5 animate-pulse" aria-busy="true">
       <span className="sr-only">Loading courses…</span>
       <div className="rounded-2xl bg-[#E0E8E2] h-64 md:h-72" />
-      <div className="flex flex-col md:flex-row gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {Array.from({ length: MAX_COURSES - 1 }, (_, i) => i).map((i) => (
-          <div key={i} className="flex-1 min-w-[260px] rounded-2xl bg-[#E0E8E2] h-72" />
+          <div key={i} className="rounded-2xl bg-[#E0E8E2] h-72" />
         ))}
       </div>
     </div>
@@ -158,7 +158,7 @@ export default function CourseList() {
             <div className="flex flex-col gap-5">
               <FeaturedCard course={state.courses[0]} />
               {state.courses.length > 1 && (
-                <div className="flex flex-col md:flex-row gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {state.courses.slice(1).map((course, i) => (
                     <SupportingCard key={course.id} course={course} index={i} />
                   ))}
