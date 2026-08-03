@@ -123,7 +123,7 @@ export default function Hero() {
             className="flex items-center gap-8 pt-8 border-t border-[#E0E8E2]"
           >
             {[
-              { val: `${getYearsOfPractice()}`, label: "Years" },
+              { val: `${getYearsOfPractice()}+`, label: "Years" },
               { val: "5K+", label: "Families" },
               { val: "4.8★", label: "Rating" },
             ].map((s, i) => (

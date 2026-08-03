@@ -211,7 +211,7 @@ export default function Testimonial() {
           </div>
           <div className="w-px h-10 bg-white/10" />
           <div className="text-center">
-            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">{getYearsOfPractice()}</p>
+            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">{getYearsOfPractice()}+</p>
             <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Years Trusted</p>
           </div>
         </div>
