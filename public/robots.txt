@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://drprashantkariya.com/sitemap.xml
