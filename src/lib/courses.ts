@@ -3,12 +3,11 @@ export const GRAPHY_BASE_URL = "https://drprashantkariya.graphy.com";
 const FALLBACK_COVER_URL = `${CDN_URL}resources/images/cc2.jpg`;
 export const MAX_COURSES = 4;
 
-// Fixed absolute URL to the live Vercel deployment's /api/courses proxy
-// (see vercel.json), which forwards to Graphy and sends permissive CORS
-// headers. Using an absolute URL (rather than a same-origin relative path)
-// means this works regardless of where the frontend itself is hosted
-// (Vercel, GitHub Pages, Netlify, localhost, ...).
-const COURSES_API_URL = "https://dr-prashant-kariya.vercel.app/api/courses";
+// Fixed absolute URL to a Cloudflare Worker that proxies Graphy's course
+// API and adds CORS headers (currently scoped to https://drprashantkariya.com
+// only - see cloudflare-courses-proxy/worker.js). Using an absolute URL
+// means this doesn't depend on how/where the frontend itself is hosted.
+const COURSES_API_URL = "https://drprashantkariya-courses-api.dev-889.workers.dev/";
 
 export type Course = {
   id: string;
