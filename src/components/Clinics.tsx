@@ -25,7 +25,7 @@ export default function Clinics() {
             </span>
             <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight"
               style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
-              Our <span className="italic">Centers.</span>
+              Hospitals & <span className="italic">Clinics.</span>
             </h2>
           </motion.div>
 
