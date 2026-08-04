@@ -8,55 +8,55 @@ export const PublicationsData = [
   {
     image: publications_two,
     "title": "Indian Pediatrics: Article 10.1007/s13312-024-3151-y",
-    "expert": "Springer Link / Indian Pediatrics",
+    "expert": "The preconception period is the earliest window of opportunity to ensure optimal human development. Pregnancy and childbirth outcomes can be improved by interventions offered to support the health and well-being of women and couples prior to conception. Thus, preconception care is essential in preparing for the first thousand days of life. Adolescence, the stage of life that typically comes before the preconception stage, is characterized by various high-risk behaviors like substance abuse, sexual experimentation, injuries, obesity, and mental health issues which can adversely affect their health in adult life. Thus, a Consensus Guideline for pediatricians on providing preconception care to adolescents and young adults can go a long way in making the generations to come, healthier and more productive.",
     "buttonurl": "https://link.springer.com/article/10.1007/s13312-024-3151-y"
   },
   {
     image: publications_two,
     "title": "Indian Pediatrics: Article 10.1007/s13312-025-00244-w",
-    "expert": "Springer Link / Indian Pediatrics",
+    "expert": "To develop and disseminate an innovative blended educational programme comprising of evidence-based neonatal healthcare practices across India and to identify and empower local champions who could sustain and scale quality improvement (QI) efforts regionally.",
     "buttonurl": "https://link.springer.com/article/10.1007/s13312-025-00244-w"
   },
   {
     image: publications_three,
     "title": "Medical Science Research and Advancements Vol. 3 Issue View",
-    "expert": "Book Publisher International",
+    "expert": "This book covers key areas of medical science. The contributions by the authors include iridodialysis repair, four-throw method, pupilloplasty, sewing machine technique, pediatric mandibular fracture, road traffic accident, intermaxillary fixation, inflammatory arthritis, progressive joint destruction, rheumatoid arthritis, virtual assistants, healthcare technology, clinical decision-making, case-based simulations, medical education,  urinary tract infections, gram-negative bacteria, materno-foetal outcome, caesarean section, respiratory muscle training, expiratory muscle strength, forensic medicine, postmortem imaging, forensic DNA analysis, robotic-assisted postmortem biopsy, next-generation sequencing, neurorehabilitation outcomes, acquired brain injury, psycho-social interventions, cutaneous lupus, negative anti-DsADN, hepatitis C virus, congenital heart disease, atrial septal defect, cardiac malformations, urological emergencies, hydronephrosis, nephrolithiasis, siddha varmam therapy, plantar fasciitis, energy medicine, pain management, colorectal cancer, GNAS gene mutations, cancer-specific survival, microsatellite instability. This book contains various materials suitable for students, researchers, and academicians in the fields of medical science.",
     "buttonurl": "https://stm.bookpi.org/MSRAA-V3/issue/view/1941"
   },
   {
     image: publications_three,
     "title": "The Impact of Chatbots and Virtual Assistants in Medical Education and Clinical Decision-Making",
-    "expert": "Book Publisher International",
+    "expert": "The integration of chatbots and virtual assistants in medical education and clinical decision-making has revolutionised the healthcare landscape. These AI-driven tools enhance learning experiences by providing interactive, personalised education to medical students and professionals. In clinical settings, they support decision-making by offering real-time, evidence-based recommendations, reducing diagnostic errors, and improving workflow efficiency. This review explores the applications, benefits, and challenges of chatbots and virtual assistants in medical education and clinical decision-making. It also examines their potential to bridge knowledge gaps, improve patient outcomes, and augment healthcare delivery. While these technologies offer significant advantages, concerns related to data security, accuracy, and ethical implications must be addressed for their optimal implementation.",
     "buttonurl": "https://stm.bookpi.org/MSRAA-V3/article/view/18156"
   },
   {
     image: publications_one,
     "title": "Comparative Analysis of Pulmonary Function in Urban and Rural Adolescents Exposed to Varying Air Quality Levels",
-    "expert": "Healthcare Bulletin",
+    "expert": "Background: Air pollution is a major environmental health concern, particularly affecting lung development in adolescents. Urban populations are often more exposed to higher levels of air pollutants compared to their rural counterparts. This study aims to evaluate and compare pulmonary function in adolescents residing in urban and rural regions with varying air quality indices (AQI). Materials and Methods: A cross-sectional observational study was conducted involving 120 adolescents aged 13–18 years, with 60 participants each from urban and rural areas. Participants underwent spirometry to measure Forced Vital Capacity (FVC), Forced Expiratory Volume in one second (FEV1), and FEV1/FVC ratio. AQI levels were monitored over a 3-month period in both regions. Exclusion criteria included known respiratory illnesses, smoking, and recent infections. Statistical analysis was performed using unpaired t-tests and ANOVA. Results: The mean FEV1 among urban adolescents was 2.48 ± 0.42 L, significantly lower than the rural group (2.91 ± 0.37 L, p < 0.001). Similarly, FVC was reduced in the urban group (3.12 ± 0.45 L) compared to rural participants (3.45 ± 0.39 L, p = 0.004). The mean FEV1/FVC ratio was also lower in urban subjects (79.4%) versus rural (84.3%), indicating early signs of obstructive airway changes. Average AQI in urban areas was 186 (moderate to poor), while rural areas recorded an average AQI of 72 (good). Conclusion: Adolescents living in urban areas with higher air pollution levels demonstrate significantly reduced pulmonary function compared to their rural counterparts. These findings highlight the need for improved air quality monitoring and public health interventions to protect vulnerable age groups.",
     "buttonurl": "https://healthcare-bulletin.co.uk/article/comparative-analysis-of-pulmonary-function-in-urban-and-rural-adolescents-exposed-to-varying-air-quality-levels-3177/"
   },
   {
     image: publications_four,
     "title": "Study of Resilience in Female College Adolescents",
-    "expert": "Semantic Scholar (BHAVE, AMIN)",
+    "expert": "This study is part of a multicentric youth project conducted by Association of Adolescent and Child Care in India (AACCI).We examined resilience and its association with demographic variables like age, sibling status, academic course, engagementin extracurricular activities, perceived internet/social media usage and dependence, substance use and perception of controlover one’s life. We used a cross-sectional design with a sample of 17- to 21-year-old female college students from Delhi. Wefound that students who perceived control over their lives had high total scores on resilience measures. Students who usedsocial media had higher total and relational resilience than those who did not use social media. Students who did notuse social media had higher individual resilience. Those who did not see themselves as dependent on social media hadhigher total resilience and relational resilience. Those who did not see themselves as dependent on the internet had higherrelational resilience. There were no significant relationships between resilience and the other demographic variables. Resultsfrom the current study shed light on factors contributing to resilience among adolescents. We can use these findings todevelop training programs that promote adolescent well-being",
     "buttonurl": "https://www.semanticscholar.org/paper/Study-of-Resilience-in-Female-College-Adolescents-BHAVE-AMIN/7fdbf27f5aabe5a814ad2b7d4a6fde0485af786f"
   },
   {
     image: publications_four,
     "title": "Empowering Adolescents: Exploring the Relationship between Self-Esteem and Test Anxiety",
-    "expert": "Journal of Pediatrics & Neonatal Care (MedCrave)",
+    "expert": "Females had higher test anxiety scores, and lower self-esteem scores and will need specific intervention. Being judged by marks affects the self-esteem of adolescents. SD factor was significant across ages in this sample. AACCI conducts awareness programs for parents and teachers to reduce social pressure on children given high SD scores. We also conduct intervention programs for improving CO scores by instilling good study skills and habits and relaxation and stress relief methods to reduce T scores in the context of test anxiety.",
     "buttonurl": "https://medcraveonline.com/JPNC/empowering-adolescents-exploring-the-relationship-between-self-esteem-and-test-anxiety.html"
   },
   {
     image: publications,
     "title": "A Literature Review on Holistic Well-Being and Dopamine Fasting: An Integrated Approach",
-    "expert": "Cureus",
+    "expert": "Popularly known as dopaminergic detox or dopamine fasting, it is a concept that aims at reducing dependence on instant satisfaction gratification and overstimulation to attain mental clarity, lessen anxiety, and be able to enjoy everyday events again. Digital detox has been a part of the dopamine fasting concept for several years now. However, some critics argue that this notion has no scientific proof behind it and may fail to deal with the problem of dopamine dysregulation. Some intense types of dopamine fasting which include extreme isolation or strict dieting can result in damage to mental health as well as physical fitness. The objective of the article is to understand what dopamine fasting means and see the literature and evidence available on the topic. Indexes like PubMed, Scopus, OVID, Embase, and Google Scholar were searched using the keywords to understand the existing knowledge about dopamine fasting. The literature review was then written to incorporate the understanding in a way that can be implemented practically. Recent studies have shown that individuals who engage in dopamine-fasting-like ideologies may experience reduced impulsive behaviors, increased focus on tasks, and reduced overwhelm. However, extreme forms of dopamine fasting can lead to feelings of loneliness, anxiety, and malnutrition, which can have detrimental effects on mental and physical health. Hence, the effects of dopamine fasting can vary greatly among individuals, and there is no one-size-fits-all approach. It is essential to consider individual needs and preferences when incorporating dopamine fasting into one’s lifestyle and explore alternative practices that align with the principles of dopamine fasting. Understanding and respecting these differences is crucial in determining the most suitable strategies for maintaining a balanced dopamine response and overall psychological health. The benefits of dopamine fasting can be tremendous if done correctly but it depends on every individual to find the correct way and in the modern day, the practices can become tough to implement.",
     "buttonurl": "https://www.cureus.com/articles/253975-a-literature-review-on-holistic-well-being-and-dopamine-fasting-an-integrated-approach#!/"
   },
   {
     image: publications_four,
     "title": "Educational Research and Reviews Journal Article View",
-    "expert": "KUEY",
+    "expert": "Incorporating formative assessments with regular feedback leads to improved performance in summative assessments.",
     "buttonurl": "https://kuey.net/index.php/kuey/article/view/1602"
   },
   {
@@ -68,67 +68,67 @@ export const PublicationsData = [
   {
     image: publications_four,
     "title": "International Journal of Pharmaceutical and Clinical Research PDF View",
-    "expert": "IJPCR",
+    "expert": "Anxiety is on the rise in the present generation of adolescents; and is an area of increasing concern worldwide. Overall prevalence of Anxiety is high in our study which demands further research in different region or states of the Indian society",
     "buttonurl": "https://impactfactor.org/PDF/IJPCR/15/IJPCR,Vol15,Issue11,Article267.pdf"
   },
   {
     image: publications_four,
     "title": "Awareness and knowledge of HIV/AIDS in school going children of Surat, Gujarat",
-    "expert": "IJCMPH",
+    "expert": "The results from this study can be applied to similar regions of Gujarat and other states as well. This would help in making changes in the education of this age group of children. Such studies also form the base of future studies to evaluate the difference in knowledge of the school going children over a period of time by comparing this data.",
     "buttonurl": "https://www.ijcmph.com/index.php/ijcmph/article/view/11285"
   },
   {
     image: publications_four,
     "title": "Pattern of Internet Use and Knowledge and Practices in School Children",
-    "expert": "OPAST Publishers",
+    "expert": "Majority are not taking basic precautions like using privacy settings on the facebook. Since 34% (100) do not inform parents about their online activities, they are vulnerable to exploitation on the net and can also be tempted to go on inappropriate sites. We conducted a workshop in this school for students, parents and teachers on cyber safety and monitoring teen internet use. This is the need of the hour",
     "buttonurl": "https://www.opastpublishers.com/peer-review/pattern-of-internet-use-and-knowledge-and-practices-in-school-children-6234.html"
   },
   {
     image: publications_four,
     "title": "Journal of Mental Health and Thai Counseling Article View",
-    "expert": "TCI-ThaiJo",
+    "expert": "A  cross  sectional  study  was  conducted  with  a  convenient  sampling  of 1225 students of 11 and 12th standard from the different four schools of Surat  city  during  Aug-Sept  2015  by  “Beck  Depression  Inventory  (BDI)”  scale  to  study  the  depression  and  suicidal  tendency  among  higher  secondary  school students using Beck Depression Inventory (BDI). One third (33.6%) of the students had depressive symptoms according to the BDI scale. Out of which 15.1%  were  mildly  depressive  symptoms,  16.0%  were  moderately  depressive  symptoms  2.4%  were  severely  depressive  symptoms  and  0.1%  extremely  depressive  symptoms.  Mother  Education  was  independently  affecting  the mental health of children which was found statistically significant. Occupation of the family head was independently affecting the mental health of children which  was  found  statistically  significant.  Occurrences  of  Depression  is a multifactorial which depends upon several parameters & conditions in one’s life.  The  commonest  type  of  Depression  is  Moderate  type  for  which  instead  of  increasing  in  Age  of  child  certain  other  parameters  like  Parent’s  education,  occupation, socioeconomic status, family type & residential surroundings play a  vital  role.  The  religion  &  medium  of  education  needs  some  more  evidences  for consideration.  ",
     "buttonurl": "https://he01.tci-thaijo.org/index.php/cdmh/article/view/247623/171286"
   },
   {
     image: publications_four,
     "title": "National Journal of Medical Research File View",
-    "expert": "NJMR",
+    "expert": "HIV exposure does not adversely affect growth potential of infants but because of their lower baseline values they seem to lag behind. Moreover maternal HIV status does not lead to severe degree of malnutrition if these babies were not themselves affected with HIV.",
     "buttonurl": "https://njmr.in/index.php/file/article/view/855"
   },
   {
     image: publications_one,
     "title": "A Prospective Study on the Efficacy of Hypertonic Saline Nebulization in Infants with Acute Bronchiolitis",
-    "expert": "Healthcare Bulletin",
+    "expert": "Background: Acute bronchiolitis is a leading cause of hospitalization in infants under two years of age. It is primarily managed supportively, as there is limited evidence favoring pharmacologic interventions. Recent studies suggest that nebulized hypertonic saline may reduce airway edema and improve clinical outcomes, but data in resource-limited settings remain scarce. Materials and Methods: This prospective study was conducted over 6 months in the pediatric department of a tertiary care hospital. A total of 60 infants aged 1 to 12 months with clinically diagnosed acute bronchiolitis were enrolled and randomly allocated into two groups: Group A (n=30) received 3% hypertonic saline nebulization, while Group B (n=30) received 0.9% normal saline nebulization. Nebulizations were administered every 8 hours for 5 days. The primary outcome was change in clinical severity score (CSS), measured at baseline, day 3, and day 5. Secondary outcomes included duration of hospital stay and oxygen supplementation requirement. Results: Baseline clinical severity scores were comparable in both groups (Group A: 6.3 ± 1.2, Group B: 6.1 ± 1.0; p=0.47). On day 5, Group A showed a significantly greater reduction in CSS (2.1 ± 0.9) compared to Group B (3.4 ± 1.1; p<0.001). The mean duration of hospital stay was shorter in Group A (3.2 ± 0.8 days) versus Group B (4.5 ± 1.1 days; p=0.002). Oxygen supplementation was needed for a shorter period in Group A (1.5 ± 0.5 days) than in Group B (2.3 ± 0.7 days; p=0.01). Conclusion: Hypertonic saline nebulization significantly improves clinical severity scores, reduces hospital stay, and decreases oxygen dependency in infants with acute bronchiolitis. It may be considered as an effective and safe therapeutic option in standard bronchiolitis management protocols",
     "buttonurl": "https://healthcare-bulletin.co.uk/article/a-prospective-study-on-the-efficacy-of-hypertonic-saline-nebulization-in-infants-with-acute-bronchiolitis-3176/"
   },
   {
     image: publications_one,
     "title": "Empowering Physiotherapy Students Enhancing Cardio Pulmonary Resuscitation Knowledge and Confidence for Out of Hospital Cardiac Arrest Response An Educational Interventional Study",
-    "expert": "Healthcare Bulletin",
+    "expert": "Cardio-Pulmonary Resuscitation (CPR) plays a vital role in saving lives during out-of-hospital cardiac arrests (OHCA). However, bystander CPR rates remain low due to lack of knowledge and confidence among the general public, including healthcare students. This study aimed to assess the impact of a CPR training intervention on the knowledge and confidence of physiotherapy students in South Gujarat. Methods: A pre-post educational interventional study was conducted among 1000 physiotherapy students from three colleges. Basic and advanced life support (BLS/ALS) certified instructors provided hands-on CPR and AED training. Pre- and post-training assessments were conducted using a self-administered questionnaire. Data were analysed using descriptive statistics, Wilcoxon signed-rank test, and McNemar's test. Results: The training significantly improved students' knowledge (median pre-test score: 16, post-test score: 21, p < 0.001) and confidence in administering CPR (pre-training: 30.2%, post-training: 86.7%). There was a significant improvement in correct responses to CPR-related questions (p < 0.05), with notable gains in understanding CPR protocol and AED usage. Conclusion: CPR training significantly improved physiotherapy students' knowledge and confidence in responding to OHCA. Such interventions are essential for preparing healthcare professionals to act effectively in emergency situations.",
     "buttonurl": "https://healthcare-bulletin.co.uk/article/empowering-physiotherapy-students-enhancing-cardio-pulmonary-resuscitation-knowledge-and-confidence-for-out-of-hospital-cardiac-arrest-response-an-educational-interventional-study-2271/"
   },
   {
     image: publications_four,
     "title": "Screen Time Addiction and its Association with Behavioral Problems Among School-Aged Children: A Cross-Sectional Study",
-    "expert": "Journal of Comprehensive Clinical Practice",
+    "expert": "Background: Excessive screen time has emerged as a growing public health concern, particularly among school-aged children. Prolonged exposure to digital screens has been linked to adverse behavioral and psychological outcomes. This study aims to assess the association between screen time addiction and behavioral problems among children aged 6–12 years. Materials and Methods: A cross-sectional survey was conducted among 400 children attending urban schools in Surat-India. Parents completed a structured questionnaire consisting of the Screen Time Addiction Scale (STAS) and the Strengths and Difficulties Questionnaire (SDQ) to evaluate screen dependency and behavioral issues respectively. Demographic data and average daily screen time were also recorded. Statistical analysis was performed using SPSS version 26.0, with significance set at p<0.05. Results: Among the participants, 62.5% were identified with moderate to high screen time addiction (STAS score ≥25). The mean daily screen exposure was 4.1 ± 1.3 hours. Behavioral difficulties, especially hyperactivity (mean SDQ score 6.2 ± 1.5) and peer problems (mean score 5.4 ± 1.3), were significantly higher in children with screen addiction compared to those with lower exposure (p<0.01). A positive correlation (r = 0.56, p<0.001) was found between STAS and total SDQ scores. Conclusion: The study highlights a significant association between increased screen time and behavioral challenges among school-aged children. Interventions targeting screen time regulation, along with behavioral counseling, may play a pivotal role in mitigating these effects.",
     "buttonurl": "https://www.jccpractice.com/article/screen-time-addiction-and-its-association-with-behavioral-problems-among-school-aged-children-a-cross-sectional-study-651/"
   },
   {
     image: publications_two,
     "title": "Indian Pediatrics: Article 10.1007/s13312-026-00358-9",
-    "expert": "Springer Link / Indian Pediatrics",
+    "expert": "The use of post-extubation nebulized epinephrine to prevent extubation failure in ventilated newborns is an important yet underexplored area. I commend the authors of the NEPTUNE sudy for conducting a prospective, registered randomized controlled trial in this challenging population [1]. However, a few issues affect the interpretation and applicability of the findings.",
     "buttonurl": "https://link.springer.com/article/10.1007/s13312-026-00358-9"
   },
   {
     image: publications_four,
     "title": "Indian Journal of Youth and Adolescent Health Article View (5234)",
-    "expert": "Advanced Research Publications",
+    "expert": "Test anxiety and low self-esteem are prevalent mental health concerns among adolescents in competitive academic environments. However, limited multicentric data exist examining these constructs jointly across Indian urban settings, age groups, and genders.",
     "buttonurl": "https://medical.advancedresearchpublications.com/ojs-3.1.2-4/index.php/IndianJ-YouthandAdolescentHeatlh/article/view/5234"
   },
   {
     image: publications_four,
     "title": "Indian Journal of Youth and Adolescent Health Article View (5234) Duplicate Entry",
-    "expert": "Advanced Research Publications",
+    "expert": "Test anxiety and low self-esteem are prevalent mental health concerns among adolescents in competitive academic environments. However, limited multicentric data exist examining these constructs jointly across Indian urban settings, age groups, and genders.",
     "buttonurl": "https://medical.advancedresearchpublications.com/ojs-3.1.2-4/index.php/IndianJ-YouthandAdolescentHeatlh/article/view/5234"
   }
 ]

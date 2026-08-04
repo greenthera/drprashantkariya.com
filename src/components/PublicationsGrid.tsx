@@ -1,8 +1,20 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Search, X } from "lucide-react";
 import { PublicationsData } from "../data/publications";
+import { useState } from "react";
 
 export default function PublicationsGrid() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const query = searchQuery.trim().toLowerCase();
+  const filteredItems = query
+    ? PublicationsData.filter(
+        (item) =>
+          item.title.toLowerCase().includes(query) ||
+          item.expert.toLowerCase().includes(query)
+      )
+    : PublicationsData;
+
   return (
     <div className="bg-[#FAF9F6] pt-24 md:pt-32 pb-20 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto">
@@ -29,8 +41,46 @@ export default function PublicationsGrid() {
           </p>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10"
+        >
+          <div className="relative w-full sm:max-w-sm">
+            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8993CC] pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search by title or publisher…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-white border border-[#E0E8E2] pl-11 pr-10 py-3 rounded-xl text-[#2E3A9E] outline-none focus:border-[#4353CF] transition-all font-medium text-sm placeholder:text-[#B0BDB8] placeholder:font-normal"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                aria-label="Clear search"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8993CC] hover:text-[#4353CF] transition-colors"
+              >
+                <X size={16} />
+              </button>
+            )}
+          </div>
+          <p className="text-[#6670A0] text-xs font-medium uppercase tracking-[0.15em]">
+            {filteredItems.length} {filteredItems.length === 1 ? "Result" : "Results"}
+          </p>
+        </motion.div>
+
+        {filteredItems.length === 0 && (
+          <div className="text-center py-20 border border-dashed border-[#E0E8E2] rounded-2xl">
+            <p className="text-[#2E3A9E] font-display italic text-xl mb-2">No publications found</p>
+            <p className="text-[#6670A0] text-sm font-light">Try a different title or publisher name.</p>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PublicationsData.map((pub, i) => {
+          {filteredItems.map((pub, i) => {
             return (
               <motion.div
                 key={i}
@@ -49,11 +99,11 @@ export default function PublicationsGrid() {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#4353CF] mb-2.5">
-                    {pub.expert}
-                  </span>
-                  <h3 className="font-display text-[16px] font-bold text-[#2E3A9E] leading-snug mb-5 line-clamp-3 flex-1">
+                  <span className="text-[16px] font-bold uppercase text-[#2E3A9E] line-clamp-3 mb-2.5">
                     {pub.title}
+                  </span>
+                  <h3 className="font-display text-[16px] text-[#4353CF] leading-snug mb-5 line-clamp-3 flex-1">
+                    {pub.expert}
                   </h3>
                   <a
                     href={pub.buttonurl}
