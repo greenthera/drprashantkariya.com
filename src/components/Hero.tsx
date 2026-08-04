@@ -6,10 +6,10 @@ import { getYearsOfPractice } from "../lib/practice";
 import { Link } from "react-router-dom";
 
 const STATS = [
-  { icon: Diamond, color: "#F2B33D", value: "4.9", label: "Google Rating" },
-  { icon: Users, color: "#4353CF", value: "20,000+", label: "Families Served" },
-  { icon: TrendingUp, color: "#2F9E6E", value: `${getYearsOfPractice()}+`, label: "Years Experience" },
-  { icon: CircleDot, color: "#F0784A", value: "Trusted", label: "by Thousands of Parents" },
+  { icon: Diamond, color: "#F2B33D", value: "4.9", label: "Google Rating", duration: 5, delay: 0.7 },
+  { icon: Users, color: "#4353CF", value: "20,000+", label: "Families Served", duration: 5.5, delay: 1.4 },
+  { icon: TrendingUp, color: "#2F9E6E", value: `${getYearsOfPractice()}+`, label: "Years Experience", duration: 6, delay: 2.1 },
+  { icon: CircleDot, color: "#F0784A", value: "Trusted", label: "by Thousands of Parents", duration: 6.5, delay: 2.8 },
 ];
 
 // Duration/delay pairs mirror DoctorAnimation.tsx's da-float-b1..b4 CSS
@@ -135,11 +135,9 @@ export default function Hero() {
             transition={{ delay: 0.65, duration: 0.6 }}
             className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-[#E0E8E2]"
           >
-            {STATS.map((s, i) => (
-              <motion.div
-                key={i}
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3.5 + i * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.25 }}
+            {STATS.map((s) => (
+              <div
+                style={{ animation: `state ${s.duration}s ease-in-out infinite`, animationDelay: `${s.delay}s` }}
                 className="flex items-center gap-2.5"
               >
                 <span
@@ -152,8 +150,16 @@ export default function Hero() {
                   <p className="font-display text-sm font-bold text-[#232323] leading-tight">{s.value}</p>
                   <p className="text-[10px] font-medium text-[#6670A0] leading-tight">{s.label}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
+            {/* Native CSS keyframe float — same technique as DoctorAnimation.tsx's
+                da-float, which is smoother than a JS-driven framer-motion loop. */}
+            <style>{`
+              @keyframes state {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-3px); }
+              }
+            `}</style>
           </motion.div>
 
         </motion.div>
