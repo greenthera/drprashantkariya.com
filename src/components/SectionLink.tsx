@@ -8,8 +8,10 @@ type SectionLinkProps = {
 };
 
 // Scrolls smoothly to a section on the home page, navigating there first if
-// currently on a different route. Uses plain scrollIntoView (not a real URL
-// hash) since HashRouter already uses "#" for routing.
+// currently on a different route. The href is a real "/#id" URL so
+// middle-click/open-in-new-tab and no-JS fallback still land on the right
+// section natively; the click handler intercepts normal clicks to animate
+// the scroll instead of jumping instantly.
 export default function SectionLink({ id, className, onNavigate, children }: SectionLinkProps) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,7 +28,7 @@ export default function SectionLink({ id, className, onNavigate, children }: Sec
   }
 
   return (
-    <a href={`#${id}`} onClick={handleClick} className={className}>
+    <a href={`/#${id}`} onClick={handleClick} className={className}>
       {children}
     </a>
   );

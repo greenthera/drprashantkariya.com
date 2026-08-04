@@ -4,9 +4,12 @@
         <loc>https://drprashantkariya.com/</loc>
     </url>
     <url>
-        <loc>https://drprashantkariya.com/#/courses</loc>
+        <loc>https://drprashantkariya.com/courses</loc>
     </url>
     <url>
-        <loc>https://drprashantkariya.com/#/contact</loc>
+        <loc>https://drprashantkariya.com/contact</loc>
+    </url>
+    <url>
+        <loc>https://drprashantkariya.com/publications</loc>
     </url>
 </urlset>
