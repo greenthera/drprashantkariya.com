@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap, X } from "lucide-react";
-import doctorImage from "../assets/doctorImage.png";
+import doctorImage from "../assets/doctorImage.webp";
 import { getYearsOfPractice } from "../lib/practice";
 import { Link } from "react-router";
 

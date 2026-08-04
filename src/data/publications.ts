@@ -1,8 +1,8 @@
-import publications from "../assets/publications.jpg"
-import publications_one from "../assets/publications-one.png"
-import publications_two from "../assets/publications-two.png"
-import publications_three from "../assets/publications-three.png"
-import publications_four from "../assets/publications-four.png"
+import publications from "../assets/publications.webp"
+import publications_one from "../assets/publications-one.webp"
+import publications_two from "../assets/publications-two.webp"
+import publications_three from "../assets/publications-three.webp"
+import publications_four from "../assets/publications-four.webp"
 
 export const PublicationsData = [
   {

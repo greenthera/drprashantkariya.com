@@ -93,7 +93,7 @@ export default function PublicationsGrid() {
                 {/* "Image" — icon panel */}
                 <div className="relative bg-linear-to-br from-[#4353CF] to-[#2E3A9E] flex items-center justify-center overflow-hidden shrink-0">
                   <div className="relative z-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-[#F2B33D]/20 group-hover:scale-105 transition-all duration-300">
-                    <img className=" aspect-video" src={pub.image} />
+                    <img className="aspect-video" src={pub.image} loading="lazy" alt={pub.title} />
                   </div>
                 </div>
 

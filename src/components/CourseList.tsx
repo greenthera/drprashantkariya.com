@@ -73,6 +73,7 @@ function SupportingCard({ course, index }: { course: Course; index: number }) {
         <img
           src={course.coverUrl}
           alt={course.title}
+          loading="lazy"
           className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>

@@ -61,6 +61,7 @@ export default function Publications() {
                   src={book.image}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   alt={book.title}
+                  loading="lazy"
                 />
               </div>
 
