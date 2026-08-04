@@ -16,11 +16,11 @@ const STATS = [
 // keyframes (5s/0.7s, 5.5s/1.4s, 6s/2.1s, 6.5s/2.8s) so both floating
 // animations read as the same motion language across sections.
 const BADGES = [
-  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "-top-3 -left-4 sm:-left-8", duration: 5, delay: 0.7 },
-  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "-top-2 -right-3 sm:-right-8", duration: 5.5, delay: 1.4 },
-  { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[32%] -left-6 sm:-left-14", duration: 6, delay: 2.1 },
-  { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-6 sm:-right-14", duration: 6.5, delay: 2.8 },
-  { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6", duration: 7, delay: 3.5 },
+  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "top-6 -left-4 sm:-top-3 sm:-left-8", duration: 5, delay: 0.7, showOnMobile: true },
+  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "top-[15%] -right-4 sm:-top-2 sm:-right-3 md:-right-8", duration: 5.5, delay: 1.4, showOnMobile: true },
+  { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[70%] -left-4 sm:-left-14", duration: 6, delay: 2.1, showOnMobile: true },
+  { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-4 sm:-right-14", duration: 6.5, delay: 2.8, showOnMobile: false },
+  { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6", duration: 7, delay: 3.5, showOnMobile: true },
 ];
 
 export default function Hero() {
@@ -189,7 +189,7 @@ export default function Hero() {
                 key={i}
                 animate={{ y: [0, -14, 0] }}
                 transition={{ duration: b.duration, repeat: Infinity, ease: "easeInOut", delay: b.delay }}
-                className={`hidden md:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap`}
+                className={`${b.showOnMobile ? "flex" : "hidden sm:flex"} absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap`}
               >
                 <span
                   className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
