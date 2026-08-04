@@ -1,11 +1,8 @@
 import { ExternalLink } from "lucide-react";
-import post1 from "../assets/post-1.png";
-import post2 from "../assets/post-2.png";
-import post3 from "../assets/post-3.png";
 
-const WIDGET_ID = import.meta.env.VITE_LIGHTWIDGET_ID as string | undefined;
 const IG_URL = "https://www.instagram.com/parentingtips_drprashantkariya/";
 const IG_HANDLE = "parentingtips_drprashantkariya";
+const IG_EMBED_URL = `${IG_URL}embed`;
 
 function IGIcon({ size = 18, className }: { size?: number; className?: string }) {
   return (
@@ -47,45 +44,43 @@ export default function Instagram() {
           </a>
         </div>
 
-        {/* Widget */}
-        {WIDGET_ID ? (
-          <div className="rounded-2xl overflow-hidden border border-[#E0E8E2]">
-            <iframe
-              src={`//lightwidget.com/widgets/${WIDGET_ID}.html`}
-              allowTransparency={true}
-              className="lightwidget-widget w-full border-0"
-              style={{ display: "block", overflow: "hidden" }}
-            />
+        {/* Live Instagram profile embed — big, centered, eye-catching */}
+        <div className="relative w-full max-w-4xl mx-auto mb-8">
+          <div className="absolute -inset-6 bg-linear-to-br from-[#4353CF]/10 via-[#F2B33D]/10 to-[#4353CF]/10 rounded-4xl blur-2xl pointer-events-none" />
+          <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full border-2 border-dashed border-[#D6DBF5] pointer-events-none" />
+          <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full bg-[#F2B33D]/15 pointer-events-none" />
+          <iframe
+            src={IG_EMBED_URL}
+            title={`@${IG_HANDLE} Instagram feed`}
+            scrolling="yes"
+            className="relative w-full h-115 sm:h-130 border border-[#E0E8E2] rounded-2xl shadow-xl shadow-[#2E3A9E]/8 block overflow-y-auto"
+          />
+        </div>
+
+        {/* Quote / follow card — compact banner below */}
+        <div className="bg-[#2E3A9E] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden">
+          <div className="absolute -top-8 -right-8 w-36 h-36 rounded-full border border-[#F2B33D]/15 pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#4353CF]/60 rounded-full pointer-events-none" />
+
+          <div className="flex items-center gap-4 relative z-10">
+            <span className="font-display text-4xl text-[#F2B33D]/40 leading-none select-none shrink-0">"</span>
+            <p className="font-display text-lg md:text-xl font-semibold italic text-white leading-snug max-w-xl">
+              Children don't need perfect parents. They need present ones.
+            </p>
           </div>
-        ) : (
-          /* Fallback until widget ID is set */
-          <div className="bg-[#FAF9F6] rounded-2xl p-3 md:p-4 min-h-[500px] lg:h-[580px] grid grid-cols-2 md:grid-cols-4 lg:grid-rows-2 gap-3 md:gap-4 border border-[#E0E8E2]">
-            <div className="col-span-2 row-span-1 lg:row-span-2 rounded-xl overflow-hidden h-72 md:h-96 lg:h-auto group">
-              <img src={post2} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Instagram post" />
-            </div>
-            <div className="hidden sm:block rounded-xl overflow-hidden bg-[#EAEDFB] group">
-              <img src={post1} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Instagram post" />
-            </div>
-            <div className="hidden sm:block rounded-xl overflow-hidden bg-[#EAEDFB] group">
-              <img src={post3} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Instagram post" />
-            </div>
-            <div className="col-span-2 bg-[#2E3A9E] rounded-xl p-7 md:p-10 flex flex-col justify-between relative overflow-hidden min-h-[200px] lg:min-h-0">
-              <div className="absolute -top-8 -right-8 w-36 h-36 rounded-full border border-[#F2B33D]/15 pointer-events-none" />
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#4353CF]/60 rounded-full pointer-events-none" />
-              <div className="font-display text-6xl text-[#F2B33D]/30 leading-none mb-2 relative z-10 select-none">"</div>
-              <p className="font-display text-lg md:text-xl font-semibold italic text-white leading-snug relative z-10 max-w-xs -mt-4">
-                Children don't need perfect parents. They need present ones.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 relative z-10 pt-5 border-t border-white/8 mt-4">
-                <span className="text-[#ABB3E0] text-[11px] font-medium tracking-wide">@{IG_HANDLE}</span>
-                <a href={IG_URL} target="_blank" rel="noopener noreferrer"
-                  className="bg-[#F2B33D] text-white px-5 py-2 rounded-lg text-[11px] font-semibold hover:bg-[#C28F31] transition-colors w-full sm:w-auto text-center tracking-wide">
-                  Follow
-                </a>
-              </div>
-            </div>
+
+          <div className="flex items-center gap-4 relative z-10 shrink-0 w-full md:w-auto">
+            <span className="text-[#ABB3E0] text-[11px] font-medium tracking-wide hidden sm:block">@{IG_HANDLE}</span>
+            <a
+              href={IG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#F2B33D] text-white px-5 py-2.5 rounded-lg text-[11px] font-semibold hover:bg-[#C28F31] transition-colors w-full md:w-auto text-center tracking-wide shrink-0"
+            >
+              Follow on Instagram
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
