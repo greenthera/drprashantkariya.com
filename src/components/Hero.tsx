@@ -16,11 +16,11 @@ const STATS = [
 // keyframes (5s/0.7s, 5.5s/1.4s, 6s/2.1s, 6.5s/2.8s) so both floating
 // animations read as the same motion language across sections.
 const BADGES = [
-  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "top-6 -left-4 sm:-top-3 sm:-left-8", duration: 5, delay: 0.7, showOnMobile: true },
-  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "top-[15%] -right-4 sm:-top-2 sm:-right-3 md:-right-8", duration: 5.5, delay: 1.4, showOnMobile: true },
-  { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[70%] -left-4 sm:-left-14", duration: 6, delay: 2.1, showOnMobile: true },
+  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "top-6 -left-4 sm:-top-3 sm:-left-8", duration: 5, delay: 0.7, showOnMobile: false },
+  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "top-[15%] -right-4 sm:-top-2 sm:-right-3 md:-right-8", duration: 5.5, delay: 1.4, showOnMobile: false },
+  { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[70%] -left-4 sm:-left-14", duration: 6, delay: 2.1, showOnMobile: false },
   { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-4 sm:-right-14", duration: 6.5, delay: 2.8, showOnMobile: false },
-  { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6", duration: 7, delay: 3.5, showOnMobile: true },
+  { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6", duration: 7, delay: 3.5, showOnMobile: false },
 ];
 
 export default function Hero() {
@@ -163,9 +163,18 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.95, delay: 0.1, ease: "easeOut" }}
-          className="order-1 lg:order-2 relative flex justify-center"
+          className="order-1 lg:order-2 relative flex flex-col items-center"
         >
           <div className="relative w-full max-w-90 sm:max-w-100 lg:max-w-110 aspect-square my-8 sm:my-12">
+            {/* Native CSS keyframe float — same technique as DoctorAnimation.tsx's
+                da-float, which is smoother than a JS-driven framer-motion loop. */}
+            <style>{`
+              @keyframes hero-badge-float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-14px); }
+              }
+            `}</style>
+
             {/* Dashed ring */}
             <div className="absolute -inset-4 sm:-inset-6 rounded-full border-2 border-dashed border-[#C7CCEE] pointer-events-none" />
 
@@ -183,13 +192,12 @@ export default function Hero() {
               />
             </button>
 
-            {/* Floating badges */}
+            {/* Floating badges — sm and up only; mobile gets a static grid below the photo instead */}
             {BADGES.map((b, i) => (
-              <motion.div
+              <div
                 key={i}
-                animate={{ y: [0, -14, 0] }}
-                transition={{ duration: b.duration, repeat: Infinity, ease: "easeInOut", delay: b.delay }}
-                className={`${b.showOnMobile ? "flex" : "hidden sm:flex"} absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap`}
+                style={{ animation: `hero-badge-float ${b.duration}s ease-in-out infinite`, animationDelay: `${b.delay}s` }}
+                className={`hidden sm:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap`}
               >
                 <span
                   className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
@@ -201,11 +209,31 @@ export default function Hero() {
                   <p className="text-[12.5px] font-bold text-[#232323] leading-tight">{b.title}</p>
                   <p className="text-[10.5px] text-[#6670A0] leading-tight">{b.subtitle}</p>
                 </div>
-              </motion.div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile: badges shown as a static grid below the photo instead of floating */}
+          <div className="sm:hidden grid grid-cols-2 gap-3 w-full max-w-90 mt-6">
+            {BADGES.map((b, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2.5 bg-white border border-[#E0E8E2] rounded-xl shadow-sm px-3.5 py-3"
+              >
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: `${b.color}1A` }}
+                >
+                  <b.icon size={15} style={{ color: b.color }} />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-[12.5px] font-bold text-[#232323] leading-tight truncate">{b.title}</p>
+                  <p className="text-[10.5px] text-[#6670A0] leading-tight truncate">{b.subtitle}</p>
+                </div>
+              </div>
             ))}
           </div>
         </motion.div>
-
       </div>
 
       {/* Mission card — full width */}
