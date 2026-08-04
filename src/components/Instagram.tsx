@@ -45,15 +45,15 @@ export default function Instagram() {
         </div>
 
         {/* Live Instagram profile embed — big, centered, eye-catching */}
-        <div className="relative w-full max-w-4xl mx-auto mb-8">
+        <div className="relative w-full max-w-5xl mx-auto mb-8">
           <div className="absolute -inset-6 bg-linear-to-br from-[#4353CF]/10 via-[#F2B33D]/10 to-[#4353CF]/10 rounded-4xl blur-2xl pointer-events-none" />
           <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full border-2 border-dashed border-[#D6DBF5] pointer-events-none" />
           <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full bg-[#F2B33D]/15 pointer-events-none" />
           <iframe
             src={IG_EMBED_URL}
             title={`@${IG_HANDLE} Instagram feed`}
-            scrolling="yes"
-            className="relative w-full h-115 sm:h-130 border border-[#E0E8E2] rounded-2xl shadow-xl shadow-[#2E3A9E]/8 block overflow-y-auto"
+            scrolling="no"
+            className="relative w-full h-101 sm:h-163 lg:h-189 border border-[#E0E8E2] rounded-2xl shadow-xl shadow-[#2E3A9E]/8 block overflow-hidden"
           />
         </div>
 
