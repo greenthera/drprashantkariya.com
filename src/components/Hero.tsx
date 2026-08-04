@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap, X } from "lucide-react";
 import doctorImage from "../assets/doctorImage.png";
 import { getYearsOfPractice } from "../lib/practice";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const STATS = [
   { icon: Diamond, color: "#F2B33D", value: "4.9", label: "Google Rating", duration: 5, delay: 0.7 },

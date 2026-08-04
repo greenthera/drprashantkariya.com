@@ -1,6 +1,6 @@
 import { FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import SectionLink from "./SectionLink";
 
 const MAPS_URL_NICU =

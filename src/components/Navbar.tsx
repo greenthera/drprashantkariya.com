@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import SectionLink from "./SectionLink";
 
 export default function Navbar() {
