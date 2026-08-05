@@ -1,8 +1,6 @@
-import { lazy, Suspense } from "react";
+import CourseList from "../components/CourseList";
 import { fetchCourses } from "../lib/courses";
 import type { CoursesState } from "../hooks/useCourses";
-
-const CourseList = lazy(() => import("../components/CourseList"));
 
 // Runs at build time during prerendering (baking real course data straight
 // into the static HTML — no skeleton on first load) and again on the
@@ -19,9 +17,5 @@ export async function loader(): Promise<CoursesState> {
 }
 
 export default function Courses() {
-  return (
-    <Suspense fallback={null}>
-      <CourseList />
-    </Suspense>
-  );
+  return <CourseList />;
 }
