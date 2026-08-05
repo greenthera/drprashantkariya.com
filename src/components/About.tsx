@@ -164,7 +164,7 @@ export default function About() {
                 transition={{ delay: i * 0.09, duration: 0.5 }}
                 className="flex items-center gap-3 p-4 bg-[#FAF9F6] rounded-xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:bg-[#EAEDFB]/40 hover:-translate-y-0.5 transition-all duration-200 group"
               >
-                <Star size={17} className="text-[#4353CF] shrink-0 group-hover:scale-110 transition-transform" />
+                <Star fill="currentColor" size={17} className="text-[#4353CF] shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
                   <p className="text-[12px] font-semibold text-[#2E3A9E] uppercase tracking-tight">
                     {item.name}
