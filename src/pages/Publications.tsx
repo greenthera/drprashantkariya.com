@@ -1,10 +1,9 @@
-import { lazy, Suspense } from "react";
-const PublicationsGrid = lazy(() => import("../components/PublicationsGrid"));
+import PublicationsGrid from "../components/PublicationsGrid";
 
 export default function Publications() {
   return (
-    <Suspense fallback={null}>
+    <>
       <PublicationsGrid />
-    </Suspense>
+    </>
   );
 }
