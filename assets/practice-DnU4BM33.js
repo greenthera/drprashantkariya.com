@@ -1,0 +1,1 @@
+var e=2006;function t(){return new Date().getFullYear()-e}export{t};
