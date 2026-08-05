@@ -53,6 +53,7 @@ export default function Instagram() {
             src={IG_EMBED_URL}
             title={`@${IG_HANDLE} Instagram feed`}
             scrolling="no"
+            loading="lazy"
             className="relative w-full h-101 sm:h-163 lg:h-189 border border-[#E0E8E2] rounded-2xl shadow-xl shadow-[#2E3A9E]/8 block overflow-hidden"
           />
         </div>

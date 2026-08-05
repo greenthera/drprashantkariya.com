@@ -19,4 +19,14 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    // React Router route modules (src/routes.ts, src/root.tsx, src/pages/*)
+    // legitimately export non-component route conventions (loader, action,
+    // meta, etc.) alongside the default component — that's the framework's
+    // contract, not a Fast Refresh mistake.
+    files: ['src/root.tsx', 'src/pages/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])

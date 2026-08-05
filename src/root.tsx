@@ -15,14 +15,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5CQ43TDN6"></script>
+        {/* Google tag (gtag.js) — the dataLayer/gtag stub is set up
+            immediately (free, no network) so early gtag() calls still queue
+            correctly, but the actual ~165KB gtag.js library is only fetched
+            after window "load" fires, so it doesn't compete with critical
+            rendering/hydration for bandwidth or main-thread time. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-D5CQ43TDN6');`,
+              gtag('config', 'G-D5CQ43TDN6');
+              function __loadGtag() {
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5CQ43TDN6';
+                document.head.appendChild(s);
+              }
+              if (document.readyState === 'complete') {
+                __loadGtag();
+              } else {
+                window.addEventListener('load', __loadGtag, { once: true });
+              }`,
           }}
         />
         {/* Single Page Apps for GitHub Pages — MIT License, https://github.com/rafgraph/spa-github-pages
