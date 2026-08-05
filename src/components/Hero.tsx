@@ -154,6 +154,7 @@ export default function Hero() {
             >
               <img
                 src={doctorImage}
+                fetchPriority="high"
                 className="w-full h-full object-top object-cover"
                 alt="Dr. Prashant Kariya"
               />

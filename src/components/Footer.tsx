@@ -51,16 +51,16 @@ export default function Footer() {
               Surat • Gujarat • India
             </p>
             <div className="flex gap-3 mt-5">
-              <a href="https://x.com/drprashantkariy" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
+              <a href="https://x.com/drprashantkariy" target="_blank" rel="noreferrer" aria-label="Follow on X (Twitter)" className="hover:opacity-70 transition-opacity">
                 <FaTwitter color="#F5E6C8" size={20} />
               </a>
-              <a href="https://instagram.com/parentingtips_drprashantkariya" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
+              <a href="https://instagram.com/parentingtips_drprashantkariya" target="_blank" rel="noreferrer" aria-label="Follow on Instagram" className="hover:opacity-70 transition-opacity">
                 <FaInstagram color="#F5E6C8" size={20} />
               </a>
-              <a href="https://in.linkedin.com/in/prashant-kariya-908a2b56" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
+              <a href="https://in.linkedin.com/in/prashant-kariya-908a2b56" target="_blank" rel="noreferrer" aria-label="Connect on LinkedIn" className="hover:opacity-70 transition-opacity">
                 <FaLinkedin color="#F5E6C8" size={20} />
               </a>
-              <a href="https://www.youtube.com/@PrashantKariya" target="_blank" rel="noreferrer" className="hover:opacity-70 transition-opacity">
+              <a href="https://www.youtube.com/@PrashantKariya" target="_blank" rel="noreferrer" aria-label="Subscribe on YouTube" className="hover:opacity-70 transition-opacity">
                 <FaYoutube color="#F5E6C8" size={20} />
               </a>
             </div>

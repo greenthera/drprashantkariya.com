@@ -24,6 +24,8 @@ export default function BackToTop() {
   return (
     <motion.button
       onClick={scrollToTop}
+      aria-label="Back to top"
+      tabIndex={visible ? 0 : -1}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 20 }}
       transition={{ duration: 0.3 }}

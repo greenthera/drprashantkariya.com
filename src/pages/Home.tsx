@@ -1,7 +1,8 @@
 import { lazy, Suspense, useEffect } from "react";
-import { useLocation } from "react-router";
+import { useLocation, type LinksFunction } from "react-router";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import doctorImage from "../assets/doctorImage.webp";
 
 const Expertise = lazy(() => import("../components/Expertise"));
 const CoursesCTA = lazy(() => import("../components/CoursesCTA"));
@@ -10,6 +11,13 @@ const Testimonial = lazy(() => import("../components/Testimonial"));
 const BookAppointment = lazy(() => import("../components/BookAppointment"));
 const Publications = lazy(() => import("../components/Publications"));
 const Instagram = lazy(() => import("../components/Instagram"));
+
+// Preloads the Hero photo — the page's LCP element — as early as possible in
+// <head>, ahead of the JS bundle discovering it, so the browser doesn't wait
+// on script execution to start fetching it.
+export const links: LinksFunction = () => [
+  { rel: "preload", as: "image", href: doctorImage, fetchPriority: "high" },
+];
 
 export default function Home() {
   const location = useLocation();
