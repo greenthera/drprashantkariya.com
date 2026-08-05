@@ -206,7 +206,7 @@ export default function Testimonial() {
         </div>
         <div className="flex items-center gap-8">
           <div className="text-center">
-            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">2,000+</p>
+            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">20,000+</p>
             <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Happy Families</p>
           </div>
           <div className="w-px h-10 bg-white/10" />
