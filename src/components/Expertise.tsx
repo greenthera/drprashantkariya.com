@@ -70,12 +70,12 @@ export default function Expertise() {
               </p>
             </div>
 
-            <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex items-center gap-2">
+            {/* <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D]" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F2B33D]">
                 Primary Expertise
               </span>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* 2. NICU — Wide horizontal card */}
