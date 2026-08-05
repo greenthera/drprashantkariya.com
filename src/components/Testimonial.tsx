@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useAnimationFrame, animate } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { testimonialData } from "../data/testimonials";
@@ -71,9 +71,26 @@ export default function Testimonial() {
   const ptrStartX  = useRef(0);
   const xAtDragStart = useRef(0);
 
+  // The carousel is below the fold and lazy-loaded, so it's never visible at
+  // mount — start paused and only animate once actually scrolled into view,
+  // instead of burning main-thread time on a track no one can see.
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useRef(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   /* ── Auto-scroll ── */
   useAnimationFrame((_, delta) => {
-    if (dragging.current) return;
+    if (dragging.current || !isVisible.current) return;
     let next = x.get() - delta * SPEED;
     if (next < -TOTAL) next += TOTAL;
     x.set(next);
@@ -114,7 +131,7 @@ export default function Testimonial() {
   }
 
   return (
-    <section className="py-20 md:py-24 bg-[#2E3A9E] overflow-hidden">
+    <section ref={sectionRef} className="py-20 md:py-24 bg-[#2E3A9E] overflow-hidden">
 
       {/* Header */}
       <div className="px-6 md:px-10 max-w-[1400px] mx-auto mb-14">
