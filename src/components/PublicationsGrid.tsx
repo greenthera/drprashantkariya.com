@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ExternalLink, Search, X } from "lucide-react";
 import { PublicationsData } from "../data/publications";
 import { useState } from "react";
@@ -18,12 +17,7 @@ export default function PublicationsGrid() {
   return (
     <div className="bg-[#FAF9F6] pt-24 md:pt-32 pb-20 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
-        >
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4">
           <div>
             <span className="text-[#F2B33D] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
               Research &amp; Academia
@@ -39,14 +33,9 @@ export default function PublicationsGrid() {
             Peer-reviewed articles, clinical studies, and academic contributions across pediatric
             and adolescent health.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10"
-        >
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10">
           <div className="relative w-full sm:max-w-sm">
             <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8993CC] pointer-events-none" />
             <input
@@ -70,7 +59,7 @@ export default function PublicationsGrid() {
           <p className="text-[#6670A0] text-xs font-medium uppercase tracking-[0.15em]">
             {filteredItems.length} {filteredItems.length === 1 ? "Result" : "Results"}
           </p>
-        </motion.div>
+        </div>
 
         {filteredItems.length === 0 && (
           <div className="text-center py-20 border border-dashed border-[#E0E8E2] rounded-2xl">
@@ -82,12 +71,8 @@ export default function PublicationsGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((pub, i) => {
             return (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: (i % 6) * 0.06 }}
                 className="bg-white rounded-2xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col overflow-hidden"
               >
                 {/* "Image" — icon panel */}
@@ -114,7 +99,7 @@ export default function PublicationsGrid() {
                     Explore <ExternalLink size={12} />
                   </a>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

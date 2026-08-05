@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useCourses } from "../hooks/useCourses";
 import { GRAPHY_BASE_URL, MAX_COURSES, type Course } from "../lib/courses";
@@ -11,13 +10,7 @@ function ordinal(i: number): string {
 
 function FeaturedCard({ course }: { course: Course }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.65 }}
-      className="bg-[#4353CF] text-white rounded-2xl p-8 md:p-10 relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8 md:gap-10"
-    >
+    <div className="bg-[#4353CF] text-white rounded-2xl p-8 md:p-10 relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8 md:gap-10">
       <div className="absolute -top-6 -right-6 w-40 h-40 rounded-full border border-[#F2B33D]/10 pointer-events-none" />
       <div className="absolute -top-3 -right-3 w-24 h-24 rounded-full border border-[#F2B33D]/8 pointer-events-none" />
       <div className="absolute bottom-0 right-0 font-display text-[9rem] leading-none font-bold text-white/4 select-none pointer-events-none translate-x-2 translate-y-4">
@@ -52,19 +45,13 @@ function FeaturedCard({ course }: { course: Course }) {
           Start Course <ExternalLink size={12} />
         </a>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 function SupportingCard({ course, index }: { course: Course; index: number }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.65, delay: index * 0.08 }}
-      className="bg-white rounded-2xl p-6 border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
-    >
+    <div className="bg-white rounded-2xl p-6 border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
       <div className="absolute top-0 right-2 font-display text-[6rem] leading-none font-bold text-[#2E3A9E]/4 select-none pointer-events-none -translate-y-2">
         {ordinal(index + 1)}
       </div>
@@ -94,7 +81,7 @@ function SupportingCard({ course, index }: { course: Course; index: number }) {
           Start Course <ExternalLink size={11} />
         </a>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -118,12 +105,7 @@ export default function CourseList() {
   return (
     <div className="bg-[#FAF9F6] pt-24 md:pt-32 pb-20 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4"
-        >
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4">
           <div>
             <span className="text-[#F2B33D] font-medium uppercase tracking-[0.25em] text-[10px] block mb-3">
               Learn With Us
@@ -138,7 +120,7 @@ export default function CourseList() {
           <p className="text-[#4F5A8A] text-sm md:max-w-60 leading-relaxed font-light">
             Practical courses on parenting, safety, and clinical skill-building.
           </p>
-        </motion.div>
+        </div>
 
         <div aria-live="polite">
           {state.status === "loading" && <BentoSkeleton />}
