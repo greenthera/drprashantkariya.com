@@ -184,10 +184,10 @@ export default function Hero() {
                 className={`hidden sm:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap group perspective-[400px]`}
               >
                 <span
-                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:animate-[hero-badge-icon-flip_4s_linear_infinite]"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
                   style={{ backgroundColor: `${b.color}1A` }}
                 >
-                  <b.icon size={15} style={{ color: b.color }} />
+                  <b.icon className="group-hover:animate-[hero-badge-icon-flip_4s_linear_infinite]" size={15} style={{ color: b.color }} />
                 </span>
                 <div>
                   <p className="text-[12.5px] font-bold text-[#232323] leading-tight">{b.title}</p>
@@ -208,10 +208,10 @@ export default function Hero() {
                   }`}
               >
                 <span
-                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 animate-[hero-badge-icon-flip_4s_linear_infinite]"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
                   style={{ backgroundColor: `${b.color}1A` }}
                 >
-                  <b.icon size={15} style={{ color: b.color }} />
+                  <b.icon className="animate-[hero-badge-icon-flip_4s_linear_infinite]" size={15} style={{ color: b.color }} />
                 </span>
                 <div className="min-w-0">
                   <p className="text-[12.5px] font-bold text-[#232323] leading-tight truncate">{b.title}</p>
