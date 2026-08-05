@@ -47,18 +47,8 @@ export default function Hero() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center pt-28 pb-10 md:pt-30 md:pb-12 lg:pt-30 lg:pb-14">
 
         {/* ── LEFT ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="order-2 lg:order-1 flex flex-col"
-        >
-          <motion.div
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.15, duration: 0.6 }}
-            className="flex items-center gap-2.5 mb-6 bg-white border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full shadow-sm"
-          >
+        <div className="order-2 lg:order-1 flex flex-col">
+          <div className="flex items-center gap-2.5 mb-6 bg-white border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full shadow-sm">
             <span className="relative w-4 h-4 shrink-0">
               <span className="absolute left-0 top-0.5 w-2.5 h-2.5 rounded-full bg-[#4353CF]" />
               <span className="absolute left-1.5 top-0.5 w-2.5 h-2.5 rounded-full bg-[#F2B33D]" />
@@ -66,75 +56,47 @@ export default function Hero() {
             <span className="text-[#2E3A9E] font-medium text-[13px]">
               Pediatrician · Neonatologist · Medical Educator
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.28, duration: 0.9, ease: "easeOut" }}
+          <h1
             className="font-display font-bold text-[#232323] leading-[1.08] tracking-tight mb-6"
             style={{ fontSize: "clamp(2.2rem, 4vw, 3.4rem)" }}
           >
             Nurturing <span className="italic text-[#4353CF]">Children.</span><br />
             Empowering <span className="italic text-[#4353CF]">Parents.</span><br />
             Transforming <span className="italic text-[#4353CF]">Pediatric Care.</span>
-          </motion.h1>
+          </h1>
 
           {/* Gold rule */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.36, duration: 0.5, ease: "easeOut" }}
-            className="origin-left w-14 h-px bg-[#F2B33D] mb-6"
-          />
+          <div className="w-14 h-px bg-[#F2B33D] mb-6" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-            className="mb-6"
-          >
+          <div className="mb-6">
             <h2 className="font-display font-bold text-[#232323] text-2xl mb-1">Dr. Prashant Kariya</h2>
             <p className="text-[#6670A0] text-sm mb-2">MD Pediatrics | FIAP | PGDHHM</p>
             <p className="text-[#4353CF] font-medium text-sm leading-relaxed">
               Pediatrician · Neonatologist · Medical Educator · Author
             </p>
             <p className="text-[#4353CF] font-medium text-sm">AI in Healthcare Enthusiast</p>
-          </motion.div>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.48, duration: 0.7 }}
-            className="text-[#4F5A8A] text-base md:text-[17px] mb-8 leading-relaxed lg:max-w-lg font-light"
-          >
+          <p className="text-[#4F5A8A] text-base md:text-[17px] mb-8 leading-relaxed lg:max-w-lg font-light">
             Compassionate pediatric care backed by over{" "}
             <span className="font-semibold text-[#2E3A9E]">{years} years</span> of experience, trusted by
             more than <span className="font-semibold text-[#2E3A9E]">20,000 families</span>. Combining
             clinical excellence, education, and innovation to help every child thrive.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.56, duration: 0.6 }}
-            className="mb-10"
-          >
+          <div className="mb-10">
             <Link
               to="/contact"
               className="flex items-center gap-1.5 w-fit bg-[#4353CF] text-[#F5E6C8] px-5 py-2.5 rounded-lg text-[13px] font-semibold hover:bg-[#2E3A9E] hover:shadow-lg hover:shadow-[#2E3A9E]/20 hover:-translate-y-px transition-all duration-200"
             >
               Meet Dr. Prashant Kariya <ArrowRight size={15} />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.65, duration: 0.6 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-[#E0E8E2]"
-          >
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-[#E0E8E2]">
             {STATS.map((s) => (
               <div
                 style={{ animation: `state ${s.duration}s ease-in-out infinite`, animationDelay: `${s.delay}s` }}
@@ -160,17 +122,12 @@ export default function Hero() {
                 50% { transform: translateY(-3px); }
               }
             `}</style>
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
 
         {/* ── RIGHT: Image ── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.95, delay: 0.1, ease: "easeOut" }}
-          className="order-1 lg:order-2 relative flex flex-col items-center"
-        >
+        <div className="order-1 lg:order-2 relative flex flex-col items-center">
           <div className="relative w-full max-w-90 sm:max-w-100 lg:max-w-110 aspect-square my-8 sm:my-12">
             {/* Native CSS keyframe float — same technique as DoctorAnimation.tsx's
                 da-float, which is smoother than a JS-driven framer-motion loop. */}
@@ -239,7 +196,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Mission card — full width */}
