@@ -2,7 +2,9 @@ import { lazy, Suspense, useEffect } from "react";
 import { useLocation, type LinksFunction } from "react-router";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import doctorImage from "../assets/doctorImage.webp";
+import doctorAvatar450 from "../assets/doctorImage-avatar-450.webp";
+import doctorAvatar700 from "../assets/doctorImage-avatar-700.webp";
+import doctorAvatar965 from "../assets/doctorImage-avatar-965.webp";
 
 const Expertise = lazy(() => import("../components/Expertise"));
 const CoursesCTA = lazy(() => import("../components/CoursesCTA"));
@@ -16,7 +18,14 @@ const Instagram = lazy(() => import("../components/Instagram"));
 // <head>, ahead of the JS bundle discovering it, so the browser doesn't wait
 // on script execution to start fetching it.
 export const links: LinksFunction = () => [
-  { rel: "preload", as: "image", href: doctorImage, fetchPriority: "high" },
+  {
+    rel: "preload",
+    as: "image",
+    href: doctorAvatar700,
+    imageSrcSet: `${doctorAvatar450} 450w, ${doctorAvatar700} 700w, ${doctorAvatar965} 965w`,
+    imageSizes: "(min-width: 1024px) 440px, (min-width: 640px) 400px, 360px",
+    fetchPriority: "high",
+  },
 ];
 
 export default function Home() {

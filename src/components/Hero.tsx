@@ -2,6 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap, X } from "lucide-react";
 import doctorImage from "../assets/doctorImage.webp";
+import doctorAvatar450 from "../assets/doctorImage-avatar-450.webp";
+import doctorAvatar700 from "../assets/doctorImage-avatar-700.webp";
+import doctorAvatar965 from "../assets/doctorImage-avatar-965.webp";
 import { getYearsOfPractice } from "../lib/practice";
 import { Link } from "react-router";
 
@@ -153,7 +156,9 @@ export default function Hero() {
               className="absolute inset-0 rounded-full overflow-hidden shadow-md cursor-pointer"
             >
               <img
-                src={doctorImage}
+                src={doctorAvatar700}
+                srcSet={`${doctorAvatar450} 450w, ${doctorAvatar700} 700w, ${doctorAvatar965} 965w`}
+                sizes="(min-width: 1024px) 440px, (min-width: 640px) 400px, 360px"
                 fetchPriority="high"
                 className="w-full h-full object-top object-cover"
                 alt="Dr. Prashant Kariya"
