@@ -19,8 +19,8 @@ const STATS = [
 // keyframes (5s/0.7s, 5.5s/1.4s, 6s/2.1s, 6.5s/2.8s) so both floating
 // animations read as the same motion language across sections.
 const BADGES = [
-  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "top-6 -left-4 sm:-top-3 sm:-left-8", duration: 5, delay: 0.7, showOnMobile: false },
-  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "top-[15%] -right-4 sm:-top-2 sm:-right-3 md:-right-8", duration: 5.5, delay: 1.4, showOnMobile: false },
+  { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "top-6 -left-4 sm:-top-0 sm:left-5", duration: 5, delay: 0.7, showOnMobile: false },
+  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "top-[15%] -right-4 sm:-top-2 sm:-right-0 md:-right-8", duration: 5.5, delay: 1.4, showOnMobile: false },
   { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[70%] -left-4 sm:-left-14", duration: 6, delay: 2.1, showOnMobile: false },
   { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-4 sm:-right-14", duration: 6.5, delay: 2.8, showOnMobile: false },
   { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6", duration: 7, delay: 3.5, showOnMobile: false },
@@ -131,7 +131,7 @@ export default function Hero() {
 
         {/* ── RIGHT: Image ── */}
         <div className="order-1 lg:order-2 relative flex flex-col items-center">
-          <div className="relative w-full max-w-90 sm:max-w-100 lg:max-w-110 aspect-square my-8 sm:my-12">
+          <div className="relative w-full max-w-90 sm:max-w-100 lg:max-w-140 aspect-square my-8 sm:my-12">
             {/* Native CSS keyframe float — same technique as DoctorAnimation.tsx's
                 da-float, which is smoother than a JS-driven framer-motion loop. */}
             <style>{`
@@ -143,10 +143,21 @@ export default function Hero() {
                 from { transform: rotateY(0deg); }
                 to { transform: rotateY(360deg); }
               }
+              @keyframes spin {
+                0% {
+                  transform: rotate(0deg);
+                }
+                100% {
+                  transform: rotate(360deg);
+                }
+              }
             `}</style>
 
             {/* Dashed ring */}
-            <div className="absolute -inset-4 sm:-inset-6 rounded-full border-2 border-dashed border-[#C7CCEE] pointer-events-none" />
+            <div
+              style={{ animation: "spin 35s linear infinite" }}
+              className="absolute -inset-4 sm:-inset-6 rounded-full border-2 border-dashed border-[#C7CCEE] pointer-events-none"
+            />
 
             {/* Photo */}
             <button
@@ -173,7 +184,7 @@ export default function Hero() {
                 className={`hidden sm:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap group perspective-[400px]`}
               >
                 <span
-                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:animate-[hero-badge-icon-flip_1.8s_linear_infinite]"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:animate-[hero-badge-icon-flip_4s_linear_infinite]"
                   style={{ backgroundColor: `${b.color}1A` }}
                 >
                   <b.icon size={15} style={{ color: b.color }} />
@@ -191,14 +202,13 @@ export default function Hero() {
             {BADGES.map((b, i) => (
               <div
                 key={i}
-                className={`flex items-center gap-2.5 bg-white border border-[#E0E8E2] rounded-xl shadow-sm px-3.5 py-3 group perspective-[400px]${
-                  i === BADGES.length - 1 && BADGES.length % 2 === 1
-                    ? " col-span-2 mx-auto w-[calc(50%-0.375rem)]"
-                    : ""
-                }`}
+                className={`flex items-center gap-2.5 bg-white border border-[#E0E8E2] rounded-xl shadow-sm px-3.5 py-3 perspective-[400px]${i === BADGES.length - 1 && BADGES.length % 2 === 1
+                  ? " col-span-2 mx-auto w-[calc(50%-0.375rem)]"
+                  : ""
+                  }`}
               >
                 <span
-                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:animate-[hero-badge-icon-flip_1.8s_linear_infinite]"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 animate-[hero-badge-icon-flip_4s_linear_infinite]"
                   style={{ backgroundColor: `${b.color}1A` }}
                 >
                   <b.icon size={15} style={{ color: b.color }} />
