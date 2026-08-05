@@ -76,6 +76,7 @@ export default function Footer() {
                 <SectionLink id="expertise" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</SectionLink>
                 <SectionLink id="clinics" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</SectionLink>
                 <SectionLink id="publication" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</SectionLink>
+                <Link to="/courses" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Courses</Link>
                 <Link to="/publications" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Publications</Link>
               </nav>
             </div>
