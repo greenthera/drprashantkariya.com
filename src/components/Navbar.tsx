@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Plus, Menu, X } from "lucide-react";
 import { Link } from "react-router";
 import SectionLink from "./SectionLink";
@@ -76,51 +75,51 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[90] bg-[#FAF9F6] pt-20 px-6 lg:hidden"
+      <div
+        inert={!isOpen}
+        aria-hidden={!isOpen}
+        style={{
+          opacity: isOpen ? 1 : 0,
+          transform: isOpen ? "translateY(0)" : "translateY(-12px)",
+        }}
+        className={`fixed inset-0 z-[90] bg-[#FAF9F6] pt-20 px-6 lg:hidden transition-all duration-250 ${
+          isOpen ? "" : "pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col gap-1 pt-4">
+          {sectionLinks.map((link) => (
+            <SectionLink
+              key={link.name}
+              id={link.id}
+              onNavigate={() => setIsOpen(false)}
+              className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+            >
+              {link.name}
+            </SectionLink>
+          ))}
+          <Link
+            to="/courses"
+            onClick={() => setIsOpen(false)}
+            className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
           >
-            <div className="flex flex-col gap-1 pt-4">
-              {sectionLinks.map((link) => (
-                <SectionLink
-                  key={link.name}
-                  id={link.id}
-                  onNavigate={() => setIsOpen(false)}
-                  className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
-                >
-                  {link.name}
-                </SectionLink>
-              ))}
-              <Link
-                to="/courses"
-                onClick={() => setIsOpen(false)}
-                className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
-              >
-                Courses
-              </Link>
-              <Link
-                to="/publications"
-                onClick={() => setIsOpen(false)}
-                className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
-              >
-                Publications
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-5 bg-[#4353CF] text-[#F5E6C8] p-4 rounded-xl text-center font-semibold text-base hover:bg-[#2E3A9E] transition-colors"
-              >
-                Book Appointment
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            Courses
+          </Link>
+          <Link
+            to="/publications"
+            onClick={() => setIsOpen(false)}
+            className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+          >
+            Publications
+          </Link>
+          <Link
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+            className="mt-5 bg-[#4353CF] text-[#F5E6C8] p-4 rounded-xl text-center font-semibold text-base hover:bg-[#2E3A9E] transition-colors"
+          >
+            Book Appointment
+          </Link>
+        </div>
+      </div>
     </>
   );
 }

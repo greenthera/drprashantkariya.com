@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Diamond, Users, TrendingUp, CircleDot, Target, Heart, Activity, Sparkles, GraduationCap, X } from "lucide-react";
 import doctorImage from "../assets/doctorImage.webp";
 import doctorAvatar450 from "../assets/doctorImage-avatar-450.webp";
@@ -29,6 +28,28 @@ const BADGES = [
 export default function Hero() {
   const years = getYearsOfPractice();
   const [photoOpen, setPhotoOpen] = useState(false);
+
+  // One-time scroll-triggered reveal for the Mission card, replacing
+  // framer-motion's whileInView — plain IntersectionObserver, disconnects
+  // after the first intersection since it should only ever run once.
+  const missionRef = useRef<HTMLDivElement>(null);
+  const [missionVisible, setMissionVisible] = useState(false);
+
+  useEffect(() => {
+    const el = missionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMissionVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="hero" className="relative bg-[#FAF9F6] overflow-hidden">
@@ -224,11 +245,13 @@ export default function Hero() {
       </div>
 
       {/* Mission card — full width */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+      <div
+        ref={missionRef}
+        style={{
+          opacity: missionVisible ? 1 : 0,
+          transform: missionVisible ? "translateY(0)" : "translateY(12px)",
+          transition: "opacity 0.6s, transform 0.6s",
+        }}
         className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-20 lg:pb-24"
       >
         <div className="bg-[#EDEBFB] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-start gap-4 md:gap-5">
@@ -243,27 +266,28 @@ export default function Hero() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Full photo lightbox */}
-      <AnimatePresence>
-        {photoOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-8 sm:p-6"
-            onClick={() => setPhotoOpen(false)}
+      {photoOpen && (
+        <div
+          className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-8 sm:p-6 animate-[lightbox-backdrop-in_0.2s_ease-out]"
+          onClick={() => setPhotoOpen(false)}
+        >
+          <style>{`
+            @keyframes lightbox-backdrop-in {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+            @keyframes lightbox-card-in {
+              from { opacity: 0; transform: translateY(16px) scale(0.98); }
+              to { opacity: 1; transform: translateY(0) scale(1); }
+            }
+          `}</style>
+          <div
+            className="relative inline-block max-w-full animate-[lightbox-card-in_0.25s_ease-out]"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 16, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 16, scale: 0.98 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative inline-block max-w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
               <button
                 onClick={() => setPhotoOpen(false)}
                 aria-label="Close"
@@ -276,10 +300,9 @@ export default function Hero() {
                 alt="Dr. Prashant Kariya"
                 className="block max-w-full max-h-[60vh] sm:max-h-[85vh] md:max-h-[92vh] object-contain rounded-2xl shadow-2xl"
               />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

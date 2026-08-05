@@ -1,10 +1,25 @@
-import { motion } from "framer-motion";
 import { CheckCircle2, Star } from "lucide-react";
 import { getYearsOfPractice } from "../lib/practice";
+import { useInView } from "../hooks/useInView";
 import DoctorAnimation from "./DoctorAnimation";
+
+// Shared style for a scroll-triggered fade/slide-up reveal, applied via the
+// useInView hook below in place of framer-motion's whileInView.
+function revealStyle(visible: boolean, delay = 0) {
+  return {
+    opacity: visible ? 1 : 0,
+    transform: visible ? "translateY(0)" : "translateY(12px)",
+    transition: `opacity 0.5s ${delay}s, transform 0.5s ${delay}s`,
+  };
+}
 
 export default function About() {
   const yearsOfPractice = getYearsOfPractice();
+
+  const [contentRef, contentVisible] = useInView<HTMLDivElement>();
+  const [credentialsRef, credentialsVisible] = useInView<HTMLDivElement>();
+  const [journeyRef, journeyVisible] = useInView<HTMLDivElement>();
+  const [missionRef, missionVisible] = useInView<HTMLDivElement>();
 
   const credentials = [
     {
@@ -74,26 +89,21 @@ export default function About() {
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* ── RIGHT: Image ── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.95, delay: 0.1, ease: "easeOut" }}
-          className="order-1 lg:order-2 relative"
-        >
+        <div className="order-1 lg:order-2 relative animate-[about-image-in_0.95s_ease-out_0.1s_backwards]">
+          <style>{`
+            @keyframes about-image-in {
+              from { opacity: 0; transform: scale(0.96); }
+              to { opacity: 1; transform: scale(1); }
+            }
+          `}</style>
           {/* Animation */}
           <div className="h-80 sm:h-96 md:h-125 lg:h-140">
             <DoctorAnimation />
           </div>
-        </motion.div>
+        </div>
 
         {/* RIGHT: Content */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.75 }}
-          className="order-1 lg:order-2"
-        >
+        <div ref={contentRef} style={revealStyle(contentVisible)} className="order-1 lg:order-2">
           <div className="inline-flex items-center gap-2 bg-[#EAEDFB] border border-[#D6DBF5] px-4 py-2.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D]" />
             <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
@@ -127,15 +137,13 @@ export default function About() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="max-w-[1400px] mx-auto pt-16 md:pt-20">
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.75 }}
+        <div
+          ref={credentialsRef}
+          style={revealStyle(credentialsVisible)}
           className="order-1 lg:order-2"
         >
           <div className="inline-flex items-center gap-2 bg-[#EAEDFB] border border-[#D6DBF5] px-4 py-2.5 rounded-full mb-6">
@@ -156,12 +164,9 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {credentials.map((item, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.09, duration: 0.5 }}
+                style={revealStyle(credentialsVisible, i * 0.09)}
                 className="flex items-center gap-3 p-4 bg-[#FAF9F6] rounded-xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:bg-[#EAEDFB]/40 hover:-translate-y-0.5 transition-all duration-200 group"
               >
                 <Star fill="currentColor" size={17} className="text-[#4353CF] shrink-0 group-hover:scale-110 transition-transform" />
@@ -173,20 +178,15 @@ export default function About() {
                     {item.title}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Professional Journey */}
       <div className="max-w-[1400px] mx-auto pt-16 md:pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.75 }}
-        >
+        <div ref={journeyRef} style={revealStyle(journeyVisible)}>
           <div className="inline-flex items-center gap-2 bg-[#EAEDFB] border border-[#D6DBF5] px-4 py-2.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D]" />
             <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
@@ -208,31 +208,23 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {journeyMilestones.map((m, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.09, duration: 0.5 }}
+                style={revealStyle(journeyVisible, i * 0.09)}
                 className="border-t-[3px] border-[#F2B33D] pt-5"
               >
                 <p className="italic text-[#C9972E] text-sm font-medium mb-2">{m.tag}</p>
                 <p className="text-[#2E3A9E] font-semibold text-[15px] leading-snug">{m.role}</p>
                 <p className="text-[#4F5A8A] text-[13px] leading-relaxed mt-2">{m.detail}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Mission */}
       <div className="max-w-[1400px] mx-auto pt-16 md:pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.75 }}
-        >
+        <div ref={missionRef} style={revealStyle(missionVisible)}>
           <div className="inline-flex items-center gap-2 bg-[#EAEDFB] border border-[#D6DBF5] px-4 py-2.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#F2B33D]" />
             <span className="text-[#4353CF] font-medium uppercase tracking-[0.22em] text-[10px]">
@@ -247,12 +239,9 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {missions.map((mi, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07, duration: 0.5 }}
+                style={revealStyle(missionVisible, i * 0.07)}
                 className="bg-[#4353CF] rounded-2xl p-7 relative overflow-hidden min-h-[140px]"
               >
                 <div className="absolute -right-5 -bottom-5 w-24 h-24 rounded-full bg-white/5 pointer-events-none" />
@@ -260,10 +249,10 @@ export default function About() {
                   <CheckCircle2 size={15} />
                 </span>
                 <p className="relative z-10 text-white/90 text-[14.5px] leading-relaxed">{mi}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

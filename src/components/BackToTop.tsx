@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 export default function BackToTop() {
@@ -22,13 +21,14 @@ export default function BackToTop() {
   };
 
   return (
-    <motion.button
+    <button
       onClick={scrollToTop}
       aria-label="Back to top"
       tabIndex={visible ? 0 : -1}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 20 }}
-      transition={{ duration: 0.3 }}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(20px)",
+      }}
       className="
         fixed bottom-6 right-6
         w-12 h-12
@@ -42,6 +42,6 @@ export default function BackToTop() {
       "
     >
       <ArrowUp size={20} />
-    </motion.button>
+    </button>
   );
 }
