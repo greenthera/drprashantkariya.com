@@ -1,14 +1,15 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Expertise from "../components/Expertise";
-import CoursesCTA from "../components/CoursesCTA";
-import Clinics from "../components/Clinics";
-import Testimonial from "../components/Testimonial";
-import BookAppointment from "../components/BookAppointment";
-import Publications from "../components/Publications";
-import Instagram from "../components/Instagram";
+
+const Expertise = lazy(() => import("../components/Expertise"));
+const CoursesCTA = lazy(() => import("../components/CoursesCTA"));
+const Clinics = lazy(() => import("../components/Clinics"));
+const Testimonial = lazy(() => import("../components/Testimonial"));
+const BookAppointment = lazy(() => import("../components/BookAppointment"));
+const Publications = lazy(() => import("../components/Publications"));
+const Instagram = lazy(() => import("../components/Instagram"));
 
 export default function Home() {
   const location = useLocation();
@@ -34,13 +35,27 @@ export default function Home() {
     <main className="bg-[#FAF9F6] selection:bg-[#4353CF] selection:text-[#F5E6C8]">
       <Hero />
       <About />
-      <Expertise />
-      <CoursesCTA />
-      <Clinics />
-      <Testimonial />
-      <BookAppointment />
-      <Publications />
-      <Instagram />
+      <Suspense fallback={null}>
+        <Expertise />
+      </Suspense>
+      <Suspense fallback={null}>
+        <CoursesCTA />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Clinics />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Testimonial />
+      </Suspense>
+      <Suspense fallback={null}>
+        <BookAppointment />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Publications />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Instagram />
+      </Suspense>
     </main>
   );
 }
