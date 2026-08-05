@@ -136,6 +136,10 @@ export default function Hero() {
                 0%, 100% { transform: translateY(0); }
                 50% { transform: translateY(-14px); }
               }
+              @keyframes hero-badge-icon-flip {
+                from { transform: rotateY(0deg); }
+                to { transform: rotateY(360deg); }
+              }
             `}</style>
 
             {/* Dashed ring */}
@@ -160,10 +164,10 @@ export default function Hero() {
               <div
                 key={i}
                 style={{ animation: `hero-badge-float ${b.duration}s ease-in-out infinite`, animationDelay: `${b.delay}s` }}
-                className={`hidden sm:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap`}
+                className={`hidden sm:flex absolute ${b.pos} items-center gap-2.5 bg-white rounded-xl shadow-lg px-3.5 py-2.5 whitespace-nowrap group perspective-[400px]`}
               >
                 <span
-                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:animate-[hero-badge-icon-flip_1.8s_linear_infinite]"
                   style={{ backgroundColor: `${b.color}1A` }}
                 >
                   <b.icon size={15} style={{ color: b.color }} />
@@ -181,10 +185,14 @@ export default function Hero() {
             {BADGES.map((b, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2.5 bg-white border border-[#E0E8E2] rounded-xl shadow-sm px-3.5 py-3"
+                className={`flex items-center gap-2.5 bg-white border border-[#E0E8E2] rounded-xl shadow-sm px-3.5 py-3 group perspective-[400px]${
+                  i === BADGES.length - 1 && BADGES.length % 2 === 1
+                    ? " col-span-2 mx-auto w-[calc(50%-0.375rem)]"
+                    : ""
+                }`}
               >
                 <span
-                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:animate-[hero-badge-icon-flip_1.8s_linear_infinite]"
                   style={{ backgroundColor: `${b.color}1A` }}
                 >
                   <b.icon size={15} style={{ color: b.color }} />
