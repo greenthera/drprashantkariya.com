@@ -201,12 +201,12 @@ export default function Testimonial() {
               <Star key={i} size={16} className="text-[#F2B33D] fill-[#F2B33D]" />
             ))}
           </div>
-          <span className="font-display text-2xl font-bold italic text-[#F5E6C8]">4.8</span>
+          <span className="font-display text-2xl font-bold italic text-[#F5E6C8]">4.9</span>
           <span className="text-[#8993CC] text-xs font-medium uppercase tracking-[0.2em]">Average Rating</span>
         </div>
         <div className="flex items-center gap-8">
           <div className="text-center">
-            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">500+</p>
+            <p className="font-display text-3xl font-bold italic text-[#F2B33D]">2,000+</p>
             <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Happy Families</p>
           </div>
           <div className="w-px h-10 bg-white/10" />

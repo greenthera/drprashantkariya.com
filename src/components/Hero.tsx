@@ -10,7 +10,7 @@ import { Link } from "react-router";
 
 const STATS = [
   { icon: Diamond, color: "#F2B33D", value: "4.9", label: "Google Rating", duration: 5, delay: 0.7 },
-  { icon: Users, color: "#4353CF", value: "20,000+", label: "Families Served", duration: 5.5, delay: 1.4 },
+  { icon: Users, color: "#4353CF", value: "2,000+", label: "Families Served", duration: 5.5, delay: 1.4 },
   { icon: TrendingUp, color: "#2F9E6E", value: `${getYearsOfPractice()}+`, label: "Years Experience", duration: 6, delay: 2.1 },
   { icon: CircleDot, color: "#F0784A", value: "Trusted", label: "by Thousands of Parents", duration: 6.5, delay: 2.8 },
 ];
@@ -20,7 +20,7 @@ const STATS = [
 // animations read as the same motion language across sections.
 const BADGES = [
   { icon: Heart, color: "#F0784A", title: "Compassion", subtitle: "Care with Heart", pos: "top-6 -left-4 sm:-top-0 sm:left-5", duration: 5, delay: 0.7, showOnMobile: false },
-  { icon: Users, color: "#2F9E6E", title: "20,000+", subtitle: "Families Served", pos: "top-[15%] -right-4 sm:-top-2 sm:-right-0 md:-right-8", duration: 5.5, delay: 1.4, showOnMobile: false },
+  { icon: Users, color: "#2F9E6E", title: "2,000+", subtitle: "Families Served", pos: "top-[15%] -right-4 sm:-top-2 sm:-right-0 md:-right-8", duration: 5.5, delay: 1.4, showOnMobile: false },
   { icon: Activity, color: "#4353CF", title: "Level III NICU", subtitle: "Expertise", pos: "top-[70%] -left-4 sm:-left-14", duration: 6, delay: 2.1, showOnMobile: false },
   { icon: Sparkles, color: "#8B7CF0", title: "AI in", subtitle: "Healthcare", pos: "top-[48%] -right-4 sm:-right-14", duration: 6.5, delay: 2.8, showOnMobile: false },
   { icon: GraduationCap, color: "#F2B33D", title: "Medical", subtitle: "Educator", pos: "bottom-2 -right-2 sm:-right-6", duration: 7, delay: 3.5, showOnMobile: false },
@@ -84,8 +84,8 @@ export default function Hero() {
 
           <p className="text-[#4F5A8A] text-base md:text-[17px] mb-8 leading-relaxed lg:max-w-lg font-light">
             Compassionate pediatric care backed by over{" "}
-            <span className="font-semibold text-[#2E3A9E]">{years} years</span> of experience, trusted by
-            more than <span className="font-semibold text-[#2E3A9E]">20,000 families</span>. Combining
+            <span className="font-semibold text-[#2E3A9E]">{years}+ years</span> of experience, trusted by
+            more than <span className="font-semibold text-[#2E3A9E]">2,000+ families</span>. Combining
             clinical excellence, education, and innovation to help every child thrive.
           </p>
 
