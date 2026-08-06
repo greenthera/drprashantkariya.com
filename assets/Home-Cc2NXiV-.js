@@ -4,7 +4,7 @@ import{n as e,s as t,t as n}from"./jsx-runtime-DC5oW_UX.js";import{A as r,D as i
                 0%, 100% { transform: translateY(0); }
                 50% { transform: translateY(-3px); }
               }
-            `})]})]}),(0,E.jsxs)(`div`,{className:`lg:order-2 relative flex flex-col items-center`,children:[(0,E.jsxs)(`div`,{className:`relative w-full max-w-90 sm:max-w-100 lg:max-w-140 aspect-square my-8 sm:my-12`,children:[(0,E.jsx)(`style`,{children:`
+            `})]})]}),(0,E.jsxs)(`div`,{className:`lg:order-2 relative flex flex-col items-center`,children:[(0,E.jsxs)(`div`,{className:`relative w-full max-w-90 sm:max-w-120 lg:max-w-140 aspect-square my-8 sm:my-12`,children:[(0,E.jsx)(`style`,{children:`
               @keyframes hero-badge-float {
                 0%, 100% { transform: translateY(0); }
                 50% { transform: translateY(-14px); }
