@@ -60,7 +60,7 @@ export default function Expertise() {
                 <Baby size={22} className="text-[#F2B33D]" />
               </div>
               <h3 className="font-display font-bold italic text-white leading-tight mb-4"
-                style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
+                style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
                 Newborn Care
               </h3>
               <p className="text-white/75 text-sm leading-relaxed font-light">
@@ -94,7 +94,7 @@ export default function Expertise() {
               <Activity size={22} className="text-[#4353CF]" />
             </div>
             <div className="relative z-10">
-              <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
+              <h3 className="font-display font-bold italic text-[#2E3A9E] mb-2 leading-tight" style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
                 NICU (Neonatal Intensive Care Unit)
               </h3>
               <p className="text-[#4F5A8A] text-sm leading-relaxed font-light max-w-md">
@@ -121,7 +121,7 @@ export default function Expertise() {
               <div className="w-11 h-11 bg-[#EAEDFB] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                 <Stethoscope size={20} className="text-[#4353CF]" />
               </div>
-              <h3 className="font-display text-xl md:text-2xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
+              <h3 className="font-display font-bold italic text-[#2E3A9E] mb-2 leading-tight" style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
                 Child Health
               </h3>
               <p className="text-[#4F5A8A] text-sm leading-relaxed font-light">
@@ -148,7 +148,7 @@ export default function Expertise() {
               <div className="w-11 h-11 bg-[#EAEDFB] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                 <Syringe size={20} className="text-[#4353CF]" />
               </div>
-              <h3 className="font-display text-xl md:text-2xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
+              <h3 className="font-display font-bold italic text-[#2E3A9E] mb-2 leading-tight" style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
                 Vaccination
               </h3>
               <p className="text-[#4F5A8A] text-sm leading-relaxed font-light">
@@ -176,7 +176,7 @@ export default function Expertise() {
               <ChartColumnIncreasing size={22} className="text-[#4353CF] lg:text-[#F2B33D]" />
             </div>
             <div className="relative z-10">
-              <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
+              <h3 className="font-display font-bold italic text-[#2E3A9E] mb-2 leading-tight" style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
                 Growth & Development
               </h3>
               <p className="text-[#4F5A8A] text-sm leading-relaxed font-light max-w-md">
@@ -203,7 +203,7 @@ export default function Expertise() {
               <div className="w-11 h-11 bg-[#EAEDFB] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                 <UserRound size={20} className="text-[#4353CF]" />
               </div>
-              <h3 className="font-display text-xl md:text-2xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
+              <h3 className="font-display font-bold italic text-[#2E3A9E] mb-2 leading-tight" style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
                 Adolescent Health
               </h3>
               <p className="text-[#4F5A8A] text-sm leading-relaxed font-light">
@@ -230,7 +230,7 @@ export default function Expertise() {
               <div className="w-11 h-11 bg-[#EAEDFB] rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                 <MessageCircleHeart size={20} className="text-[#4353CF]" />
               </div>
-              <h3 className="font-display text-xl md:text-2xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
+              <h3 className="font-display font-bold italic text-[#2E3A9E] mb-2 leading-tight" style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
                 Counselling Consultations
               </h3>
               <p className="text-[#4F5A8A] text-sm leading-relaxed font-light max-w-5xl">

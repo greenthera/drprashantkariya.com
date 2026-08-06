@@ -30,7 +30,7 @@ function FeaturedCard({ course }: { course: Course }) {
           Latest Course
         </span>
         <h3 className="font-display font-bold italic text-white leading-tight mb-4"
-          style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>
+          style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
           {course.title}
         </h3>
         <p className="text-white/65 text-sm leading-relaxed font-light mb-7 max-w-md">
@@ -66,7 +66,8 @@ function SupportingCard({ course, index }: { course: Course; index: number }) {
       </div>
 
       <div className="relative z-10">
-        <h3 className="font-display text-xl font-bold italic text-[#2E3A9E] mb-2 leading-tight">
+        <h3 className="font-display font-bold italic text-[#2E3A9E] mb-2 leading-tight"
+          style={{ fontSize: "clamp(1.35rem, 2.5vw, 1.65rem)" }}>
           {course.title}
         </h3>
         <p className="text-[#4F5A8A] text-sm leading-relaxed font-light mb-5">

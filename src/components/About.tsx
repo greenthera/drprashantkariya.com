@@ -112,7 +112,7 @@ export default function About() {
           </div>
 
           <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight leading-[0.88] mb-6"
-            style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}>
+            style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
             Dr. Prashant Kariya
           </h2>
 
@@ -154,7 +154,7 @@ export default function About() {
           </div>
 
           <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight leading-[0.88] mb-6"
-            style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}>
+            style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
             Qualifications
           </h2>
 
@@ -195,7 +195,7 @@ export default function About() {
           </div>
 
           <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight leading-[0.88] mb-6"
-            style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}>
+            style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
             Professional Journey
           </h2>
 
@@ -233,7 +233,7 @@ export default function About() {
           </div>
 
           <h2 className="font-display font-bold text-[#2E3A9E] tracking-tight leading-[0.88] mb-10"
-            style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}>
+            style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
             Mission
           </h2>
 

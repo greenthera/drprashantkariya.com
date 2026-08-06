@@ -52,7 +52,7 @@ export default function ContactForm() {
 
           <h1
             className="font-display font-bold italic text-[#2E3A9E] leading-[0.88] tracking-tight mb-10"
-            style={{ fontSize: "clamp(3rem, 6vw, 5.5rem)" }}
+            style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}
           >
             Let's <br />
             <span className="not-italic text-[#4353CF]">Connect.</span>
