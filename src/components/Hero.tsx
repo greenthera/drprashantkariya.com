@@ -71,7 +71,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center pt-28 pb-10 md:pt-30 md:pb-12 lg:pt-30 lg:pb-14">
 
         {/* ── LEFT ── */}
-        <div className="order-2 lg:order-1 flex flex-col">
+        <div className="lg:order-1 flex flex-col">
           <div className="flex items-center gap-2.5 mb-6 bg-white border border-[#D6DBF5] w-fit px-4 py-2.5 rounded-full shadow-sm">
             <span className="relative w-4 h-4 shrink-0">
               <span className="absolute left-0 top-0.5 w-2.5 h-2.5 rounded-full bg-[#4353CF]" />
@@ -151,7 +151,7 @@ export default function Hero() {
         </div>
 
         {/* ── RIGHT: Image ── */}
-        <div className="order-1 lg:order-2 relative flex flex-col items-center">
+        <div className="lg:order-2 relative flex flex-col items-center">
           <div className="relative w-full max-w-90 sm:max-w-100 lg:max-w-140 aspect-square my-8 sm:my-12">
             {/* Native CSS keyframe float — same technique as DoctorAnimation.tsx's
                 da-float, which is smoother than a JS-driven framer-motion loop. */}
