@@ -152,7 +152,7 @@ export default function Hero() {
 
         {/* ── RIGHT: Image ── */}
         <div className="lg:order-2 relative flex flex-col items-center">
-          <div className="relative w-full max-w-90 sm:max-w-100 lg:max-w-140 aspect-square my-8 sm:my-12">
+          <div className="relative w-full max-w-90 sm:max-w-120 lg:max-w-140 aspect-square my-8 sm:my-12">
             {/* Native CSS keyframe float — same technique as DoctorAnimation.tsx's
                 da-float, which is smoother than a JS-driven framer-motion loop. */}
             <style>{`
