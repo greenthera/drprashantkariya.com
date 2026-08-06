@@ -84,7 +84,7 @@ export default function PublicationsGrid() {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <span className="text-[16px] font-bold uppercase text-[#2E3A9E] line-clamp-3 mb-2.5">
+                  <span title={pub.title} className="text-[16px] font-bold uppercase text-[#2E3A9E] line-clamp-3 mb-2.5">
                     {pub.title}
                   </span>
                   <h3 className="font-display text-[16px] text-[#4353CF] leading-snug mb-5 line-clamp-3 flex-1">
