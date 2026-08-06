@@ -92,7 +92,7 @@ export default function Navbar() {
               key={link.name}
               id={link.id}
               onNavigate={() => setIsOpen(false)}
-              className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+              className="font-display text-l font-semibold italic text-[#2E3A9E] py-2 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
             >
               {link.name}
             </SectionLink>
@@ -100,14 +100,14 @@ export default function Navbar() {
           <Link
             to="/courses"
             onClick={() => setIsOpen(false)}
-            className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+            className="font-display text-l font-semibold italic text-[#2E3A9E] py-2 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
           >
             Courses
           </Link>
           <Link
             to="/publications"
             onClick={() => setIsOpen(false)}
-            className="font-display text-4xl font-semibold italic text-[#2E3A9E] py-4 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+            className="font-display text-l font-semibold italic text-[#2E3A9E] py-2 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
           >
             Publications
           </Link>
