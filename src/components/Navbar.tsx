@@ -54,6 +54,12 @@ export default function Navbar() {
             >
               Publications
             </Link>
+            <Link
+              to="/parental-guidelines"
+              className="text-[13px] font-medium text-[#4F5A8A] hover:text-[#4353CF] transition-colors duration-200 tracking-wide"
+            >
+              Guidelines
+            </Link>
           </div>
 
           <div className="flex items-center gap-3">
@@ -110,6 +116,13 @@ export default function Navbar() {
             className="font-display text-l font-semibold italic text-[#2E3A9E] py-2 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
           >
             Publications
+          </Link>
+          <Link
+            to="/parental-guidelines"
+            onClick={() => setIsOpen(false)}
+            className="font-display text-l font-semibold italic text-[#2E3A9E] py-2 border-b border-[#E0E8E2] hover:text-[#4353CF] transition-colors"
+          >
+            Parental Guidelines
           </Link>
           <Link
             to="/contact"

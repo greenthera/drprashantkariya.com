@@ -1,0 +1,527 @@
+[
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guidelines for Healthy Eating and Junk Food",
+    "url": "https://iapindia.org/pdf/IAP-Parental-Guideline-Ch-01-JUNK-food.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guidelines for Normal Sleep and Physical Activity",
+    "url": "https://iapindia.org/pdf/Guidelines-for-Normal-Sleep-and-Physical-Activity.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guideline for Dental Care, Diapers, and Clothing",
+    "url": "https://iapindia.org/pdf/200921-Guideline-for-Dental-Care-Diapers-and-Clothing.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guidelines for Prevention of Accidents and Injuries",
+    "url": "https://iapindia.org/pdf/Guidelines-for-Parents-Prevention-of-Accidents-and-Injuries-updated.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Screentime Guidelines for Parents",
+    "url": "https://iapindia.org/pdf/Screentime-Guidelines-for-Parents-Ch-005.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guideline for School and My Child: Parental Concerns Regarding Schooling",
+    "url": "https://iapindia.org/pdf/Ch-006-Selecting-the-School-IAP-Parental-Guideline-02122021.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guideline for Toys, Plays, And Sports",
+    "url": "https://iapindia.org/pdf/IAP-Parental-Guidelines-Ch-007-Toys-plays-sports-08042021.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guideline for Early Childhood Development",
+    "url": "https://iapindia.org/pdf/Ch-008ECD-Early-Childhood-Development.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guideline for Studies, Coaching, and Vocational Counseling",
+    "url": "https://iapindia.org/pdf/Guideline-for-Studies-Coaching-and-Vocational-Counseling-17112021.pdf"
+  },
+  {
+    "category": "How To Take Care of My Child",
+    "title": "Guideline for Traveling with children",
+    "url": "https://iapindia.org/pdf/IAP-Travel-Guideline-for-Parents-Ch-010.pdf"
+  },
+  {
+    "category": "Preventing Diseases by Immunization",
+    "title": "Guideline for Vaccination",
+    "url": "https://iapindia.org/pdf/Ch-11-IAP-Parental-Guide-on-Vaccination.pdf"
+  },
+  {
+    "category": "Preventing Diseases by Immunization",
+    "title": "Guideline for Dealing with Adverse Events Following Immunization",
+    "url": "https://iapindia.org/pdf/Ch-012-AEFI-IAP-Parental-Guideline-28112021.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for Prepare Your Child to Deal with Bullying",
+    "url": "https://iapindia.org/pdf/Guideline-for-Prepare-Your-Child-to-Deal-with-Bullying-17112021.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for Thumb-sucking, Temper Tantrums and PICA",
+    "url": "https://iapindia.org/pdf/IAP-Parental-Guideline-Thumb-sucking-Temper-Tantrums-and-PICA.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for Enuresis and Encopresis",
+    "url": "https://iapindia.org/pdf/200921-Guideline-for-Enuresis-and-Encopresis.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for Stammering and Stuttering",
+    "url": "https://iapindia.org/pdf/Ch-016-Stammering-IAP-parental-Guideline-02122021.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for When and How Do I Suspect and Prevent Abuse in My Child?",
+    "url": "https://iapindia.org/pdf/Ch-017-Suspecting-Child-Abuse-IAP-Parental-Guidelines-18112021.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for AUTISM",
+    "url": "https://iapindia.org/pdf/Ch-018-IAP-Parental-Guideline-AUTISM.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for Care of an Inattentive/Hyperactive Child",
+    "url": "https://iapindia.org/pdf/Ch-019-IAP-Parental-Guideline-Hyperactive-Child.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for When to Suspect Specific Learning Disability in Your Child?",
+    "url": "https://iapindia.org/pdf/Ch-020-SLD-IAP-Parental-Guideline-02122021.pdf"
+  },
+  {
+    "category": "Behavioral and Developmental Issues",
+    "title": "Guideline for Care of a Child with Intellectual Disability",
+    "url": "https://iapindia.org/pdf/0409-Ch-021-IAP-Parental-Guideline-Intellectual-Disability.pdf"
+  },
+  {
+    "category": "Is My Child Growing Well?",
+    "title": "Guideline for How My Child Grows",
+    "url": "https://iapindia.org/pdf/Ch-22-IAP-Parental-Guide-for-How-My-Child-Grows.pdf"
+  },
+  {
+    "category": "Is My Child Growing Well?",
+    "title": "Normal Development and When to Suspect Abnormal Development?",
+    "url": "https://iapindia.org/pdf/Ch-023-IAP-Parental-Guideline-Normal-Development.pdf"
+  },
+  {
+    "category": "Is My Child Growing Well?",
+    "title": "Guideline for When to Suspect Visual Impairment and Care of a Child with Visual Impairment?",
+    "url": "https://iapindia.org/pdf/Ch-024-Visual-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Is My Child Growing Well?",
+    "title": "Guideline for When to Suspect Hearing Impairment and Care of a Child with Hearing Impairment",
+    "url": "https://iapindia.org/pdf/Ch-025-Hearing-IAP-Parental-Guideline.pdf"
+  },
+  {
+    "category": "Understanding My Adolescent Child",
+    "title": "Guideline for Normal Psychosocial Development in Adolescents",
+    "url": "https://iapindia.org/pdf/Ch-026-Normal-Psychosocial-Development-in-Adolescents.pdf"
+  },
+  {
+    "category": "Understanding My Adolescent Child",
+    "title": "Guideline for Attainment of Puberty",
+    "url": "https://iapindia.org/pdf/2808-Guideline-for-Attainment-of-Puberty.pdf"
+  },
+  {
+    "category": "Understanding My Adolescent Child",
+    "title": "Guideline for Mental Health Issues in Adolescents",
+    "url": "https://iapindia.org/pdf/guideline-Mental-Health-Issues-in-Adolescents.pdf"
+  },
+  {
+    "category": "Understanding My Adolescent Child",
+    "title": "Guideline for Eating Disorders : Anorexia and Bulimia",
+    "url": "https://iapindia.org/pdf/IAP-Parental-Guidelines-Eating-Disorders-Anorexia-and-Bulimia.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guidelines for Fever",
+    "url": "https://iapindia.org/pdf/IAP-Guidelines-for-Fever.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for My Child has a Fever with Rash",
+    "url": "https://iapindia.org/pdf/0409-Ch-031-IAP-Parental-Guideline-Fever-with-Rash.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for Typhoid",
+    "url": "https://iapindia.org/pdf/Ch-032-Typhoid-IAP-Parental-Guideline-13122021.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for Viral Hepatitis",
+    "url": "https://iapindia.org/pdf/Ch-33-IAP-Parental-Guide-on-Viral-Hepatitis.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for Suspecting a Serious Bacterial Illness",
+    "url": "https://iapindia.org/pdf/IAP-Parental-Guideline-Suspecting-a-Serious-Bacterial-Illness.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for Tuberculosis in Children",
+    "url": "https://iapindia.org/pdf/Ch-035-Tuberculosis-in-Children-13122021.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for Care of a Child with HIV/Child Born to HIV Positive Mother",
+    "url": "https://iapindia.org/pdf/2308-Guideline-for-Care-of-a-Child-with-HIV-Child-Born-to-HIV.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for Care of a Child with Immune Deficiency",
+    "url": "https://iapindia.org/pdf/Ch-037-Immune-Deficiency-IAP-Parental-Guideline-13122021.pdf"
+  },
+  {
+    "category": "Infections",
+    "title": "Guideline for Preventing Mosquito-borne Illnesses",
+    "url": "https://iapindia.org/pdf/Ch-038Mosquito-borne-illnesses-IAP-Parental-Guide-13122021.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guidelines for Breastfeeding",
+    "url": "https://iapindia.org/pdf/Ch-039-Breastfeeding.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Complementary Feeding",
+    "url": "https://iapindia.org/pdf/Ch-040-IAP-Parental-Guideline-Complementary-Feeding.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Vitamins and Minerals for My Child",
+    "url": "https://iapindia.org/pdf/Ch-041-Vitamins-and-Minerals-IAP-Parental-Guidelines-31102021.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Nutrition Between 1 and 2 Years of Age",
+    "url": "https://iapindia.org/pdf/Ch-042-Nutrition-1-2-years-IAP-Parental-Guideline-31102021.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Nutrition for Preschoolers (2–5 Years)",
+    "url": "https://iapindia.org/pdf/Ch-043-Nutrition-for-Preschoolers-2–5-Years.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Nutrition for Children Between 5–12 Years",
+    "url": "https://iapindia.org/pdf/Ch-044-Nutrition-5-12-y-IAP-Parental-Guidelines-28112021.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Nutrition of Adolescents (10–19 Years)",
+    "url": "https://iapindia.org/pdf/Guideline-for-Nutrition-of-Adolescents-10-19-Years-17112021.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Which Nutritional Supplements are Needed for My Child?",
+    "url": "https://iapindia.org/pdf/Ch-046-Nut-Supplements-IAP-Parental-Guideline-31102021.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guideline for Prevention and Care of Malnutrition in Children",
+    "url": "https://iapindia.org/pdf/Ch-047-SAM-IAP-Parental-Guideline-31102021.pdf"
+  },
+  {
+    "category": "Nutrition",
+    "title": "Guidelines for obesity",
+    "url": "https://iapindia.org/pdf/guideline-on-OBESITY-04032021.pdf"
+  },
+  {
+    "category": "Newborn Infants",
+    "title": "Guideline for How Do I Prepare for Arrival of My Newborn Baby?",
+    "url": "https://iapindia.org/pdf/1409-Ch-049-How-Do-I-Prepare-for-Arrival-of-My-Newborn-Baby.pdf"
+  },
+  {
+    "category": "Newborn Infants",
+    "title": "Physiological Variations in a Newborn",
+    "url": "https://iapindia.org/pdf/Ch-050-Variations-in-Newborn-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Newborn Infants",
+    "title": "Guideline for Care of the Low Birthweight Newborn",
+    "url": "https://iapindia.org/pdf/1409-Ch-051-Guideline-for-Care-of-the-Low-Birthweight-Newborn.pdf"
+  },
+  {
+    "category": "Newborn Infants",
+    "title": "Guideline for Identifying a Sick Newborn",
+    "url": "https://iapindia.org/pdf/1409-Ch-052-Identifying-sick-newborn-IAP-parental-Guideline.pdf"
+  },
+  {
+    "category": "Newborn Infants",
+    "title": "Guideline for Neonatal Jaundice",
+    "url": "https://iapindia.org/pdf/Ch-053-IAP-Parental-Guideline-Neonatal-Jaundice.pdf"
+  },
+  {
+    "category": "Newborn Infants",
+    "title": "Guideline for Birth Defects",
+    "url": "https://iapindia.org/pdf/Ch-054BirthDefectsIAPParentalGuidelines.pdf"
+  },
+  {
+    "category": "Cardiovascular Disorders",
+    "title": "Guideline for Care of a Child with Congenital Heart Disease",
+    "url": "https://iapindia.org/pdf/Ch-055CHDIAPParentalGuidelines.pdf"
+  },
+  {
+    "category": "Cardiovascular Disorders",
+    "title": "Guideline for Importance of Checking Blood Pressure in Children",
+    "url": "https://iapindia.org/pdf/Ch-056-IAP-Parental-Guidelines-BP-Final.pdf"
+  },
+  {
+    "category": "Cardiovascular Disorders",
+    "title": "Guideline for Taking Care of My Child After Heart Surgery",
+    "url": "https://iapindia.org/pdf/Ch-057CareAfterHeartsurgeryIAPParentalGuidelines.pdf"
+  },
+  {
+    "category": "Endocrinologic Disorders",
+    "title": "Guideline for My Child is Not Growing Well : How to Monitor and Manage?",
+    "url": "https://iapindia.org/pdf/Ch-058-Not-Growing-Well-IAP-Parental-Guideline.pdf"
+  },
+  {
+    "category": "Endocrinologic Disorders",
+    "title": "Guideline for Early and Late Puberty",
+    "url": "https://iapindia.org/pdf/2808-Guideline-for-Early-and-Late-Puberty.pdf"
+  },
+  {
+    "category": "Endocrinologic Disorders",
+    "title": "Guideline for Hypothyroidism: Congenital and Acquired",
+    "url": "https://iapindia.org/pdf/Ch-060-Hypothyroidism-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Endocrinologic Disorders",
+    "title": "Guidelines for Diarrhea",
+    "url": "https://iapindia.org/pdf/IAP-guidelines-for-DIARRHEA.pdf"
+  },
+  {
+    "category": "Gastro-Intestinal Disorders",
+    "title": "Guidelines for Care of a child with Diabetes Mellitus",
+    "url": "https://iapindia.org/pdf/guidlines-for-Care-of-a-child-with-Diabetes-Mellitus.pdf"
+  },
+  {
+    "category": "Gastro-Intestinal Disorders",
+    "title": "Guideline for Caring for a Child with Celiac Disease",
+    "url": "https://iapindia.org/pdf/Ch-063-Celiac-Disease-IAP-Parental-Guideline.pdf"
+  },
+  {
+    "category": "Gastro-Intestinal Disorders",
+    "title": "Guideline for The Constipated Kid",
+    "url": "https://iapindia.org/pdf/Ch-064-IAP-Parental-Guideline-Constipation.pdf"
+  },
+  {
+    "category": "Gastro-Intestinal Disorders",
+    "title": "Guideline for How to Deal with Recurrent Abdominal Pain?",
+    "url": "https://iapindia.org/pdf/Ch-065-RAP-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Gastro-Intestinal Disorders",
+    "title": "Guideline for Care of a Child with Chronic Liver Disease",
+    "url": "https://iapindia.org/pdf/Ch-066-Chronic-liver-disease-IAP-Parental-guidelines.pdf"
+  },
+  {
+    "category": "Hematological Disorders",
+    "title": "Guideline for Thalassemia: What Parents Need to Know?",
+    "url": "https://iapindia.org/pdf/Ch-067-Thallasemia-IAP-parental-Guidelines.pdf"
+  },
+  {
+    "category": "Hematological Disorders",
+    "title": "Guideline for Hemophilia",
+    "url": "https://iapindia.org/pdf/Ch-068-Hemophilia-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Hematological Disorders",
+    "title": "Guideline for Anemia",
+    "url": "https://iapindia.org/pdf/Ch-069-IAP-Parental-Guideline-Anemia.pdf"
+  },
+  {
+    "category": "Hematological Disorders",
+    "title": "Guideline for Care of a Child with Leukemia",
+    "url": "https://iapindia.org/pdf/Ch-070-Leukemia-IAP-Parental-guideline-07112021.pdf"
+  },
+  {
+    "category": "Hematological Disorders",
+    "title": "Guideline for Care of Children with Cancer",
+    "url": "https://iapindia.org/pdf/Ch-071-Care-of-Cancer-IAP-Parental-Guideline-07112021.pdf"
+  },
+  {
+    "category": "Hematological Disorders",
+    "title": "Guideline for Post Bone Marrow Transplant/Stem Cell Transplant Care",
+    "url": "https://iapindia.org/pdf/Ch-072-BMT-IAP-Parental-Guideline-07112021.pdf"
+  },
+  {
+    "category": "Hematological Disorders",
+    "title": "Guideline for Care of Childhood Cancer Survivors",
+    "url": "https://iapindia.org/pdf/Guideline-for-Care-of-Childhood-Cancer-Survivors.pdf"
+  },
+  {
+    "category": "Nervous System Disorders",
+    "title": "Guideline for Home Care of a Paralytic Child",
+    "url": "https://iapindia.org/pdf/Ch-074-Care-of-paralysis-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Nervous System Disorders",
+    "title": "Guideline for Home Care of a Child with Cerebral Palsy",
+    "url": "https://iapindia.org/pdf/Ch-075-CP-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Nervous System Disorders",
+    "title": "Guideline for Care of a Child with Duchenne Muscular Dystrophy",
+    "url": "https://iapindia.org/pdf/Ch-076-DMD-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Nervous System Disorders",
+    "title": "Guideline for Care of a Child with Epilepsy",
+    "url": "https://iapindia.org/pdf/Ch-077-Epilepsy-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Nervous System Disorders",
+    "title": "Guideline for Acute Episodes of Seizures: What to Do?",
+    "url": "https://iapindia.org/pdf/Ch-078-Seizure-management-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Nervous System Disorders",
+    "title": "Guideline for Care of Children with Febrile Seizure",
+    "url": "https://iapindia.org/pdf/Ch-079-Febrile-Seizures-IAP-Parental-guidelines.pdf"
+  },
+  {
+    "category": "Respiratory Disorders",
+    "title": "Guideline for My Child is having Fever with Cough: What to Do?",
+    "url": "https://iapindia.org/pdf/Ch-080-Fever-and-cough-IAP-Parental-Guidelines-28112021.pdf"
+  },
+  {
+    "category": "Respiratory Disorders",
+    "title": "Guideline for Care of a Child with Cystic Fibrosis",
+    "url": "https://iapindia.org/pdf/Ch-081-IAP-Parental-Guidelines-Cystic-Fibrosis.pdf"
+  },
+  {
+    "category": "Respiratory Disorders",
+    "title": "Guideline for Allergic Rhinitis",
+    "url": "https://iapindia.org/pdf/Ch-082AllergicRhinitsIAPParentalGuideline.pdf"
+  },
+  {
+    "category": "Respiratory Disorders",
+    "title": "Guideline for Acute Attack of Asthma: What to Do?",
+    "url": "https://iapindia.org/pdf/Ch-083-Acute-Asthma-IAP-Parental-Guideline.pdf"
+  },
+  {
+    "category": "Respiratory Disorders",
+    "title": "Guideline for Home Care of Chronic Asthma",
+    "url": "https://iapindia.org/pdf/Ch-084ChronicasthmaIAPParentalGuideline.pdf"
+  },
+  {
+    "category": "Respiratory Disorders",
+    "title": "Guideline for Home Care of Child on Oxygen and Ventilation",
+    "url": "https://iapindia.org/pdf/Ch-085HomeoxygentherapyIAPParentalGuideline.pdf"
+  },
+  {
+    "category": "Respiratory Disorders",
+    "title": "Guidelines for Recurrent Cough",
+    "url": "https://iapindia.org/pdf/Guidelines-for-Recurrent-Cough.pdf"
+  },
+  {
+    "category": "Renal Disorders",
+    "title": "Care of a Child with Nephrotic Syndrome",
+    "url": "https://iapindia.org/pdf/Care-of-a-Child-with-Nephrotic-Syndrome.pdf"
+  },
+  {
+    "category": "Renal Disorders",
+    "title": "Guideline for Care of a Child with Recurrent Urinary Tract Infection",
+    "url": "https://iapindia.org/pdf/Ch-088-IAP-Parental-Guideline-Rec-UTI.pdf"
+  },
+  {
+    "category": "Renal Disorders",
+    "title": "Guideline for Congenital Anomalies of Kidney and Urinary Tract",
+    "url": "https://iapindia.org/pdf/Ch-089-CAKUT-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Renal Disorders",
+    "title": "Guideline for Care of a Child with Chronic Kidney Disease",
+    "url": "https://iapindia.org/pdf/Ch-090-CKD-IAP-Parental-Guidelines.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Care of a Child with Skin Allergies",
+    "url": "https://iapindia.org/pdf/Ch-091-IAP-Parental-Guideline-child-Skin-Allergy.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Environmental Pollution",
+    "url": "https://iapindia.org/pdf/Ch-092-Protect-your-Child-from-Pollution-IAP-parental-Guideline-18112021.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for When a Dog Bites My Child?",
+    "url": "https://iapindia.org/pdf/Ch-093-Dogbite-IAP-Parental-Guideline-13122021.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for When to Suspect Drug and Substance Abuse?",
+    "url": "https://iapindia.org/pdf/Ch-094-Suspecting-Drug-Abuse-IAP-Parental-Guidelines-18112021.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Genetic Disorders: How to Prevent Recurrence?",
+    "url": "https://iapindia.org/pdf/Ch-095-Preventing-Genetic-defects-IAP-Parental-Guidelines-28112021.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guidelines for Down Syndrome",
+    "url": "https://iapindia.org/pdf/care-of-child-with-down-syndrome.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Rheumatic Disorders",
+    "url": "https://iapindia.org/pdf/2308-Guideline-for-Rheumatic-Disorders.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Child Labor and Rights of Children",
+    "url": "https://iapindia.org/pdf/Ch-98-Rights-of-Children-IAP-Parental-Guideline-18112021.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for I Want to Adopt a Child",
+    "url": "https://iapindia.org/pdf/Ch-099-I-want-to-adopt-a-child-IAP-Parental-Guidelines-18112021.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Chronic Disease in Children",
+    "url": "https://iapindia.org/pdf/Ch-100-Care-of-chronic-illness-IAP-Parental-Guideline.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Care of a Terminally Ill Child",
+    "url": "https://iapindia.org/pdf/Ch-101-Care-of-a-Terminally-Ill-Child-IAP-Parental-guidelines.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guidelines for First Aid",
+    "url": "https://iapindia.org/pdf/Guidelines-for-First-Aid.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Corona virus Disease-2019 in Children",
+    "url": "https://iapindia.org/pdf/IAP-Guideline-for-Coronavirus-Disease-2019-in-Children.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Yoga for Children",
+    "url": "https://iapindia.org/pdf/Ch-104-Yoga-for-Children-IAP-Parental-Guidelines-02122021.pdf"
+  },
+  {
+    "category": "Miscellaneous",
+    "title": "Guideline for Psychosocial Concerns during Pandemic",
+    "url": "https://iapindia.org/pdf/Ch-105-Psychosocial-covid-issues-IAP-Parental-Guidelines-02122021.pdf"
+  }
+]
