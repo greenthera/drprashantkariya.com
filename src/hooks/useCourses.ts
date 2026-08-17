@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
-import { fetchCourses, type Course } from "../lib/courses";
+import { fetchCourses, setCoursesCache, type Course } from "../lib/courses";
 
 export type CoursesState =
   | { status: "loading" }
@@ -21,6 +21,7 @@ export function useCourses(): CoursesState {
 
     fetchCourses()
       .then((courses) => {
+        setCoursesCache(courses);
         if (!cancelled) setState({ status: "success", courses });
       })
       .catch(() => {

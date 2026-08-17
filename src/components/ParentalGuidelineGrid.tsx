@@ -19,10 +19,10 @@ import {
   Zap,
   Wind,
   Filter,
-  BadgeInfo,
   type LucideIcon,
 } from "lucide-react";
 import guidelinesData from "../data/parental-guidelines.json";
+import iapLogo from "../assets/iap-logo.webp";
 
 type Guideline = { category: string; title: string; url: string };
 
@@ -195,9 +195,9 @@ export default function ParentalGuidelineGrid() {
         </div>
 
         {/* Source attribution */}
-        <div className="mt-16 bg-[#EDEBFB] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-start gap-4 md:gap-5">
-          <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 text-[#4353CF]">
-            <BadgeInfo size={18} />
+        <div className="mt-16 bg-[#EDEBFB] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-start gap-5 md:gap-6">
+          <span className="h-16 px-4 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
+            <img src={iapLogo} alt="Indian Academy of Pediatrics logo" className="h-9 w-auto object-contain" />
           </span>
           <div>
             <h3 className="font-display font-bold text-[#232323] text-base md:text-lg mb-1.5">
@@ -208,7 +208,7 @@ export default function ParentalGuidelineGrid() {
               the national professional association of pediatricians in India, and are shared
               here for parents' quick reference.{" "}
               <a
-                href={withRef("https://iapindia.org/guidelines-for-parents/")}
+                href={withRef("https://iapindia.org/index.php")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#4353CF] font-semibold hover:underline"

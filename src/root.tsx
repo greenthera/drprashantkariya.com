@@ -1,8 +1,20 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, type MetaFunction } from "react-router";
 import "./index.css";
 
 const FONT_HREF =
   "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap";
+
+// Site-wide default — pages that don't export their own `meta()` inherit
+// this title/description; pages that do (e.g. ParentalGuideline.tsx) override
+// it for their own route only.
+export const meta: MetaFunction = () => [
+  { title: "Dr. Prashant Kariya — Pediatrician & Adolescent Health Expert, Surat" },
+  {
+    name: "description",
+    content:
+      "Dr. Prashant Kariya is a pediatrician and neonatologist in Surat offering compassionate, evidence-based care for newborns, children, and adolescents.",
+  },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +22,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dr. Prashant Kariya — Pediatrician & Adolescent Health Expert, Surat</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* Loaded as a non-blocking preload (swapped to a real stylesheet

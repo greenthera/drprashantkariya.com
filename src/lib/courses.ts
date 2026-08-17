@@ -70,3 +70,24 @@ export async function fetchCourses(): Promise<Course[]> {
     .map(toCourse)
     .sort((a, b) => (a.id > b.id ? -1 : a.id < b.id ? 1 : 0));
 }
+
+// In-memory, per-session cache. React Router's loader blocks the route
+// transition on its promise resolving, so without this, every single
+// client-side navigation to /courses re-hits the network before the page
+// can render — noticeably slower than every other route, which has no
+// loader at all. The first visit each session still has to fetch for real;
+// after that, the loader serves this instantly while useCourses()'s
+// existing background revalidation (see hooks/useCourses.ts) keeps it
+// updated for the next navigation.
+let coursesCache: Course[] | null = null;
+
+export function setCoursesCache(courses: Course[]): void {
+  coursesCache = courses;
+}
+
+export async function getCoursesForLoader(): Promise<Course[]> {
+  if (coursesCache) return coursesCache;
+  const courses = await fetchCourses();
+  coursesCache = courses;
+  return courses;
+}

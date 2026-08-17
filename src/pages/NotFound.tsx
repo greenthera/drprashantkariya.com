@@ -1,5 +1,13 @@
-import { Link } from "react-router";
+import { Link, type MetaFunction } from "react-router";
 import { Compass, ArrowRight } from "lucide-react";
+
+// A 404 page shouldn't be indexed or show up in search results — noindex
+// (not a title/description/canonical like a real content page) is the
+// correct SEO treatment here.
+export const meta: MetaFunction = () => [
+  { title: "Page Not Found | Dr. Prashant Kariya" },
+  { name: "robots", content: "noindex, nofollow" },
+];
 
 export default function NotFound() {
   return (

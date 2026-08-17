@@ -1,10 +1,11 @@
 import { lazy, Suspense, useEffect } from "react";
-import { useLocation, type LinksFunction } from "react-router";
+import { useLocation, type LinksFunction, type MetaFunction } from "react-router";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import doctorAvatar450 from "../assets/doctorImage-avatar-450.webp";
 import doctorAvatar700 from "../assets/doctorImage-avatar-700.webp";
 import doctorAvatar965 from "../assets/doctorImage-avatar-965.webp";
+import { canonicalLink, pageMeta } from "../lib/seo";
 
 const Expertise = lazy(() => import("../components/Expertise"));
 const CoursesCTA = lazy(() => import("../components/CoursesCTA"));
@@ -26,7 +27,19 @@ export const links: LinksFunction = () => [
     imageSizes: "(min-width: 1024px) 440px, (min-width: 640px) 400px, 360px",
     fetchPriority: "high",
   },
+  canonicalLink("/"),
 ];
+
+export const meta: MetaFunction = () =>
+  pageMeta({
+    title: "Dr. Prashant Kariya — Pediatrician & Adolescent Health Expert, Surat",
+    description:
+      "Dr. Prashant Kariya is a pediatrician and neonatologist in Surat offering compassionate, evidence-based care for newborns, children, and adolescents.",
+    keywords:
+      "pediatrician surat, best pediatrician surat, child specialist surat, neonatologist surat, newborn care surat, child doctor surat, Dr Prashant Kariya",
+    path: "/",
+    image: doctorAvatar965,
+  });
 
 export default function Home() {
   const location = useLocation();
