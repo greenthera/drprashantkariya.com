@@ -123,7 +123,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center gap-2 text-[10px] font-medium text-[#ABB3E0] uppercase tracking-[0.25em] text-center sm:text-left">
-          <p>&copy; {currentYear} Dr. Prashant Kariya. All rights reserved.</p>
+          <p>&copy; 2010 - {currentYear} Dr. Prashant Kariya. All rights reserved.</p>
           <p>
             Designed & Developed by{" "}
             <a
