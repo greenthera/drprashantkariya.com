@@ -215,7 +215,7 @@ export default function ParentalGuidelineGrid() {
                 rel="noopener noreferrer"
                 className="text-[#4353CF] font-semibold hover:underline"
               >
-                View the original source at iapindia.org →
+                Read More →
               </a>
             </p>
           </div>
