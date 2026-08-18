@@ -147,7 +147,7 @@ export default function ParentalGuidelineGrid() {
             const accent = ACCENTS[catIndex % ACCENTS.length];
             const Icon = CATEGORY_ICONS[category] ?? FileText;
             return (
-              <div key={category}>
+              <div key={category} className="max-w-4xl w-full mx-auto">
                 <div className="flex items-center gap-3.5 mb-5">
                   <span
                     className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
@@ -163,26 +163,28 @@ export default function ParentalGuidelineGrid() {
                   </span>
                   <div className="flex-1 h-px bg-[#E0E8E2]" />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="bg-white rounded-2xl border border-[#E0E8E2] divide-y divide-[#E0E8E2] overflow-hidden">
                   {items.map((item) => (
                     <div
                       key={item.url}
-                      className="flex flex-col p-5 bg-white rounded-2xl border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                      className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 px-5 py-4 hover:bg-[#FAF9F6] transition-colors duration-200 group"
                     >
-                      <span
-                        className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 mb-4 group-hover:scale-105 transition-transform duration-300"
-                        style={{ backgroundColor: `${accent}1A` }}
-                      >
-                        <FileText size={20} style={{ color: accent }} />
-                      </span>
-                      <h3 className="text-[#2E3A9E] text-[15px] font-semibold leading-snug mb-5 flex-1">
-                        {item.title}
-                      </h3>
+                      <div className="flex items-center gap-3 sm:contents">
+                        <span
+                          className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                          style={{ backgroundColor: `${accent}1A` }}
+                        >
+                          <FileText size={16} style={{ color: accent }} />
+                        </span>
+                        <h3 className="min-w-0 sm:flex-1 text-[#2E3A9E] text-[15px] font-semibold leading-snug">
+                          {item.title}
+                        </h3>
+                      </div>
                       <a
                         href={withRef(item.url)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 bg-[#4353CF] text-[#F5E6C8] px-4 py-2.5 rounded-lg text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#2E3A9E] hover:shadow-lg hover:shadow-[#2E3A9E]/20 hover:-translate-y-px transition-all duration-250"
+                        className="inline-flex items-center justify-center gap-2 bg-[#4353CF] text-[#F5E6C8] px-4 py-2.5 rounded-lg text-[11px] font-semibold uppercase tracking-[0.15em] hover:bg-[#2E3A9E] hover:shadow-lg hover:shadow-[#2E3A9E]/20 hover:-translate-y-px transition-all duration-250 shrink-0 self-start sm:self-auto ml-12 sm:ml-0"
                       >
                         <ExternalLink size={12} /> View PDF
                       </a>
@@ -195,8 +197,8 @@ export default function ParentalGuidelineGrid() {
         </div>
 
         {/* Source attribution */}
-        <div className="mt-16 bg-[#EDEBFB] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-start gap-5 md:gap-6">
-          <span className="h-16 px-4 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
+        <div className="mt-16 bg-[#EDEBFB] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center gap-5 md:gap-6">
+          <span className="h-16 px-4 flex items-center justify-center shrink-0">
             <img src={iapLogo} alt="Indian Academy of Pediatrics logo" className="h-9 w-auto object-contain" />
           </span>
           <div>
