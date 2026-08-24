@@ -18,15 +18,15 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#FAF9F6]/92 backdrop-blur-xl border-b border-[#E0E8E2]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
 
-          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group">
-            <div className="w-9 h-9 bg-[#4353CF] rounded-lg flex items-center justify-center group-hover:bg-[#2E3A9E] transition-colors duration-300">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group min-w-0">
+            <div className="w-9 h-9 bg-[#4353CF] rounded-lg flex items-center justify-center group-hover:bg-[#2E3A9E] transition-colors duration-300 shrink-0">
               <Plus size={18} strokeWidth={2.5} className="text-[#F2B33D]" />
             </div>
-            <div>
-              <p className="font-display text-[17px] font-semibold text-[#2E3A9E] leading-none">
+            <div className="min-w-0">
+              <p className="font-display text-[17px] font-semibold text-[#2E3A9E] leading-none truncate">
                 Dr. Prashant <span className="italic">Kariya</span>
               </p>
-              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-[#6670A0] mt-0.5">
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-[#6670A0] mt-0.5 truncate">
                 Pediatric Excellence
               </p>
             </div>

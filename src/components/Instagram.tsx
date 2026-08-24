@@ -21,12 +21,12 @@ export default function Instagram() {
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-10">
-          <div className="flex items-center gap-3.5">
+          <div className="flex items-center gap-3.5 min-w-0 w-full sm:w-auto">
             <div className="w-11 h-11 bg-[#4353CF] rounded-xl flex items-center justify-center shadow-md shadow-[#2E3A9E]/15 shrink-0">
               <IGIcon size={18} className="text-[#F2B33D]" />
             </div>
-            <div>
-              <p className="font-display font-semibold italic text-[#2E3A9E] text-lg leading-tight">
+            <div className="min-w-0">
+              <p className="font-display font-semibold italic text-[#2E3A9E] text-lg leading-tight truncate">
                 @{IG_HANDLE}
               </p>
               <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#6670A0] mt-0.5">
