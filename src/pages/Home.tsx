@@ -49,17 +49,37 @@ export default function Home() {
     const scrollTo = location.hash ? location.hash.slice(1) : null;
     if (!scrollTo) return;
 
-    // Runs after ScrollToTop's own scrollTo(0, 0) effect, so this wins.
-    const frame = requestAnimationFrame(() => {
-      document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth" });
-      // Clear the hash directly (not via navigate(".", ...)) — resolving "."
-      // relative to an index route with a parent layout is the exact
-      // ambiguous case React Router disambiguates by appending `?index` to
-      // the URL, which we don't want leaking into the address bar here.
-      window.history.replaceState(null, "", location.pathname + location.search);
-    });
+    // Several sections below the fold (Expertise, Clinics, Publications, …)
+    // are React.lazy — arriving here from another page, their chunk often
+    // hasn't rendered yet on the very next frame, so the target id doesn't
+    // exist in the DOM. Poll across frames (capped at ~4s) instead of a
+    // single attempt, so the scroll still happens once the section mounts.
+    let cancelled = false;
+    let frame: number;
+    const deadline = Date.now() + 4000;
 
-    return () => cancelAnimationFrame(frame);
+    function attempt() {
+      if (cancelled) return;
+      const el = document.getElementById(scrollTo!);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        // Clear the hash directly (not via navigate(".", ...)) — resolving
+        // "." relative to an index route with a parent layout is the exact
+        // ambiguous case React Router disambiguates by appending `?index`
+        // to the URL, which we don't want leaking into the address bar here.
+        window.history.replaceState(null, "", location.pathname + location.search);
+        return;
+      }
+      if (Date.now() < deadline) frame = requestAnimationFrame(attempt);
+    }
+
+    // Runs after ScrollToTop's own scrollTo(0, 0) effect, so this wins.
+    frame = requestAnimationFrame(attempt);
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+    };
   }, [location.hash, location.pathname, location.search]);
 
   return (
