@@ -1,0 +1,2 @@
+import{n as e,s as t}from"./jsx-runtime-CXI4DtSE.js";var n=t(e(),1);function r(e){let t=e.join(`
+`),[r,i]=(0,n.useState)(t),[a,o]=(0,n.useState)(0),[s,c]=(0,n.useState)(e.length===0);return t!==r&&(i(t),o(0),c(e.length===0)),(0,n.useEffect)(()=>{if(e.length===0)return;let t=!1,n=0;for(let r of e){let i=new Image,a=()=>{t||(n+=1,o(n),n===e.length&&c(!0))};i.onload=a,i.onerror=a,i.src=r}return()=>{t=!0}},[t]),{loadedCount:a,total:e.length,ready:s}}export{r as t};
