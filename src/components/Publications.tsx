@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import drBookSon from "../assets/dr-book-son.webp"
 import drBookDaughter from "../assets/dr-book-daughter.webp"
+import { useImagesPreloaded } from "../hooks/useImagesPreloaded";
 
 const books = [
   {
@@ -19,6 +20,8 @@ const books = [
 ];
 
 export default function Publications() {
+  const { ready } = useImagesPreloaded([drBookDaughter, drBookSon]);
+
   return (
     <section id="publication" className="py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6]">
       <div className="max-w-[1400px] mx-auto">
@@ -56,13 +59,16 @@ export default function Publications() {
               className="bg-white rounded-2xl p-7 md:p-9 border border-[#E0E8E2] hover:border-[#D6DBF5] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col sm:flex-row items-start gap-7 md:gap-10"
             >
               {/* Book cover */}
-              <div className="shrink-0 w-36 md:w-44 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(6,51,34,0.15)] self-center sm:self-start">
-                <img
-                  src={book.image}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  alt={book.title}
-                  loading="lazy"
-                />
+              <div className="shrink-0 w-36 md:w-44 aspect-275/445 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(6,51,34,0.15)] self-center sm:self-start bg-[#EAEDFB] flex items-center justify-center">
+                {ready ? (
+                  <img
+                    src={book.image}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    alt={book.title}
+                  />
+                ) : (
+                  <span className="w-7 h-7 rounded-full border-2 border-white/60 border-t-[#4353CF] animate-spin" />
+                )}
               </div>
 
               {/* Content */}

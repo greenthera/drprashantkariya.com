@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import guidelinesData from "../data/parental-guidelines.json";
 import iapLogo from "../assets/iap-logo.webp";
+import { useImagesPreloaded } from "../hooks/useImagesPreloaded";
 
 type Guideline = { category: string; title: string; url: string };
 
@@ -57,6 +58,7 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
 
 export default function ParentalGuidelineGrid() {
   const [searchQuery, setSearchQuery] = useState("");
+  const { ready: logoReady } = useImagesPreloaded([iapLogo]);
 
   const query = searchQuery.trim().toLowerCase();
   const filteredItems: Guideline[] = query
@@ -199,7 +201,11 @@ export default function ParentalGuidelineGrid() {
         {/* Source attribution */}
         <div className="mt-16 bg-[#EDEBFB] rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row items-center gap-5 md:gap-6">
           <span className="h-16 px-4 flex items-center justify-center shrink-0">
-            <img src={iapLogo} alt="Indian Academy of Pediatrics logo" className="h-9 w-auto object-contain" />
+            {logoReady ? (
+              <img src={iapLogo} alt="Indian Academy of Pediatrics logo" className="h-9 w-auto object-contain" />
+            ) : (
+              <span className="w-6 h-6 rounded-full border-2 border-[#D6DBF5] border-t-[#4353CF] animate-spin" />
+            )}
           </span>
           <div>
             <h3 className="font-display font-bold text-[#232323] text-base md:text-lg mb-1.5">

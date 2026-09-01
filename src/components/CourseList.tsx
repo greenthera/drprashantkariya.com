@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { useCourses } from "../hooks/useCourses";
+import { useImagesPreloaded } from "../hooks/useImagesPreloaded";
 import { GRAPHY_BASE_URL, MAX_COURSES, type Course } from "../lib/courses";
 
 const GRAPHY_COURSES_URL = `${GRAPHY_BASE_URL}/courses`;
@@ -102,6 +103,8 @@ function BentoSkeleton() {
 
 export default function CourseList() {
   const state = useCourses();
+  const coverUrls = state.status === "success" ? state.courses.map((c) => c.coverUrl) : [];
+  const { ready: coversReady } = useImagesPreloaded(coverUrls);
 
   return (
     <div className="bg-[#FAF9F6] pt-24 md:pt-32 pb-20 px-6 md:px-10">
@@ -124,7 +127,9 @@ export default function CourseList() {
         </div>
 
         <div aria-live="polite">
-          {state.status === "loading" && <BentoSkeleton />}
+          {(state.status === "loading" || (state.status === "success" && state.courses.length > 0 && !coversReady)) && (
+            <BentoSkeleton />
+          )}
 
           {state.status === "error" && (
             <p className="text-center text-[#4F5A8A] text-sm font-light mb-16">
@@ -138,7 +143,7 @@ export default function CourseList() {
             </p>
           )}
 
-          {state.status === "success" && state.courses.length > 0 && (
+          {state.status === "success" && state.courses.length > 0 && coversReady && (
             <div className="flex flex-col gap-5">
               <FeaturedCard course={state.courses[0]} />
               {state.courses.length > 1 && (

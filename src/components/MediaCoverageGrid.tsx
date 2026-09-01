@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Newspaper, ZoomIn } from "lucide-react";
 import { mediaCoverage } from "../lib/mediaCoverage";
+import { useImagesPreloaded } from "../hooks/useImagesPreloaded";
 
 export default function MediaCoverageGrid() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const srcs = useMemo(() => mediaCoverage.map((item) => item.src), []);
+  const { ready, loadedCount, total } = useImagesPreloaded(srcs);
 
   useEffect(() => {
     if (activeIndex === null) return;
@@ -52,38 +55,60 @@ export default function MediaCoverageGrid() {
         </div>
 
         {/* Editorial masonry — each clipping keeps its real aspect ratio, no crop */}
-        <div className="columns-2 sm:columns-3 lg:columns-4 gap-5 md:gap-7">
-          {mediaCoverage.map((item, index) => (
-            <button
-              key={item.file}
-              type="button"
-              onClick={() => setActiveIndex(index)}
-              aria-label={item.publication ? `View clipping from ${item.publication}` : "View press clipping"}
-              className="block w-full break-inside-avoid mb-5 md:mb-7 bg-white rounded-lg border border-[#E0E8E2] overflow-hidden text-left cursor-zoom-in group shadow-[0_8px_24px_rgba(46,58,158,0.07)] hover:shadow-[0_16px_36px_rgba(46,58,158,0.16)] hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="h-0.75 bg-linear-to-r from-[#F2B33D] via-[#F2B33D]/70 to-transparent" />
-              <div className="relative overflow-hidden bg-[#FAF9F6]">
-                <img
-                  src={item.src}
-                  alt={item.publication ? `Media coverage in ${item.publication}` : "Media coverage clipping"}
-                  loading="lazy"
-                  className="w-full h-auto block"
-                />
-                <div className="absolute inset-0 bg-[#171b3d]/0 group-hover:bg-[#171b3d]/25 transition-colors duration-300 flex items-center justify-center">
-                  <span className="w-9 h-9 rounded-full bg-white/0 group-hover:bg-white/95 flex items-center justify-center text-[#2E3A9E] opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
-                    <ZoomIn size={16} />
+        {ready ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="columns-2 sm:columns-3 lg:columns-4 gap-5 md:gap-7"
+          >
+            {mediaCoverage.map((item, index) => (
+              <button
+                key={item.file}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={item.publication ? `View clipping from ${item.publication}` : "View press clipping"}
+                className="block w-full break-inside-avoid mb-5 md:mb-7 bg-white rounded-lg border border-[#E0E8E2] overflow-hidden text-left cursor-zoom-in group shadow-[0_8px_24px_rgba(46,58,158,0.07)] hover:shadow-[0_16px_36px_rgba(46,58,158,0.16)] hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="h-0.75 bg-linear-to-r from-[#F2B33D] via-[#F2B33D]/70 to-transparent" />
+                <div className="relative overflow-hidden bg-[#FAF9F6]">
+                  <img
+                    src={item.src}
+                    alt={item.publication ? `Media coverage in ${item.publication}` : "Media coverage clipping"}
+                    className="w-full h-auto block"
+                  />
+                  <div className="absolute inset-0 bg-[#171b3d]/0 group-hover:bg-[#171b3d]/25 transition-colors duration-300 flex items-center justify-center">
+                    <span className="w-9 h-9 rounded-full bg-white/0 group-hover:bg-white/95 flex items-center justify-center text-[#2E3A9E] opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
+                      <ZoomIn size={16} />
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-3.5">
+                  <Newspaper size={13} className="text-[#F2B33D] shrink-0" />
+                  <span className="font-display italic text-[#2E3A9E] text-[13px] truncate">
+                    {item.publication ?? "Newspaper Feature"}
                   </span>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-3.5">
-                <Newspaper size={13} className="text-[#F2B33D] shrink-0" />
-                <span className="font-display italic text-[#2E3A9E] text-[13px] truncate">
-                  {item.publication ?? "Newspaper Feature"}
-                </span>
-              </div>
-            </button>
-          ))}
-        </div>
+              </button>
+            ))}
+          </motion.div>
+        ) : (
+          <div className="flex flex-col items-center justify-center gap-5 py-32">
+            <span className="w-10 h-10 rounded-full border-2 border-[#E0E8E2] border-t-[#4353CF] animate-spin" />
+            <p className="font-display italic text-[#2E3A9E] text-sm">
+              Loading press clippings…
+            </p>
+            <div className="w-56 h-1.5 rounded-full bg-[#E0E8E2] overflow-hidden">
+              <div
+                className="h-full bg-[#F2B33D] transition-all duration-200"
+                style={{ width: `${total === 0 ? 0 : (loadedCount / total) * 100}%` }}
+              />
+            </div>
+            <p className="text-[#6670A0] text-[11px] font-medium uppercase tracking-[0.15em]">
+              {loadedCount} / {total}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Lightbox */}
