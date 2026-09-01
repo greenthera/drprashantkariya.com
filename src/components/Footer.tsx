@@ -79,6 +79,7 @@ export default function Footer() {
                 <Link to="/courses" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Courses</Link>
                 <Link to="/publications" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Publications</Link>
                 <Link to="/parental-guidelines" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Parental Guidelines</Link>
+                <Link to="/media-coverage" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Media Coverage</Link>
               </nav>
             </div>
 

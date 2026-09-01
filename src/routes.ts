@@ -7,6 +7,7 @@ export default [
     route("courses", "pages/Courses.tsx"),
     route("publications", "pages/Publications.tsx"),
     route("parental-guidelines", "pages/ParentalGuideline.tsx"),
+    route("media-coverage", "pages/MediaCoverage.tsx"),
     route("*", "pages/NotFound.tsx"),
   ]),
 ] satisfies RouteConfig;

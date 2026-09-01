@@ -13,6 +13,7 @@ const Clinics = lazy(() => import("../components/Clinics"));
 const Testimonial = lazy(() => import("../components/Testimonial"));
 const BookAppointment = lazy(() => import("../components/BookAppointment"));
 const Publications = lazy(() => import("../components/Publications"));
+const MediaCoverage = lazy(() => import("../components/MediaCoverage"));
 const Instagram = lazy(() => import("../components/Instagram"));
 
 // Preloads the Hero photo — the page's LCP element — as early as possible in
@@ -82,6 +83,9 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={null}>
         <Publications />
+      </Suspense>
+      <Suspense fallback={null}>
+        <MediaCoverage />
       </Suspense>
       <Suspense fallback={null}>
         <Instagram />
