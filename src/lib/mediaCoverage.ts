@@ -22,6 +22,13 @@ export type MediaCoverageItem = {
   src: string;
 };
 
-export const mediaCoverage: MediaCoverageItem[] = (
-  rawData as Omit<MediaCoverageItem, "src">[]
-).map((item) => ({ ...item, src: resolveSrc(item.file) }));
+function coverageSequence(file: string): number {
+  const match = file.match(/-(\d+)\.webp$/);
+  return match ? Number(match[1]) : 0;
+}
+
+export const mediaCoverage: MediaCoverageItem[] = [
+  ...(rawData as Omit<MediaCoverageItem, "src">[]),
+]
+  .sort((a, b) => coverageSequence(b.file) - coverageSequence(a.file))
+  .map((item) => ({ ...item, src: resolveSrc(item.file) }));
