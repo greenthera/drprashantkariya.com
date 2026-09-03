@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
-import { ArrowRight, Newspaper } from "lucide-react";
+import { ArrowRight, Newspaper, ZoomIn } from "lucide-react";
 import { mediaCoverage } from "../lib/mediaCoverage";
 import { useImagesPreloaded } from "../hooks/useImagesPreloaded";
+import MediaCoverageLightbox from "./MediaCoverageLightbox";
 
 // Same portrait aspect ratio across the teaser so it reads as one clean row —
 // the full editorial masonry lives on the dedicated page.
@@ -12,6 +13,7 @@ const preview = mediaCoverage.slice(0, 6);
 export default function MediaCoverage() {
   const srcs = useMemo(() => preview.map((item) => item.src), []);
   const { ready } = useImagesPreloaded(srcs);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <section className="relative py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6] overflow-hidden">
@@ -52,10 +54,13 @@ export default function MediaCoverage() {
             transition={{ duration: 0.4 }}
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6"
           >
-            {preview.map((item) => (
-              <div
+            {preview.map((item, index) => (
+              <button
                 key={item.file}
-                className="bg-white rounded-lg border border-[#E0E8E2] overflow-hidden group shadow-[0_8px_24px_rgba(46,58,158,0.07)] hover:shadow-[0_16px_36px_rgba(46,58,158,0.16)] hover:-translate-y-1 transition-all duration-300"
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={item.publication ? `View clipping from ${item.publication}` : "View press clipping"}
+                className="bg-white rounded-lg border border-[#E0E8E2] overflow-hidden text-left cursor-zoom-in group shadow-[0_8px_24px_rgba(46,58,158,0.07)] hover:shadow-[0_16px_36px_rgba(46,58,158,0.16)] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="h-0.75 bg-linear-to-r from-[#F2B33D] via-[#F2B33D]/70 to-transparent" />
                 <div className="relative aspect-3/4 overflow-hidden bg-[#FAF9F6]">
@@ -64,6 +69,11 @@ export default function MediaCoverage() {
                     alt={item.publication ? `Media coverage in ${item.publication}` : "Media coverage clipping"}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-[#171b3d]/0 group-hover:bg-[#171b3d]/25 transition-colors duration-300 flex items-center justify-center">
+                    <span className="w-8 h-8 rounded-full bg-white/0 group-hover:bg-white/95 flex items-center justify-center text-[#2E3A9E] opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
+                      <ZoomIn size={14} />
+                    </span>
+                  </div>
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-2.5">
                   <Newspaper size={11} className="text-[#F2B33D] shrink-0" />
@@ -71,7 +81,7 @@ export default function MediaCoverage() {
                     {item.publication ?? "Newspaper Feature"}
                   </span>
                 </div>
-              </div>
+              </button>
             ))}
           </motion.div>
         ) : (
@@ -96,6 +106,13 @@ export default function MediaCoverage() {
           </Link>
         </div>
       </div>
+
+      <MediaCoverageLightbox
+        items={preview}
+        activeIndex={activeIndex}
+        onClose={() => setActiveIndex(null)}
+        onNavigate={setActiveIndex}
+      />
     </section>
   );
 }
