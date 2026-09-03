@@ -42,20 +42,23 @@ export default function MediaCoverageLightbox({ items, activeIndex, onClose, onN
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            className="absolute top-4 right-4 sm:top-5 sm:right-5 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#171b3d]/80 backdrop-blur-md border border-white/15 shadow-lg flex items-center justify-center text-white hover:bg-[#171b3d] transition-colors z-10"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
 
+          {/* Solid dark glass background (not translucent white) so the arrow
+              stays visible against light clippings — most are white-background
+              newspaper scans that fill nearly the full width on mobile. */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               onNavigate((activeIndex! - 1 + items.length) % items.length);
             }}
             aria-label="Previous"
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            className="absolute left-1.5 sm:left-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#171b3d]/80 backdrop-blur-md border border-white/15 shadow-lg flex items-center justify-center text-white hover:bg-[#171b3d] transition-colors z-10"
           >
-            <ChevronLeft size={22} />
+            <ChevronLeft className="w-4.5 h-4.5 sm:w-5.5 sm:h-5.5" />
           </button>
           <button
             onClick={(e) => {
@@ -63,9 +66,9 @@ export default function MediaCoverageLightbox({ items, activeIndex, onClose, onN
               onNavigate((activeIndex! + 1) % items.length);
             }}
             aria-label="Next"
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+            className="absolute right-1.5 sm:right-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#171b3d]/80 backdrop-blur-md border border-white/15 shadow-lg flex items-center justify-center text-white hover:bg-[#171b3d] transition-colors z-10"
           >
-            <ChevronRight size={22} />
+            <ChevronRight className="w-4.5 h-4.5 sm:w-5.5 sm:h-5.5" />
           </button>
 
           <motion.div
