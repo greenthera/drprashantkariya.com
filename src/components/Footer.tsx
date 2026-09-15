@@ -128,7 +128,7 @@ export default function Footer() {
           <p>
             Designed & Developed by{" "}
             <a
-              href="https://shivantra.com/"
+              href="https://shivantra.com/?utm_source=drprashantkariya.com&utm_medium=referral&utm_campaign=client_footer"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#F2B33D] hover:text-[#F5E6C8] transition-colors font-semibold"
