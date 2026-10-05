@@ -28,7 +28,10 @@ Playwright builds the site, starts the production server on port 4173, and
 runs mobile and desktop checks. Tests cover server-rendered hero content,
 font requests, unchanged hero animation durations, section scrolling/reveal,
 photo lightbox interactions, and pixel-identical font glyphs at all used
-weights. Existing animations remain enabled. Reports and failed-test traces
+weights. Scroll-reveal checks also verify intermediate opacity as a section
+enters the viewport. Sections stay in normal layout: `content-visibility`
+containment previously prevented some IntersectionObserver reveals from
+starting. Existing animations remain enabled. Reports and failed-test traces
 are stored in `playwright-report/` and `test-results/`.
 
 For Claude or another local coding agent: run these commands from the project
@@ -55,6 +58,16 @@ Results, HTML reports and Chrome traces are saved under
 `artifacts/performance/`. `summary.json` records the URL, metrics, profile,
 renderer, extra origin delay and pass/fail status. These directories are
 ignored by Git.
+
+Mobile CSS is included in the prerendered HTML to remove the external
+stylesheet from the rendering path. Desktop uses the external stylesheet.
+Both contain the existing styles; animation and loading settings are unchanged.
+The inline CSS is excluded from the client JavaScript bundle. The mobile
+browser test checks that no matching external stylesheet blocks rendering.
+
+GitHub Pages currently returns `Cache-Control: max-age=600` for assets.
+That server header cannot be overridden by a React component or HTML meta tag;
+the cache-lifetime warning can remain even when performance exceeds 90.
 
 If a managed local environment causes certificate failures for the existing
 Google Analytics requests, use this explicit test-only override:

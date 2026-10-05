@@ -27,6 +27,10 @@ test('mobile font delivery and stylesheet types are correct', async ({ page, isM
   await expect(page.locator('#hero h1')).toBeVisible();
   const stylesheets = await page.locator('link[rel="stylesheet"]').evaluateAll(links => links.map(link => (link as HTMLLinkElement).href));
   if (isMobile) {
+    await expect(page.locator('#mobile-styles')).toHaveAttribute('media', '(width < 768px)');
+    expect(await page.locator('#mobile-styles').textContent()).toContain('@font-face');
+    const blockingStyles = await page.locator('link[rel="stylesheet"]').evaluateAll(links => links.filter(link => window.matchMedia((link as HTMLLinkElement).media || 'all').matches).map(link => (link as HTMLLinkElement).href));
+    expect(blockingStyles).toEqual([]);
     expect(stylesheets.some(url => /\.js(?:\?|$)/.test(url))).toBe(false);
     expect(requests.filter(url => /fonts\.googleapis\.com/.test(url))).toEqual([]);
     expect(requests.filter(url => /\/assets\/.*\.woff2/.test(url)).length).toBeGreaterThanOrEqual(3);
@@ -63,6 +67,24 @@ test('all navigation sections mount and remain reachable', async ({ page }) => {
       return opacity;
     })).toBeGreaterThan(0.99);
   }
+});
+
+test('scroll reveals animate while entering the viewport', async ({ page }) => {
+  await page.goto('/');
+  const header = page.locator('#expertise h2').locator('../..');
+  await expect(header).toBeAttached();
+  await expect(header).toHaveCSS('opacity', '0');
+  // Do not scrollIntoView/read descendant geometry first: those force layout
+  // and can mask IntersectionObserver failures inside content-visibility.
+  await page.evaluate(() => {
+    const section = document.getElementById('expertise')!;
+    window.scrollTo({ top: section.offsetTop - innerHeight + 200, behavior: 'instant' });
+  });
+  await expect.poll(() => header.evaluate(element => Number(getComputedStyle(element).opacity))).toBeGreaterThan(0);
+  const opacity = await header.evaluate(element => Number(getComputedStyle(element).opacity));
+  expect(opacity).toBeLessThan(1);
+  await expect(header).toHaveCSS('opacity', '1');
+  await expect(header).toHaveCSS('transform', 'none');
 });
 
 test('photo lightbox still opens and closes', async ({ page }) => {

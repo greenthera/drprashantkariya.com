@@ -1,12 +1,25 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, type MetaFunction } from "react-router";
-import "./index.css";
-import "./mobile-fonts.css";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, type LinksFunction, type MetaFunction } from "react-router";
+import stylesheetUrl from "./index.css?url";
+import mobileStyles from "./index.css?inline";
+import mobileFontStyles from "./mobile-fonts.css?inline";
 import mobileDisplayFont from "./assets/fonts/cormorant-garamond-normal-latin-core.woff2";
 import mobileDisplayItalicFont from "./assets/fonts/cormorant-garamond-italic-latin-core.woff2";
 import mobileSansFont from "./assets/fonts/jost-normal-latin-core.woff2";
 
 const FONT_HREF =
   "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap";
+
+// Ship the exact mobile styles in the prerendered document, removing a
+// render-blocking request without deferring any styles or loading states.
+// Vite removes the CSS strings from the client bundle; hydration reuses the
+// existing style element instead of downloading a second copy in JavaScript.
+const MOBILE_STYLES = import.meta.env.SSR
+  ? mobileStyles + mobileFontStyles
+  : document.getElementById("mobile-styles")?.textContent ?? "";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheetUrl, media: "(min-width: 768px)" },
+];
 
 // Site-wide default — pages that don't export their own `meta()` inherit
 // this title/description; pages that do (e.g. ParentalGuideline.tsx) override
@@ -26,6 +39,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style id="mobile-styles" media="(width < 768px)" dangerouslySetInnerHTML={{ __html: MOBILE_STYLES }} />
         {/* Mobile never requests these origins — fonts are self-hosted below
             768px — so the connections these hints open would go unused. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 768px)" />

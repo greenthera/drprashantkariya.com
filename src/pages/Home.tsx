@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect } from "react";
 import { useLocation, type LinksFunction, type MetaFunction } from "react-router";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import LazyPaint from "../components/LazyPaint";
 import doctorAvatar450 from "../assets/doctorImage-avatar-450.webp";
 import doctorAvatar700 from "../assets/doctorImage-avatar-700.webp";
 import doctorAvatar965 from "../assets/doctorImage-avatar-965.webp";
@@ -87,59 +86,32 @@ export default function Home() {
     <main className="bg-[#FAF9F6] selection:bg-[#4353CF] selection:text-[#F5E6C8]">
       <Hero />
       <About />
-      {/* Every section below is still mounted by React exactly as before —
-          same order, same Suspense, same timing. LazyPaint only tells the
-          browser to skip layout/paint work for whichever of these are
-          off-screen, via content-visibility (ignored by browsers that don't
-          support it — pure upside, no fallback needed). This was previously
-          a JS-driven mount gate (IntersectionObserver deciding *whether* to
-          render each section at all); that approach broke header nav-link
-          scrolling twice over — once because a clicked target didn't exist
-          in the DOM yet, once because an in-flight smooth-scroll passed over
-          a section that was still collapsing/expanding mid-animation.
-          content-visibility defers only rendering cost the browser already
-          knows how to resume seamlessly, so nav links need no special
-          handling at all. */}
-      <LazyPaint height={{ base: 2979, lg: 1595 }}>
-        <Suspense fallback={null}>
-          <Expertise />
-        </Suspense>
-      </LazyPaint>
-      <LazyPaint height={{ base: 502, lg: 542 }}>
-        <Suspense fallback={null}>
-          <CoursesCTA />
-        </Suspense>
-      </LazyPaint>
-      <LazyPaint height={{ base: 1147, lg: 764 }}>
-        <Suspense fallback={null}>
-          <Clinics />
-        </Suspense>
-      </LazyPaint>
-      <LazyPaint height={{ base: 918, lg: 816 }}>
-        <Suspense fallback={null}>
-          <Testimonial />
-        </Suspense>
-      </LazyPaint>
-      <LazyPaint height={{ base: 588, lg: 520 }}>
-        <Suspense fallback={null}>
-          <BookAppointment />
-        </Suspense>
-      </LazyPaint>
-      <LazyPaint height={{ base: 1722, lg: 750 }}>
-        <Suspense fallback={null}>
-          <Publications />
-        </Suspense>
-      </LazyPaint>
-      <LazyPaint height={{ base: 1247, lg: 794 }}>
-        <Suspense fallback={null}>
-          <MediaCoverage />
-        </Suspense>
-      </LazyPaint>
-      <LazyPaint height={{ base: 799, lg: 1133 }}>
-        <Suspense fallback={null}>
-          <Instagram />
-        </Suspense>
-      </LazyPaint>
+      {/* Keep scroll-reveal targets in normal layout so IntersectionObserver
+          can detect them before their animations start. */}
+      <Suspense fallback={null}>
+        <Expertise />
+      </Suspense>
+      <Suspense fallback={null}>
+        <CoursesCTA />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Clinics />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Testimonial />
+      </Suspense>
+      <Suspense fallback={null}>
+        <BookAppointment />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Publications />
+      </Suspense>
+      <Suspense fallback={null}>
+        <MediaCoverage />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Instagram />
+      </Suspense>
     </main>
   );
 }
