@@ -1,5 +1,9 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, type MetaFunction } from "react-router";
 import "./index.css";
+import "./mobile-fonts.css";
+import mobileDisplayFont from "./assets/fonts/cormorant-garamond-normal-latin.woff2";
+import mobileDisplayItalicFont from "./assets/fonts/cormorant-garamond-italic-latin.woff2";
+import mobileSansFont from "./assets/fonts/jost-normal-latin.woff2";
 
 const FONT_HREF =
   "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap";
@@ -30,7 +34,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
             wouldn't serialize into the prerendered HTML as a real "onload"
             attribute, so the swap is wired up with a plain inline script
             instead, targeting the <link> immediately before it. */}
-        <link rel="preload" as="style" href={FONT_HREF} />
+        {/* Mobile uses the identical fonts from our own origin, avoiding the
+            Google stylesheet → font request chain. Desktop stays unchanged. */}
+        {[mobileDisplayFont, mobileDisplayItalicFont, mobileSansFont].map((href) => (
+          <link key={href} rel="preload" as="font" type="font/woff2" href={href} crossOrigin="" media="(width < 768px)" />
+        ))}
+        <link rel="preload" as="style" href={FONT_HREF} media="(min-width: 768px)" />
         <script
           dangerouslySetInnerHTML={{
             __html: `document.currentScript.previousElementSibling.onload = function () {
@@ -40,7 +49,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           }}
         />
         <noscript>
-          <link href={FONT_HREF} rel="stylesheet" />
+          <link href={FONT_HREF} rel="stylesheet" media="(min-width: 768px)" />
         </noscript>
         {/* Google tag (gtag.js) — the dataLayer/gtag stub is set up
             immediately (free, no network) so early gtag() calls still queue
