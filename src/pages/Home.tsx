@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useLocation, type LinksFunction, type MetaFunction } from "react-router";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import DeferredSection from "../components/DeferredSection";
 import doctorAvatar450 from "../assets/doctorImage-avatar-450.webp";
 import doctorAvatar700 from "../assets/doctorImage-avatar-700.webp";
 import doctorAvatar965 from "../assets/doctorImage-avatar-965.webp";
@@ -89,6 +90,14 @@ export default function Home() {
       <Suspense fallback={null}>
         <Expertise />
       </Suspense>
+      {/* CoursesCTA, Testimonial and BookAppointment sit between two
+          nav-targetable sections (Expertise↔Clinics, Clinics↔Publications) —
+          a header click scrolling across them would pass right over their
+          placeholder, and if one mounts mid-scroll its real height can
+          differ from the estimate and visibly jump the page. Kept eager so
+          nothing between two scroll targets can resize while scrolling
+          through it; only sections after the last nav target (MediaCoverage,
+          Instagram) are safe to defer. */}
       <Suspense fallback={null}>
         <CoursesCTA />
       </Suspense>
@@ -104,12 +113,12 @@ export default function Home() {
       <Suspense fallback={null}>
         <Publications />
       </Suspense>
-      <Suspense fallback={null}>
+      <DeferredSection minHeight={{ base: 1247, lg: 794 }}>
         <MediaCoverage />
-      </Suspense>
-      <Suspense fallback={null}>
+      </DeferredSection>
+      <DeferredSection minHeight={{ base: 799, lg: 1133 }}>
         <Instagram />
-      </Suspense>
+      </DeferredSection>
     </main>
   );
 }
