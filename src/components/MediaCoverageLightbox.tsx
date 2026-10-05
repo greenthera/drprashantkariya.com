@@ -1,5 +1,6 @@
+import MotionFeatures from "./MotionFeatures";
 import { useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Newspaper } from "lucide-react";
 import type { MediaCoverageItem } from "../lib/mediaCoverage";
 
@@ -13,7 +14,7 @@ type MediaCoverageLightboxProps = {
 // Shared full-screen viewer for a press clipping — used by both the home
 // page teaser (a 6-item preview) and the full Media Coverage gallery (all
 // clippings), so clicking an image behaves identically everywhere.
-export default function MediaCoverageLightbox({ items, activeIndex, onClose, onNavigate }: MediaCoverageLightboxProps) {
+function MediaCoverageLightbox({ items, activeIndex, onClose, onNavigate }: MediaCoverageLightboxProps) {
   const active = activeIndex !== null ? items[activeIndex] : null;
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function MediaCoverageLightbox({ items, activeIndex, onClose, onN
   return (
     <AnimatePresence>
       {active && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -71,7 +72,7 @@ export default function MediaCoverageLightbox({ items, activeIndex, onClose, onN
             <ChevronRight className="w-4.5 h-4.5 sm:w-5.5 sm:h-5.5" />
           </button>
 
-          <motion.div
+          <m.div
             key={active.file}
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -94,9 +95,13 @@ export default function MediaCoverageLightbox({ items, activeIndex, onClose, onN
               )}
               <span>{(activeIndex ?? 0) + 1} / {items.length}</span>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );
+}
+
+export default function AnimatedMediaCoverageLightbox(props: React.ComponentProps<typeof MediaCoverageLightbox>) {
+  return <MotionFeatures><MediaCoverageLightbox {...props} /></MotionFeatures>;
 }

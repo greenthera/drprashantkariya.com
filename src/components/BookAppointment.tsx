@@ -1,9 +1,10 @@
-import { motion } from "framer-motion";
+import MotionFeatures from "./MotionFeatures";
+import { m } from "framer-motion";
 import { CalendarCheck, ArrowRight, Clock } from "lucide-react";
 
 const DOCON_URL = "https://docon.co.in/webapp/info-card/prashantkariya?isWebView=false&isIOS=false";
 
-export default function BookAppointment() {
+function BookAppointment() {
   return (
     <section className="py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6] relative overflow-hidden">
 
@@ -12,7 +13,7 @@ export default function BookAppointment() {
       <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-[#EAEDFB]/60 pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,8 +58,12 @@ export default function BookAppointment() {
               Book via Docon <ArrowRight size={15} />
             </a>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
+}
+
+export default function AnimatedBookAppointment() {
+  return <MotionFeatures><BookAppointment /></MotionFeatures>;
 }

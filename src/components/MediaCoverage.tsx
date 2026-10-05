@@ -1,5 +1,6 @@
+import MotionFeatures from "./MotionFeatures";
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router";
 import { ArrowRight, Newspaper, ZoomIn } from "lucide-react";
 import { mediaCoverage } from "../lib/mediaCoverage";
@@ -10,7 +11,7 @@ import MediaCoverageLightbox from "./MediaCoverageLightbox";
 // the full editorial masonry lives on the dedicated page.
 const preview = mediaCoverage.slice(0, 6);
 
-export default function MediaCoverage() {
+function MediaCoverage() {
   const srcs = useMemo(() => preview.map((item) => item.thumbSrc), []);
   const { ready } = useImagesPreloaded(srcs);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -23,7 +24,7 @@ export default function MediaCoverage() {
       <div className="relative z-10 max-w-[1400px] mx-auto">
 
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -45,10 +46,10 @@ export default function MediaCoverage() {
             Newspaper features and interviews on child health, parenting, and
             adolescent care over the years.
           </p>
-        </motion.div>
+        </m.div>
 
         {ready ? (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -83,7 +84,7 @@ export default function MediaCoverage() {
                 </div>
               </button>
             ))}
-          </motion.div>
+          </m.div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6">
             {preview.map((item) => (
@@ -115,4 +116,8 @@ export default function MediaCoverage() {
       />
     </section>
   );
+}
+
+export default function AnimatedMediaCoverage() {
+  return <MotionFeatures><MediaCoverage /></MotionFeatures>;
 }

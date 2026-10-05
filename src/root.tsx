@@ -1,9 +1,9 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, type MetaFunction } from "react-router";
 import "./index.css";
 import "./mobile-fonts.css";
-import mobileDisplayFont from "./assets/fonts/cormorant-garamond-normal-latin.woff2";
-import mobileDisplayItalicFont from "./assets/fonts/cormorant-garamond-italic-latin.woff2";
-import mobileSansFont from "./assets/fonts/jost-normal-latin.woff2";
+import mobileDisplayFont from "./assets/fonts/cormorant-garamond-normal-latin-core.woff2";
+import mobileDisplayItalicFont from "./assets/fonts/cormorant-garamond-italic-latin-core.woff2";
+import mobileSansFont from "./assets/fonts/jost-normal-latin-core.woff2";
 
 const FONT_HREF =
   "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap";
