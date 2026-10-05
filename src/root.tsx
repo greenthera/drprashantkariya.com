@@ -26,8 +26,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* Mobile never requests these origins — fonts are self-hosted below
+            768px — so the connections these hints open would go unused. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" media="(min-width: 768px)" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" media="(min-width: 768px)" />
         {/* Loaded as a non-blocking preload (swapped to a real stylesheet
             once fetched via the classic loadCSS trick) so this cross-origin
             request doesn't hold up the initial render — React's onLoad prop
