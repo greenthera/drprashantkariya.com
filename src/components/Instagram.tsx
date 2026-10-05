@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 const IG_URL = "https://www.instagram.com/parentingtips_drprashantkariya/";
@@ -15,6 +16,31 @@ function IGIcon({ size = 18, className }: { size?: number; className?: string })
 }
 
 export default function Instagram() {
+  // The embed iframe alone pulls ~600KB of Instagram's own CSS/JS — native
+  // iframe loading="lazy" still lets browsers prefetch it well before the
+  // user scrolls this far on a short page. Gate the mount on actual
+  // intersection instead so those bytes only fetch once the section is
+  // nearly in view. The wrapper keeps the iframe's exact height reserved
+  // throughout, so this never shifts layout or changes what's visible.
+  const [showEmbed, setShowEmbed] = useState(false);
+  const embedWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = embedWrapperRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowEmbed(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-10 md:py-20 px-6 md:px-10 bg-white">
       <div className="max-w-[1400px] mx-auto">
@@ -45,17 +71,19 @@ export default function Instagram() {
         </div>
 
         {/* Live Instagram profile embed — big, centered, eye-catching */}
-        <div className="relative w-full max-w-5xl mx-auto mb-8">
+        <div ref={embedWrapperRef} className="relative w-full max-w-5xl mx-auto mb-8 h-101 sm:h-163 lg:h-189">
           <div className="absolute -inset-6 bg-linear-to-br from-[#4353CF]/10 via-[#F2B33D]/10 to-[#4353CF]/10 rounded-4xl blur-2xl pointer-events-none" />
           <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full border-2 border-dashed border-[#D6DBF5] pointer-events-none" />
           <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full bg-[#F2B33D]/15 pointer-events-none" />
-          <iframe
-            src={IG_EMBED_URL}
-            title={`@${IG_HANDLE} Instagram feed`}
-            scrolling="no"
-            loading="lazy"
-            className="relative w-full h-101 sm:h-163 lg:h-189 border border-[#E0E8E2] rounded-2xl shadow-xl shadow-[#2E3A9E]/8 block overflow-hidden"
-          />
+          {showEmbed && (
+            <iframe
+              src={IG_EMBED_URL}
+              title={`@${IG_HANDLE} Instagram feed`}
+              scrolling="no"
+              loading="lazy"
+              className="relative w-full h-full border border-[#E0E8E2] rounded-2xl shadow-xl shadow-[#2E3A9E]/8 block overflow-hidden"
+            />
+          )}
         </div>
 
         {/* Quote / follow card — compact banner below */}

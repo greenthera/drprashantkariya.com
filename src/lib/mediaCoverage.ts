@@ -8,10 +8,24 @@ const images = import.meta.glob("../assets/media-coverage/*.webp", {
   import: "default",
 }) as Record<string, string>;
 
+// Small (480px-wide) variants used only by the home page teaser, which
+// displays these at thumbnail size — shipping the full-size scan there was
+// pure waste. Falls back to the full-size src if a thumb hasn't been
+// generated yet for a given file, so adding a new clipping never breaks.
+const thumbs = import.meta.glob("../assets/media-coverage-thumb/*.webp", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+function resolveFrom(map: Record<string, string>, file: string): string | undefined {
+  const key = Object.keys(map).find((path) => path.endsWith(`/${file}`));
+  return key ? map[key] : undefined;
+}
+
 function resolveSrc(file: string): string {
-  const key = Object.keys(images).find((path) => path.endsWith(`/${file}`));
-  if (!key) throw new Error(`Media coverage image not found in bundle: ${file}`);
-  return images[key];
+  const src = resolveFrom(images, file);
+  if (!src) throw new Error(`Media coverage image not found in bundle: ${file}`);
+  return src;
 }
 
 export type MediaCoverageItem = {
@@ -20,6 +34,7 @@ export type MediaCoverageItem = {
   width: number;
   height: number;
   src: string;
+  thumbSrc: string;
 };
 
 function coverageSequence(file: string): number {
@@ -28,7 +43,10 @@ function coverageSequence(file: string): number {
 }
 
 export const mediaCoverage: MediaCoverageItem[] = [
-  ...(rawData as Omit<MediaCoverageItem, "src">[]),
+  ...(rawData as Omit<MediaCoverageItem, "src" | "thumbSrc">[]),
 ]
   .sort((a, b) => coverageSequence(b.file) - coverageSequence(a.file))
-  .map((item) => ({ ...item, src: resolveSrc(item.file) }));
+  .map((item) => {
+    const src = resolveSrc(item.file);
+    return { ...item, src, thumbSrc: resolveFrom(thumbs, item.file) ?? src };
+  });

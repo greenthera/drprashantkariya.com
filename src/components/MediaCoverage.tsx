@@ -11,7 +11,7 @@ import MediaCoverageLightbox from "./MediaCoverageLightbox";
 const preview = mediaCoverage.slice(0, 6);
 
 export default function MediaCoverage() {
-  const srcs = useMemo(() => preview.map((item) => item.src), []);
+  const srcs = useMemo(() => preview.map((item) => item.thumbSrc), []);
   const { ready } = useImagesPreloaded(srcs);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -65,7 +65,7 @@ export default function MediaCoverage() {
                 <div className="h-0.75 bg-linear-to-r from-[#F2B33D] via-[#F2B33D]/70 to-transparent" />
                 <div className="relative aspect-3/4 overflow-hidden bg-[#FAF9F6]">
                   <img
-                    src={item.src}
+                    src={item.thumbSrc}
                     alt={item.publication ? `Media coverage in ${item.publication}` : "Media coverage clipping"}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
