@@ -9,9 +9,15 @@ import MediaCoverageLightbox from "./MediaCoverageLightbox";
 // Same portrait aspect ratio across the teaser so it reads as one clean row —
 // the full editorial masonry lives on the dedicated page.
 const preview = mediaCoverage.slice(0, 6);
+const mobileImages = import.meta.glob("../assets/media-coverage-mobile/*.webp", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+const mobileSrc = (file: string, original: string) =>
+  mobileImages[`../assets/media-coverage-mobile/${file}`] ?? original;
 
 export default function MediaCoverage() {
-  const srcs = useMemo(() => preview.map((item) => item.src), []);
+  const srcs = useMemo(() => preview.map((item) => ({ src: item.src, mobileSrc: mobileSrc(item.file, item.src) })), []);
   const { ready } = useImagesPreloaded(srcs);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -64,11 +70,14 @@ export default function MediaCoverage() {
               >
                 <div className="h-0.75 bg-linear-to-r from-[#F2B33D] via-[#F2B33D]/70 to-transparent" />
                 <div className="relative aspect-3/4 overflow-hidden bg-[#FAF9F6]">
-                  <img
-                    src={item.src}
-                    alt={item.publication ? `Media coverage in ${item.publication}` : "Media coverage clipping"}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  <picture>
+                    <source media="(width < 768px)" srcSet={mobileSrc(item.file, item.src)} />
+                    <img
+                      src={item.src}
+                      alt={item.publication ? `Media coverage in ${item.publication}` : "Media coverage clipping"}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-[#171b3d]/0 group-hover:bg-[#171b3d]/25 transition-colors duration-300 flex items-center justify-center">
                     <span className="w-8 h-8 rounded-full bg-white/0 group-hover:bg-white/95 flex items-center justify-center text-[#2E3A9E] opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
                       <ZoomIn size={14} />

@@ -28,3 +28,7 @@ build
 
 # Git worktrees
 .worktrees
+
+/artifacts/
+/playwright-report/
+/test-results/

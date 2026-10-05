@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+type ImageSource = string | { src: string; mobileSrc: string };
+
 // Preloads a list of image URLs and reports progress, so a gallery can hold
 // a loading state until every image is actually in the browser cache —
 // avoids the "captions/cards show up before their images" flash, especially
@@ -8,8 +10,8 @@ import { useEffect, useState } from "react";
 // Handles both a static list (known at mount) and a list that starts empty
 // and arrives later (e.g. Courses, fetched from an API) — the src list is
 // re-tracked whenever its contents actually change.
-export function useImagesPreloaded(srcs: string[]) {
-  const key = srcs.join("\n");
+export function useImagesPreloaded(srcs: ImageSource[]) {
+  const key = srcs.map(src => typeof src === "string" ? src : `${src.src}|${src.mobileSrc}`).join("\n");
   const [trackedKey, setTrackedKey] = useState(key);
   const [loadedCount, setLoadedCount] = useState(0);
   const [ready, setReady] = useState(srcs.length === 0);
@@ -40,7 +42,14 @@ export function useImagesPreloaded(srcs: string[]) {
       };
       img.onload = onDone;
       img.onerror = onDone; // a broken image shouldn't block the rest forever
-      img.src = src;
+      if (typeof src !== "string" && window.matchMedia("(width < 768px)").matches) {
+        img.fetchPriority = "low";
+      }
+      // Match the picture element's mobile source so its loading indicator
+      // waits for exactly the images that will be displayed. Other callers
+      // and desktop retain their original image URLs and loading sequence.
+      img.src = typeof src === "string" ? src
+        : window.matchMedia("(width < 768px)").matches ? src.mobileSrc : src.src;
     }
 
     return () => {
