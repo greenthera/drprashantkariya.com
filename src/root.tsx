@@ -42,10 +42,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="preload" as="style" href={FONT_HREF} media="(min-width: 768px)" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.currentScript.previousElementSibling.onload = function () {
-              this.onload = null;
-              this.rel = 'stylesheet';
-            };`,
+            // Mobile fonts are already declared locally. React hoists head
+            // links, so running the legacy sibling-based swap on mobile can
+            // turn a modulepreload into a render-blocking stylesheet.
+            __html: `if (window.matchMedia('(min-width: 768px)').matches) {
+              document.currentScript.previousElementSibling.onload = function () {
+                this.onload = null;
+                this.rel = 'stylesheet';
+              };
+            }`,
           }}
         />
         <noscript>
