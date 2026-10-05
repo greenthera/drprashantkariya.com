@@ -1,5 +1,4 @@
-import MotionFeatures from "./MotionFeatures";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { MapPin, Phone } from "lucide-react";
 
 const MAPS_URL_NICU =
@@ -9,13 +8,13 @@ const MAPS_URL_CHILDREN =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent("Param Children Hospital, 305-306, Seven Square, Majura Gate, Surat - 395002");
 
-function Clinics() {
+export default function Clinics() {
   return (
     <section id="clinics" className="py-20 md:py-24 px-6 md:px-10 bg-white">
       <div className="max-w-[1400px] mx-auto">
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -28,9 +27,9 @@ function Clinics() {
               style={{ fontSize: "clamp(2.6rem, 5vw, 4.2rem)" }}>
               Hospitals & <span className="italic">Clinics.</span>
             </h2>
-          </m.div>
+          </motion.div>
 
-          <m.p
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -38,13 +37,13 @@ function Clinics() {
             className="text-[#4F5A8A] text-sm md:max-w-52.5 leading-relaxed font-light"
           >
             Providing critical care across two prime locations in Surat.
-          </m.p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
           {/* Card 1 — dark emerald */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -85,10 +84,10 @@ function Clinics() {
                 (0261) 2492411
               </a>
             </div>
-          </m.div>
+          </motion.div>
 
           {/* Card 2 — warm cream */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -128,13 +127,9 @@ function Clinics() {
                 +91 97270 08881
               </a>
             </div>
-          </m.div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
-}
-
-export default function AnimatedClinics() {
-  return <MotionFeatures><Clinics /></MotionFeatures>;
 }

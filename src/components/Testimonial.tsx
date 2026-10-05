@@ -1,6 +1,5 @@
-import MotionFeatures from "./MotionFeatures";
 import { useEffect, useRef, useState } from "react";
-import { m, AnimatePresence, useMotionValue, useAnimationFrame, animate } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useAnimationFrame, animate } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { testimonialData } from "../data/testimonials";
 import { getYearsOfPractice } from "../lib/practice";
@@ -61,7 +60,7 @@ function Card({ review, onOpen }: { review: typeof reviews[0]; onOpen: (review: 
   );
 }
 
-function Testimonial() {
+export default function Testimonial() {
   const TOTAL = reviews.length * CARD_W;
   const items = [...reviews, ...reviews];
 
@@ -136,7 +135,7 @@ function Testimonial() {
 
       {/* Header */}
       <div className="px-6 md:px-10 max-w-[1400px] mx-auto mb-14">
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -177,7 +176,7 @@ function Testimonial() {
               <ChevronRight size={20} />
             </button>
           </div>
-        </m.div>
+        </motion.div>
       </div>
 
       {/* Marquee */}
@@ -186,7 +185,7 @@ function Testimonial() {
         <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-linear-to-r from-[#2E3A9E] to-transparent pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-linear-to-l from-[#2E3A9E] to-transparent pointer-events-none" />
 
-        <m.div
+        <motion.div
           className="flex gap-5 w-max px-5 cursor-grab active:cursor-grabbing touch-pan-y"
           style={{ x }}
           onPointerDown={onPointerDown}
@@ -197,7 +196,7 @@ function Testimonial() {
           {items.map((review, i) => (
             <Card key={i} review={review} onOpen={setActiveReview} />
           ))}
-        </m.div>
+        </motion.div>
       </div>
 
       {/* Swipe hint — shows only on touch devices */}
@@ -206,7 +205,7 @@ function Testimonial() {
       </p>
 
       {/* Stat bar */}
-      <m.div
+      <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -233,12 +232,12 @@ function Testimonial() {
             <p className="text-[#8993CC] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">Years Trusted</p>
           </div>
         </div>
-      </m.div>
+      </motion.div>
 
       {/* Full review modal */}
       <AnimatePresence>
         {activeReview && (
-          <m.div
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -246,7 +245,7 @@ function Testimonial() {
             className="fixed inset-0 z-[200] bg-black/60 backdrop-blur-sm flex items-center justify-center p-6"
             onClick={() => setActiveReview(null)}
           >
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.98 }}
@@ -282,14 +281,10 @@ function Testimonial() {
                   {toTitleCase(activeReview.name)}
                 </p>
               </div>
-            </m.div>
-          </m.div>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>
   );
-}
-
-export default function AnimatedTestimonial() {
-  return <MotionFeatures><Testimonial /></MotionFeatures>;
 }

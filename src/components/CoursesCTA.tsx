@@ -1,9 +1,8 @@
-import MotionFeatures from "./MotionFeatures";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { GraduationCap, ArrowRight, BookOpen } from "lucide-react";
 
-function CoursesCTA() {
+export default function CoursesCTA() {
   return (
     <section className="py-16 md:py-20 px-6 md:px-10 bg-[#FAF9F6] relative overflow-hidden">
 
@@ -12,7 +11,7 @@ function CoursesCTA() {
       <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-[#EAEDFB]/60 pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -51,12 +50,8 @@ function CoursesCTA() {
           >
             View Courses <ArrowRight size={15} />
           </Link>
-        </m.div>
+        </motion.div>
       </div>
     </section>
   );
-}
-
-export default function AnimatedCoursesCTA() {
-  return <MotionFeatures><CoursesCTA /></MotionFeatures>;
 }

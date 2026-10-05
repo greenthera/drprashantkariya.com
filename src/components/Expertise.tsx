@@ -1,5 +1,4 @@
-import MotionFeatures from "./MotionFeatures";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Baby,
   Activity,
@@ -10,13 +9,13 @@ import {
   MessageCircleHeart,
 } from "lucide-react";
 
-function Expertise() {
+export default function Expertise() {
   return (
     <section id="expertise" className="py-20 md:py-24 px-4 sm:px-6 md:px-10 bg-[#FAF9F6]">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Header Section */}
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,13 +34,13 @@ function Expertise() {
           <p className="text-[#4F5A8A] text-sm md:max-w-xs leading-relaxed font-light">
             Advanced care across seven critical paediatric disciplines.
           </p>
-        </m.div>
+        </motion.div>
 
         {/* Bento Grid: Highly Responsive Configuration */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
 
           {/* 1. Newborn Care — Tall dark featured card */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -77,10 +76,10 @@ function Expertise() {
                 Primary Expertise
               </span>
             </div> */}
-          </m.div>
+          </motion.div>
 
           {/* 2. NICU — Wide horizontal card */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -104,10 +103,10 @@ function Expertise() {
                 management, nutritional care, and family-centered developmental care.
               </p>
             </div>
-          </m.div>
+          </motion.div>
 
           {/* 3. Child Health */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -131,10 +130,10 @@ function Expertise() {
                 disease management, and routine wellness examinations.
               </p>
             </div>
-          </m.div>
+          </motion.div>
 
           {/* 4. Vaccination */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -159,10 +158,10 @@ function Expertise() {
                 provided.
               </p>
             </div>
-          </m.div>
+          </motion.div>
 
           {/* 5. Growth & Development — Wide horizontal card */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -186,10 +185,10 @@ function Expertise() {
                 disorders, ADHD, speech concerns, and other developmental challenges.
               </p>
             </div>
-          </m.div>
+          </motion.div>
 
           {/* 6. Adolescent Health */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -213,10 +212,10 @@ function Expertise() {
                 health, and preventive care to support a healthy transition into adulthood.
               </p>
             </div>
-          </m.div>
+          </motion.div>
 
           {/* 7. Counselling Consultations — Spans nicely on bottom rows */}
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -242,13 +241,10 @@ function Expertise() {
                 informed decisions with confidence.
               </p>
             </div>
-          </m.div>
+          </motion.div>
 
         </div>
       </div>
     </section>
   );
-}
-export default function AnimatedExpertise() {
-  return <MotionFeatures><Expertise /></MotionFeatures>;
 }

@@ -1,6 +1,5 @@
-import MotionFeatures from "./MotionFeatures";
 import { useMemo, useState } from "react";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { ArrowRight, Newspaper, ZoomIn } from "lucide-react";
 import { mediaCoverage } from "../lib/mediaCoverage";
@@ -11,8 +10,8 @@ import MediaCoverageLightbox from "./MediaCoverageLightbox";
 // the full editorial masonry lives on the dedicated page.
 const preview = mediaCoverage.slice(0, 6);
 
-function MediaCoverage() {
-  const srcs = useMemo(() => preview.map((item) => item.thumbSrc), []);
+export default function MediaCoverage() {
+  const srcs = useMemo(() => preview.map((item) => item.src), []);
   const { ready } = useImagesPreloaded(srcs);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -24,7 +23,7 @@ function MediaCoverage() {
       <div className="relative z-10 max-w-[1400px] mx-auto">
 
         {/* Section header */}
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -46,10 +45,10 @@ function MediaCoverage() {
             Newspaper features and interviews on child health, parenting, and
             adolescent care over the years.
           </p>
-        </m.div>
+        </motion.div>
 
         {ready ? (
-          <m.div
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -66,7 +65,7 @@ function MediaCoverage() {
                 <div className="h-0.75 bg-linear-to-r from-[#F2B33D] via-[#F2B33D]/70 to-transparent" />
                 <div className="relative aspect-3/4 overflow-hidden bg-[#FAF9F6]">
                   <img
-                    src={item.thumbSrc}
+                    src={item.src}
                     alt={item.publication ? `Media coverage in ${item.publication}` : "Media coverage clipping"}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
@@ -84,7 +83,7 @@ function MediaCoverage() {
                 </div>
               </button>
             ))}
-          </m.div>
+          </motion.div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6">
             {preview.map((item) => (
@@ -116,8 +115,4 @@ function MediaCoverage() {
       />
     </section>
   );
-}
-
-export default function AnimatedMediaCoverage() {
-  return <MotionFeatures><MediaCoverage /></MotionFeatures>;
 }

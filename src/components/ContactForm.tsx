@@ -1,5 +1,4 @@
-import MotionFeatures from "./MotionFeatures";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { MapPin, MessageCircle } from "lucide-react";
 import doconIcon from "../assets/docon-icon.png";
@@ -22,7 +21,7 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-function ContactForm() {
+export default function ContactForm() {
   const [name, setName]       = useState("");
   const [phone, setPhone]     = useState("");
   const [message, setMessage] = useState("");
@@ -38,7 +37,7 @@ function ContactForm() {
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
         {/* LEFT: Info */}
-        <m.div
+        <motion.div
           initial={{ opacity: 0, x: -28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
@@ -116,10 +115,10 @@ function ContactForm() {
             </a>
 
           </div>
-        </m.div>
+        </motion.div>
 
         {/* RIGHT: Form */}
-        <m.form
+        <motion.form
           onSubmit={handleWhatsApp}
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -183,13 +182,9 @@ function ContactForm() {
               </a>
             </p>
           </div>
-        </m.form>
+        </motion.form>
 
       </div>
     </div>
   );
-}
-
-export default function AnimatedContactForm() {
-  return <MotionFeatures><ContactForm /></MotionFeatures>;
 }

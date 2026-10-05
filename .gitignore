@@ -28,8 +28,3 @@ build
 
 # Git worktrees
 .worktrees
-
-# Browser and performance test artifacts
-playwright-report
-test-results
-artifacts

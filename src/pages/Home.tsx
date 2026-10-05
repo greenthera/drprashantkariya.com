@@ -86,8 +86,6 @@ export default function Home() {
     <main className="bg-[#FAF9F6] selection:bg-[#4353CF] selection:text-[#F5E6C8]">
       <Hero />
       <About />
-      {/* Keep scroll-reveal targets in normal layout so IntersectionObserver
-          can detect them before their animations start. */}
       <Suspense fallback={null}>
         <Expertise />
       </Suspense>

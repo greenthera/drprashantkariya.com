@@ -10,11 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy:gh-pages": "npm run build && gh-pages -d build/client",
-    "scrape:guidelines": "node scripts/scrape-parental-guidelines.js",
-    "serve:production": "node scripts/serve-production.js",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:performance": "npm run build && node scripts/check-performance.js"
+    "scrape:guidelines": "node scripts/scrape-parental-guidelines.js"
   },
   "dependencies": {
     "@react-router/node": "^7.18.2",
@@ -30,7 +26,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@playwright/test": "^1.63.0",
     "@react-router/dev": "^7.18.2",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",
@@ -41,8 +36,6 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "gh-pages": "^6.3.0",
     "globals": "^17.5.0",
-    "lighthouse": "13.5.0",
-    "playwright": "^1.63.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10"

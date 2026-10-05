@@ -1,12 +1,11 @@
-import MotionFeatures from "./MotionFeatures";
 import { useMemo, useState } from "react";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { Newspaper, ZoomIn } from "lucide-react";
 import { mediaCoverage } from "../lib/mediaCoverage";
 import { useImagesPreloaded } from "../hooks/useImagesPreloaded";
 import MediaCoverageLightbox from "./MediaCoverageLightbox";
 
-function MediaCoverageGrid() {
+export default function MediaCoverageGrid() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const srcs = useMemo(() => mediaCoverage.map((item) => item.src), []);
   const { ready, loadedCount, total } = useImagesPreloaded(srcs);
@@ -45,7 +44,7 @@ function MediaCoverageGrid() {
 
         {/* Editorial masonry — each clipping keeps its real aspect ratio, no crop */}
         {ready ? (
-          <m.div
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -80,7 +79,7 @@ function MediaCoverageGrid() {
                 </div>
               </button>
             ))}
-          </m.div>
+          </motion.div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-5 py-32">
             <span className="w-10 h-10 rounded-full border-2 border-[#E0E8E2] border-t-[#4353CF] animate-spin" />
@@ -108,8 +107,4 @@ function MediaCoverageGrid() {
       />
     </div>
   );
-}
-
-export default function AnimatedMediaCoverageGrid() {
-  return <MotionFeatures><MediaCoverageGrid /></MotionFeatures>;
 }

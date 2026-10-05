@@ -1,5 +1,4 @@
-import MotionFeatures from "./MotionFeatures";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import drBookSon from "../assets/dr-book-son.webp"
 import drBookDaughter from "../assets/dr-book-daughter.webp"
@@ -20,7 +19,7 @@ const books = [
   },
 ];
 
-function Publications() {
+export default function Publications() {
   const { ready } = useImagesPreloaded([drBookDaughter, drBookSon]);
 
   return (
@@ -28,7 +27,7 @@ function Publications() {
       <div className="max-w-[1400px] mx-auto">
 
         {/* Section header */}
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -47,11 +46,11 @@ function Publications() {
           <p className="text-[#4F5A8A] text-sm md:max-w-55 leading-relaxed font-light">
             Titles on parenting, empathy, and raising the next generation.
           </p>
-        </m.div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {books.map((book, i) => (
-            <m.div
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -91,14 +90,10 @@ function Publications() {
                   </a>
                 </div>
               </div>
-            </m.div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-}
-
-export default function AnimatedPublications() {
-  return <MotionFeatures><Publications /></MotionFeatures>;
 }
