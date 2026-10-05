@@ -1,5 +1,17 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, type MetaFunction } from "react-router";
-import "./index.css";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, type LinksFunction, type MetaFunction } from "react-router";
+import stylesheetUrl from "./index.css?url";
+import inlineStyles from "./index.css?inline";
+
+// Use the exact same CSS on mobile without a blocking request. Production
+// hydration reuses the server-rendered text; Vite omits the CSS string from
+// client JavaScript. Development keeps the import for stylesheet hot updates.
+const MOBILE_STYLES = import.meta.env.SSR || import.meta.env.DEV
+  ? inlineStyles
+  : document.getElementById("mobile-styles")?.textContent ?? "";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheetUrl, media: "(min-width: 768px)" },
+];
 
 const FONT_HREF =
   "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap";
@@ -22,6 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style id="mobile-styles" media="(width < 768px)" dangerouslySetInnerHTML={{ __html: MOBILE_STYLES }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* Loaded as a non-blocking preload (swapped to a real stylesheet
@@ -33,10 +46,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="preload" as="style" href={FONT_HREF} />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.currentScript.previousElementSibling.onload = function () {
-              this.onload = null;
-              this.rel = 'stylesheet';
-            };`,
+            // React hoists links ahead of scripts, so the previous sibling
+            // may be a JavaScript module preload rather than the font link.
+            // Preserve desktop's existing behavior; prevent this mobile-only
+            // rendering regression without changing fonts or animation CSS.
+            __html: `if (window.matchMedia('(min-width: 768px)').matches) {
+              document.currentScript.previousElementSibling.onload = function () {
+                this.onload = null;
+                this.rel = 'stylesheet';
+              };
+            }`,
           }}
         />
         <noscript>

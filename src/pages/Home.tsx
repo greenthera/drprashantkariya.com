@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useLocation, type LinksFunction, type MetaFunction } from "react-router";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Instagram from "../components/Instagram";
 import doctorAvatar450 from "../assets/doctorImage-avatar-450.webp";
 import doctorAvatar700 from "../assets/doctorImage-avatar-700.webp";
 import doctorAvatar965 from "../assets/doctorImage-avatar-965.webp";
@@ -14,7 +15,6 @@ const Testimonial = lazy(() => import("../components/Testimonial"));
 const BookAppointment = lazy(() => import("../components/BookAppointment"));
 const Publications = lazy(() => import("../components/Publications"));
 const MediaCoverage = lazy(() => import("../components/MediaCoverage"));
-const Instagram = lazy(() => import("../components/Instagram"));
 
 // Preloads the Hero photo — the page's LCP element — as early as possible in
 // <head>, ahead of the JS bundle discovering it, so the browser doesn't wait
@@ -107,9 +107,10 @@ export default function Home() {
       <Suspense fallback={null}>
         <MediaCoverage />
       </Suspense>
-      <Suspense fallback={null}>
-        <Instagram />
-      </Suspense>
+      {/* Keep the native lazy iframe in normal prerendered markup. A streamed
+          Suspense segment temporarily hides it and defeats lazy loading,
+          starting the third-party embed before the visitor scrolls here. */}
+      <Instagram />
     </main>
   );
 }
