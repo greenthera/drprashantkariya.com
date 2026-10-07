@@ -23,7 +23,7 @@ export default function PublicationsGrid() {
     : PublicationsData;
 
   return (
-    <div className="bg-[#FAF9F6] pt-24 md:pt-32 pb-20 px-6 md:px-10">
+    <div className="bg-[#FAF9F6] pt-34 md:pt-42 pb-20 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-4">
           <div>

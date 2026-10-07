@@ -33,7 +33,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-[#FAF9F6] pt-24 md:pt-32 pb-20 px-6 md:px-10">
+    <div className="bg-[#FAF9F6] pt-34 md:pt-42 pb-20 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
         {/* LEFT: Info */}

@@ -68,7 +68,7 @@ export default function Hero() {
       <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#EAEDFB]/60 pointer-events-none" />
 
       {/* Main grid */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center pt-28 pb-10 md:pt-30 md:pb-12 lg:pt-30 lg:pb-14">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center pt-38 pb-10 md:pt-40 md:pb-12 lg:pt-40 lg:pb-14">
 
         {/* ── LEFT ── */}
         <div className="lg:order-1 flex flex-col">

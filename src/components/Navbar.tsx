@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <>  
-      <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#FAF9F6]/92 backdrop-blur-xl border-b border-[#E0E8E2]">
+      <nav className="fixed top-10 left-0 right-0 z-[100] bg-[#FAF9F6]/92 backdrop-blur-xl border-b border-[#E0E8E2]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
 
           <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group min-w-0">
@@ -94,7 +94,7 @@ export default function Navbar() {
           opacity: isOpen ? 1 : 0,
           transform: isOpen ? "translateY(0)" : "translateY(-12px)",
         }}
-        className={`fixed inset-0 z-[90] bg-[#FAF9F6] pt-20 px-6 lg:hidden transition-all duration-250 ${
+        className={`fixed inset-0 z-[90] bg-[#FAF9F6] pt-30 px-6 lg:hidden transition-all duration-250 ${
           isOpen ? "" : "pointer-events-none"
         }`}
       >

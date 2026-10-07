@@ -11,7 +11,7 @@ export default function MediaCoverageGrid() {
   const { ready, loadedCount, total } = useImagesPreloaded(srcs);
 
   return (
-    <div className="relative bg-[#FAF9F6] overflow-hidden pt-24 md:pt-32 pb-20 px-6 md:px-10">
+    <div className="relative bg-[#FAF9F6] overflow-hidden pt-34 md:pt-42 pb-20 px-6 md:px-10">
 
       {/* Dot grid */}
       <div
