@@ -15,9 +15,12 @@ export default function AnnouncementBanner() {
           <p className="text-[11px] sm:text-xs text-white/90 truncate">
             <span className="font-semibold text-white">Dr. Prashant Kariya</span>
             <span className="hidden sm:inline">
-              {" "}— Senior Consultant, Pediatrician at Kiran Multi Super Speciality Hospital
+              {" "}Senior Consultant, Pediatrician at{" "}
+              <span className="font-bold text-white">Kiran Multi Super Speciality Hospital</span>
             </span>
-            <span className="sm:hidden"> — now at Kiran Hospital</span>
+            <span className="sm:hidden">
+              {" "}now at <span className="font-bold text-white">Kiran Hospital</span>
+            </span>
           </p>
           <button
             type="button"
