@@ -10,7 +10,7 @@ export default function AnnouncementBanner() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-[110] h-10 bg-[#2E3A9E] flex items-center px-4">
+      <div className="relative z-110 h-10 bg-[#2E3A9E] flex items-center px-4">
         <div className="max-w-[1400px] w-full mx-auto flex items-center justify-center gap-2 overflow-hidden">
           <p className="text-[11px] sm:text-xs text-white/90 truncate">
             <span className="font-semibold text-white">Dr. Prashant Kariya</span>
