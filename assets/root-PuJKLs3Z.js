@@ -1,8 +1,8 @@
-import{t as e}from"./jsx-runtime-CXI4DtSE.js";import{i as t,k as n,l as r,o as i,r as a,u as o}from"./chunk-62JRHF6Z-HqqIAGN4.js";import{r as s}from"./seo-ByHRoZfO.js";var c=`/assets/index-BBuJoV1V.css`,l=e(),u=document.getElementById(`mobile-styles`)?.textContent??``,d=()=>[{rel:`stylesheet`,href:c,media:`(min-width: 768px)`}],f=`https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap`,p=()=>[{title:`Dr. Prashant Kariya — Pediatrician & Adolescent Health Expert, Surat`},{name:`description`,content:`Dr. Prashant Kariya is a pediatrician and neonatologist in Surat offering compassionate, evidence-based care for newborns, children, and adolescents.`}];function m({children:e}){return(0,l.jsxs)(`html`,{lang:`en`,children:[(0,l.jsxs)(`head`,{children:[(0,l.jsx)(`meta`,{charSet:`UTF-8`}),(0,l.jsx)(`meta`,{name:`viewport`,content:`width=device-width, initial-scale=1.0`}),(0,l.jsx)(`style`,{id:`mobile-styles`,media:`(width < 768px)`,dangerouslySetInnerHTML:{__html:u}}),(0,l.jsx)(`link`,{rel:`preconnect`,href:`https://fonts.googleapis.com`}),(0,l.jsx)(`link`,{rel:`preconnect`,href:`https://fonts.gstatic.com`,crossOrigin:``}),(0,l.jsx)(`link`,{rel:`preload`,as:`style`,href:f}),(0,l.jsx)(`script`,{dangerouslySetInnerHTML:{__html:`if (window.matchMedia('(min-width: 768px)').matches) {
-              document.currentScript.previousElementSibling.onload = function () {
-                this.onload = null;
-                this.rel = 'stylesheet';
-              };
+import{t as e}from"./jsx-runtime-CXI4DtSE.js";import{i as t,k as n,l as r,o as i,r as a,u as o}from"./chunk-62JRHF6Z-HqqIAGN4.js";import{r as s}from"./seo-9JLXvZnf.js";var c=`/assets/index-DE1cTWtv.css`,l=e(),u=document.getElementById(`mobile-styles`)?.textContent??``,d=()=>[{rel:`stylesheet`,href:c,media:`(min-width: 768px)`}],f=`https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap`,p=()=>[{title:`Dr. Prashant Kariya — Pediatrician & Adolescent Health Expert, Surat`},{name:`description`,content:`Dr. Prashant Kariya is a pediatrician and neonatologist in Surat offering compassionate, evidence-based care for newborns, children, and adolescents.`}];function m({children:e}){return(0,l.jsxs)(`html`,{lang:`en`,children:[(0,l.jsxs)(`head`,{children:[(0,l.jsx)(`meta`,{charSet:`UTF-8`}),(0,l.jsx)(`meta`,{name:`viewport`,content:`width=device-width, initial-scale=1.0`}),(0,l.jsx)(`style`,{id:`mobile-styles`,media:`(width < 768px)`,dangerouslySetInnerHTML:{__html:u}}),(0,l.jsx)(`link`,{rel:`preconnect`,href:`https://fonts.googleapis.com`}),(0,l.jsx)(`link`,{rel:`preconnect`,href:`https://fonts.gstatic.com`,crossOrigin:``}),(0,l.jsx)(`link`,{id:`desktop-fonts`,rel:`preload`,as:`style`,href:f,media:`(min-width: 768px)`}),(0,l.jsx)(`script`,{dangerouslySetInnerHTML:{__html:`if (window.matchMedia('(min-width: 768px)').matches) {
+              var fonts = document.getElementById('desktop-fonts');
+              fonts.media = 'print';
+              fonts.onload = function () { this.media = 'all'; };
+              fonts.rel = 'stylesheet';
             }`}}),(0,l.jsx)(`noscript`,{children:(0,l.jsx)(`link`,{href:f,rel:`stylesheet`})}),(0,l.jsx)(`script`,{dangerouslySetInnerHTML:{__html:`window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -14,7 +14,8 @@ import{t as e}from"./jsx-runtime-CXI4DtSE.js";import{i as t,k as n,l as r,o as i
                 document.head.appendChild(s);
               }
               if (document.readyState === 'complete') {
-                __loadGtag();
+                if (window.requestIdleCallback) window.requestIdleCallback(__loadGtag, { timeout: 3000 });
+                else window.setTimeout(__loadGtag, 1500);
               } else {
                 window.addEventListener('load', __loadGtag, { once: true });
               }`}}),(0,l.jsx)(`script`,{dangerouslySetInnerHTML:{__html:`(function (l) {
