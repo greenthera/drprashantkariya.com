@@ -7,18 +7,24 @@ import{t as e}from"./jsx-runtime-CXI4DtSE.js";import{i as t,k as n,l as r,o as i
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-D5CQ43TDN6');
+              var __gtagLoaded = false;
               function __loadGtag() {
+                if (__gtagLoaded) return;
+                __gtagLoaded = true;
                 var s = document.createElement('script');
                 s.async = true;
                 s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5CQ43TDN6';
                 document.head.appendChild(s);
               }
-              if (document.readyState === 'complete') {
-                if (window.requestIdleCallback) window.requestIdleCallback(__loadGtag, { timeout: 3000 });
-                else window.setTimeout(__loadGtag, 1500);
-              } else {
-                window.addEventListener('load', __loadGtag, { once: true });
-              }`}}),(0,l.jsx)(`script`,{dangerouslySetInnerHTML:{__html:`(function (l) {
+              function __scheduleGtag() {
+                window.setTimeout(function () {
+                  if (window.requestIdleCallback) window.requestIdleCallback(__loadGtag, { timeout: 2000 });
+                  else __loadGtag();
+                }, 3500);
+              }
+              if (document.readyState === 'complete') __scheduleGtag();
+              else window.addEventListener('load', __scheduleGtag, { once: true });
+`}}),(0,l.jsx)(`script`,{dangerouslySetInnerHTML:{__html:`(function (l) {
               if (l.search[1] === '/') {
                 var decoded = l.search.slice(1).split('&').map(function (s) {
                   return s.replace(/~and~/g, '&');
