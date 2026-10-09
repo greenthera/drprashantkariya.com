@@ -29,7 +29,7 @@ try {
     // This changes the audit browser only; application animations stay enabled.
     const chrome = await launch({ chromePath: process.env.PERF_CHROME_PATH || chromium.executablePath(), chromeFlags: ['--headless', '--no-sandbox', '--disable-gpu', ...(process.env.PERF_IGNORE_CERTIFICATE_ERRORS ? ['--ignore-certificate-errors'] : [])] });
     try {
-      const report = await lighthouse(url, { port: chrome.port, onlyCategories: ['performance'], output: ['json', 'html'], logLevel: 'error' }, desktop ? desktopConfig : undefined);
+      const report = await lighthouse(url, { port: chrome.port, onlyCategories: process.argv.includes('--audit') ? ['performance', 'accessibility', 'best-practices', 'seo'] : ['performance'], output: ['json', 'html'], logLevel: 'error' }, desktop ? desktopConfig : undefined);
       if (!report || report.lhr.runtimeError) throw new Error(JSON.stringify(report?.lhr.runtimeError || 'Missing Lighthouse report'));
       const { lhr } = report;
       await writeFile(`${output}/run-${run}.json`, JSON.stringify(lhr, null, 2));

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import drBookSon from "../assets/dr-book-son.webp"
 import drBookDaughter from "../assets/dr-book-daughter.webp"
-import { useImagesPreloaded } from "../hooks/useImagesPreloaded";
+
 
 const books = [
   {
@@ -20,7 +20,7 @@ const books = [
 ];
 
 export default function Publications() {
-  const { ready } = useImagesPreloaded([drBookDaughter, drBookSon]);
+
 
   return (
     <section id="publication" className="py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6]">
@@ -60,15 +60,15 @@ export default function Publications() {
             >
               {/* Book cover */}
               <div className="shrink-0 w-36 md:w-44 aspect-275/445 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(6,51,34,0.15)] self-center sm:self-start bg-[#EAEDFB] flex items-center justify-center">
-                {ready ? (
-                  <img
-                    src={book.image}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    alt={book.title}
-                  />
-                ) : (
-                  <span className="w-7 h-7 rounded-full border-2 border-white/60 border-t-[#4353CF] animate-spin" />
-                )}
+                <img
+                  src={book.image}
+                  loading="lazy"
+                  decoding="async"
+                  width={275}
+                  height={445}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  alt={book.title}
+                />
               </div>
 
               {/* Content */}

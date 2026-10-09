@@ -76,7 +76,7 @@ export default function Instagram() {
               href={IG_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#F2B33D] text-white px-5 py-2.5 rounded-lg text-[11px] font-semibold hover:bg-[#C28F31] transition-colors w-full md:w-auto text-center tracking-wide shrink-0"
+              className="bg-[#F2B33D] text-[#232323] px-5 py-2.5 rounded-lg text-[11px] font-semibold hover:bg-[#C28F31] transition-colors w-full md:w-auto text-center tracking-wide shrink-0"
             >
               Follow on Instagram
             </a>

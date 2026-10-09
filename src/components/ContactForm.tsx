@@ -29,7 +29,7 @@ export default function ContactForm() {
   function handleWhatsApp(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const text = `Hello Dr. Prashant Kariya,\n\nName: ${name}\nPhone: ${phone}\n\nMessage: ${message}`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -68,6 +68,8 @@ export default function ContactForm() {
             >
               <img
                 src={doconIcon}
+                width={48}
+                height={48}
                 alt="Docon"
                 className="w-12 h-12 rounded-xl shrink-0 object-cover group-hover:scale-110 transition-transform duration-250"
               />
@@ -134,6 +136,8 @@ export default function ContactForm() {
             <label htmlFor="contact-name" className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Full Name</label>
             <input
               id="contact-name"
+              name="name"
+              autoComplete="name"
               type="text"
               required
               placeholder="John Doe"
@@ -147,6 +151,11 @@ export default function ContactForm() {
             <label htmlFor="contact-phone" className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Phone Number</label>
             <input
               id="contact-phone"
+              name="phone"
+              autoComplete="tel"
+              inputMode="tel"
+              pattern="[+]?[0-9 ]{7,20}"
+              title="Enter 7 to 20 digits or spaces, with an optional leading +"
               type="tel"
               required
               placeholder="+91 00000 00000"
@@ -160,6 +169,7 @@ export default function ContactForm() {
             <label htmlFor="contact-message" className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Message</label>
             <textarea
               id="contact-message"
+              name="message"
               rows={4}
               required
               placeholder="How can we help?"
@@ -171,7 +181,7 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="w-full bg-[#25D366] text-white p-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2.5 hover:bg-[#1ebe5d] hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-px transition-all duration-250 tracking-wide"
+            className="w-full bg-[#128C46] text-white p-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2.5 hover:bg-[#0E7038] hover:shadow-lg hover:shadow-[#25D366]/25 hover:-translate-y-px transition-all duration-250 tracking-wide"
           >
             <WhatsAppIcon size={17} />
             Send via WhatsApp

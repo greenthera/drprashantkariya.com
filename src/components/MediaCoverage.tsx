@@ -65,7 +65,7 @@ export default function MediaCoverage() {
                 key={item.file}
                 type="button"
                 onClick={() => setActiveIndex(index)}
-                aria-label={item.publication ? `View clipping from ${item.publication}` : "View press clipping"}
+                aria-label={item.publication ? `View clipping from ${item.publication}` : "View clipping: Newspaper Feature"}
                 className="bg-white rounded-lg border border-[#E0E8E2] overflow-hidden text-left cursor-zoom-in group shadow-[0_8px_24px_rgba(46,58,158,0.07)] hover:shadow-[0_16px_36px_rgba(46,58,158,0.16)] hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="h-0.75 bg-linear-to-r from-[#F2B33D] via-[#F2B33D]/70 to-transparent" />

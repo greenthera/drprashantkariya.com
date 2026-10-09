@@ -24,11 +24,7 @@ function Card({ review, onOpen }: { review: typeof reviews[0]; onOpen: (review: 
 
   return (
     <div className="w-80 shrink-0 bg-white/8 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/12 transition-colors duration-300">
-      <div className="flex gap-0.5">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} size={13} className="text-[#F2B33D] fill-[#F2B33D]" />
-        ))}
-      </div>
+      <span aria-label="5 out of 5 stars" role="img" className="text-[#F2B33D] text-[13px] tracking-[2px] leading-none">★★★★★</span>
       <div className="flex-1">
         <p className="font-display italic text-white/85 text-base leading-relaxed line-clamp-5">
           "{review.feedback}"
@@ -40,7 +36,7 @@ function Card({ review, onOpen }: { review: typeof reviews[0]; onOpen: (review: 
               e.stopPropagation();
               onOpen(review);
             }}
-            className="text-[#F2B33D] text-xs font-semibold uppercase tracking-wide mt-2 hover:text-[#F5C264] transition-colors"
+            className="text-[#F5E6C8] text-xs font-semibold uppercase tracking-wide mt-2 hover:text-[#F5C264] transition-colors"
           >
             Read more
           </button>
@@ -48,11 +44,11 @@ function Card({ review, onOpen }: { review: typeof reviews[0]; onOpen: (review: 
       </div>
       <div className="flex items-center gap-3 pt-2 border-t border-white/10">
         <div className="w-9 h-9 rounded-full bg-[#F2B33D]/20 border border-[#F2B33D]/30 flex items-center justify-center shrink-0">
-          <span className="text-[#F2B33D] text-[11px] font-bold tracking-wide">
+          <span className="text-[#F5E6C8] text-[11px] font-bold tracking-wide">
             {initials(review.name)}
           </span>
         </div>
-        <p className="text-white/60 text-xs font-medium tracking-wide">
+        <p className="text-white/85 text-xs font-medium tracking-wide">
           {toTitleCase(review.name)}
         </p>
       </div>
@@ -200,7 +196,7 @@ export default function Testimonial() {
       </div>
 
       {/* Swipe hint — shows only on touch devices */}
-      <p className="text-center text-white/25 text-[10px] font-medium uppercase tracking-[0.25em] mt-5 md:hidden">
+      <p className="text-center text-white/75 text-[10px] font-medium uppercase tracking-[0.25em] mt-5 md:hidden">
         Swipe to browse
       </p>
 

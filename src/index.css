@@ -22,3 +22,31 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 12px 18px;
+  background: #fff;
+  color: #2E3A9E;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 3px solid #4353CF; outline-offset: 4px; }
+@media (max-width: 767px) {
+  /* Match the existing mobile fallback deliberately and avoid web-font shifts. */
+  body { font-family: Arial, sans-serif; }
+  .font-display { font-family: Georgia, serif; }
+  input, textarea, select { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

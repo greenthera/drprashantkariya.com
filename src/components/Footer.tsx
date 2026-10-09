@@ -22,7 +22,7 @@ export default function Footer() {
             <h2 className="font-display text-xl font-bold italic text-[#F5E6C8] mb-1">
               Join Our Newsletter
             </h2>
-            <p className="text-[#ABB3E0] text-xs font-light">
+            <p className="text-[#C8CEF0] text-xs font-light">
               Parenting tips and pediatric health updates, straight to your inbox.
             </p>
           </div>
@@ -47,7 +47,7 @@ export default function Footer() {
             >
               P. Kariya<span className="text-[#F2B33D]">.</span>
             </p>
-            <p className="text-[#8993CC] font-medium uppercase tracking-[0.3em] text-[9px]">
+            <p className="text-[#C8CEF0] font-medium uppercase tracking-[0.3em] text-[9px]">
               Surat • Gujarat • India
             </p>
             <div className="flex gap-3 mt-5">
@@ -73,13 +73,13 @@ export default function Footer() {
             <div className="space-y-4">
               <p className="text-[#F2B33D] font-semibold uppercase tracking-[0.22em] text-[10px]">Practice</p>
               <nav className="flex flex-col gap-3">
-                <SectionLink id="expertise" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</SectionLink>
-                <SectionLink id="clinics" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</SectionLink>
-                <SectionLink id="publication" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</SectionLink>
-                <Link to="/courses" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Courses</Link>
-                <Link to="/publications" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Publications</Link>
-                <Link to="/parental-guidelines" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Parental Guidelines</Link>
-                <Link to="/media-coverage" className="text-[#ABB3E0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Media Coverage</Link>
+                <SectionLink id="expertise" className="text-[#C8CEF0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Expertise</SectionLink>
+                <SectionLink id="clinics" className="text-[#C8CEF0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Clinics</SectionLink>
+                <SectionLink id="publication" className="text-[#C8CEF0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Books</SectionLink>
+                <Link to="/courses" className="text-[#C8CEF0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Courses</Link>
+                <Link to="/publications" className="text-[#C8CEF0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Publications</Link>
+                <Link to="/parental-guidelines" className="text-[#C8CEF0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Parental Guidelines</Link>
+                <Link to="/media-coverage" className="text-[#C8CEF0] font-medium text-sm hover:text-[#F5E6C8] transition-colors">Media Coverage</Link>
               </nav>
             </div>
 
@@ -91,8 +91,8 @@ export default function Footer() {
                 <a href={MAPS_URL_NICU}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Open Param NICU & Children Hospital in Google Maps"
-                  className="text-[#ABB3E0] text-sm leading-relaxed font-light">
+                  title="Open Param NICU & Children Hospital in Google Maps"
+                  className="text-[#C8CEF0] text-sm leading-relaxed font-light">
                   801-803, Param Doctor House,<br />Lal Darwaja,<br />Surat – 395003
                 </a>
               </div>
@@ -109,8 +109,8 @@ export default function Footer() {
                 <a href={MAPS_URL_CHILDREN}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Open Param Children Hospital in Google Maps"
-                  className="text-[#ABB3E0] text-sm leading-relaxed font-light">
+                  title="Open Param Children Hospital in Google Maps"
+                  className="text-[#C8CEF0] text-sm leading-relaxed font-light">
                   305-306, Seven Square,<br />Majura Gate,<br />Surat – 395002
                 </a>
               </div>
@@ -123,7 +123,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center gap-2 text-[10px] font-medium text-[#ABB3E0] uppercase tracking-[0.25em] text-center sm:text-left">
+        <div className="flex flex-col items-center gap-2 text-[10px] font-medium text-[#C8CEF0] uppercase tracking-[0.25em] text-center sm:text-left">
           <p>&copy; 2010 - {currentYear} Dr. Prashant Kariya. All rights reserved.</p>
           <p>
             Designed & Developed by{" "}

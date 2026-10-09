@@ -18,7 +18,7 @@ export function pageMeta(options: {
   image?: string;
 }): MetaDescriptor[] {
   const { title, description, keywords, path, image } = options;
-  const url = `${SITE_URL}${path}`;
+  const url = canonicalLink(path).href;
   const absoluteImage = image
     ? image.startsWith("http")
       ? image
@@ -31,6 +31,9 @@ export function pageMeta(options: {
   ];
   if (keywords) tags.push({ name: "keywords", content: keywords });
   tags.push(
+    { property: "og:site_name", content: "Dr. Prashant Kariya" },
+    { property: "og:locale", content: "en_IN" },
+    { property: "og:image:alt", content: "Dr. Prashant Kariya" },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: "website" },
@@ -41,11 +44,25 @@ export function pageMeta(options: {
     { name: "twitter:description", content: description },
     { name: "twitter:image", content: absoluteImage }
   );
+  if (path !== "/") {
+    const names: Record<string, string> = {
+      "/contact": "Contact", "/courses": "Courses", "/publications": "Publications",
+      "/parental-guidelines": "Parental Guidelines", "/media-coverage": "Media Coverage",
+    };
+    if (names[path]) tags.push({ "script:ld+json": {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: names[path], item: url },
+      ],
+    } });
+  }
   return tags;
 }
 
 export function canonicalLink(path: string) {
-  return { rel: "canonical", href: `${SITE_URL}${path}` };
+  const canonicalPath = path === "/" ? "/" : `${path.replace(/\/$/, "")}/`;
+  return { rel: "canonical", href: `${SITE_URL}${canonicalPath}` };
 }
 
 // Site-wide JSON-LD (schema.org) — matches the practice details already

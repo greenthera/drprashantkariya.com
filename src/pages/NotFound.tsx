@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => [
 
 export default function NotFound() {
   return (
-    <main className="relative bg-[#FAF9F6] overflow-hidden pt-24 md:pt-32 pb-24 px-6 md:px-10 min-h-[80vh] flex items-center">
+    <div className="relative bg-[#FAF9F6] overflow-hidden pt-24 md:pt-32 pb-24 px-6 md:px-10 min-h-[80vh] flex items-center">
 
       {/* Dot grid */}
       <div
@@ -64,6 +64,6 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

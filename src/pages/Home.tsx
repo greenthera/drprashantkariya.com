@@ -83,7 +83,7 @@ export default function Home() {
   }, [location.hash, location.pathname, location.search]);
 
   return (
-    <main className="bg-[#FAF9F6] selection:bg-[#4353CF] selection:text-[#F5E6C8]">
+    <div className="bg-[#FAF9F6] selection:bg-[#4353CF] selection:text-[#F5E6C8]">
       <Hero />
       <About />
       <Suspense fallback={null}>
@@ -111,6 +111,6 @@ export default function Home() {
           Suspense segment temporarily hides it and defeats lazy loading,
           starting the third-party embed before the visitor scrolls here. */}
       <Instagram />
-    </main>
+    </div>
   );
 }

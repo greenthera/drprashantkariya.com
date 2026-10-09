@@ -38,24 +38,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <style id="mobile-styles" media="(width < 768px)" dangerouslySetInnerHTML={{ __html: MOBILE_STYLES }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        {/* Loaded as a non-blocking preload (swapped to a real stylesheet
-            once fetched via the classic loadCSS trick) so this cross-origin
-            request doesn't hold up the initial render — React's onLoad prop
-            wouldn't serialize into the prerendered HTML as a real "onload"
-            attribute, so the swap is wired up with a plain inline script
-            instead, targeting the <link> immediately before it. */}
-        <link rel="preload" as="style" href={FONT_HREF} />
+        {/* Mobile uses system fonts without downloading unused font files.
+            Desktop loads the font stylesheet asynchronously with a stable ID. */}
+        <link id="desktop-fonts" rel="preload" as="style" href={FONT_HREF} media="(min-width: 768px)" />
         <script
           dangerouslySetInnerHTML={{
-            // React hoists links ahead of scripts, so the previous sibling
-            // may be a JavaScript module preload rather than the font link.
-            // Preserve desktop's existing behavior; prevent this mobile-only
-            // rendering regression without changing fonts or animation CSS.
             __html: `if (window.matchMedia('(min-width: 768px)').matches) {
-              document.currentScript.previousElementSibling.onload = function () {
-                this.onload = null;
-                this.rel = 'stylesheet';
-              };
+              var fonts = document.getElementById('desktop-fonts');
+              fonts.media = 'print';
+              fonts.onload = function () { this.media = 'all'; };
+              fonts.rel = 'stylesheet';
             }`,
           }}
         />
@@ -80,7 +72,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 document.head.appendChild(s);
               }
               if (document.readyState === 'complete') {
-                __loadGtag();
+                if (window.requestIdleCallback) window.requestIdleCallback(__loadGtag, { timeout: 3000 });
+                else window.setTimeout(__loadGtag, 1500);
               } else {
                 window.addEventListener('load', __loadGtag, { once: true });
               }`,

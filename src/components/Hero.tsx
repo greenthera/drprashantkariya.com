@@ -123,6 +123,7 @@ export default function Hero() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-[#E0E8E2]">
             {STATS.map((s) => (
               <div
+                key={s.label}
                 style={{ animation: `state ${s.duration}s ease-in-out infinite`, animationDelay: `${s.delay}s` }}
                 className="flex items-center gap-2.5"
               >
@@ -188,6 +189,8 @@ export default function Hero() {
               className="absolute inset-0 rounded-full overflow-hidden shadow-md cursor-pointer"
             >
               <img
+                width={700}
+                height={700}
                 src={doctorAvatar700}
                 srcSet={`${doctorAvatar450} 450w, ${doctorAvatar700} 700w, ${doctorAvatar965} 965w`}
                 sizes="(min-width: 1024px) 440px, (min-width: 640px) 400px, 360px"
