@@ -73,9 +73,9 @@ export default function Publications() {
 
               {/* Content */}
               <div className="flex flex-col flex-1 text-center sm:text-left min-h-0">
-                <h4 className="font-display text-2xl md:text-3xl font-bold italic text-[#2E3A9E] mb-3 leading-tight">
+                <h3 className="font-display text-2xl md:text-3xl font-bold italic text-[#2E3A9E] mb-3 leading-tight">
                   {book.title}
-                </h4>
+                </h3>
                 <p className="text-[#4F5A8A] text-sm leading-relaxed font-light flex-1">
                   {book.desc}
                 </p>

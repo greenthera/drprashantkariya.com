@@ -19,9 +19,9 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-5 mb-20 max-w-2xl mx-auto text-center sm:text-left">
           <div>
-            <h3 className="font-display text-xl font-bold italic text-[#F5E6C8] mb-1">
+            <h2 className="font-display text-xl font-bold italic text-[#F5E6C8] mb-1">
               Join Our Newsletter
-            </h3>
+            </h2>
             <p className="text-[#ABB3E0] text-xs font-light">
               Parenting tips and pediatric health updates, straight to your inbox.
             </p>
@@ -41,12 +41,12 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="shrink-0">
-            <h2
+            <p
               className="font-display font-bold italic text-[#F5E6C8] leading-none tracking-tight mb-4"
               style={{ fontSize: "clamp(3.5rem, 10vw, 7rem)" }}
             >
               P. Kariya<span className="text-[#F2B33D]">.</span>
-            </h2>
+            </p>
             <p className="text-[#8993CC] font-medium uppercase tracking-[0.3em] text-[9px]">
               Surat • Gujarat • India
             </p>

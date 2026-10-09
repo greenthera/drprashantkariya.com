@@ -48,6 +48,7 @@ export default function PublicationsGrid() {
             <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8993CC] pointer-events-none" />
             <input
               type="text"
+              aria-label="Search publications by title or publisher"
               placeholder="Search by title or publisher…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -93,12 +94,12 @@ export default function PublicationsGrid() {
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
-                    <span title={pub.title} className="text-[16px] font-bold uppercase text-[#2E3A9E] line-clamp-3 mb-2.5">
+                    <h3 title={pub.title} className="text-[16px] font-bold uppercase text-[#2E3A9E] line-clamp-3 mb-2.5">
                       {pub.title}
-                    </span>
-                    <h3 className="font-display text-[16px] text-[#4353CF] leading-snug mb-5 line-clamp-3 flex-1">
-                      {pub.expert}
                     </h3>
+                    <p className="font-display text-[16px] text-[#4353CF] leading-snug mb-5 line-clamp-3 flex-1">
+                      {pub.expert}
+                    </p>
                     <a
                       href={pub.buttonurl}
                       target="_blank"

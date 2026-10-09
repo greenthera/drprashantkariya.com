@@ -116,6 +116,7 @@ export default function ParentalGuidelineGrid() {
             <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8993CC] pointer-events-none" />
             <input
               type="text"
+              aria-label="Search parental guidelines by title or topic"
               placeholder="Search by title or topic…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

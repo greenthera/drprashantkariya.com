@@ -1,6 +1,7 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, type LinksFunction, type MetaFunction } from "react-router";
 import stylesheetUrl from "./index.css?url";
 import inlineStyles from "./index.css?inline";
+import { structuredData } from "./lib/seo";
 
 // Use the exact same CSS on mobile without a blocking request. Production
 // hydration reuses the server-rendered text; Vite omits the CSS string from
@@ -109,6 +110,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body>
         {children}

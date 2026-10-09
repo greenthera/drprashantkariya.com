@@ -131,8 +131,9 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Full Name</label>
+            <label htmlFor="contact-name" className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Full Name</label>
             <input
+              id="contact-name"
               type="text"
               required
               placeholder="John Doe"
@@ -143,8 +144,9 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Phone Number</label>
+            <label htmlFor="contact-phone" className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Phone Number</label>
             <input
+              id="contact-phone"
               type="tel"
               required
               placeholder="+91 00000 00000"
@@ -155,8 +157,9 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Message</label>
+            <label htmlFor="contact-message" className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6670A0] ml-1 mb-2 block">Message</label>
             <textarea
+              id="contact-message"
               rows={4}
               required
               placeholder="How can we help?"
