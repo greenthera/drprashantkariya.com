@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { ArrowRight, Newspaper, ZoomIn } from "lucide-react";
@@ -18,11 +18,25 @@ const mobileSrc = (file: string, original: string) =>
 
 export default function MediaCoverage() {
   const srcs = useMemo(() => preview.map((item) => ({ src: item.src, mobileSrc: mobileSrc(item.file, item.src) })), []);
-  const { ready } = useImagesPreloaded(srcs);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [nearViewport, setNearViewport] = useState(false);
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setNearViewport(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "600px" });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+  const { ready } = useImagesPreloaded(srcs, nearViewport);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6] overflow-hidden">
+    <section ref={sectionRef} className="relative py-20 md:py-24 px-6 md:px-10 bg-[#FAF9F6] overflow-hidden">
       <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#EAEDFB] pointer-events-none" />
       <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#F2B33D]/8 pointer-events-none" />
 
@@ -98,9 +112,13 @@ export default function MediaCoverage() {
             {preview.map((item) => (
               <div
                 key={item.file}
-                className="aspect-3/4 rounded-lg border border-[#E0E8E2] bg-white flex items-center justify-center"
+                className="rounded-lg border border-[#E0E8E2] bg-white overflow-hidden"
               >
-                <span className="w-6 h-6 rounded-full border-2 border-[#E0E8E2] border-t-[#4353CF] animate-spin" />
+                <div className="h-0.75" />
+                <div className="aspect-3/4 flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full border-2 border-[#E0E8E2] border-t-[#4353CF] animate-spin" />
+                </div>
+                <div className="h-9" />
               </div>
             ))}
           </div>

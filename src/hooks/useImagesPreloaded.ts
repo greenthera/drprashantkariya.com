@@ -10,7 +10,7 @@ type ImageSource = string | { src: string; mobileSrc: string };
 // Handles both a static list (known at mount) and a list that starts empty
 // and arrives later (e.g. Courses, fetched from an API) — the src list is
 // re-tracked whenever its contents actually change.
-export function useImagesPreloaded(srcs: ImageSource[]) {
+export function useImagesPreloaded(srcs: ImageSource[], enabled = true) {
   const key = srcs.map(src => typeof src === "string" ? src : `${src.src}|${src.mobileSrc}`).join("\n");
   const [trackedKey, setTrackedKey] = useState(key);
   const [loadedCount, setLoadedCount] = useState(0);
@@ -27,7 +27,7 @@ export function useImagesPreloaded(srcs: ImageSource[]) {
   }
 
   useEffect(() => {
-    if (srcs.length === 0) return;
+    if (srcs.length === 0 || !enabled) return;
 
     let cancelled = false;
     let count = 0;
@@ -56,7 +56,7 @@ export function useImagesPreloaded(srcs: ImageSource[]) {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key]);
+  }, [key, enabled]);
 
   return { loadedCount, total: srcs.length, ready };
 }

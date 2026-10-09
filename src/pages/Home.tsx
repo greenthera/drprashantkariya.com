@@ -16,9 +16,8 @@ const BookAppointment = lazy(() => import("../components/BookAppointment"));
 const Publications = lazy(() => import("../components/Publications"));
 const MediaCoverage = lazy(() => import("../components/MediaCoverage"));
 
-// Preloads the Hero photo — the page's LCP element — as early as possible in
-// <head>, ahead of the JS bundle discovering it, so the browser doesn't wait
-// on script execution to start fetching it.
+// The portrait is above the fold on desktop. On smaller screens the text
+// comes first, so avoid competing with it through a high-priority preload.
 export const links: LinksFunction = () => [
   {
     rel: "preload",
@@ -27,6 +26,7 @@ export const links: LinksFunction = () => [
     imageSrcSet: `${doctorAvatar450} 450w, ${doctorAvatar700} 700w, ${doctorAvatar965} 965w`,
     imageSizes: "(min-width: 1024px) 440px, (min-width: 640px) 400px, 360px",
     fetchPriority: "high",
+    media: "(min-width: 1024px)",
   },
   canonicalLink("/"),
 ];

@@ -120,3 +120,13 @@ No Redmine connector or ticket ID was supplied. These drafts are documented loca
 ## Validation references
 
 Google's [breadcrumb documentation](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) describes the required list properties and validation workflow. The [web.dev LCP guide](https://web.dev/articles/optimize-lcp) explains early resource discovery and avoiding render delays. Schema must describe visible content; no FAQ or aggregate-rating eligibility is invented.
+
+## Mobile performance follow-up, 9 October 2026
+
+Animation preservation is an explicit owner requirement. The carousel virtualization and fixed card-height changes were reverted. Testimonial.tsx matches the prior committed version exactly: original continuous scroll speed, duplicated track, spring arrow movement, dragging, reveal and modal animations. Hero keyframes, durations and scroll reveals remain unchanged.
+
+Retained performance improvements: home media previews load within 600px of the viewport, placeholders reserve image/caption heights, the portrait preload applies only to desktop, the portrait uses native lazy loading/async decoding, and GA4 downloads after a 3.5-second post-load delay during idle time. The analytics queue remains immediately available; very short visits may exit before its library loads.
+
+The previously reported 94/100 and 186 KB HTML results included virtualization and no longer describe the current build. Updated measurements follow below. The live screenshot's score of 80 is a separate origin measurement; deploy and rerun PageSpeed before comparing live results. The GitHub Pages cache lifetime limitation remains hosting-dependent.
+
+Animation-preserved retest: one local mobile Lighthouse run scored **92/100**, LCP **2.76s**, TBT **0ms**, CLS **0**. This supersedes the reverted virtualization measurements. The complete browser suite passed **25 tests** with three intentional desktop skips, including hero animation durations and scroll reveal transitions. Production build, type checking, lint, six-page SEO checks and whitespace checks passed. Report: `artifacts/animation-preserved-mobile/`.

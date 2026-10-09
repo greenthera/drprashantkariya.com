@@ -11,10 +11,15 @@ test('gallery keeps its loading state and uses mobile previews only on mobile', 
   });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   const gallery = page.getByRole('heading', { name: 'Media Coverage.' }).locator('xpath=ancestor::section');
+  expect(imageRequests).toEqual([]);
+  await gallery.scrollIntoViewIfNeeded();
   await expect(gallery.locator('.animate-spin')).toHaveCount(6);
   await expect(gallery.locator('picture')).toHaveCount(0);
+  const loadingHeight = await gallery.evaluate(element => element.getBoundingClientRect().height);
   release();
   await expect(gallery.locator('picture')).toHaveCount(6);
+  const loadedHeight = await gallery.evaluate(element => element.getBoundingClientRect().height);
+  expect(Math.abs(loadedHeight - loadingHeight)).toBeLessThan(2);
   await expect(gallery.locator('.animate-spin')).toHaveCount(0);
   const images = await gallery.locator('picture').evaluateAll(pictures => pictures.map(picture => {
     const img = picture.querySelector('img')!;

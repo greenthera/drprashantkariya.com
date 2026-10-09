@@ -60,7 +60,7 @@ test('mobile Instagram loads when scrolled near, not during the initial render',
     if (request.url().startsWith('https://www.instagram.com/parentingtips_drprashantkariya/embed')) embeds.push(request.url());
   });
   await page.goto('/');
-  await expect(page.locator('picture')).toHaveCount(6);
+  await expect(page.locator('picture')).toHaveCount(0);
   const iframe = page.getByTitle('@parentingtips_drprashantkariya Instagram feed');
   await expect(iframe).toBeAttached();
   await expect(iframe).not.toBeInViewport();

@@ -57,7 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {/* Google tag (gtag.js) — the dataLayer/gtag stub is set up
             immediately (free, no network) so early gtag() calls still queue
             correctly, but the actual ~165KB gtag.js library is only fetched
-            after window "load" fires, so it doesn't compete with critical
+            after a short post-load delay during idle time, so it doesn't compete with critical
             rendering/hydration for bandwidth or main-thread time. */}
         <script
           dangerouslySetInnerHTML={{
@@ -65,18 +65,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-D5CQ43TDN6');
+              var __gtagLoaded = false;
               function __loadGtag() {
+                if (__gtagLoaded) return;
+                __gtagLoaded = true;
                 var s = document.createElement('script');
                 s.async = true;
                 s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D5CQ43TDN6';
                 document.head.appendChild(s);
               }
-              if (document.readyState === 'complete') {
-                if (window.requestIdleCallback) window.requestIdleCallback(__loadGtag, { timeout: 3000 });
-                else window.setTimeout(__loadGtag, 1500);
-              } else {
-                window.addEventListener('load', __loadGtag, { once: true });
-              }`,
+              function __scheduleGtag() {
+                window.setTimeout(function () {
+                  if (window.requestIdleCallback) window.requestIdleCallback(__loadGtag, { timeout: 2000 });
+                  else __loadGtag();
+                }, 3500);
+              }
+              if (document.readyState === 'complete') __scheduleGtag();
+              else window.addEventListener('load', __scheduleGtag, { once: true });
+`,
           }}
         />
         {/* Single Page Apps for GitHub Pages — MIT License, https://github.com/rafgraph/spa-github-pages

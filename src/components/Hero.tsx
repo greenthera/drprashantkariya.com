@@ -194,7 +194,8 @@ export default function Hero() {
                 src={doctorAvatar700}
                 srcSet={`${doctorAvatar450} 450w, ${doctorAvatar700} 700w, ${doctorAvatar965} 965w`}
                 sizes="(min-width: 1024px) 440px, (min-width: 640px) 400px, 360px"
-                fetchPriority="high"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-top object-cover"
                 alt="Dr. Prashant Kariya"
               />
